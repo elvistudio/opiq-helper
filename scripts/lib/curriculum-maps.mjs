@@ -88,6 +88,95 @@ const courseRouteContracts = new Map([
       },
     ],
   }],
+  ['grade-7-geography', {
+    artifactPaths: {
+      book_inventory: 'curriculum-maps/grade-7-geography/book-inventory.yaml',
+      topic_inventory: 'curriculum-maps/grade-7-geography/topic-inventory.yaml',
+    },
+    requireThematicUnit: false,
+    allowAmbiguousTopicSelection: true,
+    route: {
+      grade: 7,
+      subject: 'geography',
+      subject_et: 'geograafia',
+      md_path: 'project-files/outputs/opiq_7klass_geograafia.md',
+      source_archive: 'project-files/inputs/final-zips/opiq_7klass_sissejuhatus_geograafiasse_v2.zip',
+      qa_path: 'project-files/outputs/opiq_7klass_geograafia_qa.json',
+      record_count: 178,
+      coverage_status: 'available_not_curriculum_verified',
+    },
+    sourceAudit: {
+      source_records: 186,
+      canonical_records: 178,
+      cover_detail_records_excluded: 7,
+      administrative_records_excluded: 1,
+      source_books: 5,
+      books_with_page_records: 5,
+    },
+    languageCounts: { et: 102, ru: 76 },
+    checksums: {
+      source_archive_sha256: '21d7d516cae1bf756827c6feb1a64a71b0ca85f0deabb6aac6a4732c363acd03',
+      output_file_sha256: 'f25b994c32493388ef1f9179e798e0173e9326f13669db9d5a4aa45d3d0d868d',
+    },
+    validateArchiveSubject: false,
+    verifiedOn: '2026-08-02',
+    mapIds: {
+      book_inventory: 'grade-7-geography-book-inventory',
+      topic_inventory: 'grade-7-geography-topic-inventory',
+    },
+    administrativeUrls: ['https://www.opiq.ee/kit/19/chapter/903'],
+    coverDetailCounts: {
+      '7k__geograafia_avita_est': 1,
+      '7k__geograafia_koolibri_est': 2,
+      '7k__geograafia_loodus_avita_est': 1,
+      '7k__geograafia_koolibri_rus': 2,
+      '7k__geograafia_avita_rus': 1,
+    },
+    topicIds: [
+      'geography-introduction-and-research-methods',
+      'earth-shape-size-continents-and-oceans',
+      'map-types-atlases-legends-and-generalization',
+      'scale-distance-directions-and-orientation',
+      'geographic-coordinates',
+      'digital-maps-gis-and-satellite-imagery',
+      'time-zones-and-date-line',
+      'earth-interior-and-plate-tectonics',
+      'earthquakes-volcanoes-and-tsunamis',
+      'rocks-sediments-and-rock-cycle',
+      'relief-landforms-and-elevation-mapping',
+      'mountains-plains-and-ocean-floor-relief',
+      'landform-change-weathering-erosion-and-human-impact',
+      'countries-peoples-and-cultural-diversity',
+      'population-distribution-change-migration-and-urbanization',
+    ],
+    books: [
+      {
+        book_id: '7k__geograafia_avita_est', kit_id: 543,
+        kit_url: 'https://www.opiq.ee/Kit/Details/543', title: 'Geograafia 7. klassile',
+        publisher: 'Avita', language: 'et', source_record_count: 29, canonical_record_count: 28,
+      },
+      {
+        book_id: '7k__geograafia_koolibri_est', kit_id: 96,
+        kit_url: 'https://www.opiq.ee/Kit/Details/96', title: 'Geograafia 7. klassile',
+        publisher: 'unknown', language: 'et', source_record_count: 38, canonical_record_count: 36,
+      },
+      {
+        book_id: '7k__geograafia_loodus_avita_est', kit_id: 2,
+        kit_url: 'https://www.opiq.ee/Kit/Details/2', title: 'Loodusgeograafia 7. klassile',
+        publisher: 'Avita', language: 'et', source_record_count: 39, canonical_record_count: 38,
+      },
+      {
+        book_id: '7k__geograafia_koolibri_rus', kit_id: 301,
+        kit_url: 'https://www.opiq.ee/Kit/Details/301', title: 'География 7 класс',
+        publisher: 'Koolibri', language: 'ru', source_record_count: 39, canonical_record_count: 37,
+      },
+      {
+        book_id: '7k__geograafia_avita_rus', kit_id: 19,
+        kit_url: 'https://www.opiq.ee/Kit/Details/19', title: 'География для 7 класса',
+        publisher: 'Avita', language: 'ru', source_record_count: 41, canonical_record_count: 39,
+      },
+    ],
+  }],
 ]);
 
 function isPlainObject(value) {
@@ -529,9 +618,9 @@ function compareContractField(diagnostics, file, field, actual, expected) {
   if (actual !== expected) diagnostics.push(makeDiagnostic('error', file, field, `expected ${expected}, found ${actual}`));
 }
 
-function validateGrade6ScienceRouteEvidence(diagnostics, artifacts, routeData, contract) {
+function validateRegisteredRouteEvidence(diagnostics, artifacts, routeData, contract, sourceId) {
   if (!routeData) {
-    diagnostics.push(makeDiagnostic('error', 'curriculum-maps/grade-6-science', '/', 'registered Grade 6 route evidence was not loaded'));
+    diagnostics.push(makeDiagnostic('error', `curriculum-maps/${sourceId}`, '/', `registered ${sourceId} route evidence was not loaded`));
     return;
   }
   const source = routeData.source;
@@ -558,7 +647,7 @@ function validateGrade6ScienceRouteEvidence(diagnostics, artifacts, routeData, c
     routeData.qa.checksums?.output_file_sha256,
   );
   const qaComparisons = [
-    ['source_id', routeData.qa.source_id, 'grade-6-science'],
+    ['source_id', routeData.qa.source_id, sourceId],
     ['source_archive', routeData.qa.source_archive, source.source_archive],
     ['output_file', routeData.qa.output_file, source.md_path],
     ['source_records', routeData.qa.source_records, contract.sourceAudit.source_records],
@@ -568,6 +657,13 @@ function validateGrade6ScienceRouteEvidence(diagnostics, artifacts, routeData, c
     ['normalized_subject/en', routeData.qa.normalized_subject?.en, contract.route.subject],
     ['normalized_subject/et', routeData.qa.normalized_subject?.et, contract.route.subject_et],
   ];
+  if (Object.hasOwn(contract.sourceAudit, 'administrative_records_excluded')) {
+    qaComparisons.push([
+      'administrative_records_excluded',
+      routeData.qa.administrative_records_excluded,
+      contract.sourceAudit.administrative_records_excluded,
+    ]);
+  }
   for (const [field, actual, expected] of qaComparisons) {
     compareContractField(diagnostics, source.qa_path, `/${field}`, actual, expected);
   }
@@ -575,7 +671,7 @@ function validateGrade6ScienceRouteEvidence(diagnostics, artifacts, routeData, c
     compareContractField(diagnostics, source.qa_path, `/languages/${language}`, routeData.qa.languages?.[language], expected);
   }
   compareContractField(diagnostics, source.qa_path, '/languages', Object.keys(routeData.qa.languages ?? {}).length, 2);
-  compareContractField(diagnostics, source.qa_path, '/grades/6', routeData.qa.grades?.['6'], contract.sourceAudit.canonical_records);
+  compareContractField(diagnostics, source.qa_path, `/grades/${contract.route.grade}`, routeData.qa.grades?.[String(contract.route.grade)], contract.sourceAudit.canonical_records);
   compareContractField(diagnostics, source.qa_path, '/grades', Object.keys(routeData.qa.grades ?? {}).length, 1);
 
   const expectedBooks = new Map(contract.books.map((book) => [book.book_id, book]));
@@ -588,14 +684,20 @@ function validateGrade6ScienceRouteEvidence(diagnostics, artifacts, routeData, c
   for (const [index, record] of routeData.archiveRecords.entries()) {
     const expectedBook = expectedBooks.get(record.book_id);
     if (!expectedBook) continue;
-    const expectedArchiveGrade = expectedBook.language === 'ru' ? 5 : 6;
+    const expectedArchiveGrade = sourceId === 'grade-6-science' && expectedBook.language === 'ru'
+      ? 5
+      : contract.route.grade;
     const comparisons = [
       ['grade', record.grade, expectedArchiveGrade],
-      ['subject_en', record.subject_en, contract.route.subject],
-      ['subject_et', record.subject_et, contract.route.subject_et],
       ['language', record.language, expectedBook.language],
-      ['publisher', record.publisher, expectedBook.publisher],
+      ['publisher', record.publisher || 'unknown', expectedBook.publisher],
     ];
+    if (contract.validateArchiveSubject !== false) {
+      comparisons.push(
+        ['subject_en', record.subject_en, contract.route.subject],
+        ['subject_et', record.subject_et, contract.route.subject_et],
+      );
+    }
     for (const [field, actual, expected] of comparisons) {
       if (actual !== expected) diagnostics.push(makeDiagnostic('error', source.source_archive, `/opiq_lookup.jsonl/${index}/${field}`, `expected ${expected}, found ${actual}`));
     }
@@ -604,13 +706,26 @@ function validateGrade6ScienceRouteEvidence(diagnostics, artifacts, routeData, c
   compareContractField(diagnostics, source.source_archive, '/books', archiveBooks.size, contract.sourceAudit.source_books);
   compareContractField(diagnostics, source.md_path, '/records', routeData.records.length, contract.sourceAudit.canonical_records);
 
-  const archiveUrls = routeData.archiveRecords.map((record) => record.url);
   const canonicalUrls = routeData.records.map((record) => record.url);
-  addDuplicateDiagnostics(diagnostics, archiveUrls, { file: source.source_archive, field: '/opiq_lookup.jsonl', label: 'source URL' });
   addDuplicateDiagnostics(diagnostics, canonicalUrls, { file: source.md_path, field: '/', label: 'canonical URL' });
   const coverRecords = routeData.archiveRecords.filter((record) => /^https:\/\/www\.opiq\.ee\/Kit\/Details\//u.test(record.url));
-  const pageRecords = routeData.archiveRecords.filter((record) => !/^https:\/\/www\.opiq\.ee\/Kit\/Details\//u.test(record.url));
+  const administrativeUrls = new Set(contract.administrativeUrls ?? []);
+  const administrativeRecords = routeData.archiveRecords.filter((record) => administrativeUrls.has(record.url));
+  const pageRecords = routeData.archiveRecords.filter((record) => (
+    !/^https:\/\/www\.opiq\.ee\/Kit\/Details\//u.test(record.url)
+    && !administrativeUrls.has(record.url)
+  ));
+  addDuplicateDiagnostics(diagnostics, pageRecords.map((record) => record.url), {
+    file: source.source_archive, field: '/opiq_lookup.jsonl', label: 'source URL',
+  });
   compareContractField(diagnostics, source.source_archive, '/cover_records', coverRecords.length, contract.sourceAudit.cover_detail_records_excluded);
+  compareContractField(
+    diagnostics,
+    source.source_archive,
+    '/administrative_records',
+    administrativeRecords.length,
+    contract.sourceAudit.administrative_records_excluded ?? 0,
+  );
   compareContractField(diagnostics, source.source_archive, '/page_records', pageRecords.length, contract.sourceAudit.canonical_records);
   const canonicalByUrl = new Map(routeData.records.map((record) => [record.url, record]));
   const sourcePageByUrl = new Map(pageRecords.map((record) => [record.url, record]));
@@ -647,23 +762,43 @@ function validateGrade6ScienceRouteEvidence(diagnostics, artifacts, routeData, c
     compareContractField(diagnostics, source.md_path, `/books/${expected.book_id}/canonical_records`, canonicalCounts.get(expected.book_id) ?? 0, expected.canonical_record_count);
     const archiveBook = archiveBooks.get(expected.book_id);
     compareContractField(diagnostics, source.source_archive, `/books/${expected.book_id}/language`, archiveBook?.language, expected.language);
-    compareContractField(diagnostics, source.source_archive, `/books/${expected.book_id}/publisher`, archiveBook?.publisher, expected.publisher);
+    compareContractField(diagnostics, source.source_archive, `/books/${expected.book_id}/publisher`, archiveBook?.publisher || 'unknown', expected.publisher);
+    if (routeData.qa.normalized_book_titles) {
+      compareContractField(
+        diagnostics,
+        source.qa_path,
+        `/normalized_book_titles/${expected.book_id}`,
+        normalizeText(routeData.qa.normalized_book_titles[expected.book_id]),
+        normalizeText(expected.title),
+      );
+    }
     const covers = coverRecords.filter((record) => record.book_id === expected.book_id);
-    compareContractField(diagnostics, source.source_archive, `/books/${expected.book_id}/cover_records`, covers.length, 1);
+    compareContractField(
+      diagnostics,
+      source.source_archive,
+      `/books/${expected.book_id}/cover_records`,
+      covers.length,
+      contract.coverDetailCounts?.[expected.book_id] ?? 1,
+    );
     if (covers[0]) {
       compareContractField(diagnostics, source.source_archive, `/books/${expected.book_id}/kit_url`, covers[0].url, expected.kit_url);
       compareContractField(
         diagnostics, source.source_archive, `/books/${expected.book_id}/title`,
-        normalizeText(covers[0].title).replace(/\s+– Opiq$/u, ''), normalizeText(expected.title),
+        normalizeText(covers[0].title).replace(/\u00ad/giu, '').replace(/\s+– Opiq$/u, ''),
+        normalizeText(expected.title).replace(/\u00ad/giu, ''),
       );
     }
   }
 
   for (const artifact of artifacts) {
     if (artifact.text !== serializeCurriculumYaml(artifact.data)) {
-      diagnostics.push(makeDiagnostic('error', artifact.file, '/', 'Grade 6 inventory YAML must use deterministic serialization'));
+      const label = sourceId === 'grade-6-science' ? 'Grade 6' : 'Grade 7 geography';
+      diagnostics.push(makeDiagnostic('error', artifact.file, '/', `${label} inventory YAML must use deterministic serialization`));
     }
     if (artifact.data.artifact_type === 'book_inventory') {
+      if (contract.mapIds?.book_inventory) {
+        compareContractField(diagnostics, artifact.file, '/map_id', artifact.data.map_id, contract.mapIds.book_inventory);
+      }
       for (const [field, expected] of Object.entries(contract.sourceAudit)) {
         compareContractField(diagnostics, artifact.file, `/source_audit/${field}`, artifact.data.source_audit?.[field], expected);
       }
@@ -683,19 +818,44 @@ function validateGrade6ScienceRouteEvidence(diagnostics, artifacts, routeData, c
           book.programme_type_evidence?.source,
           `${contract.route.source_archive}#opiq_lookup.jsonl (captured ${expected.kit_url})`,
         );
-        compareContractField(diagnostics, artifact.file, `/books/${expected.book_id}/programme_type_evidence/verified_on`, book.programme_type_evidence?.verified_on, '2026-08-01');
+        compareContractField(
+          diagnostics,
+          artifact.file,
+          `/books/${expected.book_id}/programme_type_evidence/verified_on`,
+          book.programme_type_evidence?.verified_on,
+          contract.verifiedOn ?? '2026-08-01',
+        );
         compareContractField(diagnostics, artifact.file, `/books/${expected.book_id}/page_evidence`, book.page_evidence, 'page_records');
-        compareContractField(diagnostics, artifact.file, `/books/${expected.book_id}/publisher_sequence/grade`, book.publisher_sequence?.grade, 6);
+        compareContractField(diagnostics, artifact.file, `/books/${expected.book_id}/publisher_sequence/grade`, book.publisher_sequence?.grade, contract.route.grade);
         compareContractField(diagnostics, artifact.file, `/books/${expected.book_id}/publisher_sequence/grade_allocation_basis`, book.publisher_sequence?.grade_allocation_basis, 'publisher_sequence');
         compareContractField(diagnostics, artifact.file, `/books/${expected.book_id}/eligible_for_ordinary_course`, book.eligible_for_ordinary_course, false);
       }
     }
     if (artifact.data.artifact_type === 'topic_inventory') {
-      compareContractField(diagnostics, artifact.file, '/map_id', artifact.data.map_id, 'grade-6-science-topic-inventory');
+      compareContractField(
+        diagnostics,
+        artifact.file,
+        '/map_id',
+        artifact.data.map_id,
+        contract.mapIds?.topic_inventory ?? 'grade-6-science-topic-inventory',
+      );
       compareContractField(diagnostics, artifact.file, '/scope', artifact.data.scope, 'deduplicated_inventory_not_final_annual_sequence');
       compareContractField(diagnostics, artifact.file, '/coverage_status', artifact.data.coverage_status, 'partial');
       compareContractField(diagnostics, artifact.file, '/grade_allocation_basis', artifact.data.grade_allocation_basis, 'curated_course_sequence');
       compareContractField(diagnostics, artifact.file, '/unavailable_page_evidence_book_ids', artifact.data.unavailable_page_evidence_book_ids?.length, 0);
+      if (contract.topicIds) {
+        const actualTopicIds = (artifact.data.topics ?? []).map((topic) => topic.topic_id);
+        compareContractField(diagnostics, artifact.file, '/topics', actualTopicIds.length, contract.topicIds.length);
+        if (
+          actualTopicIds.length !== contract.topicIds.length
+          || actualTopicIds.some((topicId, index) => topicId !== contract.topicIds[index])
+        ) {
+          diagnostics.push(makeDiagnostic(
+            'error', artifact.file, '/topics',
+            `expected stable topic IDs in order: ${contract.topicIds.join(', ')}`,
+          ));
+        }
+      }
     }
   }
 }
@@ -1131,13 +1291,16 @@ export function validateCurriculumMapRepository(context) {
     }
   }
 
-  const grade6Artifacts = courseArtifacts.filter((artifact) => artifact.data.canonical_route?.source_id === 'grade-6-science');
-  validateGrade6ScienceRouteEvidence(
-    diagnostics,
-    grade6Artifacts,
-    context.routes['grade-6-science'],
-    courseRouteContracts.get('grade-6-science'),
-  );
+  for (const sourceId of ['grade-6-science', 'grade-7-geography']) {
+    const registeredArtifacts = courseArtifacts.filter((artifact) => artifact.data.canonical_route?.source_id === sourceId);
+    validateRegisteredRouteEvidence(
+      diagnostics,
+      registeredArtifacts,
+      context.routes[sourceId],
+      courseRouteContracts.get(sourceId),
+      sourceId,
+    );
+  }
 
   const errors = diagnostics.filter((diagnostic) => diagnostic.severity === 'error').length;
   const warnings = diagnostics.filter((diagnostic) => diagnostic.severity === 'warning').length;

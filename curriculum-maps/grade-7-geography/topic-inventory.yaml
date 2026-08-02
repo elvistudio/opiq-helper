@@ -1,0 +1,2234 @@
+schema_version: "1.0"
+artifact_type: topic_inventory
+map_id: grade-7-geography-topic-inventory
+grade: 7
+subject: geography
+subject_et: geograafia
+instruction_language: ru
+subject_support_language: et
+canonical_route:
+  source_id: grade-7-geography
+  md_path: project-files/outputs/opiq_7klass_geograafia.md
+  source_archive: project-files/inputs/final-zips/opiq_7klass_sissejuhatus_geograafiasse_v2.zip
+  qa_path: project-files/outputs/opiq_7klass_geograafia_qa.json
+scope: deduplicated_inventory_not_final_annual_sequence
+coverage_status: partial
+grade_allocation_basis: curated_course_sequence
+unavailable_page_evidence_book_ids: []
+topics:
+  - topic_id: geography-introduction-and-research-methods
+    title_ru: Введение в географию и методы исследования
+    title_et: Sissejuhatus geograafiasse ja uurimismeetodid
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 7k__geograafia_avita_est
+      - 7k__geograafia_koolibri_est
+      - 7k__geograafia_loodus_avita_est
+      - 7k__geograafia_koolibri_rus
+      - 7k__geograafia_avita_rus
+    selected_records:
+      - record_id: geography-intro-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16602
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Что такое география?
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/301/chapter/16602
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct RU role for core_explanation_ru, practice_ru without relying on an adjacent route.
+      - record_id: geography-intro-et-methods
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30032
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Sissejuhatus geograafiasse
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/543/chapter/30032
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct ET role for core_source_et, terminology_et, data_interpretation without relying on an adjacent route.
+    alternative_records:
+      - record_id: geography-intro-et-broad
+        canonical_url: https://www.opiq.ee/kit/2/chapter/33
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_loodus_avita_est
+        title: Loodus ja inimtegevus
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - bilingual_visual
+          - optional_extension
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/2/chapter/33
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Retained as an overlapping exact-route alternative for core_source_et, bilingual_visual, optional_extension; it is not required when the selected role set is used.
+    rejected_records:
+      - record_id: geography-intro-et-overlap
+        canonical_url: https://www.opiq.ee/kit/96/chapter/4655
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_est
+        title: Mis on geograafia?
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/96/chapter/4655
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Records an overlapping exact-route page for core_source_et, terminology_et so the deduplication decision remains reviewable.
+        rejection_reason: Rejected from the recommended role set because selected records already supply the same instructional role and this page adds no distinct evidence role.
+    source_recommendations:
+      russian_explanation:
+        - geography-intro-ru-core
+      estonian_terminology_or_visuals:
+        - geography-intro-et-methods
+        - geography-intro-et-broad
+      practice:
+        - geography-intro-ru-core
+        - geography-intro-et-methods
+      practical_or_assessment:
+        - geography-intro-et-methods
+    availability:
+      russian: verified
+      estonian: verified
+      practical: partial
+      revision: missing
+      assessment: missing
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct map, data, practical, revision, or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - geography-intro-et-overlap
+    known_gaps:
+      - The route explains research methods but does not identify a separate fieldwork protocol for an introductory investigation.
+  - topic_id: earth-shape-size-continents-and-oceans
+    title_ru: Форма и размеры Земли, материки и океаны
+    title_et: Maa kuju ja suurus, mandrid ning ookeanid
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 7k__geograafia_avita_est
+      - 7k__geograafia_koolibri_est
+      - 7k__geograafia_loodus_avita_est
+      - 7k__geograafia_koolibri_rus
+      - 7k__geograafia_avita_rus
+    selected_records:
+      - record_id: earth-shape-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16604
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Форма и размеры Земли. Карта и план
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - bilingual_visual
+          - practice_ru
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/301/chapter/16604
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct RU role for core_explanation_ru, bilingual_visual, practice_ru, map_skill without relying on an adjacent route.
+      - record_id: earth-shape-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30033
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Maa kuju ja suurus
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - bilingual_visual
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/543/chapter/30033
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct ET role for core_source_et, terminology_et, bilingual_visual, map_skill without relying on an adjacent route.
+    alternative_records:
+      - record_id: earth-shape-ru-legacy
+        canonical_url: https://www.opiq.ee/kit/19/chapter/867
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_rus
+        title: Форма и размеры Земли
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - bilingual_visual
+          - practice_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/19/chapter/867
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Retained as an overlapping exact-route alternative for core_explanation_ru, bilingual_visual, practice_ru; it is not required when the selected role set is used.
+    rejected_records:
+      - record_id: earth-shape-et-duplicate
+        canonical_url: https://www.opiq.ee/kit/2/chapter/34
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_loodus_avita_est
+        title: Maa kuju ja suurus
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/2/chapter/34
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Records an overlapping exact-route page for core_source_et, terminology_et so the deduplication decision remains reviewable.
+        rejection_reason: Rejected from the recommended role set because selected records already supply the same instructional role and this page adds no distinct evidence role.
+    source_recommendations:
+      russian_explanation:
+        - earth-shape-ru-core
+        - earth-shape-ru-legacy
+      estonian_terminology_or_visuals:
+        - earth-shape-ru-core
+        - earth-shape-et-core
+        - earth-shape-ru-legacy
+      practice:
+        - earth-shape-ru-core
+        - earth-shape-et-core
+        - earth-shape-ru-legacy
+      practical_or_assessment: []
+    availability:
+      russian: verified
+      estonian: verified
+      practical: partial
+      revision: missing
+      assessment: missing
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct map, data, practical, revision, or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - earth-shape-et-duplicate
+    known_gaps:
+      - No separately identified assessment page is limited to Earth shape, continents, and oceans.
+  - topic_id: map-types-atlases-legends-and-generalization
+    title_ru: Виды карт, атласы, легенды и генерализация
+    title_et: Kaardiliigid, atlased, legendid ja üldistamine
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 7k__geograafia_avita_est
+      - 7k__geograafia_koolibri_est
+      - 7k__geograafia_loodus_avita_est
+      - 7k__geograafia_koolibri_rus
+      - 7k__geograafia_avita_rus
+    selected_records:
+      - record_id: map-types-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16606
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Разнообразие карт и их назначение
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/301/chapter/16606
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct RU role for core_explanation_ru, practice_ru, map_skill without relying on an adjacent route.
+      - record_id: map-types-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30070
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Kaardid ja nende mitmekesisus
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - bilingual_visual
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/543/chapter/30070
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct ET role for core_source_et, terminology_et, bilingual_visual, map_skill without relying on an adjacent route.
+      - record_id: map-types-et-review
+        canonical_url: https://www.opiq.ee/kit/96/chapter/4664
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_est
+        title: Kokkuvõte kaardiõpetuse kordamiseks
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - practice_et
+          - revision
+          - assessment
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/96/chapter/4664
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct ET role for practice_et, revision, assessment without relying on an adjacent route.
+    alternative_records:
+      - record_id: map-types-ru-legacy
+        canonical_url: https://www.opiq.ee/kit/19/chapter/868
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_rus
+        title: Различные виды карт
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/19/chapter/868
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Retained as an overlapping exact-route alternative for core_explanation_ru, practice_ru, map_skill; it is not required when the selected role set is used.
+    rejected_records:
+      - record_id: map-types-et-duplicate
+        canonical_url: https://www.opiq.ee/kit/2/chapter/35
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_loodus_avita_est
+        title: Kaartide mitmekesisus
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/2/chapter/35
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Records an overlapping exact-route page for core_source_et, map_skill so the deduplication decision remains reviewable.
+        rejection_reason: Rejected from the recommended role set because selected records already supply the same instructional role and this page adds no distinct evidence role.
+    source_recommendations:
+      russian_explanation:
+        - map-types-ru-core
+        - map-types-ru-legacy
+      estonian_terminology_or_visuals:
+        - map-types-et-core
+      practice:
+        - map-types-ru-core
+        - map-types-et-core
+        - map-types-et-review
+        - map-types-ru-legacy
+      practical_or_assessment:
+        - map-types-et-review
+    availability:
+      russian: verified
+      estonian: verified
+      practical: partial
+      revision: verified
+      assessment: partial
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct map, data, practical, revision, or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - map-types-et-duplicate
+    known_gaps:
+      - The route has map-reading exercises but no independently identified atlas-index assessment artifact.
+  - topic_id: scale-distance-directions-and-orientation
+    title_ru: Масштаб, расстояния, направления и ориентирование
+    title_et: Mõõtkava, vahemaad, suunad ja orienteerumine
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 7k__geograafia_avita_est
+      - 7k__geograafia_koolibri_est
+      - 7k__geograafia_loodus_avita_est
+      - 7k__geograafia_koolibri_rus
+      - 7k__geograafia_avita_rus
+    selected_records:
+      - record_id: scale-distance-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16605
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Масштаб, измерение расстояний на местности и по карте
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - map_skill
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/301/chapter/16605
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct RU role for core_explanation_ru, practice_ru, map_skill, data_interpretation without relying on an adjacent route.
+      - record_id: orientation-ru-field
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16608
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Ориентирова­ние на местности и по карте
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - map_skill
+          - fieldwork
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/301/chapter/16608
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct RU role for core_explanation_ru, practice_ru, map_skill, fieldwork without relying on an adjacent route.
+      - record_id: scale-distance-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30152
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Mõõtkava ja vahemaade mõõtmine
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/543/chapter/30152
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct ET role for core_source_et, terminology_et, practice_et, map_skill without relying on an adjacent route.
+      - record_id: orientation-et-field
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30153
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Suunad looduses ja kaardil
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - map_skill
+          - fieldwork
+          - oral_answer_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/543/chapter/30153
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct ET role for core_source_et, terminology_et, practice_et, map_skill, fieldwork, oral_answer_et without relying on an adjacent route.
+    alternative_records:
+      - record_id: scale-distance-ru-legacy
+        canonical_url: https://www.opiq.ee/kit/19/chapter/870
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_rus
+        title: Масштаб и измерение расстояний
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/19/chapter/870
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Retained as an overlapping exact-route alternative for core_explanation_ru, practice_ru, map_skill; it is not required when the selected role set is used.
+    rejected_records:
+      - record_id: scale-distance-et-duplicate
+        canonical_url: https://www.opiq.ee/kit/2/chapter/37
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_loodus_avita_est
+        title: Mõõtkava ja vahemaade mõõtmine
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - practice_et
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/2/chapter/37
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Records an overlapping exact-route page for core_source_et, practice_et, map_skill so the deduplication decision remains reviewable.
+        rejection_reason: Rejected from the recommended role set because selected records already supply the same instructional role and this page adds no distinct evidence role.
+    source_recommendations:
+      russian_explanation:
+        - scale-distance-ru-core
+        - orientation-ru-field
+        - scale-distance-ru-legacy
+      estonian_terminology_or_visuals:
+        - scale-distance-et-core
+        - orientation-et-field
+      practice:
+        - scale-distance-ru-core
+        - orientation-ru-field
+        - scale-distance-et-core
+        - orientation-et-field
+        - scale-distance-ru-legacy
+      practical_or_assessment:
+        - scale-distance-ru-core
+        - orientation-ru-field
+        - orientation-et-field
+    availability:
+      russian: verified
+      estonian: verified
+      practical: verified
+      revision: missing
+      assessment: missing
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct map, data, practical, revision, or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - scale-distance-et-duplicate
+    known_gaps:
+      - Orientation evidence is explicit, but the canonical pages do not provide a separately packaged fieldwork assessment rubric.
+  - topic_id: geographic-coordinates
+    title_ru: Географические координаты
+    title_et: Geograafilised koordinaadid
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 7k__geograafia_avita_est
+      - 7k__geograafia_koolibri_est
+      - 7k__geograafia_loodus_avita_est
+      - 7k__geograafia_koolibri_rus
+      - 7k__geograafia_avita_rus
+    selected_records:
+      - record_id: coordinates-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16609
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Определение местонахожд­ения и географичес­кие координаты
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - map_skill
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/301/chapter/16609
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct RU role for core_explanation_ru, practice_ru, map_skill, data_interpretation without relying on an adjacent route.
+      - record_id: coordinates-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30187
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Asukoha määramine. Geograafilised koordinaadid
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - map_skill
+          - digital_map
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/543/chapter/30187
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct ET role for core_source_et, terminology_et, practice_et, map_skill, digital_map without relying on an adjacent route.
+    alternative_records:
+      - record_id: coordinates-ru-legacy
+        canonical_url: https://www.opiq.ee/kit/19/chapter/872
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_rus
+        title: Определе­ние место­нахож­дения. Географи­ческие координаты
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/19/chapter/872
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Retained as an overlapping exact-route alternative for core_explanation_ru, practice_ru, map_skill; it is not required when the selected role set is used.
+    rejected_records:
+      - record_id: coordinates-et-duplicate
+        canonical_url: https://www.opiq.ee/kit/2/chapter/39
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_loodus_avita_est
+        title: Asukoha määramine. Geograafilised koordinaadid
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - practice_et
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/2/chapter/39
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Records an overlapping exact-route page for core_source_et, practice_et, map_skill so the deduplication decision remains reviewable.
+        rejection_reason: Rejected from the recommended role set because selected records already supply the same instructional role and this page adds no distinct evidence role.
+    source_recommendations:
+      russian_explanation:
+        - coordinates-ru-core
+        - coordinates-ru-legacy
+      estonian_terminology_or_visuals:
+        - coordinates-et-core
+      practice:
+        - coordinates-ru-core
+        - coordinates-et-core
+        - coordinates-ru-legacy
+      practical_or_assessment:
+        - coordinates-ru-core
+    availability:
+      russian: verified
+      estonian: verified
+      practical: partial
+      revision: missing
+      assessment: missing
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct map, data, practical, revision, or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - coordinates-et-duplicate
+    known_gaps:
+      - Coordinate practice is present, but no separately identified field measurement or graded coordinate task is registered.
+  - topic_id: digital-maps-gis-and-satellite-imagery
+    title_ru: Цифровые карты, ГИС и спутниковые снимки
+    title_et: Digitaalsed kaardid, GIS ja satelliidipildid
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 7k__geograafia_avita_est
+      - 7k__geograafia_koolibri_est
+      - 7k__geograafia_loodus_avita_est
+      - 7k__geograafia_koolibri_rus
+      - 7k__geograafia_avita_rus
+    selected_records:
+      - record_id: digital-maps-ru-gis
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16607
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Печатные и компьютерные карты
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - digital_map
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/301/chapter/16607
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct RU role for core_explanation_ru, practice_ru, digital_map without relying on an adjacent route.
+      - record_id: digital-maps-et-gis
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30188
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Digitaalsed kaardid
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - digital_map
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/543/chapter/30188
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct ET role for core_source_et, terminology_et, digital_map, data_interpretation without relying on an adjacent route.
+      - record_id: satellite-imagery-ru-extension
+        canonical_url: https://www.opiq.ee/kit/19/chapter/866
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_rus
+        title: Природа и деятель­ность человека
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - bilingual_visual
+          - optional_extension
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/19/chapter/866
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct RU role for core_explanation_ru, bilingual_visual, optional_extension without relying on an adjacent route.
+    alternative_records:
+      - record_id: digital-maps-et-legacy
+        canonical_url: https://www.opiq.ee/kit/2/chapter/36
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_loodus_avita_est
+        title: Arvutikaardid
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - digital_map
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/2/chapter/36
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Retained as an overlapping exact-route alternative for core_source_et, digital_map; it is not required when the selected role set is used.
+    rejected_records:
+      - record_id: digital-maps-et-overlap
+        canonical_url: https://www.opiq.ee/kit/96/chapter/4660
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_est
+        title: Trüki- ja arvutikaardid
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - digital_map
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/96/chapter/4660
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Records an overlapping exact-route page for core_source_et, digital_map so the deduplication decision remains reviewable.
+        rejection_reason: Rejected from the recommended role set because selected records already supply the same instructional role and this page adds no distinct evidence role.
+    source_recommendations:
+      russian_explanation:
+        - digital-maps-ru-gis
+        - satellite-imagery-ru-extension
+      estonian_terminology_or_visuals:
+        - digital-maps-et-gis
+        - satellite-imagery-ru-extension
+        - digital-maps-et-legacy
+      practice:
+        - digital-maps-ru-gis
+        - digital-maps-et-gis
+        - digital-maps-et-legacy
+      practical_or_assessment:
+        - digital-maps-et-gis
+    availability:
+      russian: verified
+      estonian: verified
+      practical: partial
+      revision: missing
+      assessment: missing
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct map, data, practical, revision, or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - digital-maps-et-overlap
+    known_gaps:
+      - The route explains GIS and satellite imagery but does not register an assessable learner-created GIS product.
+  - topic_id: time-zones-and-date-line
+    title_ru: Часовые пояса и линия перемены дат
+    title_et: Ajavööndid ja kuupäevaraja
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 7k__geograafia_avita_est
+      - 7k__geograafia_koolibri_est
+      - 7k__geograafia_loodus_avita_est
+      - 7k__geograafia_koolibri_rus
+      - 7k__geograafia_avita_rus
+    selected_records:
+      - record_id: time-zones-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16610
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Часовые пояса
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - map_skill
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/301/chapter/16610
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct RU role for core_explanation_ru, practice_ru, map_skill, data_interpretation without relying on an adjacent route.
+      - record_id: time-zones-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30203
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Ajavööndid
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - map_skill
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/543/chapter/30203
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct ET role for core_source_et, terminology_et, practice_et, map_skill, data_interpretation without relying on an adjacent route.
+      - record_id: time-zones-ru-review
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16611
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: "Подведение итогов и повторение: Картография"
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - practice_ru
+          - revision
+          - assessment
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/301/chapter/16611
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct RU role for practice_ru, revision, assessment without relying on an adjacent route.
+    alternative_records:
+      - record_id: time-zones-ru-legacy
+        canonical_url: https://www.opiq.ee/kit/19/chapter/873
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_rus
+        title: Часовые пояса
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/19/chapter/873
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Retained as an overlapping exact-route alternative for core_explanation_ru, practice_ru, map_skill; it is not required when the selected role set is used.
+    rejected_records:
+      - record_id: time-zones-et-duplicate
+        canonical_url: https://www.opiq.ee/kit/2/chapter/40
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_loodus_avita_est
+        title: Ajavööndid
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - practice_et
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/2/chapter/40
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Records an overlapping exact-route page for core_source_et, practice_et, map_skill so the deduplication decision remains reviewable.
+        rejection_reason: Rejected from the recommended role set because selected records already supply the same instructional role and this page adds no distinct evidence role.
+    source_recommendations:
+      russian_explanation:
+        - time-zones-ru-core
+        - time-zones-ru-legacy
+      estonian_terminology_or_visuals:
+        - time-zones-et-core
+      practice:
+        - time-zones-ru-core
+        - time-zones-et-core
+        - time-zones-ru-review
+        - time-zones-ru-legacy
+      practical_or_assessment:
+        - time-zones-ru-core
+        - time-zones-et-core
+        - time-zones-ru-review
+    availability:
+      russian: verified
+      estonian: verified
+      practical: partial
+      revision: verified
+      assessment: partial
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct map, data, practical, revision, or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - time-zones-et-duplicate
+    known_gaps:
+      - The route supplies calculation tasks, but no independently identified practical travel-planning assessment is registered.
+  - topic_id: earth-interior-and-plate-tectonics
+    title_ru: Внутреннее строение Земли и тектоника плит
+    title_et: Maa siseehitus ja laamtektoonika
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 7k__geograafia_avita_est
+      - 7k__geograafia_koolibri_est
+      - 7k__geograafia_loodus_avita_est
+      - 7k__geograafia_koolibri_rus
+      - 7k__geograafia_avita_rus
+    selected_records:
+      - record_id: earth-interior-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16621
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Внутреннее строение Земли. Земная кора
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/301/chapter/16621
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct RU role for core_explanation_ru, bilingual_visual without relying on an adjacent route.
+      - record_id: plate-tectonics-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16622
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Литосферные плиты и их движение
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - bilingual_visual
+          - map_skill
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/301/chapter/16622
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct RU role for core_explanation_ru, bilingual_visual, map_skill, data_interpretation without relying on an adjacent route.
+      - record_id: earth-interior-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30034
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Maa siseehitus. Laamad
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/543/chapter/30034
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct ET role for core_source_et, terminology_et, bilingual_visual without relying on an adjacent route.
+      - record_id: plate-processes-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30221
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Geoloogilised protsessid laamade servaaladel
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - map_skill
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/543/chapter/30221
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct ET role for core_source_et, terminology_et, map_skill, data_interpretation without relying on an adjacent route.
+    alternative_records:
+      - record_id: plate-tectonics-ru-legacy
+        canonical_url: https://www.opiq.ee/kit/19/chapter/876
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_rus
+        title: Литосфер­ные плиты и их движение
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - bilingual_visual
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/19/chapter/876
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Retained as an overlapping exact-route alternative for core_explanation_ru, bilingual_visual, map_skill; it is not required when the selected role set is used.
+    rejected_records:
+      - record_id: plate-tectonics-et-overlap
+        canonical_url: https://www.opiq.ee/kit/96/chapter/4675
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_est
+        title: Laamad ja nende liikumine
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/96/chapter/4675
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Records an overlapping exact-route page for core_source_et, terminology_et, bilingual_visual so the deduplication decision remains reviewable.
+        rejection_reason: Rejected from the recommended role set because selected records already supply the same instructional role and this page adds no distinct evidence role.
+    source_recommendations:
+      russian_explanation:
+        - earth-interior-ru-core
+        - plate-tectonics-ru-core
+        - plate-tectonics-ru-legacy
+      estonian_terminology_or_visuals:
+        - earth-interior-ru-core
+        - plate-tectonics-ru-core
+        - earth-interior-et-core
+        - plate-processes-et-core
+        - plate-tectonics-ru-legacy
+      practice:
+        - plate-tectonics-ru-core
+        - plate-processes-et-core
+        - plate-tectonics-ru-legacy
+      practical_or_assessment:
+        - plate-tectonics-ru-core
+        - plate-processes-et-core
+    availability:
+      russian: verified
+      estonian: verified
+      practical: partial
+      revision: missing
+      assessment: missing
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct map, data, practical, revision, or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - plate-tectonics-et-overlap
+    known_gaps:
+      - The route provides diagrams and plate maps but no separately identified physical model investigation.
+  - topic_id: earthquakes-volcanoes-and-tsunamis
+    title_ru: Землетрясения, вулканы и цунами
+    title_et: Maavärinad, vulkaanid ja tsunamid
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 7k__geograafia_avita_est
+      - 7k__geograafia_koolibri_est
+      - 7k__geograafia_loodus_avita_est
+      - 7k__geograafia_koolibri_rus
+      - 7k__geograafia_avita_rus
+    selected_records:
+      - record_id: earthquakes-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16623
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Землетрясения
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - map_skill
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/301/chapter/16623
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct RU role for core_explanation_ru, practice_ru, map_skill, data_interpretation without relying on an adjacent route.
+      - record_id: volcanoes-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16624
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Вулканы
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/301/chapter/16624
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct RU role for core_explanation_ru, practice_ru, bilingual_visual without relying on an adjacent route.
+      - record_id: seismic-risk-ru-case
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16626
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Жизнь людей в регионах вулканических извержений и землетрясений
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - data_interpretation
+          - optional_extension
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/301/chapter/16626
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct RU role for core_explanation_ru, practice_ru, data_interpretation, optional_extension without relying on an adjacent route.
+      - record_id: earthquakes-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30262
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Maavärinad
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - map_skill
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/543/chapter/30262
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct ET role for core_source_et, terminology_et, map_skill, data_interpretation without relying on an adjacent route.
+      - record_id: volcanoes-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30263
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Vulkaanid
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/543/chapter/30263
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct ET role for core_source_et, terminology_et, bilingual_visual without relying on an adjacent route.
+    alternative_records:
+      - record_id: seismic-risk-et-case
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30393
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Inimesed vulkaanilistes ja maavärinaohtlikes piirkondades
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - data_interpretation
+          - optional_extension
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/543/chapter/30393
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Retained as an overlapping exact-route alternative for core_source_et, data_interpretation, optional_extension; it is not required when the selected role set is used.
+    rejected_records:
+      - record_id: seismic-risk-et-overlap
+        canonical_url: https://www.opiq.ee/kit/96/chapter/4679
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_est
+        title: Inimeste elu maavärinate ja vulkaanide aladel
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - optional_extension
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/96/chapter/4679
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Records an overlapping exact-route page for core_source_et, optional_extension so the deduplication decision remains reviewable.
+        rejection_reason: Rejected from the recommended role set because selected records already supply the same instructional role and this page adds no distinct evidence role.
+    source_recommendations:
+      russian_explanation:
+        - earthquakes-ru-core
+        - volcanoes-ru-core
+        - seismic-risk-ru-case
+      estonian_terminology_or_visuals:
+        - volcanoes-ru-core
+        - earthquakes-et-core
+        - volcanoes-et-core
+        - seismic-risk-et-case
+      practice:
+        - earthquakes-ru-core
+        - volcanoes-ru-core
+        - seismic-risk-ru-case
+        - earthquakes-et-core
+        - seismic-risk-et-case
+      practical_or_assessment:
+        - earthquakes-ru-core
+        - seismic-risk-ru-case
+        - earthquakes-et-core
+        - seismic-risk-et-case
+    availability:
+      russian: verified
+      estonian: verified
+      practical: partial
+      revision: missing
+      assessment: missing
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct map, data, practical, revision, or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - seismic-risk-et-overlap
+    known_gaps:
+      - Tsunami evidence is embedded within the hazard pages; no standalone tsunami practical or assessment page is registered.
+  - topic_id: rocks-sediments-and-rock-cycle
+    title_ru: Горные породы, осадки и круговорот пород
+    title_et: Kivimid, setted ja kivimiringe
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 7k__geograafia_avita_est
+      - 7k__geograafia_koolibri_est
+      - 7k__geograafia_loodus_avita_est
+      - 7k__geograafia_koolibri_rus
+      - 7k__geograafia_avita_rus
+    selected_records:
+      - record_id: rocks-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16625
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Горные породы и их образование
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/301/chapter/16625
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct RU role for core_explanation_ru, practice_ru, bilingual_visual without relying on an adjacent route.
+      - record_id: rocks-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30394
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Kivimid
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/543/chapter/30394
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct ET role for core_source_et, terminology_et, bilingual_visual without relying on an adjacent route.
+      - record_id: rocks-et-resources
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30421
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Maavarad ja kivimite kasutamine
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - data_interpretation
+          - optional_extension
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/543/chapter/30421
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct ET role for core_source_et, data_interpretation, optional_extension without relying on an adjacent route.
+      - record_id: rocks-ru-review
+        canonical_url: https://www.opiq.ee/kit/19/chapter/881
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_rus
+        title: "Повторение: геология"
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - practice_ru
+          - revision
+          - assessment
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/19/chapter/881
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct RU role for practice_ru, revision, assessment without relying on an adjacent route.
+    alternative_records:
+      - record_id: rocks-ru-legacy
+        canonical_url: https://www.opiq.ee/kit/19/chapter/880
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_rus
+        title: Горные породы
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/19/chapter/880
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Retained as an overlapping exact-route alternative for core_explanation_ru, practice_ru, bilingual_visual; it is not required when the selected role set is used.
+    rejected_records:
+      - record_id: rocks-et-overlap
+        canonical_url: https://www.opiq.ee/kit/96/chapter/4678
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_est
+        title: Kivimid ja nende teke
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/96/chapter/4678
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Records an overlapping exact-route page for core_source_et, terminology_et so the deduplication decision remains reviewable.
+        rejection_reason: Rejected from the recommended role set because selected records already supply the same instructional role and this page adds no distinct evidence role.
+    source_recommendations:
+      russian_explanation:
+        - rocks-ru-core
+        - rocks-ru-legacy
+      estonian_terminology_or_visuals:
+        - rocks-ru-core
+        - rocks-et-core
+        - rocks-et-resources
+        - rocks-ru-legacy
+      practice:
+        - rocks-ru-core
+        - rocks-et-resources
+        - rocks-ru-review
+        - rocks-ru-legacy
+      practical_or_assessment:
+        - rocks-et-resources
+        - rocks-ru-review
+    availability:
+      russian: verified
+      estonian: verified
+      practical: partial
+      revision: verified
+      assessment: partial
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct map, data, practical, revision, or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - rocks-et-overlap
+    known_gaps:
+      - The pages describe rock identification, but no separately packaged hands-on specimen rubric is registered.
+  - topic_id: relief-landforms-and-elevation-mapping
+    title_ru: Рельеф, формы рельефа и высотное картографирование
+    title_et: Pinnamood, pinnavormid ja kõrguste kujutamine kaardil
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 7k__geograafia_avita_est
+      - 7k__geograafia_koolibri_est
+      - 7k__geograafia_loodus_avita_est
+      - 7k__geograafia_koolibri_rus
+      - 7k__geograafia_avita_rus
+    selected_records:
+      - record_id: relief-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16628
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Рельеф и формы рельефа. Океанические впадины и материки
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - bilingual_visual
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/301/chapter/16628
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct RU role for core_explanation_ru, bilingual_visual, map_skill without relying on an adjacent route.
+      - record_id: relief-map-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16629
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Изображение рельефа на карте
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - map_skill
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/301/chapter/16629
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct RU role for core_explanation_ru, practice_ru, map_skill, data_interpretation without relying on an adjacent route.
+      - record_id: relief-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30423
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Pinnamood ja pinnavormid
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/543/chapter/30423
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct ET role for core_source_et, terminology_et, bilingual_visual without relying on an adjacent route.
+      - record_id: relief-map-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30071
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Pinnamoe kujutamine kaardil
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/543/chapter/30071
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct ET role for core_source_et, terminology_et, practice_et, map_skill without relying on an adjacent route.
+      - record_id: relief-ru-review
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16635
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: "Подведение итогов и повторение: Рельеф"
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - practice_ru
+          - revision
+          - assessment
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/301/chapter/16635
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct RU role for practice_ru, revision, assessment without relying on an adjacent route.
+    alternative_records:
+      - record_id: relief-map-ru-legacy
+        canonical_url: https://www.opiq.ee/kit/19/chapter/883
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_rus
+        title: Изображение рельефа на карте
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/19/chapter/883
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Retained as an overlapping exact-route alternative for core_explanation_ru, practice_ru, map_skill; it is not required when the selected role set is used.
+    rejected_records:
+      - record_id: relief-map-et-overlap
+        canonical_url: https://www.opiq.ee/kit/96/chapter/4682
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_est
+        title: Pinnamoe kujutamine kaardil
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - practice_et
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/96/chapter/4682
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Records an overlapping exact-route page for core_source_et, practice_et, map_skill so the deduplication decision remains reviewable.
+        rejection_reason: Rejected from the recommended role set because selected records already supply the same instructional role and this page adds no distinct evidence role.
+    source_recommendations:
+      russian_explanation:
+        - relief-ru-core
+        - relief-map-ru-core
+        - relief-map-ru-legacy
+      estonian_terminology_or_visuals:
+        - relief-ru-core
+        - relief-et-core
+        - relief-map-et-core
+      practice:
+        - relief-ru-core
+        - relief-map-ru-core
+        - relief-map-et-core
+        - relief-ru-review
+        - relief-map-ru-legacy
+      practical_or_assessment:
+        - relief-map-ru-core
+        - relief-ru-review
+    availability:
+      russian: verified
+      estonian: verified
+      practical: partial
+      revision: verified
+      assessment: partial
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct map, data, practical, revision, or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - relief-map-et-overlap
+    known_gaps:
+      - Elevation-profile interpretation is present, but no separately identified field survey task is registered.
+  - topic_id: mountains-plains-and-ocean-floor-relief
+    title_ru: Горы, равнины и рельеф океанического дна
+    title_et: Mäestikud, tasandikud ja maailmamere põhjareljeef
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 7k__geograafia_avita_est
+      - 7k__geograafia_koolibri_est
+      - 7k__geograafia_loodus_avita_est
+      - 7k__geograafia_koolibri_rus
+      - 7k__geograafia_avita_rus
+    selected_records:
+      - record_id: ocean-floor-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16630
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Рельеф дна Мирового океана
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - bilingual_visual
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/301/chapter/16630
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct RU role for core_explanation_ru, bilingual_visual, map_skill without relying on an adjacent route.
+      - record_id: plains-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16631
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Равнины
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/301/chapter/16631
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct RU role for core_explanation_ru, practice_ru, map_skill without relying on an adjacent route.
+      - record_id: mountains-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16632
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Горы и нагорья
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/301/chapter/16632
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct RU role for core_explanation_ru, practice_ru, map_skill without relying on an adjacent route.
+      - record_id: ocean-floor-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30424
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Maailmamere põhjareljeef
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - bilingual_visual
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/543/chapter/30424
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct ET role for core_source_et, terminology_et, bilingual_visual, map_skill without relying on an adjacent route.
+      - record_id: mountains-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30425
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Mäestikud ja mägismaad
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/543/chapter/30425
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct ET role for core_source_et, terminology_et, practice_et, map_skill without relying on an adjacent route.
+      - record_id: plains-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30446
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Tasandikud
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/543/chapter/30446
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct ET role for core_source_et, terminology_et, practice_et, map_skill without relying on an adjacent route.
+      - record_id: major-landforms-et-review
+        canonical_url: https://www.opiq.ee/kit/96/chapter/4688
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_est
+        title: Kokkuvõte pinnamoe kordamiseks
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - practice_et
+          - revision
+          - assessment
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/96/chapter/4688
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct ET role for practice_et, revision, assessment without relying on an adjacent route.
+    alternative_records:
+      - record_id: mountains-ru-legacy
+        canonical_url: https://www.opiq.ee/kit/19/chapter/884
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_rus
+        title: Горы и горные системы
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/19/chapter/884
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Retained as an overlapping exact-route alternative for core_explanation_ru, practice_ru, map_skill; it is not required when the selected role set is used.
+    rejected_records:
+      - record_id: mountains-et-overlap
+        canonical_url: https://www.opiq.ee/kit/2/chapter/51
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_loodus_avita_est
+        title: Mäestikud ja mägismaad
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - practice_et
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/2/chapter/51
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Records an overlapping exact-route page for core_source_et, practice_et, map_skill so the deduplication decision remains reviewable.
+        rejection_reason: Rejected from the recommended role set because selected records already supply the same instructional role and this page adds no distinct evidence role.
+    source_recommendations:
+      russian_explanation:
+        - ocean-floor-ru-core
+        - plains-ru-core
+        - mountains-ru-core
+        - mountains-ru-legacy
+      estonian_terminology_or_visuals:
+        - ocean-floor-ru-core
+        - ocean-floor-et-core
+        - mountains-et-core
+        - plains-et-core
+      practice:
+        - ocean-floor-ru-core
+        - plains-ru-core
+        - mountains-ru-core
+        - ocean-floor-et-core
+        - mountains-et-core
+        - plains-et-core
+        - major-landforms-et-review
+        - mountains-ru-legacy
+      practical_or_assessment:
+        - major-landforms-et-review
+    availability:
+      russian: verified
+      estonian: verified
+      practical: partial
+      revision: verified
+      assessment: partial
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct map, data, practical, revision, or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - mountains-et-overlap
+    known_gaps:
+      - The route supplies comparative map work but no separately identified physical landform modelling task.
+  - topic_id: landform-change-weathering-erosion-and-human-impact
+    title_ru: Изменение рельефа, выветривание, эрозия и влияние человека
+    title_et: Pinnamoe muutumine, murenemine, erosioon ja inimtegevus
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 7k__geograafia_avita_est
+      - 7k__geograafia_koolibri_est
+      - 7k__geograafia_loodus_avita_est
+      - 7k__geograafia_koolibri_rus
+      - 7k__geograafia_avita_rus
+    selected_records:
+      - record_id: landform-change-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16634
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Изменение рельефа с течением времени
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - bilingual_visual
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/301/chapter/16634
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct RU role for core_explanation_ru, bilingual_visual, data_interpretation without relying on an adjacent route.
+      - record_id: human-impact-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16633
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Жизнь людей в регионах с разным рельефом
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/301/chapter/16633
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct RU role for core_explanation_ru, practice_ru, data_interpretation without relying on an adjacent route.
+      - record_id: landform-change-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30447
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Maa pinnamood muutub
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - bilingual_visual
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/543/chapter/30447
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct ET role for core_source_et, terminology_et, bilingual_visual, data_interpretation without relying on an adjacent route.
+      - record_id: human-impact-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30448
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Inimtegevuse mõju pinnamoele
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/543/chapter/30448
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct ET role for core_source_et, terminology_et, data_interpretation without relying on an adjacent route.
+      - record_id: landform-change-et-review
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30449
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Kordamine. Pinnamood
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - practice_et
+          - revision
+          - assessment
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/543/chapter/30449
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct ET role for practice_et, revision, assessment without relying on an adjacent route.
+    alternative_records:
+      - record_id: weathering-erosion-ru-legacy
+        canonical_url: https://www.opiq.ee/kit/19/chapter/887
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_rus
+        title: Рельеф Земли изменяется (1)
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/19/chapter/887
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Retained as an overlapping exact-route alternative for core_explanation_ru, practice_ru, data_interpretation; it is not required when the selected role set is used.
+    rejected_records:
+      - record_id: landform-change-et-overlap
+        canonical_url: https://www.opiq.ee/kit/2/chapter/54
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_loodus_avita_est
+        title: Maa pinnamood muutub (1)
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/2/chapter/54
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Records an overlapping exact-route page for core_source_et, data_interpretation so the deduplication decision remains reviewable.
+        rejection_reason: Rejected from the recommended role set because selected records already supply the same instructional role and this page adds no distinct evidence role.
+    source_recommendations:
+      russian_explanation:
+        - landform-change-ru-core
+        - human-impact-ru-core
+        - weathering-erosion-ru-legacy
+      estonian_terminology_or_visuals:
+        - landform-change-ru-core
+        - landform-change-et-core
+        - human-impact-et-core
+      practice:
+        - landform-change-ru-core
+        - human-impact-ru-core
+        - landform-change-et-core
+        - human-impact-et-core
+        - landform-change-et-review
+        - weathering-erosion-ru-legacy
+      practical_or_assessment:
+        - landform-change-ru-core
+        - human-impact-ru-core
+        - landform-change-et-core
+        - human-impact-et-core
+        - landform-change-et-review
+        - weathering-erosion-ru-legacy
+    availability:
+      russian: verified
+      estonian: verified
+      practical: partial
+      revision: verified
+      assessment: partial
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct map, data, practical, revision, or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - landform-change-et-overlap
+    known_gaps:
+      - Human-impact cases are present, but no local field investigation protocol or independent impact assessment is registered.
+  - topic_id: countries-peoples-and-cultural-diversity
+    title_ru: Страны, народы и культурное разнообразие
+    title_et: Riigid, rahvad ja kultuuriline mitmekesisus
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 7k__geograafia_avita_est
+      - 7k__geograafia_koolibri_est
+      - 7k__geograafia_loodus_avita_est
+      - 7k__geograafia_koolibri_rus
+      - 7k__geograafia_avita_rus
+    selected_records:
+      - record_id: countries-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16613
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Страны на карте мира
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/301/chapter/16613
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct RU role for core_explanation_ru, practice_ru, map_skill without relying on an adjacent route.
+      - record_id: peoples-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16615
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Расы и национальности
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/301/chapter/16615
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct RU role for core_explanation_ru, data_interpretation without relying on an adjacent route.
+      - record_id: countries-et-core
+        canonical_url: https://www.opiq.ee/kit/96/chapter/4666
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_est
+        title: Riigid maailma kaardil
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/96/chapter/4666
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct ET role for core_source_et, terminology_et, practice_et, map_skill without relying on an adjacent route.
+      - record_id: peoples-et-core
+        canonical_url: https://www.opiq.ee/kit/96/chapter/4668
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_est
+        title: Rassid ja rahvused
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/96/chapter/4668
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct ET role for core_source_et, terminology_et, data_interpretation without relying on an adjacent route.
+      - record_id: political-map-et-support
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30264
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Maailma poliitiline kaart
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - bilingual_visual
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/543/chapter/30264
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct ET role for core_source_et, bilingual_visual, map_skill without relying on an adjacent route.
+    alternative_records:
+      - record_id: countries-ru-legacy
+        canonical_url: https://www.opiq.ee/kit/19/chapter/890
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_rus
+        title: Государства на карте мира
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/19/chapter/890
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Retained as an overlapping exact-route alternative for core_explanation_ru, practice_ru, map_skill; it is not required when the selected role set is used.
+    rejected_records:
+      - record_id: political-map-et-overlap
+        canonical_url: https://www.opiq.ee/kit/2/chapter/69
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_loodus_avita_est
+        title: Maailma poliitiline kaart
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/2/chapter/69
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Records an overlapping exact-route page for core_source_et, map_skill so the deduplication decision remains reviewable.
+        rejection_reason: Rejected from the recommended role set because selected records already supply the same instructional role and this page adds no distinct evidence role.
+    source_recommendations:
+      russian_explanation:
+        - countries-ru-core
+        - peoples-ru-core
+        - countries-ru-legacy
+      estonian_terminology_or_visuals:
+        - countries-et-core
+        - peoples-et-core
+        - political-map-et-support
+      practice:
+        - countries-ru-core
+        - peoples-ru-core
+        - countries-et-core
+        - peoples-et-core
+        - political-map-et-support
+        - countries-ru-legacy
+      practical_or_assessment:
+        - peoples-ru-core
+        - peoples-et-core
+    availability:
+      russian: verified
+      estonian: verified
+      practical: partial
+      revision: missing
+      assessment: missing
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct map, data, practical, revision, or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - political-map-et-overlap
+    known_gaps:
+      - The route supports cultural comparison, but no separately identified oral Estonian presentation or case-study rubric is registered.
+  - topic_id: population-distribution-change-migration-and-urbanization
+    title_ru: Размещение и изменение населения, миграция и урбанизация
+    title_et: Rahvastiku paiknemine ja muutumine, ränne ning linnastumine
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 7k__geograafia_koolibri_est
+      - 7k__geograafia_loodus_avita_est
+      - 7k__geograafia_koolibri_rus
+      - 7k__geograafia_avita_rus
+    selected_records:
+      - record_id: population-characteristics-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16612
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Население и его характеристики
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/301/chapter/16612
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct RU role for core_explanation_ru, data_interpretation without relying on an adjacent route.
+      - record_id: population-change-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16614
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Численность населения Земли и ее динамика
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/301/chapter/16614
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct RU role for core_explanation_ru, practice_ru, data_interpretation without relying on an adjacent route.
+      - record_id: population-distribution-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16616
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Размещение и плотность населения
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - map_skill
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/301/chapter/16616
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct RU role for core_explanation_ru, practice_ru, map_skill, data_interpretation without relying on an adjacent route.
+      - record_id: urbanization-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16617
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Города и урбанизация
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/301/chapter/16617
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct RU role for core_explanation_ru, practice_ru, data_interpretation without relying on an adjacent route.
+      - record_id: population-ru-review
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16618
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: "Подведение итогов и повторение: Население"
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - practice_ru
+          - revision
+          - assessment
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/301/chapter/16618
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct RU role for practice_ru, revision, assessment without relying on an adjacent route.
+      - record_id: population-characteristics-et-core
+        canonical_url: https://www.opiq.ee/kit/96/chapter/4665
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_est
+        title: Rahvastik ja seda iseloomustavad andmed
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/96/chapter/4665
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct ET role for core_source_et, terminology_et, data_interpretation without relying on an adjacent route.
+      - record_id: population-change-et-core
+        canonical_url: https://www.opiq.ee/kit/96/chapter/4667
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_est
+        title: Maailma rahvaarv ja selle muutumine
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/96/chapter/4667
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct ET role for core_source_et, terminology_et, practice_et, data_interpretation without relying on an adjacent route.
+      - record_id: population-distribution-et-core
+        canonical_url: https://www.opiq.ee/kit/96/chapter/4669
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_est
+        title: Rahvastiku paiknemine ja tihedus
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - map_skill
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/96/chapter/4669
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct ET role for core_source_et, terminology_et, practice_et, map_skill, data_interpretation without relying on an adjacent route.
+      - record_id: urbanization-et-core
+        canonical_url: https://www.opiq.ee/kit/96/chapter/4670
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_est
+        title: Linnad ja linnastumine
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/96/chapter/4670
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies a distinct ET role for core_source_et, terminology_et, data_interpretation without relying on an adjacent route.
+      - record_id: population-diagram-et-practice
+        canonical_url: https://www.opiq.ee/kit/2/chapter/1279
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_loodus_avita_est
+        title: Diagrammi koostamine
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - practice_et
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/2/chapter/1279
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Selected because this exact-route page supplies distinct ET practice and data-interpretation roles without relying on an adjacent route.
+    alternative_records:
+      - record_id: population-change-ru-legacy
+        canonical_url: https://www.opiq.ee/kit/19/chapter/895
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_rus
+        title: Изменение численности населения (2)
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/19/chapter/895
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Retained as an overlapping exact-route alternative for core_explanation_ru, practice_ru, data_interpretation; it is not required when the selected role set is used.
+    rejected_records:
+      - record_id: population-change-et-overlap
+        canonical_url: https://www.opiq.ee/kit/2/chapter/62
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_loodus_avita_est
+        title: Rahvaarvu muutumine (2)
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_geograafia.md / https://www.opiq.ee/kit/2/chapter/62
+          notes: Canonical exact-route Grade 7 geography page; committed evidence does not verify programme type.
+        selection_rationale: Records an overlapping exact-route page for core_source_et, data_interpretation so the deduplication decision remains reviewable.
+        rejection_reason: Rejected from the recommended role set because selected records already supply the same instructional role and this page adds no distinct evidence role.
+    source_recommendations:
+      russian_explanation:
+        - population-characteristics-ru-core
+        - population-change-ru-core
+        - population-distribution-ru-core
+        - urbanization-ru-core
+        - population-change-ru-legacy
+      estonian_terminology_or_visuals:
+        - population-characteristics-et-core
+        - population-change-et-core
+        - population-distribution-et-core
+        - urbanization-et-core
+      practice:
+        - population-characteristics-ru-core
+        - population-change-ru-core
+        - population-distribution-ru-core
+        - urbanization-ru-core
+        - population-ru-review
+        - population-characteristics-et-core
+        - population-change-et-core
+        - population-distribution-et-core
+        - urbanization-et-core
+        - population-diagram-et-practice
+        - population-change-ru-legacy
+      practical_or_assessment:
+        - population-characteristics-ru-core
+        - population-change-ru-core
+        - population-distribution-ru-core
+        - urbanization-ru-core
+        - population-ru-review
+        - population-characteristics-et-core
+        - population-change-et-core
+        - population-distribution-et-core
+        - urbanization-et-core
+        - population-diagram-et-practice
+        - population-change-ru-legacy
+    availability:
+      russian: verified
+      estonian: verified
+      practical: partial
+      revision: verified
+      assessment: partial
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct map, data, practical, revision, or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - population-change-et-overlap
+    known_gaps:
+      - Migration appears explicitly inside population-change pages, but no standalone migration field investigation or local urban study is registered.
+known_gaps:
+  - This evidence registry is not a final annual sequence and does not prove complete official Grade 7 geography curriculum coverage.
+  - Programme type and ordinary-course eligibility remain unresolved for every selected, alternative, and rejected record.
+  - Map, data, revision, and assessment evidence varies by topic; known gaps are recorded within each topic group.
+  - The supplementary teacher work plan remains deferred and is not used to create canonical URLs or completeness claims.
+  - No live Opiq catalogue completeness check was performed.

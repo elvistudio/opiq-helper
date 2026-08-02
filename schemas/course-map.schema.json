@@ -241,6 +241,7 @@
             "source_records": { "type": "integer", "minimum": 0 },
             "canonical_records": { "type": "integer", "minimum": 0 },
             "cover_detail_records_excluded": { "type": "integer", "minimum": 0 },
+            "administrative_records_excluded": { "type": "integer", "minimum": 0 },
             "source_books": { "type": "integer", "minimum": 1 },
             "books_with_page_records": { "type": "integer", "minimum": 0 },
             "notes": { "type": "string", "minLength": 10 }

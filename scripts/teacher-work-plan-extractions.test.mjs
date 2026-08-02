@@ -128,7 +128,7 @@ test('Grade 6 extraction changes only mapping_status from deferred to partial', 
   assert.equal(grade6Baseline.artifact.completeness.canonical_opiq_mapping_complete, false);
   const fromMain = spawnSync(
     'git',
-    ['show', 'origin/main:evaluations/teacher-work-plans/grade-6-science-extraction.json'],
+    ['show', '2336546ee038b92abc48ce378c9764b719fe58ed:evaluations/teacher-work-plans/grade-6-science-extraction.json'],
     { cwd: repositoryRoot, encoding: null },
   );
   assert.equal(fromMain.status, 0, String(fromMain.stderr));
