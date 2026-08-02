@@ -15,6 +15,8 @@ const GRADE_5_PATH =
   'curriculum-maps/grade-5-science/teacher-work-plan-crosswalk.yaml';
 const GRADE_6_PATH =
   'curriculum-maps/grade-6-science/teacher-work-plan-crosswalk.yaml';
+const GRADE_7_GEOGRAPHY_PATH =
+  'curriculum-maps/grade-7-geography/teacher-work-plan-crosswalk.yaml';
 export const TEACHER_WORK_PLAN_MAP_PATH = GRADE_5_PATH;
 
 const GRADE_5_TOPIC_IDS = Object.freeze([
@@ -42,6 +44,24 @@ const GRADE_6_TOPIC_IDS = Object.freeze([
   'estonian-habitats',
   'estonian-natural-resources',
   'nature-and-environmental-protection',
+]);
+
+const GRADE_7_GEOGRAPHY_TOPIC_IDS = Object.freeze([
+  'geography-introduction-and-research-methods',
+  'earth-shape-size-continents-and-oceans',
+  'map-types-atlases-legends-and-generalization',
+  'scale-distance-directions-and-orientation',
+  'geographic-coordinates',
+  'digital-maps-gis-and-satellite-imagery',
+  'time-zones-and-date-line',
+  'earth-interior-and-plate-tectonics',
+  'earthquakes-volcanoes-and-tsunamis',
+  'rocks-sediments-and-rock-cycle',
+  'relief-landforms-and-elevation-mapping',
+  'mountains-plains-and-ocean-floor-relief',
+  'landform-change-weathering-erosion-and-human-impact',
+  'countries-peoples-and-cultural-diversity',
+  'population-distribution-change-migration-and-urbanization',
 ]);
 
 export const TEACHER_WORK_PLAN_MAP_CONTRACTS = Object.freeze({
@@ -83,6 +103,25 @@ export const TEACHER_WORK_PLAN_MAP_CONTRACTS = Object.freeze({
     requireUnassignedAnnualSlot: true,
     programmePolicy: 'content_only_unknown',
   }),
+  [GRADE_7_GEOGRAPHY_PATH]: Object.freeze({
+    artifactPath: GRADE_7_GEOGRAPHY_PATH,
+    mapId: 'grade-7-geography-teacher-work-plan-crosswalk',
+    grade: 7,
+    subject: 'geography',
+    subjectEt: 'geograafia',
+    sourceId: 'grade-7-geography',
+    extractionPath: 'evaluations/teacher-work-plans/grade-7-geography-extraction.json',
+    topicIds: GRADE_7_GEOGRAPHY_TOPIC_IDS,
+    existingArtifacts: Object.freeze({
+      book_inventory: 'curriculum-maps/grade-7-geography/book-inventory.yaml',
+      topic_inventory: 'curriculum-maps/grade-7-geography/topic-inventory.yaml',
+      official_curriculum_map: null,
+      annual_architecture: null,
+    }),
+    requireSourceRecordKind: true,
+    requireUnassignedAnnualSlot: false,
+    programmePolicy: 'content_only_unknown',
+  }),
 });
 
 export const TEACHER_WORK_PLAN_MAP_PATHS = Object.freeze(
@@ -92,7 +131,7 @@ export const TEACHER_WORK_PLAN_MAP_PATHS = Object.freeze(
 const EXTRACTION_STATUS_CONTRACTS = Object.freeze({
   'evaluations/teacher-work-plans/grade-5-science-extraction.json': 'partial',
   'evaluations/teacher-work-plans/grade-6-science-extraction.json': 'partial',
-  'evaluations/teacher-work-plans/grade-7-geography-extraction.json': 'deferred',
+  'evaluations/teacher-work-plans/grade-7-geography-extraction.json': 'partial',
   'evaluations/teacher-work-plans/grade-7-science-extraction.json': 'deferred',
 });
 
@@ -374,14 +413,14 @@ function validateProgrammeMatch(diagnostics, repository, match, matchField, inve
     ['programme_type_evidence_status', 'ambiguous'],
     ['default_course_eligibility', 'unverified'],
   ]) {
-    if (match[name] !== expected) diagnostics.push(diagnostic(artifactPath, `${matchField}/${name}`, `Grade 6 content evidence requires ${expected}`));
+    if (match[name] !== expected) diagnostics.push(diagnostic(artifactPath, `${matchField}/${name}`, `${contract.sourceId} content-only evidence requires ${expected}`));
   }
-  if (inventoryRecord.programme_type !== 'unknown') diagnostics.push(diagnostic(artifactPath, `${matchField}/programme_type`, 'Grade 6 topic inventory record must retain unknown programme type'));
+  if (inventoryRecord.programme_type !== 'unknown') diagnostics.push(diagnostic(artifactPath, `${matchField}/programme_type`, `${contract.sourceId} topic inventory record must retain unknown programme type`));
   if (book?.programme_type_evidence?.status !== match.programme_type_evidence_status) {
     diagnostics.push(diagnostic(artifactPath, `${matchField}/programme_type_evidence_status`, 'value differs from book inventory programme-type evidence'));
   }
   if (book?.eligible_for_ordinary_course !== false || match.default_course_eligibility !== 'unverified') {
-    diagnostics.push(diagnostic(artifactPath, `${matchField}/default_course_eligibility`, 'unresolved Grade 6 book eligibility must remain unverified'));
+    diagnostics.push(diagnostic(artifactPath, `${matchField}/default_course_eligibility`, `unresolved ${contract.sourceId} book eligibility must remain unverified`));
   }
 }
 
@@ -551,10 +590,11 @@ function validateSummaryAndCompleteness(diagnostics, repository) {
   const coverageTotal = COVERAGE_STATUSES.reduce((sum, status) => sum + expected[`${status}_count`], 0);
   if (coverageTotal !== expected.total_source_lesson_ranges) diagnostics.push(diagnostic(artifactPath, '/mapping_summary', 'five coverage counts must sum to all source lesson ranges'));
   if (contract.requireUnassignedAnnualSlot && expected.unassigned_annual_slot_count !== 1) diagnostics.push(diagnostic(artifactPath, '/mapping_summary/unassigned_annual_slot_count', 'Grade 6 requires exactly one unassigned annual slot'));
-  if (contract.programmePolicy === 'content_only_unknown' && expected.ordinary_programme_verified_match_count !== 0) diagnostics.push(diagnostic(artifactPath, '/mapping_summary/ordinary_programme_verified_match_count', 'Grade 6 has no verified ordinary-programme matches'));
+  if (contract.requireSourceRecordKind && !contract.requireUnassignedAnnualSlot && expected.unassigned_annual_slot_count !== 0) diagnostics.push(diagnostic(artifactPath, '/mapping_summary/unassigned_annual_slot_count', `${contract.sourceId} forbids unassigned annual slots`));
+  if (contract.programmePolicy === 'content_only_unknown' && expected.ordinary_programme_verified_match_count !== 0) diagnostics.push(diagnostic(artifactPath, '/mapping_summary/ordinary_programme_verified_match_count', `${contract.sourceId} has no verified ordinary-programme matches`));
   for (const field of ['canonical_opiq_mapping_complete', 'official_curriculum_complete', 'exact_grade_official_allocation_claimed', 'live_opiq_catalogue_complete']) if (artifact.completeness?.[field] !== false) diagnostics.push(diagnostic(artifactPath, `/completeness/${field}`, 'unsupported completeness claim must remain false'));
   if (contract.programmePolicy === 'content_only_unknown') {
-    for (const field of ['programme_type_verification_complete', 'default_course_selection_complete']) if (artifact.completeness?.[field] !== false) diagnostics.push(diagnostic(artifactPath, `/completeness/${field}`, 'unresolved Grade 6 programme claim must remain false'));
+    for (const field of ['programme_type_verification_complete', 'default_course_selection_complete']) if (artifact.completeness?.[field] !== false) diagnostics.push(diagnostic(artifactPath, `/completeness/${field}`, `unresolved ${contract.sourceId} programme claim must remain false`));
   }
   if (artifact.completeness?.all_extracted_lesson_ranges_classified !== true) diagnostics.push(diagnostic(artifactPath, '/completeness/all_extracted_lesson_ranges_classified', 'all extracted ranges must be classified'));
   if (artifact.completeness?.declared_complete_for_source_extraction !== true) diagnostics.push(diagnostic(artifactPath, '/completeness/declared_complete_for_source_extraction', 'crosswalk must be complete only for the source extraction'));

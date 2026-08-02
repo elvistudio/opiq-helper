@@ -159,19 +159,30 @@ test('Grade 7 geography extraction matches the visually verified source', () => 
   });
 });
 
-test('Grade 7 geography extraction remains byte-identical to origin/main', () => {
-  const expectedSha = 'e8260b9ad4f5810e60638efb8a4f0cfa26b3fb36e847fbf0555e6547210546f4';
+test('Grade 7 geography extraction changes only mapping_status from deferred to partial', () => {
+  assert.equal(grade7GeographyBaseline.artifact.route_context.mapping_status, 'partial');
   assert.equal(
-    crypto.createHash('sha256').update(grade7GeographyBaseline.artifactText).digest('hex'),
-    expectedSha,
+    grade7GeographyBaseline.artifact.completeness.canonical_opiq_mapping_complete,
+    false,
+  );
+  assert.equal(
+    grade7GeographyBaseline.artifact.completeness.official_curriculum_complete,
+    false,
   );
   const fromMain = spawnSync(
     'git',
-    ['show', 'origin/main:evaluations/teacher-work-plans/grade-7-geography-extraction.json'],
+    ['show', 'd64e6ffc8e4127f6f34413b24f78575d3bb339c9:evaluations/teacher-work-plans/grade-7-geography-extraction.json'],
     { cwd: repositoryRoot, encoding: null },
   );
   assert.equal(fromMain.status, 0, String(fromMain.stderr));
-  assert.equal(crypto.createHash('sha256').update(fromMain.stdout).digest('hex'), expectedSha);
+  assert.equal(
+    crypto.createHash('sha256').update(fromMain.stdout).digest('hex'),
+    'e8260b9ad4f5810e60638efb8a4f0cfa26b3fb36e847fbf0555e6547210546f4',
+  );
+  const fromMainArtifact = JSON.parse(fromMain.stdout.toString('utf8'));
+  const currentWithDeferredStatus = structuredClone(grade7GeographyBaseline.artifact);
+  currentWithDeferredStatus.route_context.mapping_status = 'deferred';
+  assert.deepEqual(currentWithDeferredStatus, fromMainArtifact);
 });
 
 test('Grade 7 science extraction matches the visually verified source', () => {
@@ -1006,7 +1017,7 @@ test('unregistered production extraction files are rejected', () => {
   );
 });
 
-test('scope guard allows the registered Grade 5 and Grade 6 mapping-phase support files', () => {
+test('scope guard allows the registered Grade 5, Grade 6 and Grade 7 geography mapping-phase support files', () => {
   assert.deepEqual(validateTeacherWorkPlanChangedPaths([
     'evaluations/teacher-work-plans/grade-5-science-extraction.json',
     'schemas/teacher-work-plan-extraction.schema.json',
@@ -1027,6 +1038,11 @@ test('scope guard allows the registered Grade 5 and Grade 6 mapping-phase suppor
     'curriculum-maps/grade-6-science/topic-inventory.yaml',
     'docs/audits/grade-6-science-teacher-work-plan-crosswalk.md',
     'docs/audits/grade-6-science-teacher-work-plan-extraction.md',
+    'evaluations/teacher-work-plans/grade-7-geography-extraction.json',
+    'curriculum-maps/grade-7-geography/teacher-work-plan-crosswalk.yaml',
+    'curriculum-maps/grade-7-geography/topic-inventory.yaml',
+    'docs/audits/grade-7-geography-teacher-work-plan-crosswalk.md',
+    'docs/audits/grade-7-geography-teacher-work-plan-extraction.md',
     '.github/workflows/validate-source-manifest.yml',
   ]), []);
 });
@@ -1062,12 +1078,10 @@ test('scope guard activates only for extraction content', () => {
   }
 });
 
-test('scope guard rejects protected paths and both unmapped Grade 7 artifacts', () => {
+test('scope guard rejects protected paths and unmapped Grade 7 science artifacts', () => {
   const diagnostics = validateTeacherWorkPlanChangedPaths([
     'source-manifest.json',
-    'evaluations/teacher-work-plans/grade-7-geography-extraction.json',
     'evaluations/teacher-work-plans/grade-7-science-extraction.json',
-    'docs/audits/grade-7-geography-teacher-work-plan-extraction.md',
     'curriculum-maps/grade-7-geography/coverage-matrix.yaml',
     'project-files/inputs/originals/teacher-work-plans/source.pdf',
     'project-files/outputs/opiq_7klass_geograafia.md',
@@ -1075,7 +1089,7 @@ test('scope guard rejects protected paths and both unmapped Grade 7 artifacts', 
     'lesson-plans/grade-7-geography/lesson-01.yaml',
     'teacher-packs/grade-7-geography/materials.yaml',
   ]);
-  assert.equal(diagnostics.length, 10);
+  assert.equal(diagnostics.length, 8);
 });
 
 test('changed-path collector reports repository changes without duplicates', async () => {

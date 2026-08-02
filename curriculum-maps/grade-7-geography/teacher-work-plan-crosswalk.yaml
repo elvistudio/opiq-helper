@@ -1,0 +1,2951 @@
+schema_version: "1.0"
+artifact_type: teacher_work_plan_curriculum_map
+map_id: grade-7-geography-teacher-work-plan-crosswalk
+grade: 7
+subject: geography
+subject_et: geograafia
+source_extraction:
+  extraction_id: grade-7-geography-teacher-work-plan-extraction
+  path: evaluations/teacher-work-plans/grade-7-geography-extraction.json
+  source_pdf_path: project-files/inputs/originals/teacher-work-plans/Geo-tookava-7-klass-Reet-Tuisk.pdf
+  source_sha256: d25874fcf0c211d1b1f1e0a22d2beb50cb4046eb05eaec31bfb1068bbbcf82aa
+  source_page_count: 17
+  lesson_range_count: 35
+  extracted_lesson_span:
+    lesson_start: 1
+    lesson_end: 35
+canonical_route:
+  source_id: grade-7-geography
+  md_path: project-files/outputs/opiq_7klass_geograafia.md
+  source_archive: project-files/inputs/final-zips/opiq_7klass_sissejuhatus_geograafiasse_v2.zip
+  qa_path: project-files/outputs/opiq_7klass_geograafia_qa.json
+  record_count: 178
+  coverage_status: available_not_curriculum_verified
+existing_curriculum_artifacts:
+  book_inventory: curriculum-maps/grade-7-geography/book-inventory.yaml
+  topic_inventory: curriculum-maps/grade-7-geography/topic-inventory.yaml
+  official_curriculum_map: null
+  annual_architecture: null
+mapping_scope:
+  route_locked: true
+  allowed_source_languages:
+    - et
+    - ru
+  adjacent_routes_forbidden: true
+  live_catalogue_checked: false
+  notes: Only committed Grade 7 geography route records and the Grade 7 geography topic inventory are used; programme eligibility remains unverified and no adjacent route or live catalogue is consulted.
+mapping_method:
+  unit: source_lesson_range
+  source_range_splitting: forbidden
+  canonical_evidence: committed_route_only
+  topic_inventory_role: stable_record_registry
+  teacher_plan_role: supplementary_noncanonical
+  notes: Each of the 35 extracted source records is classified once against exact canonical titles, headings, tasks and inventory provenance; content fit remains separate from default-course eligibility.
+lesson_range_mappings:
+  - mapping_id: lesson-001
+    source_record_kind: lesson_range
+    source_block_id: kaardiopetus
+    lesson_start: 1
+    lesson_end: 1
+    source_pages:
+      - 2
+    source_topic_et: Õppeaasta sissejuhatus ning Maa kuju ja suurus
+    normalized_mapping_topic_et: Õppeaasta sissejuhatus ning Maa kuju ja suurus
+    topic_inventory_refs:
+      - geography-introduction-and-research-methods
+      - earth-shape-size-continents-and-oceans
+      - digital-maps-gis-and-satellite-imagery
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: geography-introduction-and-research-methods
+        record_id: geography-intro-et-methods
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30032
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Sissejuhatus geograafiasse
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - data_interpretation
+        match_strength: strong
+        match_scope:
+          - core_content
+          - terminology
+        selection_rationale: Sissejuhatus geograafiasse supplies strong committed-route evidence for Õppeaasta sissejuhatus ning Maa kuju ja suurus in the geography-introduction-and-research-methods registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: earth-shape-size-continents-and-oceans
+        record_id: earth-shape-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16604
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Форма и размеры Земли. Карта и план
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - bilingual_visual
+          - practice_ru
+          - map_skill
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+          - visual_or_map
+        selection_rationale: Форма и размеры Земли. Карта и план supplies exact committed-route evidence for Õppeaasta sissejuhatus ning Maa kuju ja suurus in the earth-shape-size-continents-and-oceans registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: earth-shape-size-continents-and-oceans
+        record_id: earth-shape-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30033
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Maa kuju ja suurus
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - bilingual_visual
+          - map_skill
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - visual_or_map
+        selection_rationale: Maa kuju ja suurus supplies exact committed-route evidence for Õppeaasta sissejuhatus ning Maa kuju ja suurus in the earth-shape-size-continents-and-oceans registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: digital-maps-gis-and-satellite-imagery
+        record_id: satellite-imagery-ru-extension
+        canonical_url: https://www.opiq.ee/kit/19/chapter/866
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_rus
+        title: Природа и деятель­ность человека
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - bilingual_visual
+          - optional_extension
+        match_strength: supporting
+        match_scope:
+          - visual_or_map
+        selection_rationale: Природа и деятель­ность человека supplies supporting committed-route evidence for Õppeaasta sissejuhatus ning Maa kuju ja suurus in the digital-maps-gis-and-satellite-imagery registry group; programme eligibility remains unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: geography-intro-et-methods
+          programme_type: unknown
+        - record_id: earth-shape-ru-core
+          programme_type: unknown
+        - record_id: earth-shape-et-core
+          programme_type: unknown
+        - record_id: satellite-imagery-ru-extension
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: The pages cover geographic research, Earth shape and a satellite-imagery question, but they do not supply the teacher-plan pair presentation and discovery-map assessment as one registered activity.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 geography route supplies positive content evidence for Õppeaasta sissejuhatus ning Maa kuju ja suurus, but the documented activity or assessment gap keeps this mapping partial; programme type and default-course eligibility remain independently unresolved.
+    gap_notes:
+      - The pages cover geographic research, Earth shape and a satellite-imagery question, but they do not supply the teacher-plan pair presentation and discovery-map assessment as one registered activity.
+  - mapping_id: lesson-002
+    source_record_kind: lesson_range
+    source_block_id: kaardiopetus
+    lesson_start: 2
+    lesson_end: 2
+    source_pages:
+      - 2
+      - 3
+    source_topic_et: Kaartide mitmekesisus
+    normalized_mapping_topic_et: Kaartide mitmekesisus
+    topic_inventory_refs:
+      - map-types-atlases-legends-and-generalization
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: map-types-atlases-legends-and-generalization
+        record_id: map-types-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16606
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Разнообразие карт и их назначение
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - map_skill
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+          - visual_or_map
+        selection_rationale: Разнообразие карт и их назначение supplies exact committed-route evidence for Kaartide mitmekesisus in the map-types-atlases-legends-and-generalization registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: map-types-atlases-legends-and-generalization
+        record_id: map-types-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30070
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Kaardid ja nende mitmekesisus
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - bilingual_visual
+          - map_skill
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - visual_or_map
+        selection_rationale: Kaardid ja nende mitmekesisus supplies exact committed-route evidence for Kaartide mitmekesisus in the map-types-atlases-legends-and-generalization registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: map-types-atlases-legends-and-generalization
+        record_id: map-types-et-review
+        canonical_url: https://www.opiq.ee/kit/96/chapter/4664
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_est
+        title: Kokkuvõte kaardiõpetuse kordamiseks
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - practice_et
+          - revision
+          - assessment
+        match_strength: supporting
+        match_scope:
+          - practice
+          - revision
+          - assessment
+        selection_rationale: Kokkuvõte kaardiõpetuse kordamiseks supplies supporting committed-route evidence for Kaartide mitmekesisus in the map-types-atlases-legends-and-generalization registry group; programme eligibility remains unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: map-types-ru-core
+          programme_type: unknown
+        - record_id: map-types-et-core
+          programme_type: unknown
+        - record_id: map-types-et-review
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: The pages explain map types, legends and atlases, but no registered page provides the complete atlas contents-and-index product and assessment rubric required by the source row.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 geography route supplies positive content evidence for Kaartide mitmekesisus, but the documented activity or assessment gap keeps this mapping partial; programme type and default-course eligibility remain independently unresolved.
+    gap_notes:
+      - The pages explain map types, legends and atlases, but no registered page provides the complete atlas contents-and-index product and assessment rubric required by the source row.
+  - mapping_id: lesson-003
+    source_record_kind: lesson_range
+    source_block_id: kaardiopetus
+    lesson_start: 3
+    lesson_end: 3
+    source_pages:
+      - 3
+    source_topic_et: Trüki- ja arvutikaardid
+    normalized_mapping_topic_et: Trüki- ja arvutikaardid
+    topic_inventory_refs:
+      - digital-maps-gis-and-satellite-imagery
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: digital-maps-gis-and-satellite-imagery
+        record_id: digital-maps-ru-gis
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16607
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Печатные и компьютерные карты
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - digital_map
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+          - visual_or_map
+        selection_rationale: Печатные и компьютерные карты supplies exact committed-route evidence for Trüki- ja arvutikaardid in the digital-maps-gis-and-satellite-imagery registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: digital-maps-gis-and-satellite-imagery
+        record_id: digital-maps-et-gis
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30188
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Digitaalsed kaardid
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - digital_map
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+          - visual_or_map
+        selection_rationale: Digitaalsed kaardid supplies exact committed-route evidence for Trüki- ja arvutikaardid in the digital-maps-gis-and-satellite-imagery registry group; programme eligibility remains unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: digital-maps-ru-gis
+          programme_type: unknown
+        - record_id: digital-maps-et-gis
+          programme_type: unknown
+      bridging_content: independently_authored_practical_required
+    bridge_requirement:
+      required: true
+      reason: The registered GIS pages support print-versus-digital comparison, but they do not provide the specified learner-created school-route mapping workflow or its assessment rubric.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 geography route supplies positive content evidence for Trüki- ja arvutikaardid, but the documented activity or assessment gap keeps this mapping partial; programme type and default-course eligibility remain independently unresolved.
+    gap_notes:
+      - The registered GIS pages support print-versus-digital comparison, but they do not provide the specified learner-created school-route mapping workflow or its assessment rubric.
+  - mapping_id: lesson-004
+    source_record_kind: lesson_range
+    source_block_id: kaardiopetus
+    lesson_start: 4
+    lesson_end: 4
+    source_pages:
+      - 3
+    source_topic_et: Mõõtkava
+    normalized_mapping_topic_et: Mõõtkava
+    topic_inventory_refs:
+      - scale-distance-directions-and-orientation
+    coverage_status: matched
+    opiq_matches:
+      - topic_inventory_ref: scale-distance-directions-and-orientation
+        record_id: scale-distance-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16605
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Масштаб, измерение расстояний на местности и по карте
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - map_skill
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+          - visual_or_map
+        selection_rationale: Масштаб, измерение расстояний на местности и по карте supplies exact committed-route evidence for Mõõtkava in the scale-distance-directions-and-orientation registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: scale-distance-directions-and-orientation
+        record_id: scale-distance-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30152
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Mõõtkava ja vahemaade mõõtmine
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - map_skill
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+          - practical_work
+          - visual_or_map
+          - assessment
+        selection_rationale: Mõõtkava ja vahemaade mõõtmine supplies exact committed-route evidence for Mõõtkava in the scale-distance-directions-and-orientation registry group; programme eligibility remains unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: scale-distance-ru-core
+          programme_type: unknown
+        - record_id: scale-distance-et-core
+          programme_type: unknown
+      bridging_content: none
+    bridge_requirement:
+      required: false
+      reason: The registered exact-route pages cover the complete source-row content and required page-level task evidence; no independently authored bridge is required for this classification.
+    mapping_confidence: high
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 geography route covers the full content and required page-level task scope of Mõõtkava; programme type and default-course eligibility remain independently unresolved.
+    gap_notes: []
+  - mapping_id: lesson-005
+    source_record_kind: lesson_range
+    source_block_id: kaardiopetus
+    lesson_start: 5
+    lesson_end: 5
+    source_pages:
+      - 3
+      - 4
+    source_topic_et: Suunad looduses ja kaardil
+    normalized_mapping_topic_et: Suunad looduses ja kaardil
+    topic_inventory_refs:
+      - scale-distance-directions-and-orientation
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: scale-distance-directions-and-orientation
+        record_id: orientation-ru-field
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16608
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Ориентирова­ние на местности и по карте
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - map_skill
+          - fieldwork
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+          - fieldwork
+          - visual_or_map
+        selection_rationale: Ориентирова­ние на местности и по карте supplies exact committed-route evidence for Suunad looduses ja kaardil in the scale-distance-directions-and-orientation registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: scale-distance-directions-and-orientation
+        record_id: orientation-et-field
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30153
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Suunad looduses ja kaardil
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - map_skill
+          - fieldwork
+          - oral_answer_et
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+          - fieldwork
+          - visual_or_map
+        selection_rationale: Suunad looduses ja kaardil supplies exact committed-route evidence for Suunad looduses ja kaardil in the scale-distance-directions-and-orientation registry group; programme eligibility remains unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: orientation-ru-field
+          programme_type: unknown
+        - record_id: orientation-et-field
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: Direction and azimuth work is explicit, but the canonical pages do not provide the teacher-plan self-assessment rubric for practical direction finding.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 geography route supplies positive content evidence for Suunad looduses ja kaardil, but the documented activity or assessment gap keeps this mapping partial; programme type and default-course eligibility remain independently unresolved.
+    gap_notes:
+      - Direction and azimuth work is explicit, but the canonical pages do not provide the teacher-plan self-assessment rubric for practical direction finding.
+  - mapping_id: lesson-006
+    source_record_kind: lesson_range
+    source_block_id: kaardiopetus
+    lesson_start: 6
+    lesson_end: 6
+    source_pages:
+      - 4
+    source_topic_et: Orienteerumine kaardi ja kompassiga
+    normalized_mapping_topic_et: Orienteerumine kaardi ja kompassiga
+    topic_inventory_refs:
+      - scale-distance-directions-and-orientation
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: scale-distance-directions-and-orientation
+        record_id: orientation-ru-field
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16608
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Ориентирова­ние на местности и по карте
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - map_skill
+          - fieldwork
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+          - fieldwork
+          - visual_or_map
+        selection_rationale: Ориентирова­ние на местности и по карте supplies exact committed-route evidence for Orienteerumine kaardi ja kompassiga in the scale-distance-directions-and-orientation registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: scale-distance-directions-and-orientation
+        record_id: orientation-et-field
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30153
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Suunad looduses ja kaardil
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - map_skill
+          - fieldwork
+          - oral_answer_et
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+          - fieldwork
+          - visual_or_map
+        selection_rationale: Suunad looduses ja kaardil supplies exact committed-route evidence for Orienteerumine kaardi ja kompassiga in the scale-distance-directions-and-orientation registry group; programme eligibility remains unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: orientation-ru-field
+          programme_type: unknown
+        - record_id: orientation-et-field
+          programme_type: unknown
+      bridging_content: independently_authored_practical_required
+    bridge_requirement:
+      required: true
+      reason: The pages support compass and map orientation in the field, but they do not supply the complete outdoor procedure, observation checklist and assessment rubric required by the source row.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 geography route supplies positive content evidence for Orienteerumine kaardi ja kompassiga, but the documented activity or assessment gap keeps this mapping partial; programme type and default-course eligibility remain independently unresolved.
+    gap_notes:
+      - The pages support compass and map orientation in the field, but they do not supply the complete outdoor procedure, observation checklist and assessment rubric required by the source row.
+  - mapping_id: lesson-007
+    source_record_kind: lesson_range
+    source_block_id: kaardiopetus
+    lesson_start: 7
+    lesson_end: 7
+    source_pages:
+      - 4
+    source_topic_et: Plaani koostamine ja orienteerimine
+    normalized_mapping_topic_et: Plaani koostamine ja orienteerimine
+    topic_inventory_refs:
+      - scale-distance-directions-and-orientation
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: scale-distance-directions-and-orientation
+        record_id: orientation-ru-field
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16608
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Ориентирова­ние на местности и по карте
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - map_skill
+          - fieldwork
+        match_strength: supporting
+        match_scope:
+          - core_content
+          - practice
+          - fieldwork
+          - visual_or_map
+        selection_rationale: Ориентирова­ние на местности и по карте supplies supporting committed-route evidence for Plaani koostamine ja orienteerimine in the scale-distance-directions-and-orientation registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: scale-distance-directions-and-orientation
+        record_id: orientation-et-field
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30153
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Suunad looduses ja kaardil
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - map_skill
+          - fieldwork
+          - oral_answer_et
+        match_strength: supporting
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+          - fieldwork
+          - visual_or_map
+        selection_rationale: Suunad looduses ja kaardil supplies supporting committed-route evidence for Plaani koostamine ja orienteerimine in the scale-distance-directions-and-orientation registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: scale-distance-directions-and-orientation
+        record_id: scale-distance-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30152
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Mõõtkava ja vahemaade mõõtmine
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - map_skill
+        match_strength: supporting
+        match_scope:
+          - terminology
+          - practice
+          - visual_or_map
+        selection_rationale: Mõõtkava ja vahemaade mõõtmine supplies supporting committed-route evidence for Plaani koostamine ja orienteerimine in the scale-distance-directions-and-orientation registry group; programme eligibility remains unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: orientation-ru-field
+          programme_type: unknown
+        - record_id: orientation-et-field
+          programme_type: unknown
+        - record_id: scale-distance-et-core
+          programme_type: unknown
+      bridging_content: independently_authored_practical_required
+    bridge_requirement:
+      required: true
+      reason: The registered pages support orientation, scale and direction, but not the full step-pair measurement, school-surroundings plan construction and group-assessment protocol.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 geography route supplies positive content evidence for Plaani koostamine ja orienteerimine, but the documented activity or assessment gap keeps this mapping partial; programme type and default-course eligibility remain independently unresolved.
+    gap_notes:
+      - The registered pages support orientation, scale and direction, but not the full step-pair measurement, school-surroundings plan construction and group-assessment protocol.
+  - mapping_id: lesson-008
+    source_record_kind: lesson_range
+    source_block_id: kaardiopetus
+    lesson_start: 8
+    lesson_end: 8
+    source_pages:
+      - 4
+    source_topic_et: Geograafilised koordinaadid
+    normalized_mapping_topic_et: Geograafilised koordinaadid
+    topic_inventory_refs:
+      - geographic-coordinates
+    coverage_status: matched
+    opiq_matches:
+      - topic_inventory_ref: geographic-coordinates
+        record_id: coordinates-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16609
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Определение местонахожд­ения и географичес­кие координаты
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - map_skill
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+          - visual_or_map
+        selection_rationale: Определение местонахожд­ения и географичес­кие координаты supplies exact committed-route evidence for Geograafilised koordinaadid in the geographic-coordinates registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: geographic-coordinates
+        record_id: coordinates-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30187
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Asukoha määramine. Geograafilised koordinaadid
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - map_skill
+          - digital_map
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+          - visual_or_map
+          - assessment
+        selection_rationale: Asukoha määramine. Geograafilised koordinaadid supplies exact committed-route evidence for Geograafilised koordinaadid in the geographic-coordinates registry group; programme eligibility remains unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: coordinates-ru-core
+          programme_type: unknown
+        - record_id: coordinates-et-core
+          programme_type: unknown
+      bridging_content: none
+    bridge_requirement:
+      required: false
+      reason: The registered exact-route pages cover the complete source-row content and required page-level task evidence; no independently authored bridge is required for this classification.
+    mapping_confidence: high
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 geography route covers the full content and required page-level task scope of Geograafilised koordinaadid; programme type and default-course eligibility remain independently unresolved.
+    gap_notes: []
+  - mapping_id: lesson-009
+    source_record_kind: lesson_range
+    source_block_id: kaardiopetus
+    lesson_start: 9
+    lesson_end: 9
+    source_pages:
+      - 4
+      - 5
+    source_topic_et: Ajavööndid
+    normalized_mapping_topic_et: Ajavööndid
+    topic_inventory_refs:
+      - time-zones-and-date-line
+    coverage_status: matched
+    opiq_matches:
+      - topic_inventory_ref: time-zones-and-date-line
+        record_id: time-zones-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16610
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Часовые пояса
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - map_skill
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+          - visual_or_map
+        selection_rationale: Часовые пояса supplies exact committed-route evidence for Ajavööndid in the time-zones-and-date-line registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: time-zones-and-date-line
+        record_id: time-zones-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30203
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Ajavööndid
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - map_skill
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+          - visual_or_map
+          - assessment
+        selection_rationale: Ajavööndid supplies exact committed-route evidence for Ajavööndid in the time-zones-and-date-line registry group; programme eligibility remains unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: time-zones-ru-core
+          programme_type: unknown
+        - record_id: time-zones-et-core
+          programme_type: unknown
+      bridging_content: none
+    bridge_requirement:
+      required: false
+      reason: The registered exact-route pages cover the complete source-row content and required page-level task evidence; no independently authored bridge is required for this classification.
+    mapping_confidence: high
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 geography route covers the full content and required page-level task scope of Ajavööndid; programme type and default-course eligibility remain independently unresolved.
+    gap_notes: []
+  - mapping_id: lesson-010
+    source_record_kind: lesson_range
+    source_block_id: kaardiopetus
+    lesson_start: 10
+    lesson_end: 10
+    source_pages:
+      - 5
+    source_topic_et: Kaardiõpetuse kordamine
+    normalized_mapping_topic_et: Kaardiõpetuse kordamine
+    topic_inventory_refs:
+      - map-types-atlases-legends-and-generalization
+      - time-zones-and-date-line
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: map-types-atlases-legends-and-generalization
+        record_id: map-types-et-review
+        canonical_url: https://www.opiq.ee/kit/96/chapter/4664
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_est
+        title: Kokkuvõte kaardiõpetuse kordamiseks
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - practice_et
+          - revision
+          - assessment
+        match_strength: exact
+        match_scope:
+          - practice
+          - revision
+          - assessment
+          - visual_or_map
+        selection_rationale: Kokkuvõte kaardiõpetuse kordamiseks supplies exact committed-route evidence for Kaardiõpetuse kordamine in the map-types-atlases-legends-and-generalization registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: time-zones-and-date-line
+        record_id: time-zones-ru-review
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16611
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: "Подведение итогов и повторение: Картография"
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - practice_ru
+          - revision
+          - assessment
+        match_strength: supporting
+        match_scope:
+          - practice
+          - revision
+          - assessment
+          - visual_or_map
+        selection_rationale: "Подведение итогов и повторение: Картография supplies supporting committed-route evidence for Kaardiõpetuse kordamine in the time-zones-and-date-line registry group; programme eligibility remains unverified."
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: map-types-et-review
+          programme_type: unknown
+        - record_id: time-zones-ru-review
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: The route supplies section-level cartography revision, but it does not register the teacher-plan olympiad task set as an exact assessment artifact.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 geography route supplies positive content evidence for Kaardiõpetuse kordamine, but the documented activity or assessment gap keeps this mapping partial; programme type and default-course eligibility remain independently unresolved.
+    gap_notes:
+      - The route supplies section-level cartography revision, but it does not register the teacher-plan olympiad task set as an exact assessment artifact.
+  - mapping_id: lesson-011
+    source_record_kind: lesson_range
+    source_block_id: kaardiopetus
+    lesson_start: 11
+    lesson_end: 11
+    source_pages:
+      - 5
+    source_topic_et: Kaardiõpetuse kontrolltöö
+    normalized_mapping_topic_et: Kaardiõpetuse kontrolltöö
+    topic_inventory_refs:
+      - map-types-atlases-legends-and-generalization
+      - time-zones-and-date-line
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: map-types-atlases-legends-and-generalization
+        record_id: map-types-et-review
+        canonical_url: https://www.opiq.ee/kit/96/chapter/4664
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_est
+        title: Kokkuvõte kaardiõpetuse kordamiseks
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - practice_et
+          - revision
+          - assessment
+        match_strength: supporting
+        match_scope:
+          - practice
+          - revision
+          - assessment
+        selection_rationale: Kokkuvõte kaardiõpetuse kordamiseks supplies supporting committed-route evidence for Kaardiõpetuse kontrolltöö in the map-types-atlases-legends-and-generalization registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: time-zones-and-date-line
+        record_id: time-zones-ru-review
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16611
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: "Подведение итогов и повторение: Картография"
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - practice_ru
+          - revision
+          - assessment
+        match_strength: supporting
+        match_scope:
+          - practice
+          - revision
+          - assessment
+        selection_rationale: "Подведение итогов и повторение: Картография supplies supporting committed-route evidence for Kaardiõpetuse kontrolltöö in the time-zones-and-date-line registry group; programme eligibility remains unverified."
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: map-types-et-review
+          programme_type: unknown
+        - record_id: time-zones-ru-review
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: Section-level revision and assessment pages do not establish the complete teacher control work required by the source row.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 geography route supplies positive content evidence for Kaardiõpetuse kontrolltöö, but the documented activity or assessment gap keeps this mapping partial; programme type and default-course eligibility remain independently unresolved.
+    gap_notes:
+      - Section-level revision and assessment pages do not establish the complete teacher control work required by the source row.
+  - mapping_id: lesson-012
+    source_record_kind: lesson_range
+    source_block_id: geoloogia
+    lesson_start: 12
+    lesson_end: 12
+    source_pages:
+      - 6
+    source_topic_et: Kontrolltöö analüüs ja Maa siseehitus
+    normalized_mapping_topic_et: Kontrolltöö analüüs ja Maa siseehitus
+    topic_inventory_refs:
+      - time-zones-and-date-line
+      - earth-interior-and-plate-tectonics
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: time-zones-and-date-line
+        record_id: time-zones-ru-review
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16611
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: "Подведение итогов и повторение: Картография"
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - practice_ru
+          - revision
+          - assessment
+        match_strength: supporting
+        match_scope:
+          - revision
+          - assessment
+        selection_rationale: "Подведение итогов и повторение: Картография supplies supporting committed-route evidence for Kontrolltöö analüüs ja Maa siseehitus in the time-zones-and-date-line registry group; programme eligibility remains unverified."
+      - topic_inventory_ref: earth-interior-and-plate-tectonics
+        record_id: earth-interior-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16621
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Внутреннее строение Земли. Земная кора
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - bilingual_visual
+        match_strength: exact
+        match_scope:
+          - core_content
+          - visual_or_map
+        selection_rationale: Внутреннее строение Земли. Земная кора supplies exact committed-route evidence for Kontrolltöö analüüs ja Maa siseehitus in the earth-interior-and-plate-tectonics registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: earth-interior-and-plate-tectonics
+        record_id: earth-interior-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30034
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Maa siseehitus. Laamad
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - bilingual_visual
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - visual_or_map
+        selection_rationale: Maa siseehitus. Laamad supplies exact committed-route evidence for Kontrolltöö analüüs ja Maa siseehitus in the earth-interior-and-plate-tectonics registry group; programme eligibility remains unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: time-zones-ru-review
+          programme_type: unknown
+        - record_id: earth-interior-ru-core
+          programme_type: unknown
+        - record_id: earth-interior-et-core
+          programme_type: unknown
+      bridging_content: teacher_review_required
+    bridge_requirement:
+      required: true
+      reason: Earth-interior content is explicit, but analysis of the preceding teacher control work depends on teacher-held results and criteria that are not registered in the route.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 geography route supplies positive content evidence for Kontrolltöö analüüs ja Maa siseehitus, but the documented activity or assessment gap keeps this mapping partial; programme type and default-course eligibility remain independently unresolved.
+    gap_notes:
+      - Earth-interior content is explicit, but analysis of the preceding teacher control work depends on teacher-held results and criteria that are not registered in the route.
+  - mapping_id: lesson-013
+    source_record_kind: lesson_range
+    source_block_id: geoloogia
+    lesson_start: 13
+    lesson_end: 13
+    source_pages:
+      - 7
+    source_topic_et: Laamad
+    normalized_mapping_topic_et: Laamad
+    topic_inventory_refs:
+      - earth-interior-and-plate-tectonics
+    coverage_status: matched
+    opiq_matches:
+      - topic_inventory_ref: earth-interior-and-plate-tectonics
+        record_id: plate-tectonics-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16622
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Литосферные плиты и их движение
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - bilingual_visual
+          - map_skill
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - visual_or_map
+        selection_rationale: Литосферные плиты и их движение supplies exact committed-route evidence for Laamad in the earth-interior-and-plate-tectonics registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: earth-interior-and-plate-tectonics
+        record_id: earth-interior-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30034
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Maa siseehitus. Laamad
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - bilingual_visual
+        match_strength: strong
+        match_scope:
+          - core_content
+          - terminology
+          - visual_or_map
+        selection_rationale: Maa siseehitus. Laamad supplies strong committed-route evidence for Laamad in the earth-interior-and-plate-tectonics registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: earth-interior-and-plate-tectonics
+        record_id: plate-processes-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30221
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Geoloogilised protsessid laamade servaaladel
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - map_skill
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+          - visual_or_map
+          - assessment
+        selection_rationale: Geoloogilised protsessid laamade servaaladel supplies exact committed-route evidence for Laamad in the earth-interior-and-plate-tectonics registry group; programme eligibility remains unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: plate-tectonics-ru-core
+          programme_type: unknown
+        - record_id: earth-interior-et-core
+          programme_type: unknown
+        - record_id: plate-processes-et-core
+          programme_type: unknown
+      bridging_content: none
+    bridge_requirement:
+      required: false
+      reason: The registered exact-route pages cover the complete source-row content and required page-level task evidence; no independently authored bridge is required for this classification.
+    mapping_confidence: high
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 geography route covers the full content and required page-level task scope of Laamad; programme type and default-course eligibility remain independently unresolved.
+    gap_notes: []
+  - mapping_id: lesson-014
+    source_record_kind: lesson_range
+    source_block_id: geoloogia
+    lesson_start: 14
+    lesson_end: 14
+    source_pages:
+      - 7
+    source_topic_et: Laamade liikumine ja kaasnevad protsessid
+    normalized_mapping_topic_et: Laamade liikumine ja kaasnevad protsessid
+    topic_inventory_refs:
+      - earth-interior-and-plate-tectonics
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: earth-interior-and-plate-tectonics
+        record_id: plate-tectonics-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16622
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Литосферные плиты и их движение
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - bilingual_visual
+          - map_skill
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - visual_or_map
+        selection_rationale: Литосферные плиты и их движение supplies exact committed-route evidence for Laamade liikumine ja kaasnevad protsessid in the earth-interior-and-plate-tectonics registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: earth-interior-and-plate-tectonics
+        record_id: plate-processes-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30221
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Geoloogilised protsessid laamade servaaladel
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - map_skill
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+          - visual_or_map
+        selection_rationale: Geoloogilised protsessid laamade servaaladel supplies exact committed-route evidence for Laamade liikumine ja kaasnevad protsessid in the earth-interior-and-plate-tectonics registry group; programme eligibility remains unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: plate-tectonics-ru-core
+          programme_type: unknown
+        - record_id: plate-processes-et-core
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: The pages explain plate-boundary processes, but they do not provide the required concept-map and connected-text product rubric.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 geography route supplies positive content evidence for Laamade liikumine ja kaasnevad protsessid, but the documented activity or assessment gap keeps this mapping partial; programme type and default-course eligibility remain independently unresolved.
+    gap_notes:
+      - The pages explain plate-boundary processes, but they do not provide the required concept-map and connected-text product rubric.
+  - mapping_id: lesson-015
+    source_record_kind: lesson_range
+    source_block_id: geoloogia
+    lesson_start: 15
+    lesson_end: 15
+    source_pages:
+      - 7
+      - 8
+    source_topic_et: Maavärinad
+    normalized_mapping_topic_et: Maavärinad
+    topic_inventory_refs:
+      - earthquakes-volcanoes-and-tsunamis
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: earthquakes-volcanoes-and-tsunamis
+        record_id: earthquakes-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16623
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Землетрясения
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - map_skill
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+          - visual_or_map
+        selection_rationale: Землетрясения supplies exact committed-route evidence for Maavärinad in the earthquakes-volcanoes-and-tsunamis registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: earthquakes-volcanoes-and-tsunamis
+        record_id: earthquakes-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30262
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Maavärinad
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - map_skill
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+          - visual_or_map
+        selection_rationale: Maavärinad supplies exact committed-route evidence for Maavärinad in the earthquakes-volcanoes-and-tsunamis registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: earthquakes-volcanoes-and-tsunamis
+        record_id: seismic-risk-ru-case
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16626
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Жизнь людей в регионах вулканических извержений и землетрясений
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - data_interpretation
+          - optional_extension
+        match_strength: strong
+        match_scope:
+          - core_content
+          - practice
+          - assessment
+        selection_rationale: Жизнь людей в регионах вулканических извержений и землетрясений supplies strong committed-route evidence for Maavärinad in the earthquakes-volcanoes-and-tsunamis registry group; programme eligibility remains unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: earthquakes-ru-core
+          programme_type: unknown
+        - record_id: earthquakes-et-core
+          programme_type: unknown
+        - record_id: seismic-risk-ru-case
+          programme_type: unknown
+      bridging_content: independently_authored_practical_required
+    bridge_requirement:
+      required: true
+      reason: Earthquake, tsunami and safety evidence is explicit, but the route does not register the specified real-time map investigation and group-analysis protocol as a complete activity.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 geography route supplies positive content evidence for Maavärinad, but the documented activity or assessment gap keeps this mapping partial; programme type and default-course eligibility remain independently unresolved.
+    gap_notes:
+      - Earthquake, tsunami and safety evidence is explicit, but the route does not register the specified real-time map investigation and group-analysis protocol as a complete activity.
+  - mapping_id: lesson-016
+    source_record_kind: lesson_range
+    source_block_id: geoloogia
+    lesson_start: 16
+    lesson_end: 16
+    source_pages:
+      - 8
+    source_topic_et: Vulkanism
+    normalized_mapping_topic_et: Vulkanism
+    topic_inventory_refs:
+      - earthquakes-volcanoes-and-tsunamis
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: earthquakes-volcanoes-and-tsunamis
+        record_id: volcanoes-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16624
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Вулканы
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+          - visual_or_map
+        selection_rationale: Вулканы supplies exact committed-route evidence for Vulkanism in the earthquakes-volcanoes-and-tsunamis registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: earthquakes-volcanoes-and-tsunamis
+        record_id: volcanoes-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30263
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Vulkaanid
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - bilingual_visual
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - visual_or_map
+        selection_rationale: Vulkaanid supplies exact committed-route evidence for Vulkanism in the earthquakes-volcanoes-and-tsunamis registry group; programme eligibility remains unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: volcanoes-ru-core
+          programme_type: unknown
+        - record_id: volcanoes-et-core
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: Volcanism content and distribution are explicit, but the teacher-plan eruption concept map and learner self-assessment rubric are not registered.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 geography route supplies positive content evidence for Vulkanism, but the documented activity or assessment gap keeps this mapping partial; programme type and default-course eligibility remain independently unresolved.
+    gap_notes:
+      - Volcanism content and distribution are explicit, but the teacher-plan eruption concept map and learner self-assessment rubric are not registered.
+  - mapping_id: lesson-017
+    source_record_kind: lesson_range
+    source_block_id: geoloogia
+    lesson_start: 17
+    lesson_end: 17
+    source_pages:
+      - 9
+    source_topic_et: Kivimid ja kivimite teke
+    normalized_mapping_topic_et: Kivimid ja kivimite teke
+    topic_inventory_refs:
+      - rocks-sediments-and-rock-cycle
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: rocks-sediments-and-rock-cycle
+        record_id: rocks-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16625
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Горные породы и их образование
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+          - visual_or_map
+        selection_rationale: Горные породы и их образование supplies exact committed-route evidence for Kivimid ja kivimite teke in the rocks-sediments-and-rock-cycle registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: rocks-sediments-and-rock-cycle
+        record_id: rocks-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30394
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Kivimid
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - bilingual_visual
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+          - visual_or_map
+        selection_rationale: Kivimid supplies exact committed-route evidence for Kivimid ja kivimite teke in the rocks-sediments-and-rock-cycle registry group; programme eligibility remains unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: rocks-ru-core
+          programme_type: unknown
+        - record_id: rocks-et-core
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: Rock types, formation and the rock cycle are explicit, but the route does not provide the source row’s group explanation or concept-map assessment rubric.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 geography route supplies positive content evidence for Kivimid ja kivimite teke, but the documented activity or assessment gap keeps this mapping partial; programme type and default-course eligibility remain independently unresolved.
+    gap_notes:
+      - Rock types, formation and the rock cycle are explicit, but the route does not provide the source row’s group explanation or concept-map assessment rubric.
+  - mapping_id: lesson-018
+    source_record_kind: lesson_range
+    source_block_id: geoloogia
+    lesson_start: 18
+    lesson_end: 18
+    source_pages:
+      - 9
+    source_topic_et: Kivimite iseloomustamine ja kasutamine
+    normalized_mapping_topic_et: Kivimite iseloomustamine ja kasutamine
+    topic_inventory_refs:
+      - rocks-sediments-and-rock-cycle
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: rocks-sediments-and-rock-cycle
+        record_id: rocks-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16625
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Горные породы и их образование
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        match_strength: supporting
+        match_scope:
+          - core_content
+          - practice
+          - visual_or_map
+        selection_rationale: Горные породы и их образование supplies supporting committed-route evidence for Kivimite iseloomustamine ja kasutamine in the rocks-sediments-and-rock-cycle registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: rocks-sediments-and-rock-cycle
+        record_id: rocks-et-resources
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30421
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Maavarad ja kivimite kasutamine
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - data_interpretation
+          - optional_extension
+        match_strength: strong
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: Maavarad ja kivimite kasutamine supplies strong committed-route evidence for Kivimite iseloomustamine ja kasutamine in the rocks-sediments-and-rock-cycle registry group; programme eligibility remains unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: rocks-ru-core
+          programme_type: unknown
+        - record_id: rocks-et-resources
+          programme_type: unknown
+      bridging_content: independently_authored_practical_required
+    bridge_requirement:
+      required: true
+      reason: Explanation and use evidence does not provide a hands-on rock-and-sediment specimen protocol, observation table or practical-work rubric.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 geography route supplies positive content evidence for Kivimite iseloomustamine ja kasutamine, but the documented activity or assessment gap keeps this mapping partial; programme type and default-course eligibility remain independently unresolved.
+    gap_notes:
+      - Explanation and use evidence does not provide a hands-on rock-and-sediment specimen protocol, observation table or practical-work rubric.
+  - mapping_id: lesson-019
+    source_record_kind: lesson_range
+    source_block_id: geoloogia
+    lesson_start: 19
+    lesson_end: 19
+    source_pages:
+      - 9
+      - 10
+    source_topic_et: Geoloogia kordamine
+    normalized_mapping_topic_et: Geoloogia kordamine
+    topic_inventory_refs:
+      - rocks-sediments-and-rock-cycle
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: rocks-sediments-and-rock-cycle
+        record_id: rocks-ru-review
+        canonical_url: https://www.opiq.ee/kit/19/chapter/881
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_rus
+        title: "Повторение: геология"
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - practice_ru
+          - revision
+          - assessment
+        match_strength: exact
+        match_scope:
+          - practice
+          - revision
+          - assessment
+        selection_rationale: "Повторение: геология supplies exact committed-route evidence for Geoloogia kordamine in the rocks-sediments-and-rock-cycle registry group; programme eligibility remains unverified."
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: rocks-ru-review
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: The registered page supplies geology revision, but it does not include the teacher-plan olympiad task set as an exact assessment artifact.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 geography route supplies positive content evidence for Geoloogia kordamine, but the documented activity or assessment gap keeps this mapping partial; programme type and default-course eligibility remain independently unresolved.
+    gap_notes:
+      - The registered page supplies geology revision, but it does not include the teacher-plan olympiad task set as an exact assessment artifact.
+  - mapping_id: lesson-020
+    source_record_kind: lesson_range
+    source_block_id: geoloogia
+    lesson_start: 20
+    lesson_end: 20
+    source_pages:
+      - 10
+    source_topic_et: Geoloogia kontrolltöö
+    normalized_mapping_topic_et: Geoloogia kontrolltöö
+    topic_inventory_refs:
+      - rocks-sediments-and-rock-cycle
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: rocks-sediments-and-rock-cycle
+        record_id: rocks-ru-review
+        canonical_url: https://www.opiq.ee/kit/19/chapter/881
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_rus
+        title: "Повторение: геология"
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - practice_ru
+          - revision
+          - assessment
+        match_strength: supporting
+        match_scope:
+          - practice
+          - revision
+          - assessment
+        selection_rationale: "Повторение: геология supplies supporting committed-route evidence for Geoloogia kontrolltöö in the rocks-sediments-and-rock-cycle registry group; programme eligibility remains unverified."
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: rocks-ru-review
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: The revision page provides assessment support but does not establish the complete teacher control work required by the source row.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 geography route supplies positive content evidence for Geoloogia kontrolltöö, but the documented activity or assessment gap keeps this mapping partial; programme type and default-course eligibility remain independently unresolved.
+    gap_notes:
+      - The revision page provides assessment support but does not establish the complete teacher control work required by the source row.
+  - mapping_id: lesson-021
+    source_record_kind: lesson_range
+    source_block_id: pinnamood
+    lesson_start: 21
+    lesson_end: 21
+    source_pages:
+      - 11
+    source_topic_et: Kontrolltöö analüüs ning pinnavormid ja pinnamood
+    normalized_mapping_topic_et: Kontrolltöö analüüs ning pinnavormid ja pinnamood
+    topic_inventory_refs:
+      - rocks-sediments-and-rock-cycle
+      - relief-landforms-and-elevation-mapping
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: rocks-sediments-and-rock-cycle
+        record_id: rocks-ru-review
+        canonical_url: https://www.opiq.ee/kit/19/chapter/881
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_rus
+        title: "Повторение: геология"
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - practice_ru
+          - revision
+          - assessment
+        match_strength: supporting
+        match_scope:
+          - revision
+          - assessment
+        selection_rationale: "Повторение: геология supplies supporting committed-route evidence for Kontrolltöö analüüs ning pinnavormid ja pinnamood in the rocks-sediments-and-rock-cycle registry group; programme eligibility remains unverified."
+      - topic_inventory_ref: relief-landforms-and-elevation-mapping
+        record_id: relief-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16628
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Рельеф и формы рельефа. Океанические впадины и материки
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - bilingual_visual
+          - map_skill
+        match_strength: exact
+        match_scope:
+          - core_content
+          - visual_or_map
+        selection_rationale: Рельеф и формы рельефа. Океанические впадины и материки supplies exact committed-route evidence for Kontrolltöö analüüs ning pinnavormid ja pinnamood in the relief-landforms-and-elevation-mapping registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: relief-landforms-and-elevation-mapping
+        record_id: relief-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30423
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Pinnamood ja pinnavormid
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - bilingual_visual
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - visual_or_map
+        selection_rationale: Pinnamood ja pinnavormid supplies exact committed-route evidence for Kontrolltöö analüüs ning pinnavormid ja pinnamood in the relief-landforms-and-elevation-mapping registry group; programme eligibility remains unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: rocks-ru-review
+          programme_type: unknown
+        - record_id: relief-ru-core
+          programme_type: unknown
+        - record_id: relief-et-core
+          programme_type: unknown
+      bridging_content: teacher_review_required
+    bridge_requirement:
+      required: true
+      reason: Relief concepts are explicit, but analysis of the preceding teacher control work requires teacher-held results and criteria absent from the registered route.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 geography route supplies positive content evidence for Kontrolltöö analüüs ning pinnavormid ja pinnamood, but the documented activity or assessment gap keeps this mapping partial; programme type and default-course eligibility remain independently unresolved.
+    gap_notes:
+      - Relief concepts are explicit, but analysis of the preceding teacher control work requires teacher-held results and criteria absent from the registered route.
+  - mapping_id: lesson-022
+    source_record_kind: lesson_range
+    source_block_id: pinnamood
+    lesson_start: 22
+    lesson_end: 22
+    source_pages:
+      - 11
+      - 12
+    source_topic_et: Pinnamoe kujutamine kaartidel
+    normalized_mapping_topic_et: Pinnamoe kujutamine kaartidel
+    topic_inventory_refs:
+      - relief-landforms-and-elevation-mapping
+    coverage_status: matched
+    opiq_matches:
+      - topic_inventory_ref: relief-landforms-and-elevation-mapping
+        record_id: relief-map-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16629
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Изображение рельефа на карте
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - map_skill
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+          - visual_or_map
+        selection_rationale: Изображение рельефа на карте supplies exact committed-route evidence for Pinnamoe kujutamine kaartidel in the relief-landforms-and-elevation-mapping registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: relief-landforms-and-elevation-mapping
+        record_id: relief-map-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30071
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Pinnamoe kujutamine kaardil
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - map_skill
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+          - visual_or_map
+          - assessment
+        selection_rationale: Pinnamoe kujutamine kaardil supplies exact committed-route evidence for Pinnamoe kujutamine kaartidel in the relief-landforms-and-elevation-mapping registry group; programme eligibility remains unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: relief-map-ru-core
+          programme_type: unknown
+        - record_id: relief-map-et-core
+          programme_type: unknown
+      bridging_content: none
+    bridge_requirement:
+      required: false
+      reason: The registered exact-route pages cover the complete source-row content and required page-level task evidence; no independently authored bridge is required for this classification.
+    mapping_confidence: high
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 geography route covers the full content and required page-level task scope of Pinnamoe kujutamine kaartidel; programme type and default-course eligibility remain independently unresolved.
+    gap_notes: []
+  - mapping_id: lesson-023
+    source_record_kind: lesson_range
+    source_block_id: pinnamood
+    lesson_start: 23
+    lesson_end: 23
+    source_pages:
+      - 12
+    source_topic_et: Mäestikud ja mägismaad
+    normalized_mapping_topic_et: Mäestikud ja mägismaad
+    topic_inventory_refs:
+      - mountains-plains-and-ocean-floor-relief
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: mountains-plains-and-ocean-floor-relief
+        record_id: mountains-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16632
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Горы и нагорья
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - map_skill
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+          - visual_or_map
+        selection_rationale: Горы и нагорья supplies exact committed-route evidence for Mäestikud ja mägismaad in the mountains-plains-and-ocean-floor-relief registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: mountains-plains-and-ocean-floor-relief
+        record_id: mountains-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30425
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Mäestikud ja mägismaad
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - map_skill
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+          - visual_or_map
+        selection_rationale: Mäestikud ja mägismaad supplies exact committed-route evidence for Mäestikud ja mägismaad in the mountains-plains-and-ocean-floor-relief registry group; programme eligibility remains unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: mountains-ru-core
+          programme_type: unknown
+        - record_id: mountains-et-core
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: Mountain and highland comparison is explicit, but the registered pages do not provide the complete contour-map product and assessment rubric required by the source row.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 geography route supplies positive content evidence for Mäestikud ja mägismaad, but the documented activity or assessment gap keeps this mapping partial; programme type and default-course eligibility remain independently unresolved.
+    gap_notes:
+      - Mountain and highland comparison is explicit, but the registered pages do not provide the complete contour-map product and assessment rubric required by the source row.
+  - mapping_id: lesson-024
+    source_record_kind: lesson_range
+    source_block_id: pinnamood
+    lesson_start: 24
+    lesson_end: 24
+    source_pages:
+      - 12
+    source_topic_et: Tasandikud
+    normalized_mapping_topic_et: Tasandikud
+    topic_inventory_refs:
+      - mountains-plains-and-ocean-floor-relief
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: mountains-plains-and-ocean-floor-relief
+        record_id: plains-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16631
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Равнины
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - map_skill
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+          - visual_or_map
+        selection_rationale: Равнины supplies exact committed-route evidence for Tasandikud in the mountains-plains-and-ocean-floor-relief registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: mountains-plains-and-ocean-floor-relief
+        record_id: plains-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30446
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Tasandikud
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - map_skill
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+          - visual_or_map
+        selection_rationale: Tasandikud supplies exact committed-route evidence for Tasandikud in the mountains-plains-and-ocean-floor-relief registry group; programme eligibility remains unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: plains-ru-core
+          programme_type: unknown
+        - record_id: plains-et-core
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: Plains and human-activity comparison are explicit, but the contour-map product and comparative assessment rubric are not registered.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 geography route supplies positive content evidence for Tasandikud, but the documented activity or assessment gap keeps this mapping partial; programme type and default-course eligibility remain independently unresolved.
+    gap_notes:
+      - Plains and human-activity comparison are explicit, but the contour-map product and comparative assessment rubric are not registered.
+  - mapping_id: lesson-025
+    source_record_kind: lesson_range
+    source_block_id: pinnamood
+    lesson_start: 25
+    lesson_end: 25
+    source_pages:
+      - 12
+    source_topic_et: Maailmamere põhjareljeef
+    normalized_mapping_topic_et: Maailmamere põhjareljeef
+    topic_inventory_refs:
+      - earth-interior-and-plate-tectonics
+      - mountains-plains-and-ocean-floor-relief
+    coverage_status: matched
+    opiq_matches:
+      - topic_inventory_ref: mountains-plains-and-ocean-floor-relief
+        record_id: ocean-floor-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16630
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Рельеф дна Мирового океана
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - bilingual_visual
+          - map_skill
+        match_strength: exact
+        match_scope:
+          - core_content
+          - visual_or_map
+        selection_rationale: Рельеф дна Мирового океана supplies exact committed-route evidence for Maailmamere põhjareljeef in the mountains-plains-and-ocean-floor-relief registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: mountains-plains-and-ocean-floor-relief
+        record_id: ocean-floor-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30424
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Maailmamere põhjareljeef
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - bilingual_visual
+          - map_skill
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+          - visual_or_map
+          - assessment
+        selection_rationale: Maailmamere põhjareljeef supplies exact committed-route evidence for Maailmamere põhjareljeef in the mountains-plains-and-ocean-floor-relief registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: earth-interior-and-plate-tectonics
+        record_id: plate-processes-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30221
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Geoloogilised protsessid laamade servaaladel
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - map_skill
+          - data_interpretation
+        match_strength: supporting
+        match_scope:
+          - core_content
+          - terminology
+          - visual_or_map
+        selection_rationale: Geoloogilised protsessid laamade servaaladel supplies supporting committed-route evidence for Maailmamere põhjareljeef in the earth-interior-and-plate-tectonics registry group; programme eligibility remains unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: ocean-floor-ru-core
+          programme_type: unknown
+        - record_id: ocean-floor-et-core
+          programme_type: unknown
+        - record_id: plate-processes-et-core
+          programme_type: unknown
+      bridging_content: none
+    bridge_requirement:
+      required: false
+      reason: The registered exact-route pages cover the complete source-row content and required page-level task evidence; no independently authored bridge is required for this classification.
+    mapping_confidence: high
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 geography route covers the full content and required page-level task scope of Maailmamere põhjareljeef; programme type and default-course eligibility remain independently unresolved.
+    gap_notes: []
+  - mapping_id: lesson-026
+    source_record_kind: lesson_range
+    source_block_id: pinnamood
+    lesson_start: 26
+    lesson_end: 26
+    source_pages:
+      - 13
+    source_topic_et: Pinnamoe muutumine
+    normalized_mapping_topic_et: Pinnamoe muutumine
+    topic_inventory_refs:
+      - landform-change-weathering-erosion-and-human-impact
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: landform-change-weathering-erosion-and-human-impact
+        record_id: landform-change-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16634
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Изменение рельефа с течением времени
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - bilingual_visual
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - visual_or_map
+        selection_rationale: Изменение рельефа с течением времени supplies exact committed-route evidence for Pinnamoe muutumine in the landform-change-weathering-erosion-and-human-impact registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: landform-change-weathering-erosion-and-human-impact
+        record_id: landform-change-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30447
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Maa pinnamood muutub
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - bilingual_visual
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+          - visual_or_map
+        selection_rationale: Maa pinnamood muutub supplies exact committed-route evidence for Pinnamoe muutumine in the landform-change-weathering-erosion-and-human-impact registry group; programme eligibility remains unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: landform-change-ru-core
+          programme_type: unknown
+        - record_id: landform-change-et-core
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: Internal and external landform processes are explicit, but the teacher-plan image-analysis and learner self-assessment rubric are not registered as a complete assessment.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 geography route supplies positive content evidence for Pinnamoe muutumine, but the documented activity or assessment gap keeps this mapping partial; programme type and default-course eligibility remain independently unresolved.
+    gap_notes:
+      - Internal and external landform processes are explicit, but the teacher-plan image-analysis and learner self-assessment rubric are not registered as a complete assessment.
+  - mapping_id: lesson-027
+    source_record_kind: lesson_range
+    source_block_id: pinnamood
+    lesson_start: 27
+    lesson_end: 27
+    source_pages:
+      - 13
+    source_topic_et: Välisjõud ja pinnavormid
+    normalized_mapping_topic_et: Välisjõud ja pinnavormid
+    topic_inventory_refs:
+      - landform-change-weathering-erosion-and-human-impact
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: landform-change-weathering-erosion-and-human-impact
+        record_id: landform-change-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16634
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Изменение рельефа с течением времени
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - bilingual_visual
+          - data_interpretation
+        match_strength: strong
+        match_scope:
+          - core_content
+          - visual_or_map
+        selection_rationale: Изменение рельефа с течением времени supplies strong committed-route evidence for Välisjõud ja pinnavormid in the landform-change-weathering-erosion-and-human-impact registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: landform-change-weathering-erosion-and-human-impact
+        record_id: landform-change-et-core
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30447
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Maa pinnamood muutub
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - bilingual_visual
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+          - visual_or_map
+        selection_rationale: Maa pinnamood muutub supplies exact committed-route evidence for Välisjõud ja pinnavormid in the landform-change-weathering-erosion-and-human-impact registry group; programme eligibility remains unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: landform-change-ru-core
+          programme_type: unknown
+        - record_id: landform-change-et-core
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: Weathering, transport, deposition and erosion are explicit, but the requested external-force concept map and process-explanation rubric are not registered.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 geography route supplies positive content evidence for Välisjõud ja pinnavormid, but the documented activity or assessment gap keeps this mapping partial; programme type and default-course eligibility remain independently unresolved.
+    gap_notes:
+      - Weathering, transport, deposition and erosion are explicit, but the requested external-force concept map and process-explanation rubric are not registered.
+  - mapping_id: lesson-028
+    source_record_kind: lesson_range
+    source_block_id: pinnamood
+    lesson_start: 28
+    lesson_end: 28
+    source_pages:
+      - 13
+    source_topic_et: Pinnamoe kordamine
+    normalized_mapping_topic_et: Pinnamoe kordamine
+    topic_inventory_refs:
+      - relief-landforms-and-elevation-mapping
+      - landform-change-weathering-erosion-and-human-impact
+    coverage_status: matched
+    opiq_matches:
+      - topic_inventory_ref: relief-landforms-and-elevation-mapping
+        record_id: relief-ru-review
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16635
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: "Подведение итогов и повторение: Рельеф"
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - practice_ru
+          - revision
+          - assessment
+        match_strength: exact
+        match_scope:
+          - practice
+          - revision
+          - assessment
+          - visual_or_map
+        selection_rationale: "Подведение итогов и повторение: Рельеф supplies exact committed-route evidence for Pinnamoe kordamine in the relief-landforms-and-elevation-mapping registry group; programme eligibility remains unverified."
+      - topic_inventory_ref: landform-change-weathering-erosion-and-human-impact
+        record_id: landform-change-et-review
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30449
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Kordamine. Pinnamood
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - practice_et
+          - revision
+          - assessment
+        match_strength: exact
+        match_scope:
+          - practice
+          - revision
+          - assessment
+          - visual_or_map
+        selection_rationale: Kordamine. Pinnamood supplies exact committed-route evidence for Pinnamoe kordamine in the landform-change-weathering-erosion-and-human-impact registry group; programme eligibility remains unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: relief-ru-review
+          programme_type: unknown
+        - record_id: landform-change-et-review
+          programme_type: unknown
+      bridging_content: none
+    bridge_requirement:
+      required: false
+      reason: The registered exact-route pages cover the complete source-row content and required page-level task evidence; no independently authored bridge is required for this classification.
+    mapping_confidence: high
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 geography route covers the full content and required page-level task scope of Pinnamoe kordamine; programme type and default-course eligibility remain independently unresolved.
+    gap_notes: []
+  - mapping_id: lesson-029
+    source_record_kind: lesson_range
+    source_block_id: pinnamood
+    lesson_start: 29
+    lesson_end: 29
+    source_pages:
+      - 13
+    source_topic_et: Pinnamoe kontrolltöö
+    normalized_mapping_topic_et: Pinnamoe kontrolltöö
+    topic_inventory_refs:
+      - relief-landforms-and-elevation-mapping
+      - landform-change-weathering-erosion-and-human-impact
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: relief-landforms-and-elevation-mapping
+        record_id: relief-ru-review
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16635
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: "Подведение итогов и повторение: Рельеф"
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - practice_ru
+          - revision
+          - assessment
+        match_strength: supporting
+        match_scope:
+          - practice
+          - revision
+          - assessment
+        selection_rationale: "Подведение итогов и повторение: Рельеф supplies supporting committed-route evidence for Pinnamoe kontrolltöö in the relief-landforms-and-elevation-mapping registry group; programme eligibility remains unverified."
+      - topic_inventory_ref: landform-change-weathering-erosion-and-human-impact
+        record_id: landform-change-et-review
+        canonical_url: https://www.opiq.ee/kit/543/chapter/30449
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_avita_est
+        title: Kordamine. Pinnamood
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - practice_et
+          - revision
+          - assessment
+        match_strength: supporting
+        match_scope:
+          - practice
+          - revision
+          - assessment
+        selection_rationale: Kordamine. Pinnamood supplies supporting committed-route evidence for Pinnamoe kontrolltöö in the landform-change-weathering-erosion-and-human-impact registry group; programme eligibility remains unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: relief-ru-review
+          programme_type: unknown
+        - record_id: landform-change-et-review
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: The registered revision pages support assessment preparation but do not establish the complete teacher control work required by the source row.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 geography route supplies positive content evidence for Pinnamoe kontrolltöö, but the documented activity or assessment gap keeps this mapping partial; programme type and default-course eligibility remain independently unresolved.
+    gap_notes:
+      - The registered revision pages support assessment preparation but do not establish the complete teacher control work required by the source row.
+  - mapping_id: lesson-030
+    source_record_kind: lesson_range
+    source_block_id: rahvastik
+    lesson_start: 30
+    lesson_end: 30
+    source_pages:
+      - 14
+      - 15
+    source_topic_et: Kontrolltöö analüüs ja riigid maailmakaardil
+    normalized_mapping_topic_et: Kontrolltöö analüüs ja riigid maailmakaardil
+    topic_inventory_refs:
+      - relief-landforms-and-elevation-mapping
+      - countries-peoples-and-cultural-diversity
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: relief-landforms-and-elevation-mapping
+        record_id: relief-ru-review
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16635
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: "Подведение итогов и повторение: Рельеф"
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - practice_ru
+          - revision
+          - assessment
+        match_strength: supporting
+        match_scope:
+          - revision
+          - assessment
+        selection_rationale: "Подведение итогов и повторение: Рельеф supplies supporting committed-route evidence for Kontrolltöö analüüs ja riigid maailmakaardil in the relief-landforms-and-elevation-mapping registry group; programme eligibility remains unverified."
+      - topic_inventory_ref: countries-peoples-and-cultural-diversity
+        record_id: countries-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16613
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Страны на карте мира
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - map_skill
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+          - visual_or_map
+        selection_rationale: Страны на карте мира supplies exact committed-route evidence for Kontrolltöö analüüs ja riigid maailmakaardil in the countries-peoples-and-cultural-diversity registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: countries-peoples-and-cultural-diversity
+        record_id: countries-et-core
+        canonical_url: https://www.opiq.ee/kit/96/chapter/4666
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_est
+        title: Riigid maailma kaardil
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - map_skill
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+          - visual_or_map
+        selection_rationale: Riigid maailma kaardil supplies exact committed-route evidence for Kontrolltöö analüüs ja riigid maailmakaardil in the countries-peoples-and-cultural-diversity registry group; programme eligibility remains unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: relief-ru-review
+          programme_type: unknown
+        - record_id: countries-ru-core
+          programme_type: unknown
+        - record_id: countries-et-core
+          programme_type: unknown
+      bridging_content: teacher_review_required
+    bridge_requirement:
+      required: true
+      reason: Country-location content is explicit, but analysis of the preceding teacher control work requires teacher-held results and criteria absent from the registered route.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 geography route supplies positive content evidence for Kontrolltöö analüüs ja riigid maailmakaardil, but the documented activity or assessment gap keeps this mapping partial; programme type and default-course eligibility remain independently unresolved.
+    gap_notes:
+      - Country-location content is explicit, but analysis of the preceding teacher control work requires teacher-held results and criteria absent from the registered route.
+  - mapping_id: lesson-031
+    source_record_kind: lesson_range
+    source_block_id: rahvastik
+    lesson_start: 31
+    lesson_end: 31
+    source_pages:
+      - 15
+    source_topic_et: Maailma rassid ja rahvad
+    normalized_mapping_topic_et: Maailma rassid ja rahvad
+    topic_inventory_refs:
+      - countries-peoples-and-cultural-diversity
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: countries-peoples-and-cultural-diversity
+        record_id: peoples-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16615
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Расы и национальности
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: Расы и национальности supplies exact committed-route evidence for Maailma rassid ja rahvad in the countries-peoples-and-cultural-diversity registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: countries-peoples-and-cultural-diversity
+        record_id: peoples-et-core
+        canonical_url: https://www.opiq.ee/kit/96/chapter/4668
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_est
+        title: Rassid ja rahvused
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+        selection_rationale: Rassid ja rahvused supplies exact committed-route evidence for Maailma rassid ja rahvad in the countries-peoples-and-cultural-diversity registry group; programme eligibility remains unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: peoples-ru-core
+          programme_type: unknown
+        - record_id: peoples-et-core
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: Cultural and population diversity are explicit, but the specified group comparison, discussion and oral-assessment rubric are not registered.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 geography route supplies positive content evidence for Maailma rassid ja rahvad, but the documented activity or assessment gap keeps this mapping partial; programme type and default-course eligibility remain independently unresolved.
+    gap_notes:
+      - Cultural and population diversity are explicit, but the specified group comparison, discussion and oral-assessment rubric are not registered.
+  - mapping_id: lesson-032
+    source_record_kind: lesson_range
+    source_block_id: rahvastik
+    lesson_start: 32
+    lesson_end: 32
+    source_pages:
+      - 15
+    source_topic_et: Rahvastiku paiknemine
+    normalized_mapping_topic_et: Rahvastiku paiknemine
+    topic_inventory_refs:
+      - population-distribution-change-migration-and-urbanization
+    coverage_status: matched
+    opiq_matches:
+      - topic_inventory_ref: population-distribution-change-migration-and-urbanization
+        record_id: population-distribution-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16616
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Размещение и плотность населения
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - map_skill
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+          - visual_or_map
+        selection_rationale: Размещение и плотность населения supplies exact committed-route evidence for Rahvastiku paiknemine in the population-distribution-change-migration-and-urbanization registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: population-distribution-change-migration-and-urbanization
+        record_id: population-distribution-et-core
+        canonical_url: https://www.opiq.ee/kit/96/chapter/4669
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_est
+        title: Rahvastiku paiknemine ja tihedus
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - map_skill
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+          - visual_or_map
+          - assessment
+        selection_rationale: Rahvastiku paiknemine ja tihedus supplies exact committed-route evidence for Rahvastiku paiknemine in the population-distribution-change-migration-and-urbanization registry group; programme eligibility remains unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: population-distribution-ru-core
+          programme_type: unknown
+        - record_id: population-distribution-et-core
+          programme_type: unknown
+      bridging_content: none
+    bridge_requirement:
+      required: false
+      reason: The registered exact-route pages cover the complete source-row content and required page-level task evidence; no independently authored bridge is required for this classification.
+    mapping_confidence: high
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 geography route covers the full content and required page-level task scope of Rahvastiku paiknemine; programme type and default-course eligibility remain independently unresolved.
+    gap_notes: []
+  - mapping_id: lesson-033
+    source_record_kind: lesson_range
+    source_block_id: rahvastik
+    lesson_start: 33
+    lesson_end: 33
+    source_pages:
+      - 15
+      - 16
+    source_topic_et: Maailma rahvaarvu muutumine
+    normalized_mapping_topic_et: Maailma rahvaarvu muutumine
+    topic_inventory_refs:
+      - population-distribution-change-migration-and-urbanization
+    coverage_status: matched
+    opiq_matches:
+      - topic_inventory_ref: population-distribution-change-migration-and-urbanization
+        record_id: population-change-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16614
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Численность населения Земли и ее динамика
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+          - assessment
+        selection_rationale: Численность населения Земли и ее динамика supplies exact committed-route evidence for Maailma rahvaarvu muutumine in the population-distribution-change-migration-and-urbanization registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: population-distribution-change-migration-and-urbanization
+        record_id: population-change-et-core
+        canonical_url: https://www.opiq.ee/kit/96/chapter/4667
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_est
+        title: Maailma rahvaarv ja selle muutumine
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+          - assessment
+        selection_rationale: Maailma rahvaarv ja selle muutumine supplies exact committed-route evidence for Maailma rahvaarvu muutumine in the population-distribution-change-migration-and-urbanization registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: population-distribution-change-migration-and-urbanization
+        record_id: population-diagram-et-practice
+        canonical_url: https://www.opiq.ee/kit/2/chapter/1279
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_loodus_avita_est
+        title: Diagrammi koostamine
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - practice_et
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - practice
+          - assessment
+        selection_rationale: Diagrammi koostamine supplies exact committed-route evidence for Maailma rahvaarvu muutumine in the population-distribution-change-migration-and-urbanization registry group; programme eligibility remains unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: population-change-ru-core
+          programme_type: unknown
+        - record_id: population-change-et-core
+          programme_type: unknown
+        - record_id: population-diagram-et-practice
+          programme_type: unknown
+      bridging_content: none
+    bridge_requirement:
+      required: false
+      reason: The registered exact-route pages cover the complete source-row content and required page-level task evidence; no independently authored bridge is required for this classification.
+    mapping_confidence: high
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 geography route covers the full content and required page-level task scope of Maailma rahvaarvu muutumine; programme type and default-course eligibility remain independently unresolved.
+    gap_notes: []
+  - mapping_id: lesson-034
+    source_record_kind: lesson_range
+    source_block_id: rahvastik
+    lesson_start: 34
+    lesson_end: 34
+    source_pages:
+      - 16
+    source_topic_et: Linnastumine
+    normalized_mapping_topic_et: Linnastumine
+    topic_inventory_refs:
+      - population-distribution-change-migration-and-urbanization
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: population-distribution-change-migration-and-urbanization
+        record_id: urbanization-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16617
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Города и урбанизация
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: Города и урбанизация supplies exact committed-route evidence for Linnastumine in the population-distribution-change-migration-and-urbanization registry group; programme eligibility remains unverified.
+      - topic_inventory_ref: population-distribution-change-migration-and-urbanization
+        record_id: urbanization-et-core
+        canonical_url: https://www.opiq.ee/kit/96/chapter/4670
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_est
+        title: Linnad ja linnastumine
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+        selection_rationale: Linnad ja linnastumine supplies exact committed-route evidence for Linnastumine in the population-distribution-change-migration-and-urbanization registry group; programme eligibility remains unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: urbanization-ru-core
+          programme_type: unknown
+        - record_id: urbanization-et-core
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: Urbanization content and data examples are explicit, but no registered page supplies the complete city contour-map product, concept map and assessment rubric.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 geography route supplies positive content evidence for Linnastumine, but the documented activity or assessment gap keeps this mapping partial; programme type and default-course eligibility remain independently unresolved.
+    gap_notes:
+      - Urbanization content and data examples are explicit, but no registered page supplies the complete city contour-map product, concept map and assessment rubric.
+  - mapping_id: lesson-035
+    source_record_kind: lesson_range
+    source_block_id: rahvastik
+    lesson_start: 35
+    lesson_end: 35
+    source_pages:
+      - 16
+      - 17
+    source_topic_et: Kordamine ja õppeaasta lõpetamine
+    normalized_mapping_topic_et: Kordamine ja õppeaasta lõpetamine
+    topic_inventory_refs:
+      - countries-peoples-and-cultural-diversity
+      - population-distribution-change-migration-and-urbanization
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: population-distribution-change-migration-and-urbanization
+        record_id: population-ru-review
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16618
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: "Подведение итогов и повторение: Население"
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - practice_ru
+          - revision
+          - assessment
+        match_strength: supporting
+        match_scope:
+          - practice
+          - revision
+          - assessment
+        selection_rationale: "Подведение итогов и повторение: Население supplies supporting committed-route evidence for Kordamine ja õppeaasta lõpetamine in the population-distribution-change-migration-and-urbanization registry group; programme eligibility remains unverified."
+      - topic_inventory_ref: countries-peoples-and-cultural-diversity
+        record_id: countries-ru-core
+        canonical_url: https://www.opiq.ee/kit/301/chapter/16613
+        canonical_source_id: grade-7-geography
+        book_id: 7k__geograafia_koolibri_rus
+        title: Страны на карте мира
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - map_skill
+        match_strength: supporting
+        match_scope:
+          - practice
+          - visual_or_map
+        selection_rationale: Страны на карте мира supplies supporting committed-route evidence for Kordamine ja õppeaasta lõpetamine in the countries-peoples-and-cultural-diversity registry group; programme eligibility remains unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: population-ru-review
+          programme_type: unknown
+        - record_id: countries-ru-core
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: The route supplies section-level population revision and country map practice, but it does not prove complete annual Grade 7 geography revision, sample control work or year-end assessment.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 geography route supplies positive content evidence for Kordamine ja õppeaasta lõpetamine, but the documented activity or assessment gap keeps this mapping partial; programme type and default-course eligibility remain independently unresolved.
+    gap_notes:
+      - The route supplies section-level population revision and country map practice, but it does not prove complete annual Grade 7 geography revision, sample control work or year-end assessment.
+topic_inventory_comparison:
+  - topic_id: geography-introduction-and-research-methods
+    represented_in_teacher_plan: true
+    source_mapping_ids:
+      - lesson-001
+    representation_status: represented
+    notes: Represented by explicit source rows in this supplementary teacher-plan sample; this is not an official allocation claim.
+  - topic_id: earth-shape-size-continents-and-oceans
+    represented_in_teacher_plan: true
+    source_mapping_ids:
+      - lesson-001
+    representation_status: represented
+    notes: Represented by explicit source rows in this supplementary teacher-plan sample; this is not an official allocation claim.
+  - topic_id: map-types-atlases-legends-and-generalization
+    represented_in_teacher_plan: true
+    source_mapping_ids:
+      - lesson-002
+      - lesson-010
+      - lesson-011
+    representation_status: represented
+    notes: Represented by explicit source rows in this supplementary teacher-plan sample; this is not an official allocation claim.
+  - topic_id: scale-distance-directions-and-orientation
+    represented_in_teacher_plan: true
+    source_mapping_ids:
+      - lesson-004
+      - lesson-005
+      - lesson-006
+      - lesson-007
+    representation_status: represented
+    notes: Represented by explicit source rows in this supplementary teacher-plan sample; this is not an official allocation claim.
+  - topic_id: geographic-coordinates
+    represented_in_teacher_plan: true
+    source_mapping_ids:
+      - lesson-008
+    representation_status: represented
+    notes: Represented by explicit source rows in this supplementary teacher-plan sample; this is not an official allocation claim.
+  - topic_id: digital-maps-gis-and-satellite-imagery
+    represented_in_teacher_plan: true
+    source_mapping_ids:
+      - lesson-001
+      - lesson-003
+    representation_status: represented
+    notes: Represented by explicit source rows in this supplementary teacher-plan sample; this is not an official allocation claim.
+  - topic_id: time-zones-and-date-line
+    represented_in_teacher_plan: true
+    source_mapping_ids:
+      - lesson-009
+      - lesson-010
+      - lesson-011
+      - lesson-012
+    representation_status: represented
+    notes: Represented by explicit source rows in this supplementary teacher-plan sample; this is not an official allocation claim.
+  - topic_id: earth-interior-and-plate-tectonics
+    represented_in_teacher_plan: true
+    source_mapping_ids:
+      - lesson-012
+      - lesson-013
+      - lesson-014
+      - lesson-025
+    representation_status: represented
+    notes: Represented by explicit source rows in this supplementary teacher-plan sample; this is not an official allocation claim.
+  - topic_id: earthquakes-volcanoes-and-tsunamis
+    represented_in_teacher_plan: true
+    source_mapping_ids:
+      - lesson-015
+      - lesson-016
+    representation_status: represented
+    notes: Represented by explicit source rows in this supplementary teacher-plan sample; this is not an official allocation claim.
+  - topic_id: rocks-sediments-and-rock-cycle
+    represented_in_teacher_plan: true
+    source_mapping_ids:
+      - lesson-017
+      - lesson-018
+      - lesson-019
+      - lesson-020
+      - lesson-021
+    representation_status: represented
+    notes: Represented by explicit source rows in this supplementary teacher-plan sample; this is not an official allocation claim.
+  - topic_id: relief-landforms-and-elevation-mapping
+    represented_in_teacher_plan: true
+    source_mapping_ids:
+      - lesson-021
+      - lesson-022
+      - lesson-028
+      - lesson-029
+      - lesson-030
+    representation_status: represented
+    notes: Represented by explicit source rows in this supplementary teacher-plan sample; this is not an official allocation claim.
+  - topic_id: mountains-plains-and-ocean-floor-relief
+    represented_in_teacher_plan: true
+    source_mapping_ids:
+      - lesson-023
+      - lesson-024
+      - lesson-025
+    representation_status: represented
+    notes: Represented by explicit source rows in this supplementary teacher-plan sample; this is not an official allocation claim.
+  - topic_id: landform-change-weathering-erosion-and-human-impact
+    represented_in_teacher_plan: true
+    source_mapping_ids:
+      - lesson-026
+      - lesson-027
+      - lesson-028
+      - lesson-029
+    representation_status: represented
+    notes: Represented by explicit source rows in this supplementary teacher-plan sample; this is not an official allocation claim.
+  - topic_id: countries-peoples-and-cultural-diversity
+    represented_in_teacher_plan: true
+    source_mapping_ids:
+      - lesson-030
+      - lesson-031
+      - lesson-035
+    representation_status: represented
+    notes: Represented by explicit source rows in this supplementary teacher-plan sample; this is not an official allocation claim.
+  - topic_id: population-distribution-change-migration-and-urbanization
+    represented_in_teacher_plan: true
+    source_mapping_ids:
+      - lesson-032
+      - lesson-033
+      - lesson-034
+      - lesson-035
+    representation_status: represented
+    notes: Represented by explicit source rows in this supplementary teacher-plan sample; this is not an official allocation claim.
+mapping_summary:
+  total_source_lesson_ranges: 35
+  matched_count: 9
+  partial_count: 26
+  missing_count: 0
+  ambiguous_count: 0
+  outside_route_count: 0
+  mappings_with_russian_opiq_evidence: 35
+  mappings_with_estonian_opiq_evidence: 32
+  mappings_requiring_bridge: 26
+  represented_topic_inventory_count: 15
+  not_represented_topic_inventory_count: 0
+  ordinary_programme_verified_match_count: 0
+  unknown_programme_match_count: 79
+  unassigned_annual_slot_count: 0
+known_gaps:
+  - All five Grade 7 geography books have unknown programme type with ambiguous committed evidence and are not verified for ordinary default-course selection.
+  - Fieldwork procedures, learner-created map products, specimen work and teacher control-work rubrics remain partial where registered page headings and tasks do not cover the complete source-row activity.
+  - Section-level revision pages do not establish complete teacher control work or annual Grade 7 geography review.
+  - This crosswalk classifies the supplementary sample only; it creates no official curriculum map, annual architecture, annual sequence or independently authored bridge.
+completeness:
+  all_extracted_lesson_ranges_classified: true
+  declared_complete_for_source_extraction: true
+  canonical_opiq_mapping_complete: false
+  official_curriculum_complete: false
+  exact_grade_official_allocation_claimed: false
+  live_opiq_catalogue_complete: false
+  programme_type_verification_complete: false
+  default_course_selection_complete: false

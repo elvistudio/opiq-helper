@@ -1,6 +1,6 @@
 # Grade 7 geography teacher work-plan extraction audit
 
-Status: extracted and structurally validated; canonical Opiq mapping is deferred.
+Status: source extraction complete and structurally validated; route mapping is partial, canonical Opiq mapping remains incomplete, and official-curriculum completeness is unverified.
 
 ## Scope and source
 
@@ -42,4 +42,4 @@ Seven source ambiguities or normalization decisions are retained explicitly:
 
 ## Boundaries and conclusion
 
-This PDF is a supplementary teacher work plan and a pedagogical example. It is not a canonical Opiq source, a mandatory national sequence, or evidence of complete official-curriculum coverage. Therefore `official_curriculum_complete` and `canonical_opiq_mapping_complete` remain `false`, while mapping status remains `deferred`. Curriculum-map integration, annual-course design, production lessons, teacher packs, Russian translation, and Grade 7 science extraction are outside this PR.
+This PDF is a supplementary teacher work plan and a pedagogical example. It is not a canonical Opiq source, a mandatory national sequence, or evidence of complete official-curriculum coverage. The source extraction is complete for all 35 visible records and route mapping is now `partial`; `official_curriculum_complete` and `canonical_opiq_mapping_complete` remain `false`. Annual-course design, production lessons, teacher packs, Russian translation, and Grade 7 science extraction are outside this extraction artifact.
