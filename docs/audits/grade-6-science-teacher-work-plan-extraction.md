@@ -1,6 +1,6 @@
 # Grade 6 science teacher work-plan extraction audit
 
-Status: extracted and structurally validated; canonical Opiq mapping is deferred.
+Status: extracted and structurally validated; route mapping is partial and canonical Opiq mapping remains incomplete.
 
 ## Scope and source
 
@@ -40,4 +40,4 @@ Rows containing prior test-result analysis remain under the headings where the s
 
 ## Boundaries and conclusion
 
-This PDF is a supplementary teacher work plan and a pedagogical example. It is not a canonical Opiq source, a mandatory national sequence, or evidence that the official curriculum is completely covered. Therefore `official_curriculum_complete` and `canonical_opiq_mapping_complete` remain `false`, and mapping status remains `deferred`. Curriculum-map changes, direct Opiq matching, production lessons, and teacher-pack content belong to later reviewed phases.
+This PDF is a supplementary teacher work plan and a pedagogical example. It is not a canonical Opiq source, a mandatory national sequence, or evidence that the official curriculum is completely covered. Therefore `official_curriculum_complete` and `canonical_opiq_mapping_complete` remain `false`. The separately reviewed production crosswalk classifies all source records and changes mapping status to `partial`; production lessons and teacher-pack content remain outside this extraction artifact.
