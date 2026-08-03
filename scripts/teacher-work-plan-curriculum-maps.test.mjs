@@ -50,8 +50,8 @@ function firstMatch(repository, sourceId = 'grade-6-science') {
     .find((mapping) => mapping.opiq_matches.length > 0).opiq_matches[0];
 }
 
-function mapping(repository, lessonStart) {
-  return artifact(repository, 'grade-6-science').artifact.lesson_range_mappings
+function mapping(repository, lessonStart, sourceId = 'grade-6-science') {
+  return artifact(repository, sourceId).artifact.lesson_range_mappings
     .find((entry) => entry.lesson_start === lessonStart);
 }
 
@@ -71,14 +71,14 @@ function inventoryRecord(repository, sourceId, recordId) {
   throw new Error(`missing fixture record ${recordId}`);
 }
 
-test('two production crosswalks pass deterministically with exact summaries', () => {
+test('three production crosswalks pass deterministically with exact summaries', () => {
   const first = validateTeacherWorkPlanCurriculumMapRepository(cloneRepository());
   const second = validateTeacherWorkPlanCurriculumMapRepository(cloneRepository());
   assert.deepEqual(first, second);
   assert.deepEqual(first.diagnostics, []);
   assert.equal(first.summary.errors, 0);
-  assert.equal(first.summary.artifacts, 2);
-  assert.equal(first.summary.total_source_lesson_ranges, 168);
+  assert.equal(first.summary.artifacts, 3);
+  assert.equal(first.summary.total_source_lesson_ranges, 203);
   assert.deepEqual(first.summary.per_artifact['grade-5-science'], {
     total_source_lesson_ranges: 67,
     matched_count: 7,
@@ -108,6 +108,90 @@ test('two production crosswalks pass deterministically with exact summaries', ()
     unknown_programme_match_count: 116,
     unassigned_annual_slot_count: 1,
   });
+  assert.deepEqual(first.summary.per_artifact['grade-7-geography'], {
+    total_source_lesson_ranges: 35,
+    matched_count: 9,
+    partial_count: 26,
+    missing_count: 0,
+    ambiguous_count: 0,
+    outside_route_count: 0,
+    mappings_with_russian_opiq_evidence: 35,
+    mappings_with_estonian_opiq_evidence: 32,
+    mappings_requiring_bridge: 26,
+    represented_topic_inventory_count: 15,
+    not_represented_topic_inventory_count: 0,
+    ordinary_programme_verified_match_count: 0,
+    unknown_programme_match_count: 79,
+    unassigned_annual_slot_count: 0,
+  });
+});
+
+test('Grade 7 geography production mapping preserves all source rows and evidence boundaries', () => {
+  const entry = artifact(baseline, 'grade-7-geography');
+  const mappings = entry.artifact.lesson_range_mappings;
+  assert.equal(mappings.length, 35);
+  assert.deepEqual(
+    mappings.map(({ mapping_id }) => mapping_id),
+    Array.from({ length: 35 }, (_, index) => `lesson-${String(index + 1).padStart(3, '0')}`),
+  );
+  for (const [start, end, block] of [
+    [1, 11, 'kaardiopetus'],
+    [12, 20, 'geoloogia'],
+    [21, 29, 'pinnamood'],
+    [30, 35, 'rahvastik'],
+  ]) {
+    assert.equal(
+      mappings.filter(({ lesson_start }) => lesson_start >= start && lesson_start <= end)
+        .every(({ source_block_id }) => source_block_id === block),
+      true,
+    );
+  }
+  assert.equal(mappings.every(({ source_record_kind }) => source_record_kind === 'lesson_range'), true);
+  assert.equal(mappings.every(({ source_block_id }) => source_block_id !== null), true);
+  assert.equal(mappings.some(({ source_record_kind }) => source_record_kind === 'unassigned_annual_slot'), false);
+  assert.deepEqual(
+    entry.artifact.topic_inventory_comparison.map(({ topic_id }) => topic_id),
+    entry.contract.topicIds,
+  );
+  assert.equal(entry.artifact.topic_inventory_comparison.length, 15);
+  assert.equal(
+    entry.artifact.lesson_range_mappings.flatMap(({ opiq_matches }) => opiq_matches)
+      .every((match) => {
+        const registered = inventoryRecord(baseline, 'grade-7-geography', match.record_id);
+        return ['selected_records', 'alternative_records'].includes(registered.bucket)
+          && match.programme_type === 'unknown'
+          && match.programme_type_evidence_status === 'ambiguous'
+          && match.default_course_eligibility === 'unverified';
+      }),
+    true,
+  );
+  assert.equal(entry.artifact.mapping_summary.ordinary_programme_verified_match_count, 0);
+  assert.equal(
+    ['matched', 'partial', 'missing', 'ambiguous', 'outside_route']
+      .reduce((sum, status) => sum + entry.artifact.mapping_summary[`${status}_count`], 0),
+    35,
+  );
+  const diagram = inventoryRecord(baseline, 'grade-7-geography', 'population-diagram-et-practice');
+  assert.deepEqual(diagram.record.instructional_roles, ['practice_et', 'data_interpretation']);
+  const diagramMatches = mappings.flatMap(({ opiq_matches }) => opiq_matches)
+    .filter(({ record_id }) => record_id === 'population-diagram-et-practice');
+  assert.equal(diagramMatches.length, 1);
+  assert.deepEqual(diagramMatches[0].instructional_roles, ['practice_et', 'data_interpretation']);
+  assert.equal(diagramMatches[0].match_scope.includes('visual_or_map'), false);
+  assert.equal(
+    baseline.extractions.find(({ artifact: extraction }) => extraction.route_context.source_id === 'grade-7-geography')
+      .artifact.route_context.mapping_status,
+    'partial',
+  );
+  assert.equal(
+    baseline.extractions.find(({ artifact: extraction }) => extraction.route_context.source_id === 'grade-7-science')
+      .artifact.route_context.mapping_status,
+    'deferred',
+  );
+  assert.equal(
+    serializeTeacherWorkPlanCurriculumMap(entry.artifact),
+    entry.artifactText,
+  );
 });
 
 test('Grade 6 lesson 104 remains a partial annual review with section-level supporting evidence', () => {
@@ -129,7 +213,7 @@ test('Grade 6 lesson 104 remains a partial annual review with section-level supp
   }, /matched status cannot declare gaps or required bridging/u);
 });
 
-test('production registry requires Grade 5 and Grade 6 and rejects a third crosswalk', () => {
+test('production registry requires Grade 5, Grade 6, and Grade 7 geography and rejects Grade 7 science', () => {
   assert.deepEqual(baseline.discoveredPaths, TEACHER_WORK_PLAN_MAP_PATHS);
   for (const missing of TEACHER_WORK_PLAN_MAP_PATHS) {
     assertInvalid((repository) => {
@@ -141,10 +225,13 @@ test('production registry requires Grade 5 and Grade 6 and rejects a third cross
   }, /expected exactly the registered production crosswalks/u);
 });
 
-test('artifact path contract rejects a Grade 5 artifact in the Grade 6 slot', () => {
+test('artifact path contracts reject artifacts placed in another registered route slot', () => {
   assertInvalid((repository) => {
     artifact(repository, 'grade-6-science').artifact = structuredClone(artifact(repository, 'grade-5-science').artifact);
   }, /grade-6-science-teacher-work-plan-crosswalk|expected 6|grade-6-science/u);
+  assertInvalid((repository) => {
+    artifact(repository, 'grade-7-geography').artifact = structuredClone(artifact(repository, 'grade-6-science').artifact);
+  }, /grade-7-geography-teacher-work-plan-crosswalk|expected 7|grade-7-geography/u);
 });
 
 test('Grade 6 route rejects Grade 5, both Grade 7 routes, and exact metadata drift', () => {
@@ -202,6 +289,155 @@ test('nullable existing artifacts are route-specific and fail closed', () => {
   ]) assertInvalid((repository) => {
     artifact(repository, 'grade-6-science').artifact.existing_curriculum_artifacts[field] = value;
   }, new RegExp(`existing_curriculum_artifacts/${field}`, 'u'));
+});
+
+test('Grade 7 geography route, extraction, and nullable artifact metadata are exact', () => {
+  for (const [field, value] of [
+    ['source_id', 'grade-7-science'],
+    ['md_path', 'project-files/outputs/opiq_7klass_loodusopetus.md'],
+    ['source_archive', 'project-files/inputs/final-zips/foreign.zip'],
+    ['qa_path', 'project-files/outputs/opiq_7klass_loodusopetus_qa.json'],
+    ['record_count', 177],
+  ]) assertInvalid((repository) => {
+    artifact(repository, 'grade-7-geography').artifact.canonical_route[field] = value;
+  }, new RegExp(`canonical_route/${field}`, 'u'));
+  for (const [field, value] of [
+    ['path', 'evaluations/teacher-work-plans/grade-7-science-extraction.json'],
+    ['source_pdf_path', 'project-files/inputs/originals/teacher-work-plans/Opetaja-tookava-Loodusopetus-7-klass.pdf'],
+    ['source_sha256', '0'.repeat(64)],
+    ['source_page_count', 16],
+    ['lesson_range_count', 34],
+    ['extracted_lesson_span', { lesson_start: 1, lesson_end: 34 }],
+  ]) assertInvalid((repository) => {
+    artifact(repository, 'grade-7-geography').artifact.source_extraction[field] = value;
+  }, new RegExp(`source_extraction/${field}`, 'u'));
+  for (const field of ['official_curriculum_map', 'annual_architecture']) assertInvalid((repository) => {
+    artifact(repository, 'grade-7-geography').artifact.existing_curriculum_artifacts[field] = 'curriculum-maps/grade-7-geography/invented.yaml';
+  }, new RegExp(`existing_curriculum_artifacts/${field}`, 'u'));
+  for (const [field, value] of [
+    ['book_inventory', 'curriculum-maps/grade-6-science/book-inventory.yaml'],
+    ['topic_inventory', 'curriculum-maps/grade-6-science/topic-inventory.yaml'],
+  ]) assertInvalid((repository) => {
+    artifact(repository, 'grade-7-geography').artifact.existing_curriculum_artifacts[field] = value;
+  }, new RegExp(`existing_curriculum_artifacts/${field}`, 'u'));
+});
+
+test('Grade 7 geography maps all 35 single lessons once with exact source metadata', () => {
+  assertInvalid((repository) => {
+    artifact(repository, 'grade-7-geography').artifact.lesson_range_mappings.pop();
+  }, /missing source range 35-35/u);
+  assertInvalid((repository) => {
+    const mappings = artifact(repository, 'grade-7-geography').artifact.lesson_range_mappings;
+    mappings.push(structuredClone(mappings[0]));
+  }, /duplicate mapping_id|duplicate source lesson range/u);
+  assertInvalid((repository) => {
+    const target = mapping(repository, 35, 'grade-7-geography');
+    target.lesson_start = 36;
+    target.lesson_end = 36;
+  }, /invented or split source range|missing source range/u);
+  assertInvalid((repository) => {
+    mapping(repository, 1, 'grade-7-geography').lesson_end = 2;
+  }, /invented or split source range|missing source range/u);
+  for (const [field, value] of [
+    ['source_pages', [17]],
+    ['source_topic_et', 'Invented topic'],
+    ['source_block_id', 'rahvastik'],
+    ['source_record_kind', 'unassigned_annual_slot'],
+  ]) assertInvalid((repository) => {
+    mapping(repository, 1, 'grade-7-geography')[field] = value;
+  }, new RegExp(`${field}|unassigned`, 'u'));
+  assertInvalid((repository) => {
+    mapping(repository, 1, 'grade-7-geography').source_block_id = null;
+  }, /ordinary lesson range cannot have a null block|source_block_id/u);
+  assertInvalid((repository) => {
+    const target = mapping(repository, 35, 'grade-7-geography');
+    target.source_record_kind = 'unassigned_annual_slot';
+    target.source_block_id = null;
+  }, /source_record_kind|unassigned annual slot/u);
+});
+
+test('Grade 7 geography canonical matches reject foreign, unknown, rejected, and altered evidence', () => {
+  for (const url of [
+    'https://www.opiq.ee/kit/546/chapter/30107',
+    'https://www.opiq.ee/kit/572/chapter/31885',
+    'https://www.opiq.ee/kit/301/chapter/999999',
+  ]) assertInvalid((repository) => {
+    firstMatch(repository, 'grade-7-geography').canonical_url = url;
+  }, /canonical_url|URL must occur exactly once/u);
+  assertInvalid((repository) => {
+    firstMatch(repository, 'grade-7-geography').record_id = 'geography-intro-et-overlap';
+  }, /rejected record/u);
+  for (const [field, value] of [
+    ['book_id', '7k__geograafia_avita_rus'],
+    ['title', 'Wrong title'],
+    ['language', 'ru'],
+    ['canonical_source_id', 'grade-7-science'],
+  ]) assertInvalid((repository) => {
+    firstMatch(repository, 'grade-7-geography')[field] = value;
+  }, new RegExp(field, 'u'));
+  assertInvalid((repository) => {
+    firstMatch(repository, 'grade-7-geography').instructional_roles.push('invented_role');
+  }, /role is not declared by the topic inventory record/u);
+});
+
+test('Grade 7 geography programme ambiguity and default eligibility cannot be promoted', () => {
+  for (const [field, value] of [
+    ['programme_type', 'ordinary'],
+    ['programme_type_evidence_status', 'verified'],
+    ['default_course_eligibility', 'eligible'],
+  ]) assertInvalid((repository) => {
+    firstMatch(repository, 'grade-7-geography')[field] = value;
+  }, new RegExp(field, 'u'));
+  for (const field of ['programme_type_evidence_status', 'default_course_eligibility']) assertInvalid((repository) => {
+    delete firstMatch(repository, 'grade-7-geography')[field];
+  }, new RegExp(field, 'u'));
+});
+
+test('Grade 7 geography topic comparison is exact and complete', () => {
+  assertInvalid((repository) => {
+    artifact(repository, 'grade-7-geography').artifact.topic_inventory_comparison.pop();
+  }, /must contain all 15 topic IDs/u);
+  assertInvalid((repository) => {
+    const comparisons = artifact(repository, 'grade-7-geography').artifact.topic_inventory_comparison;
+    comparisons[1].topic_id = comparisons[0].topic_id;
+  }, /duplicate topic ID|all 15 topic IDs/u);
+  assertInvalid((repository) => {
+    artifact(repository, 'grade-7-geography').artifact.topic_inventory_comparison[0].topic_id = 'unknown-topic';
+  }, /all 15 topic IDs/u);
+  assertInvalid((repository) => {
+    artifact(repository, 'grade-7-geography').artifact.topic_inventory_comparison[0].source_mapping_ids = [];
+  }, /must exactly list|represented topic requires/u);
+});
+
+test('Grade 7 geography status semantics, summary, and completeness fail closed', () => {
+  assertInvalid((repository) => {
+    const target = mapping(repository, 4, 'grade-7-geography');
+    target.gap_notes = ['Invented gap.'];
+    target.evidence_classification.bridging_content = 'teacher_review_required';
+    target.bridge_requirement.required = true;
+  }, /matched status cannot declare gaps or required bridging/u);
+  assertInvalid((repository) => {
+    mapping(repository, 1, 'grade-7-geography').gap_notes = [];
+  }, /partial status requires an explicit gap/u);
+  assertInvalid((repository) => {
+    mapping(repository, 1, 'grade-7-geography').coverage_status = 'missing';
+  }, /missing status cannot have positive/u);
+  assertInvalid((repository) => {
+    artifact(repository, 'grade-7-geography').artifact.mapping_summary.partial_count -= 1;
+  }, /mapping_summary\/partial_count/u);
+  assertInvalid((repository) => {
+    artifact(repository, 'grade-7-geography').artifact.mapping_summary.unassigned_annual_slot_count = 1;
+  }, /unassigned_annual_slot_count/u);
+  for (const field of [
+    'canonical_opiq_mapping_complete',
+    'official_curriculum_complete',
+    'exact_grade_official_allocation_claimed',
+    'live_opiq_catalogue_complete',
+    'programme_type_verification_complete',
+    'default_course_selection_complete',
+  ]) assertInvalid((repository) => {
+    artifact(repository, 'grade-7-geography').artifact.completeness[field] = true;
+  }, new RegExp(field, 'u'));
 });
 
 test('all 101 source records are mapped once without missing, duplicate, invented, or split ranges', () => {
@@ -449,8 +685,8 @@ test('topic representation references and supplementary-sample wording are stric
   }, /supplementary sample wording|missing official curriculum/u);
 });
 
-test('unsupported completeness claims remain false for both routes', () => {
-  for (const sourceId of ['grade-5-science', 'grade-6-science']) for (const field of [
+test('unsupported completeness claims remain false for all registered routes', () => {
+  for (const sourceId of ['grade-5-science', 'grade-6-science', 'grade-7-geography']) for (const field of [
     'canonical_opiq_mapping_complete',
     'official_curriculum_complete',
     'exact_grade_official_allocation_claimed',
@@ -460,12 +696,13 @@ test('unsupported completeness claims remain false for both routes', () => {
   }, new RegExp(field, 'u'));
 });
 
-test('extraction statuses require Grade 5 and 6 partial and both Grade 7 deferred', () => {
+test('extraction statuses require Grade 5, Grade 6, and Grade 7 geography partial while Grade 7 science stays deferred', () => {
   for (const [source, status] of [
     ['grade-5-science', 'deferred'],
     ['grade-6-science', 'deferred'],
     ['grade-6-science', 'complete'],
-    ['grade-7-geography', 'partial'],
+    ['grade-7-geography', 'deferred'],
+    ['grade-7-geography', 'complete'],
     ['grade-7-science', 'partial'],
   ]) assertInvalid((repository) => {
     repository.extractions.find((entry) => entry.artifact.route_context.source_id === source).artifact.route_context.mapping_status = status;
@@ -499,11 +736,11 @@ test('artifact collection order does not change semantic validation', () => {
   assert.deepEqual(validateTeacherWorkPlanCurriculumMapRepository(repository).diagnostics, []);
 });
 
-test('check command reports both route counts and the total', () => {
+test('check command reports three artifacts and the total', () => {
   const result = spawnSync(process.execPath, ['scripts/check-teacher-work-plan-curriculum-maps.mjs'], { cwd: repositoryRoot, encoding: 'utf8' });
   assert.equal(result.status, 0, result.stderr);
-  assert.match(result.stdout, /2 artifacts/u);
+  assert.match(result.stdout, /3 artifacts/u);
   assert.match(result.stdout, /Grade 5 classified 67 source ranges/u);
   assert.match(result.stdout, /Grade 6 classified 101 source ranges/u);
-  assert.match(result.stdout, /168 total classified ranges/u);
+  assert.match(result.stdout, /203 total classified ranges/u);
 });
