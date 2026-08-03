@@ -1102,17 +1102,17 @@ test('Grade 7 science rejects thematic units, completeness claims, and serializa
   assertFailsWith(serialization, /Grade 7 science inventory YAML must use deterministic serialization/u);
 });
 
-test('Grade 7 science teacher-plan extraction remains deferred and outside inventory artifacts', () => {
+test('Grade 7 science teacher-plan extraction is partially mapped without promoting completeness', () => {
   const extraction = JSON.parse(fs.readFileSync(
     new URL('../evaluations/teacher-work-plans/grade-7-science-extraction.json', import.meta.url),
     'utf8',
   ));
-  assert.equal(extraction.route_context.mapping_status, 'deferred');
+  assert.equal(extraction.route_context.mapping_status, 'partial');
   assert.equal(extraction.completeness.canonical_opiq_mapping_complete, false);
   assert.equal(extraction.completeness.official_curriculum_complete, false);
   assert.equal(baseline.artifacts.some((candidate) => (
     candidate.file === 'curriculum-maps/grade-7-science/teacher-work-plan-crosswalk.yaml'
-  )), false);
+  )), true);
 });
 
 test('course YAML rejects duplicate keys and aliases', () => {

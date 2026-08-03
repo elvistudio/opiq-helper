@@ -1,0 +1,4110 @@
+schema_version: "1.0"
+artifact_type: teacher_work_plan_curriculum_map
+map_id: grade-7-science-teacher-work-plan-crosswalk
+grade: 7
+subject: science
+subject_et: loodusõpetus
+source_extraction:
+  extraction_id: grade-7-science-teacher-work-plan-extraction
+  path: evaluations/teacher-work-plans/grade-7-science-extraction.json
+  source_pdf_path: project-files/inputs/originals/teacher-work-plans/Opetaja-tookava-Loodusopetus-7-klass.pdf
+  source_sha256: fb883aaf6429af4b543def1eb18deca3909ec541b4eaa5eccc7efb880368f35f
+  source_page_count: 17
+  lesson_range_count: 58
+  unnumbered_row_count: 1
+  source_record_count: 59
+  extracted_lesson_span:
+    lesson_start: 1
+    lesson_end: 70
+canonical_route:
+  source_id: grade-7-science
+  md_path: project-files/outputs/opiq_7klass_loodusopetus.md
+  source_archive: project-files/inputs/final-zips/opiq_7klass_loodusteadused_v2.zip
+  qa_path: project-files/outputs/opiq_7klass_loodusopetus_qa.json
+  record_count: 314
+  coverage_status: available_not_curriculum_verified
+existing_curriculum_artifacts:
+  book_inventory: curriculum-maps/grade-7-science/book-inventory.yaml
+  topic_inventory: curriculum-maps/grade-7-science/topic-inventory.yaml
+  official_curriculum_map: null
+  annual_architecture: null
+mapping_scope:
+  route_locked: true
+  allowed_source_languages:
+    - et
+    - ru
+  adjacent_routes_forbidden: true
+  live_catalogue_checked: false
+  notes: Only committed Grade 7 science route records and the topic inventory are used; external teacher-plan links, adjacent routes and live catalogue evidence are excluded.
+mapping_method:
+  unit: source_lesson_range
+  additional_units:
+    - unnumbered_source_row
+  unnumbered_row_handling: preserve_without_lesson_number
+  source_range_splitting: forbidden
+  canonical_evidence: committed_route_only
+  topic_inventory_role: stable_record_registry
+  teacher_plan_role: supplementary_noncanonical
+  notes: Each of 58 numbered ranges and the separate unnumbered row is classified once; content fit remains separate from programme and default-course eligibility.
+lesson_range_mappings:
+  - mapping_id: lesson-001
+    source_record_kind: lesson_range
+    source_block_id: inimene-uurib-loodust
+    lesson_start: 1
+    lesson_end: 1
+    source_pages:
+      - 3
+    source_topic_et: Loodusainete uurimisvaldkonnad
+    normalized_mapping_topic_et: Loodusainete uurimisvaldkonnad
+    topic_inventory_refs:
+      - natural-sciences-technology-and-information
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: natural-sciences-technology-and-information
+        record_id: science-intro-ru-core
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3052
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Естественные науки
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: Естественные науки supplies exact committed-route evidence for Loodusainete uurimisvaldkonnad; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: natural-sciences-technology-and-information
+        record_id: science-intro-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30107
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Loodusteadused
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+        selection_rationale: Loodusteadused supplies exact committed-route evidence for Loodusainete uurimisvaldkonnad; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: science-intro-ru-core
+          programme_type: unknown
+        - record_id: science-intro-et-current
+          programme_type: unknown
+      bridging_content: independently_authored_bridge_required
+    bridge_requirement:
+      required: true
+      reason: The registered pages introduce the natural sciences, but not the journal, workbook and web-source comparison as one assessed activity.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Loodusainete uurimisvaldkonnad; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - The registered pages introduce the natural sciences, but not the journal, workbook and web-source comparison as one assessed activity.
+  - mapping_id: lesson-002
+    source_record_kind: lesson_range
+    source_block_id: inimene-uurib-loodust
+    lesson_start: 2
+    lesson_end: 2
+    source_pages:
+      - 3
+    source_topic_et: Teadus ja tehnoloogia ning teadusliku teadmise eristamine
+    normalized_mapping_topic_et: Teadus ja tehnoloogia ning teadusliku teadmise eristamine
+    topic_inventory_refs:
+      - natural-sciences-technology-and-information
+      - scientific-method-observation-and-experiment
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: natural-sciences-technology-and-information
+        record_id: science-intro-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30107
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Loodusteadused
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+        selection_rationale: Loodusteadused supplies exact committed-route evidence for Teadus ja tehnoloogia ning teadusliku teadmise eristamine; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: scientific-method-observation-and-experiment
+        record_id: research-method-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30109
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Loodusteaduslik uurimismeetod
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - data_interpretation
+        match_strength: strong
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: Loodusteaduslik uurimismeetod supplies strong committed-route evidence for Teadus ja tehnoloogia ning teadusliku teadmise eristamine; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: science-intro-et-current
+          programme_type: unknown
+        - record_id: research-method-et-current
+          programme_type: unknown
+      bridging_content: independently_authored_bridge_required
+    bridge_requirement:
+      required: true
+      reason: Science, technology and pseudoscience are covered, but not the complete career discussion and teacher-held claim-evaluation activity.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Teadus ja tehnoloogia ning teadusliku teadmise eristamine; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - Science, technology and pseudoscience are covered, but not the complete career discussion and teacher-held claim-evaluation activity.
+  - mapping_id: lesson-003
+    source_record_kind: lesson_range
+    source_block_id: inimene-uurib-loodust
+    lesson_start: 3
+    lesson_end: 3
+    source_pages:
+      - 3
+    source_topic_et: Uurimuse etapid
+    normalized_mapping_topic_et: Uurimuse etapid
+    topic_inventory_refs:
+      - scientific-method-observation-and-experiment
+      - natural-sciences-technology-and-information
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: scientific-method-observation-and-experiment
+        record_id: research-method-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30109
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Loodusteaduslik uurimismeetod
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+        selection_rationale: Loodusteaduslik uurimismeetod supplies exact committed-route evidence for Uurimuse etapid; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: natural-sciences-technology-and-information
+        record_id: science-intro-ru-core
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3052
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Естественные науки
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+        match_strength: strong
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: Естественные науки supplies strong committed-route evidence for Uurimuse etapid; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: research-method-et-current
+          programme_type: unknown
+        - record_id: science-intro-ru-core
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: Research stages are explicit, but the hypothesis-writing control criteria are not registered.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Uurimuse etapid; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - Research stages are explicit, but the hypothesis-writing control criteria are not registered.
+  - mapping_id: lessons-004-005
+    source_record_kind: lesson_range
+    source_block_id: inimene-uurib-loodust
+    lesson_start: 4
+    lesson_end: 5
+    source_pages:
+      - 3
+    source_topic_et: Vaatlus ja katse
+    normalized_mapping_topic_et: Vaatlus ja katse
+    topic_inventory_refs:
+      - scientific-method-observation-and-experiment
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: scientific-method-observation-and-experiment
+        record_id: observation-experiment-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30110
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Vaatlus ja katse
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - experiment
+          - practice_et
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practical_work
+        selection_rationale: Vaatlus ja katse supplies exact committed-route evidence for Vaatlus ja katse; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: scientific-method-observation-and-experiment
+        record_id: research-tasks-ru
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18896
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Исследовательские задания
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - practice_ru
+          - experiment
+          - data_interpretation
+        match_strength: strong
+        match_scope:
+          - practice
+          - practical_work
+        selection_rationale: Исследовательские задания supplies strong committed-route evidence for Vaatlus ja katse; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: observation-experiment-et-current
+          programme_type: unknown
+        - record_id: research-tasks-ru
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: The short investigation, planning decisions and learner presentation require a teacher-authored brief and presentation criteria.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Vaatlus ja katse; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - The short investigation, planning decisions and learner presentation require a teacher-authored brief and presentation criteria.
+  - mapping_id: lesson-006
+    source_record_kind: lesson_range
+    source_block_id: inimene-uurib-loodust
+    lesson_start: 6
+    lesson_end: 6
+    source_pages:
+      - 4
+    source_topic_et: Kehade omadused ja mõõtmine
+    normalized_mapping_topic_et: Kehade omadused ja mõõtmine
+    topic_inventory_refs:
+      - measurement-instruments-units-and-reliability
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: measurement-instruments-units-and-reliability
+        record_id: measurement-instruments-ru-core
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3058
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Измерительные приборы
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: Измерительные приборы supplies exact committed-route evidence for Kehade omadused ja mõõtmine; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: measurement-instruments-units-and-reliability
+        record_id: measurement-instruments-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30113
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Mõõtmine ja mõõteriistad
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - data_interpretation
+        match_strength: strong
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+        selection_rationale: Mõõtmine ja mõõteriistad supplies strong committed-route evidence for Kehade omadused ja mõõtmine; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: measurement-instruments-ru-core
+          programme_type: unknown
+        - record_id: measurement-instruments-et-current
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: Instrument content is explicit, but the historical discussion and selected assessment model are not one registered activity.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Kehade omadused ja mõõtmine; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - Instrument content is explicit, but the historical discussion and selected assessment model are not one registered activity.
+  - mapping_id: lesson-007
+    source_record_kind: lesson_range
+    source_block_id: inimene-uurib-loodust
+    lesson_start: 7
+    lesson_end: 7
+    source_pages:
+      - 4
+    source_topic_et: Füüsikaline suurus ja mõõteühik
+    normalized_mapping_topic_et: Füüsikaline suurus ja mõõteühik
+    topic_inventory_refs:
+      - measurement-instruments-units-and-reliability
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: measurement-instruments-units-and-reliability
+        record_id: measurement-instruments-ru-core
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3058
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Измерительные приборы
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        match_strength: strong
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: Измерительные приборы supplies strong committed-route evidence for Füüsikaline suurus ja mõõteühik; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: measurement-instruments-units-and-reliability
+        record_id: measurement-instruments-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30113
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Mõõtmine ja mõõteriistad
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - data_interpretation
+        match_strength: strong
+        match_scope:
+          - core_content
+          - terminology
+        selection_rationale: Mõõtmine ja mõõteriistad supplies strong committed-route evidence for Füüsikaline suurus ja mõõteühik; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: measurement-instruments-ru-core
+          programme_type: unknown
+        - record_id: measurement-instruments-et-current
+          programme_type: unknown
+      bridging_content: independently_authored_bridge_required
+    bridge_requirement:
+      required: true
+      reason: The comparison of historic and international unit systems is not a complete registered activity.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Füüsikaline suurus ja mõõteühik; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - The comparison of historic and international unit systems is not a complete registered activity.
+  - mapping_id: lesson-008
+    source_record_kind: lesson_range
+    source_block_id: inimene-uurib-loodust
+    lesson_start: 8
+    lesson_end: 8
+    source_pages:
+      - 4
+    source_topic_et: Mõõtmine ja mõõteriist
+    normalized_mapping_topic_et: Mõõtmine ja mõõteriist
+    topic_inventory_refs:
+      - measurement-instruments-units-and-reliability
+    coverage_status: matched
+    opiq_matches:
+      - topic_inventory_ref: measurement-instruments-units-and-reliability
+        record_id: measurement-instruments-ru-core
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3058
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Измерительные приборы
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+          - practical_work
+        selection_rationale: Измерительные приборы supplies exact committed-route evidence for Mõõtmine ja mõõteriist; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: measurement-instruments-units-and-reliability
+        record_id: measurement-instruments-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30113
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Mõõtmine ja mõõteriistad
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+          - practical_work
+        selection_rationale: Mõõtmine ja mõõteriistad supplies exact committed-route evidence for Mõõtmine ja mõõteriist; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: measurement-instruments-ru-core
+          programme_type: unknown
+        - record_id: measurement-instruments-et-current
+          programme_type: unknown
+      bridging_content: none
+    bridge_requirement:
+      required: false
+      reason: Exact committed-route page evidence covers the complete normalized content scope; this does not establish default-course eligibility.
+    mapping_confidence: high
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route covers the complete normalized content scope for Mõõtmine ja mõõteriist; programme eligibility remains independently unresolved.
+    gap_notes: []
+  - mapping_id: lessons-009-010
+    source_record_kind: lesson_range
+    source_block_id: inimene-uurib-loodust
+    lesson_start: 9
+    lesson_end: 10
+    source_pages:
+      - 4
+    source_topic_et: Pindala mõõtmine ja mõõteühikute teisendamine
+    normalized_mapping_topic_et: Pindala mõõtmine ja mõõteühikute teisendamine
+    topic_inventory_refs:
+      - length-area-volume-mass-and-plan
+    coverage_status: matched
+    opiq_matches:
+      - topic_inventory_ref: length-area-volume-mass-and-plan
+        record_id: measurement-methods-one-ru
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3061
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Методы измерений I
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+          - practical_work
+        selection_rationale: Методы измерений I supplies exact committed-route evidence for Pindala mõõtmine ja mõõteühikute teisendamine; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: length-area-volume-mass-and-plan
+        record_id: area-volume-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30116
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Pindala ja ruum­ala mõõtmine
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+          - practical_work
+        selection_rationale: Pindala ja ruum­ala mõõtmine supplies exact committed-route evidence for Pindala mõõtmine ja mõõteühikute teisendamine; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: measurement-methods-one-ru
+          programme_type: unknown
+        - record_id: area-volume-et-current
+          programme_type: unknown
+      bridging_content: none
+    bridge_requirement:
+      required: false
+      reason: Exact committed-route page evidence covers the complete normalized content scope; this does not establish default-course eligibility.
+    mapping_confidence: high
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route covers the complete normalized content scope for Pindala mõõtmine ja mõõteühikute teisendamine; programme eligibility remains independently unresolved.
+    gap_notes: []
+  - mapping_id: lessons-011-012
+    source_record_kind: lesson_range
+    source_block_id: inimene-uurib-loodust
+    lesson_start: 11
+    lesson_end: 12
+    source_pages:
+      - 4
+    source_topic_et: Ruumala mõõtmine ja ruumalaühikute teisendamine
+    normalized_mapping_topic_et: Ruumala mõõtmine ja ruumalaühikute teisendamine
+    topic_inventory_refs:
+      - length-area-volume-mass-and-plan
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: length-area-volume-mass-and-plan
+        record_id: measurement-methods-one-ru
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3061
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Методы измерений I
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+          - practical_work
+        selection_rationale: Методы измерений I supplies exact committed-route evidence for Ruumala mõõtmine ja ruumalaühikute teisendamine; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: length-area-volume-mass-and-plan
+        record_id: area-volume-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30116
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Pindala ja ruum­ala mõõtmine
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+          - practical_work
+        selection_rationale: Pindala ja ruum­ala mõõtmine supplies exact committed-route evidence for Ruumala mõõtmine ja ruumalaühikute teisendamine; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: measurement-methods-one-ru
+          programme_type: unknown
+        - record_id: area-volume-et-current
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: Volume methods are explicit, but the teacher-plan formatting rubric is absent.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Ruumala mõõtmine ja ruumalaühikute teisendamine; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - Volume methods are explicit, but the teacher-plan formatting rubric is absent.
+  - mapping_id: lesson-013
+    source_record_kind: lesson_range
+    source_block_id: inimene-uurib-loodust
+    lesson_start: 13
+    lesson_end: 13
+    source_pages:
+      - 5
+    source_topic_et: Mass
+    normalized_mapping_topic_et: Mass
+    topic_inventory_refs:
+      - length-area-volume-mass-and-plan
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: length-area-volume-mass-and-plan
+        record_id: measurement-methods-two-ru
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3062
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Методы измерений II
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+          - practical_work
+        selection_rationale: Методы измерений II supplies exact committed-route evidence for Mass; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: length-area-volume-mass-and-plan
+        record_id: mass-measurement-ru
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18891
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Масса и ее измерение
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+        match_strength: strong
+        match_scope:
+          - core_content
+          - practice
+          - practical_work
+        selection_rationale: Масса и ее измерение supplies strong committed-route evidence for Mass; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: measurement-methods-two-ru
+          programme_type: unknown
+        - record_id: mass-measurement-ru
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: Mass measurement is explicit, but the cross-context comparison and unit-conversion assessment are not supplied together.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Mass; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - Mass measurement is explicit, but the cross-context comparison and unit-conversion assessment are not supplied together.
+  - mapping_id: lesson-014
+    source_record_kind: lesson_range
+    source_block_id: inimene-uurib-loodust
+    lesson_start: 14
+    lesson_end: 14
+    source_pages:
+      - 5
+    source_topic_et: Ühikute teisendamise kontroll ja kordamine
+    normalized_mapping_topic_et: Ühikute teisendamise kontroll ja kordamine
+    topic_inventory_refs:
+      - measurement-instruments-units-and-reliability
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: measurement-instruments-units-and-reliability
+        record_id: measurement-uncertainty-ru-core
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3060
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Неопределенность измерений. Представление результатов измерений
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - data_interpretation
+          - assessment
+        match_strength: supporting
+        match_scope:
+          - core_content
+          - assessment
+        selection_rationale: Неопределенность измерений. Представление результатов измерений supplies supporting committed-route evidence for Ühikute teisendamise kontroll ja kordamine; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: measurement-uncertainty-ru-core
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: The topic was normalized from an empty cell with medium contextual confidence; no exact unit-conversion control work or pre-holiday revision set is registered.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Ühikute teisendamise kontroll ja kordamine; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - The topic was normalized from an empty cell with medium contextual confidence; no exact unit-conversion control work or pre-holiday revision set is registered.
+  - mapping_id: lesson-015
+    source_record_kind: lesson_range
+    source_block_id: inimene-uurib-loodust
+    lesson_start: 15
+    lesson_end: 15
+    source_pages:
+      - 5
+    source_topic_et: Mõõtmistulemuste usaldusväärsus ja mõõtemääramatus
+    normalized_mapping_topic_et: Mõõtmistulemuste usaldusväärsus ja mõõtemääramatus
+    topic_inventory_refs:
+      - measurement-instruments-units-and-reliability
+    coverage_status: matched
+    opiq_matches:
+      - topic_inventory_ref: measurement-instruments-units-and-reliability
+        record_id: measurement-uncertainty-ru-core
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3060
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Неопределенность измерений. Представление результатов измерений
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - data_interpretation
+          - assessment
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+          - practical_work
+        selection_rationale: Неопределенность измерений. Представление результатов измерений supplies exact committed-route evidence for Mõõtmistulemuste usaldusväärsus ja mõõtemääramatus; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: measurement-instruments-units-and-reliability
+        record_id: measurement-uncertainty-et-legacy
+        canonical_url: https://www.opiq.ee/kit/44/chapter/2067
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_est
+        title: Mõõtmise määramatus. Mõõtmistulemuste esitamine
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+        selection_rationale: Mõõtmise määramatus. Mõõtmistulemuste esitamine supplies exact committed-route evidence for Mõõtmistulemuste usaldusväärsus ja mõõtemääramatus; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: measurement-uncertainty-ru-core
+          programme_type: unknown
+        - record_id: measurement-uncertainty-et-legacy
+          programme_type: unknown
+      bridging_content: none
+    bridge_requirement:
+      required: false
+      reason: Exact committed-route page evidence covers the complete normalized content scope; this does not establish default-course eligibility.
+    mapping_confidence: high
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route covers the complete normalized content scope for Mõõtmistulemuste usaldusväärsus ja mõõtemääramatus; programme eligibility remains independently unresolved.
+    gap_notes: []
+  - mapping_id: lessons-016-017
+    source_record_kind: lesson_range
+    source_block_id: inimene-uurib-loodust
+    lesson_start: 16
+    lesson_end: 17
+    source_pages:
+      - 5
+    source_topic_et: Mõõtmiste rakendamine plaani koostamisel ja kaardistamisel
+    normalized_mapping_topic_et: Mõõtmiste rakendamine plaani koostamisel ja kaardistamisel
+    topic_inventory_refs:
+      - length-area-volume-mass-and-plan
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: length-area-volume-mass-and-plan
+        record_id: plan-construction-et
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4879
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Plaani koostamine
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+          - practical_work
+        selection_rationale: Plaani koostamine supplies exact committed-route evidence for Mõõtmiste rakendamine plaani koostamisel ja kaardistamisel; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: plan-construction-et
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: The plan procedure is explicit, but the complete field product, collaboration criteria and rubric are not.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Mõõtmiste rakendamine plaani koostamisel ja kaardistamisel; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - The plan procedure is explicit, but the complete field product, collaboration criteria and rubric are not.
+  - mapping_id: lessons-018-019
+    source_record_kind: lesson_range
+    source_block_id: inimene-uurib-loodust
+    lesson_start: 18
+    lesson_end: 19
+    source_pages:
+      - 5
+      - 6
+    source_topic_et: Kehade omaduste uurimine graafikute abil
+    normalized_mapping_topic_et: Kehade omaduste uurimine graafikute abil
+    topic_inventory_refs:
+      - data-tables-graphs-and-variables
+      - scientific-method-observation-and-experiment
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: data-tables-graphs-and-variables
+        record_id: graph-construction-et
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4945
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Kuidas koostada graafikut
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - practice_et
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: Kuidas koostada graafikut supplies exact committed-route evidence for Kehade omaduste uurimine graafikute abil; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: scientific-method-observation-and-experiment
+        record_id: research-tasks-ru
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18896
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Исследовательские задания
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - practice_ru
+          - experiment
+          - data_interpretation
+        match_strength: strong
+        match_scope:
+          - practice
+          - practical_work
+        selection_rationale: Исследовательские задания supplies strong committed-route evidence for Kehade omaduste uurimine graafikute abil; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: graph-construction-et
+          programme_type: unknown
+        - record_id: research-tasks-ru
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: The repeated sand-mass or balloon-fall experiment and graph-format rubric are not reproduced together.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Kehade omaduste uurimine graafikute abil; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - The repeated sand-mass or balloon-fall experiment and graph-format rubric are not reproduced together.
+  - mapping_id: lesson-020
+    source_record_kind: lesson_range
+    source_block_id: ainete-ja-kehade-mitmekesisus
+    lesson_start: 20
+    lesson_end: 20
+    source_pages:
+      - 7
+    source_topic_et: "Kehade koostis: aatom, molekul, kristall, tuum ja elektronkate"
+    normalized_mapping_topic_et: "Kehade koostis: aatom, molekul, kristall, tuum ja elektronkate"
+    topic_inventory_refs:
+      - atoms-elements-and-periodic-table
+      - molecules-cells-ions-and-chemical-bonds
+      - models-bodies-and-natural-phenomena
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: atoms-elements-and-periodic-table
+        record_id: atom-ru-core
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3074
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Что такое атом?
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: "Что такое атом? supplies exact committed-route evidence for Kehade koostis: aatom, molekul, kristall, tuum ja elektronkate; programme type and default-course eligibility remain unverified."
+      - topic_inventory_ref: molecules-cells-ions-and-chemical-bonds
+        record_id: molecules-cells-et
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4896
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Molekulid ja rakud
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - bilingual_visual
+        match_strength: strong
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+        selection_rationale: "Molekulid ja rakud supplies strong committed-route evidence for Kehade koostis: aatom, molekul, kristall, tuum ja elektronkate; programme type and default-course eligibility remain unverified."
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: atom-ru-core
+          programme_type: unknown
+        - record_id: molecules-cells-et
+          programme_type: unknown
+      bridging_content: independently_authored_bridge_required
+    bridge_requirement:
+      required: true
+      reason: The egg-composition comparison across sciences and source-reliability activity remain unregistered.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: "The exact Grade 7 science route is classified as partial for Kehade koostis: aatom, molekul, kristall, tuum ja elektronkate; the evidence boundary and unresolved programme eligibility remain explicit."
+    gap_notes:
+      - The egg-composition comparison across sciences and source-reliability activity remain unregistered.
+  - mapping_id: lesson-021
+    source_record_kind: lesson_range
+    source_block_id: ainete-ja-kehade-mitmekesisus
+    lesson_start: 21
+    lesson_end: 21
+    source_pages:
+      - 7
+    source_topic_et: Keemilised elemendid, perioodilisuse tabel ja mudelid
+    normalized_mapping_topic_et: Keemilised elemendid, perioodilisuse tabel ja mudelid
+    topic_inventory_refs:
+      - atoms-elements-and-periodic-table
+      - models-bodies-and-natural-phenomena
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: atoms-elements-and-periodic-table
+        record_id: elements-ru-core
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3076
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Химические элементы
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: Химические элементы supplies exact committed-route evidence for Keemilised elemendid, perioodilisuse tabel ja mudelid; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: atoms-elements-and-periodic-table
+        record_id: periodic-table-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30443
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Keemiline element ja perioodilisustabel
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - bilingual_visual
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+        selection_rationale: Keemiline element ja perioodilisustabel supplies exact committed-route evidence for Keemilised elemendid, perioodilisuse tabel ja mudelid; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: elements-ru-core
+          programme_type: unknown
+        - record_id: periodic-table-et-current
+          programme_type: unknown
+      bridging_content: independently_authored_bridge_required
+    bridge_requirement:
+      required: true
+      reason: The creative symbol task, model-material comparison and source-evaluation procedure are not one complete activity.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Keemilised elemendid, perioodilisuse tabel ja mudelid; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - The creative symbol task, model-material comparison and source-evaluation procedure are not one complete activity.
+  - mapping_id: lesson-022
+    source_record_kind: lesson_range
+    source_block_id: ainete-ja-kehade-mitmekesisus
+    lesson_start: 22
+    lesson_end: 22
+    source_pages:
+      - 8
+    source_topic_et: Liht- ja liitained ning nende valemid
+    normalized_mapping_topic_et: Liht- ja liitained ning nende valemid
+    topic_inventory_refs:
+      - molecules-cells-ions-and-chemical-bonds
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: molecules-cells-ions-and-chemical-bonds
+        record_id: simple-compound-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30444
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Liht- ja liitained
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+        selection_rationale: Liht- ja liitained supplies exact committed-route evidence for Liht- ja liitained ning nende valemid; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: molecules-cells-ions-and-chemical-bonds
+        record_id: molecules-ru-core
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3081
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Что такое молекула, вещество и частица?
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        match_strength: strong
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: Что такое молекула, вещество и частица? supplies strong committed-route evidence for Liht- ja liitained ning nende valemid; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: simple-compound-et-current
+          programme_type: unknown
+        - record_id: molecules-ru-core
+          programme_type: unknown
+      bridging_content: independently_authored_practical_required
+    bridge_requirement:
+      required: true
+      reason: No complete learner model-kit construction procedure or rubric is registered.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Liht- ja liitained ning nende valemid; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - No complete learner model-kit construction procedure or rubric is registered.
+  - mapping_id: lesson-023
+    source_record_kind: lesson_range
+    source_block_id: ainete-ja-kehade-mitmekesisus
+    lesson_start: 23
+    lesson_end: 23
+    source_pages:
+      - 8
+    source_topic_et: Aine kolm olekut
+    normalized_mapping_topic_et: Aine kolm olekut
+    topic_inventory_refs:
+      - states-of-matter-and-phase-changes
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: states-of-matter-and-phase-changes
+        record_id: states-matter-ru-core
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18913
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Твердое, жидкое и газообразное состояние
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: Твердое, жидкое и газообразное состояние supplies exact committed-route evidence for Aine kolm olekut; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: states-of-matter-and-phase-changes
+        record_id: phase-changes-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30778
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Aine olekute muutused
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - bilingual_visual
+        match_strength: strong
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+        selection_rationale: Aine olekute muutused supplies strong committed-route evidence for Aine kolm olekut; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: states-matter-ru-core
+          programme_type: unknown
+        - record_id: phase-changes-et-current
+          programme_type: unknown
+      bridging_content: independently_authored_bridge_required
+    bridge_requirement:
+      required: true
+      reason: The source-requested simulation work and gas-versus-vapour consolidation are not one registered procedure.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Aine kolm olekut; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - The source-requested simulation work and gas-versus-vapour consolidation are not one registered procedure.
+  - mapping_id: lesson-024
+    source_record_kind: lesson_range
+    source_block_id: ainete-ja-kehade-mitmekesisus
+    lesson_start: 24
+    lesson_end: 24
+    source_pages:
+      - 8
+    source_topic_et: Elementide teema kordamine ja kinnistamine
+    normalized_mapping_topic_et: Elementide teema kordamine ja kinnistamine
+    topic_inventory_refs:
+      - atoms-elements-and-periodic-table
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: atoms-elements-and-periodic-table
+        record_id: atoms-elements-ru-revision
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3080
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Повторение
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - revision
+          - assessment
+          - practice_ru
+        match_strength: strong
+        match_scope:
+          - revision
+          - assessment
+          - practice
+        selection_rationale: Повторение supplies strong committed-route evidence for Elementide teema kordamine ja kinnistamine; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: atoms-elements-and-periodic-table
+        record_id: periodic-table-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30443
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Keemiline element ja perioodilisustabel
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - bilingual_visual
+        match_strength: supporting
+        match_scope:
+          - core_content
+          - terminology
+        selection_rationale: Keemiline element ja perioodilisustabel supplies supporting committed-route evidence for Elementide teema kordamine ja kinnistamine; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: atoms-elements-ru-revision
+          programme_type: unknown
+        - record_id: periodic-table-et-current
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: Section revision is available, but the element presentation has no explicit oral support or presentation rubric.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Elementide teema kordamine ja kinnistamine; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - Section revision is available, but the element presentation has no explicit oral support or presentation rubric.
+  - mapping_id: lesson-025
+    source_record_kind: lesson_range
+    source_block_id: ainete-ja-kehade-mitmekesisus
+    lesson_start: 25
+    lesson_end: 25
+    source_pages:
+      - 8
+    source_topic_et: Tihedus ja tiheduse kaudne mõõtmine
+    normalized_mapping_topic_et: Tihedus ja tiheduse kaudne mõõtmine
+    topic_inventory_refs:
+      - density-material-properties-and-earth-materials
+    coverage_status: matched
+    opiq_matches:
+      - topic_inventory_ref: density-material-properties-and-earth-materials
+        record_id: density-ru-core
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18892
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Плотность вещества
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: Плотность вещества supplies exact committed-route evidence for Tihedus ja tiheduse kaudne mõõtmine; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: density-material-properties-and-earth-materials
+        record_id: physical-properties-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30781
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Aine füüsikalised omadused
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        match_strength: strong
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+        selection_rationale: Aine füüsikalised omadused supplies strong committed-route evidence for Tihedus ja tiheduse kaudne mõõtmine; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: density-ru-core
+          programme_type: unknown
+        - record_id: physical-properties-et-current
+          programme_type: unknown
+      bridging_content: none
+    bridge_requirement:
+      required: false
+      reason: Exact committed-route page evidence covers the complete normalized content scope; this does not establish default-course eligibility.
+    mapping_confidence: high
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route covers the complete normalized content scope for Tihedus ja tiheduse kaudne mõõtmine; programme eligibility remains independently unresolved.
+    gap_notes: []
+  - mapping_id: lessons-026-027
+    source_record_kind: lesson_range
+    source_block_id: ainete-ja-kehade-mitmekesisus
+    lesson_start: 26
+    lesson_end: 27
+    source_pages:
+      - 8
+      - 9
+    source_topic_et: Tiheduse mõõtmine
+    normalized_mapping_topic_et: Tiheduse mõõtmine
+    topic_inventory_refs:
+      - density-material-properties-and-earth-materials
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: density-material-properties-and-earth-materials
+        record_id: density-ru-core
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18892
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Плотность вещества
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: Плотность вещества supplies exact committed-route evidence for Tiheduse mõõtmine; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: density-material-properties-and-earth-materials
+        record_id: salt-solution-density-et-experiment
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4902
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Soolalahuse tiheduse määramine
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - experiment
+          - practice_et
+          - data_interpretation
+        match_strength: supporting
+        match_scope:
+          - practice
+          - practical_work
+        selection_rationale: Soolalahuse tiheduse määramine supplies supporting committed-route evidence for Tiheduse mõõtmine; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: density-ru-core
+          programme_type: unknown
+        - record_id: salt-solution-density-et-experiment
+          programme_type: unknown
+      bridging_content: independently_authored_practical_required
+    bridge_requirement:
+      required: true
+      reason: The stone-immersion sequence and teacher formatting criteria are not fully reproduced.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Tiheduse mõõtmine; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - The stone-immersion sequence and teacher formatting criteria are not fully reproduced.
+  - mapping_id: lesson-028
+    source_record_kind: lesson_range
+    source_block_id: ainete-ja-kehade-mitmekesisus
+    lesson_start: 28
+    lesson_end: 28
+    source_pages:
+      - 9
+    source_topic_et: Ainete ja kehade teema kordamine ning kinnistamine
+    normalized_mapping_topic_et: Ainete ja kehade teema kordamine ning kinnistamine
+    topic_inventory_refs:
+      - atoms-elements-and-periodic-table
+      - molecules-cells-ions-and-chemical-bonds
+      - density-material-properties-and-earth-materials
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: atoms-elements-and-periodic-table
+        record_id: atoms-elements-ru-revision
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3080
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Повторение
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - revision
+          - assessment
+          - practice_ru
+        match_strength: supporting
+        match_scope:
+          - revision
+          - assessment
+        selection_rationale: Повторение supplies supporting committed-route evidence for Ainete ja kehade teema kordamine ning kinnistamine; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: molecules-cells-ions-and-chemical-bonds
+        record_id: particles-bonds-ru-revision
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3093
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Повторение
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - revision
+          - assessment
+          - practice_ru
+        match_strength: supporting
+        match_scope:
+          - revision
+          - assessment
+        selection_rationale: Повторение supplies supporting committed-route evidence for Ainete ja kehade teema kordamine ning kinnistamine; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: atoms-elements-ru-revision
+          programme_type: unknown
+        - record_id: particles-bonds-ru-revision
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: Section revision does not establish the combined control work, defence and feedback criteria.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Ainete ja kehade teema kordamine ning kinnistamine; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - Section revision does not establish the combined control work, defence and feedback criteria.
+  - mapping_id: lesson-029
+    source_record_kind: lesson_range
+    source_block_id: ainete-ja-kehade-mitmekesisus
+    lesson_start: 29
+    lesson_end: 29
+    source_pages:
+      - 9
+    source_topic_et: Puhtad ained ja segud
+    normalized_mapping_topic_et: Puhtad ained ja segud
+    topic_inventory_refs:
+      - pure-substances-mixtures-solutions-and-separation
+      - density-material-properties-and-earth-materials
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: pure-substances-mixtures-solutions-and-separation
+        record_id: pure-substances-mixtures-ru
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18907
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Чистые вещества и смеси веществ
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: Чистые вещества и смеси веществ supplies exact committed-route evidence for Puhtad ained ja segud; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: density-material-properties-and-earth-materials
+        record_id: rocks-minerals-et-support
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30780
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Puhas aine ja segu
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - optional_extension
+        match_strength: strong
+        match_scope:
+          - core_content
+          - terminology
+        selection_rationale: Puhas aine ja segu supplies strong committed-route evidence for Puhtad ained ja segud; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: pure-substances-mixtures-ru
+          programme_type: unknown
+        - record_id: rocks-minerals-et-support
+          programme_type: unknown
+      bridging_content: independently_authored_practical_required
+    bridge_requirement:
+      required: true
+      reason: No dedicated specimen or microscope protocol covers the complete source activity.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Puhtad ained ja segud; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - No dedicated specimen or microscope protocol covers the complete source activity.
+  - mapping_id: lesson-030
+    source_record_kind: lesson_range
+    source_block_id: ainete-ja-kehade-mitmekesisus
+    lesson_start: 30
+    lesson_end: 30
+    source_pages:
+      - 9
+    source_topic_et: Lahuse omaduste praktiline uurimine
+    normalized_mapping_topic_et: Lahuse omaduste praktiline uurimine
+    topic_inventory_refs:
+      - pure-substances-mixtures-solutions-and-separation
+      - states-of-matter-and-phase-changes
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: pure-substances-mixtures-solutions-and-separation
+        record_id: solutions-ru
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18908
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Растворы
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+        match_strength: strong
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: Растворы supplies strong committed-route evidence for Lahuse omaduste praktiline uurimine; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: states-of-matter-and-phase-changes
+        record_id: phase-changes-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30778
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Aine olekute muutused
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - bilingual_visual
+        match_strength: supporting
+        match_scope:
+          - core_content
+          - terminology
+        selection_rationale: Aine olekute muutused supplies supporting committed-route evidence for Lahuse omaduste praktiline uurimine; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: solutions-ru
+          programme_type: unknown
+        - record_id: phase-changes-et-current
+          programme_type: unknown
+      bridging_content: independently_authored_practical_required
+    bridge_requirement:
+      required: true
+      reason: The specified freezing- or boiling-temperature investigation with controls and analysis is not registered.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Lahuse omaduste praktiline uurimine; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - The specified freezing- or boiling-temperature investigation with controls and analysis is not registered.
+  - mapping_id: lessons-031-032
+    source_record_kind: lesson_range
+    source_block_id: ainete-ja-kehade-mitmekesisus
+    lesson_start: 31
+    lesson_end: 32
+    source_pages:
+      - 9
+    source_topic_et: Ainete eraldamine segudest
+    normalized_mapping_topic_et: Ainete eraldamine segudest
+    topic_inventory_refs:
+      - pure-substances-mixtures-solutions-and-separation
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: pure-substances-mixtures-solutions-and-separation
+        record_id: separation-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30782
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Segude lahutamine koostis­osadeks
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+          - practical_work
+        selection_rationale: Segude lahutamine koostis­osadeks supplies exact committed-route evidence for Ainete eraldamine segudest; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: pure-substances-mixtures-solutions-and-separation
+        record_id: separation-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4900
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Kuidas lahutada segu koostis­osadeks
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - practice_et
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+          - practical_work
+        selection_rationale: Kuidas lahutada segu koostis­osadeks supplies exact committed-route evidence for Ainete eraldamine segudest; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: separation-et-current
+          programme_type: unknown
+        - record_id: separation-et-koolibri
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: Laboratory-skill and workspace assessment criteria are not supplied by a registered rubric.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Ainete eraldamine segudest; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - Laboratory-skill and workspace assessment criteria are not supplied by a registered rubric.
+  - mapping_id: lesson-033
+    source_record_kind: lesson_range
+    source_block_id: ainete-ja-kehade-mitmekesisus
+    lesson_start: 33
+    lesson_end: 33
+    source_pages:
+      - 9
+      - 10
+    source_topic_et: Veepuhastusjaama õppekäik või kromatograafia
+    normalized_mapping_topic_et: Veepuhastusjaama õppekäik või kromatograafia
+    topic_inventory_refs:
+      - pure-substances-mixtures-solutions-and-separation
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: pure-substances-mixtures-solutions-and-separation
+        record_id: separation-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4900
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Kuidas lahutada segu koostis­osadeks
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - practice_et
+          - data_interpretation
+        match_strength: supporting
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: Kuidas lahutada segu koostis­osadeks supplies supporting committed-route evidence for Veepuhastusjaama õppekäik või kromatograafia; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: separation-et-koolibri
+          programme_type: unknown
+      bridging_content: independently_authored_practical_required
+    bridge_requirement:
+      required: true
+      reason: "This is an alternative row: water purification content is supported, but neither an exact field-trip protocol nor chromatography evidence is registered."
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Veepuhastusjaama õppekäik või kromatograafia; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - "This is an alternative row: water purification content is supported, but neither an exact field-trip protocol nor chromatography evidence is registered."
+  - mapping_id: lesson-034
+    source_record_kind: lesson_range
+    source_block_id: ainete-ja-kehade-mitmekesisus
+    lesson_start: 34
+    lesson_end: 34
+    source_pages:
+      - 10
+    source_topic_et: Segude eraldamise kordamine ja kinnistamine
+    normalized_mapping_topic_et: Segude eraldamise kordamine ja kinnistamine
+    topic_inventory_refs:
+      - pure-substances-mixtures-solutions-and-separation
+    coverage_status: missing
+    opiq_matches: []
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material: []
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: No selected or alternative record provides exact chromatography exhibition evidence or its review activity.
+    mapping_confidence: low
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as missing for Segude eraldamise kordamine ja kinnistamine; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - No selected or alternative record provides exact chromatography exhibition evidence or its review activity.
+  - mapping_id: lesson-035
+    source_record_kind: lesson_range
+    source_block_id: loodusnahtused
+    lesson_start: 35
+    lesson_end: 35
+    source_pages:
+      - 10
+    source_topic_et: "Loodusnähtused: bioloogilised, füüsikalised ja keemilised nähtused"
+    normalized_mapping_topic_et: "Loodusnähtused: bioloogilised, füüsikalised ja keemilised nähtused"
+    topic_inventory_refs:
+      - models-bodies-and-natural-phenomena
+      - chemical-reactions-combustion-and-experiments
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: models-bodies-and-natural-phenomena
+        record_id: natural-phenomena-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30943
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Loodusnähtused
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+        selection_rationale: "Loodusnähtused supplies exact committed-route evidence for Loodusnähtused: bioloogilised, füüsikalised ja keemilised nähtused; programme type and default-course eligibility remain unverified."
+      - topic_inventory_ref: chemical-reactions-combustion-and-experiments
+        record_id: candle-combustion-et
+        canonical_url: https://www.opiq.ee/kit/100/chapter/6929
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Küünla põlemine
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - experiment
+          - practice_et
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - practical_work
+          - practice
+        selection_rationale: "Küünla põlemine supplies exact committed-route evidence for Loodusnähtused: bioloogilised, füüsikalised ja keemilised nähtused; programme type and default-course eligibility remain unverified."
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: natural-phenomena-et-current
+          programme_type: unknown
+        - record_id: candle-combustion-et
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: Classification and a candle procedure are explicit, but the classification assessment criteria are not.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: "The exact Grade 7 science route is classified as partial for Loodusnähtused: bioloogilised, füüsikalised ja keemilised nähtused; the evidence boundary and unresolved programme eligibility remain explicit."
+    gap_notes:
+      - Classification and a candle procedure are explicit, but the classification assessment criteria are not.
+  - mapping_id: lesson-036
+    source_record_kind: lesson_range
+    source_block_id: loodusnahtused
+    lesson_start: 36
+    lesson_end: 36
+    source_pages:
+      - 10
+    source_topic_et: Liikumised looduses ja trajektoor
+    normalized_mapping_topic_et: Liikumised looduses ja trajektoor
+    topic_inventory_refs:
+      - motion-speed-and-force
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: motion-speed-and-force
+        record_id: motion-ru-core
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3064
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Что такое движение?
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: Что такое движение? supplies exact committed-route evidence for Liikumised looduses ja trajektoor; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: motion-ru-core
+          programme_type: unknown
+      bridging_content: independently_authored_bridge_required
+    bridge_requirement:
+      required: true
+      reason: The requested bird-migration investigation is not part of the committed route evidence.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Liikumised looduses ja trajektoor; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - The requested bird-migration investigation is not part of the committed route evidence.
+  - mapping_id: lesson-037
+    source_record_kind: lesson_range
+    source_block_id: loodusnahtused
+    lesson_start: 37
+    lesson_end: 37
+    source_pages:
+      - 11
+    source_topic_et: Kiirus ja kiiruse mõõtmine
+    normalized_mapping_topic_et: Kiirus ja kiiruse mõõtmine
+    topic_inventory_refs:
+      - motion-speed-and-force
+    coverage_status: matched
+    opiq_matches:
+      - topic_inventory_ref: motion-speed-and-force
+        record_id: speed-ru-koolibri
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18899
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Скорость движения тел
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: Скорость движения тел supplies exact committed-route evidence for Kiirus ja kiiruse mõõtmine; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: motion-speed-and-force
+        record_id: motion-force-ru-revision
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3068
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Повторение
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - revision
+          - assessment
+          - practice_ru
+        match_strength: strong
+        match_scope:
+          - practice
+          - assessment
+        selection_rationale: Повторение supplies strong committed-route evidence for Kiirus ja kiiruse mõõtmine; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: speed-ru-koolibri
+          programme_type: unknown
+        - record_id: motion-force-ru-revision
+          programme_type: unknown
+      bridging_content: none
+    bridge_requirement:
+      required: false
+      reason: Exact committed-route page evidence covers the complete normalized content scope; this does not establish default-course eligibility.
+    mapping_confidence: high
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route covers the complete normalized content scope for Kiirus ja kiiruse mõõtmine; programme eligibility remains independently unresolved.
+    gap_notes: []
+  - mapping_id: lesson-038
+    source_record_kind: lesson_range
+    source_block_id: loodusnahtused
+    lesson_start: 38
+    lesson_end: 38
+    source_pages:
+      - 11
+    source_topic_et: Kiiruse praktiline mõõtmine
+    normalized_mapping_topic_et: Kiiruse praktiline mõõtmine
+    topic_inventory_refs:
+      - motion-speed-and-force
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: motion-speed-and-force
+        record_id: speed-determination-et
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4892
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Kiiruse määramine
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - experiment
+          - practice_et
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+          - practical_work
+        selection_rationale: Kiiruse määramine supplies exact committed-route evidence for Kiiruse praktiline mõõtmine; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: speed-determination-et
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: The report sequence is explicit, but not the assessment criteria for the source variants.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Kiiruse praktiline mõõtmine; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - The report sequence is explicit, but not the assessment criteria for the source variants.
+  - mapping_id: lesson-039
+    source_record_kind: lesson_range
+    source_block_id: loodusnahtused
+    lesson_start: 39
+    lesson_end: 39
+    source_pages:
+      - 11
+    source_topic_et: Energia
+    normalized_mapping_topic_et: Energia
+    topic_inventory_refs:
+      - work-energy-and-transformations
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: work-energy-and-transformations
+        record_id: energy-ru-core
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3070
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Что такое энергия?
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: Что такое энергия? supplies exact committed-route evidence for Energia; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: work-energy-and-transformations
+        record_id: energy-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30945
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Energia
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        match_strength: strong
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+        selection_rationale: Energia supplies strong committed-route evidence for Energia; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: energy-ru-core
+          programme_type: unknown
+        - record_id: energy-et-current
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: The unit-conversion control required by the source is not a registered energy assessment.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Energia; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - The unit-conversion control required by the source is not a registered energy assessment.
+  - mapping_id: lesson-040
+    source_record_kind: lesson_range
+    source_block_id: loodusnahtused
+    lesson_start: 40
+    lesson_end: 40
+    source_pages:
+      - 11
+    source_topic_et: Energia muundumine ja ülekandumine
+    normalized_mapping_topic_et: Energia muundumine ja ülekandumine
+    topic_inventory_refs:
+      - work-energy-and-transformations
+    coverage_status: matched
+    opiq_matches:
+      - topic_inventory_ref: work-energy-and-transformations
+        record_id: energy-ru-core
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3070
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Что такое энергия?
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: Что такое энергия? supplies exact committed-route evidence for Energia muundumine ja ülekandumine; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: work-energy-and-transformations
+        record_id: energy-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30945
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Energia
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+        selection_rationale: Energia supplies exact committed-route evidence for Energia muundumine ja ülekandumine; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: energy-ru-core
+          programme_type: unknown
+        - record_id: energy-et-current
+          programme_type: unknown
+      bridging_content: none
+    bridge_requirement:
+      required: false
+      reason: Exact committed-route page evidence covers the complete normalized content scope; this does not establish default-course eligibility.
+    mapping_confidence: high
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route covers the complete normalized content scope for Energia muundumine ja ülekandumine; programme eligibility remains independently unresolved.
+    gap_notes: []
+  - mapping_id: lesson-041
+    source_record_kind: lesson_range
+    source_block_id: loodusnahtused
+    lesson_start: 41
+    lesson_end: 41
+    source_pages:
+      - 11
+    source_topic_et: Energia muundumise uurimine
+    normalized_mapping_topic_et: Energia muundumise uurimine
+    topic_inventory_refs:
+      - work-energy-and-transformations
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: work-energy-and-transformations
+        record_id: energy-ru-core
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3070
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Что такое энергия?
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        match_strength: strong
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: Что такое энергия? supplies strong committed-route evidence for Energia muundumise uurimine; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: work-energy-and-transformations
+        record_id: energy-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30945
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Energia
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        match_strength: strong
+        match_scope:
+          - core_content
+          - terminology
+        selection_rationale: Energia supplies strong committed-route evidence for Energia muundumise uurimine; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: energy-ru-core
+          programme_type: unknown
+        - record_id: energy-et-current
+          programme_type: unknown
+      bridging_content: independently_authored_practical_required
+    bridge_requirement:
+      required: true
+      reason: No registered page supplies the potato-battery, lemon-battery or stirring-temperature protocol.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Energia muundumise uurimine; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - No registered page supplies the potato-battery, lemon-battery or stirring-temperature protocol.
+  - mapping_id: lesson-042
+    source_record_kind: lesson_range
+    source_block_id: loodusnahtused
+    lesson_start: 42
+    lesson_end: 42
+    source_pages:
+      - 11
+    source_topic_et: Energia teema kinnistamine ja hindamine
+    normalized_mapping_topic_et: Energia teema kinnistamine ja hindamine
+    topic_inventory_refs:
+      - work-energy-and-transformations
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: work-energy-and-transformations
+        record_id: work-energy-ru-revision
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3073
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Повторение
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - revision
+          - assessment
+          - practice_ru
+        match_strength: strong
+        match_scope:
+          - revision
+          - assessment
+          - practice
+        selection_rationale: Повторение supplies strong committed-route evidence for Energia teema kinnistamine ja hindamine; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: work-energy-ru-revision
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: Section revision does not prove the complete teacher-held energy assessment.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Energia teema kinnistamine ja hindamine; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - Section revision does not prove the complete teacher-held energy assessment.
+  - mapping_id: lesson-043
+    source_record_kind: lesson_range
+    source_block_id: loodusnahtused
+    lesson_start: 43
+    lesson_end: 43
+    source_pages:
+      - 12
+    source_topic_et: Soojusjuhid looduses ja elukeskkonnas
+    normalized_mapping_topic_et: Soojusjuhid looduses ja elukeskkonnas
+    topic_inventory_refs:
+      - temperature-and-heat-transfer
+    coverage_status: matched
+    opiq_matches:
+      - topic_inventory_ref: temperature-and-heat-transfer
+        record_id: heat-temperature-ru
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18924
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Теплота и температура
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: Теплота и температура supplies exact committed-route evidence for Soojusjuhid looduses ja elukeskkonnas; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: temperature-and-heat-transfer
+        record_id: heat-transfer-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30946
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Soojusenergia ja soojusülekanne
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - bilingual_visual
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+        selection_rationale: Soojusenergia ja soojusülekanne supplies exact committed-route evidence for Soojusjuhid looduses ja elukeskkonnas; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: heat-temperature-ru
+          programme_type: unknown
+        - record_id: heat-transfer-et-current
+          programme_type: unknown
+      bridging_content: none
+    bridge_requirement:
+      required: false
+      reason: Exact committed-route page evidence covers the complete normalized content scope; this does not establish default-course eligibility.
+    mapping_confidence: high
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route covers the complete normalized content scope for Soojusjuhid looduses ja elukeskkonnas; programme eligibility remains independently unresolved.
+    gap_notes: []
+  - mapping_id: lesson-044
+    source_record_kind: lesson_range
+    source_block_id: loodusnahtused
+    lesson_start: 44
+    lesson_end: 44
+    source_pages:
+      - 12
+    source_topic_et: Materjalide soojusjuhtivuse uurimine
+    normalized_mapping_topic_et: Materjalide soojusjuhtivuse uurimine
+    topic_inventory_refs:
+      - temperature-and-heat-transfer
+      - data-tables-graphs-and-variables
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: temperature-and-heat-transfer
+        record_id: thermal-conductivity-et
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4916
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Soojus­juhtivus
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - experiment
+          - practice_et
+        match_strength: strong
+        match_scope:
+          - core_content
+          - terminology
+          - practical_work
+        selection_rationale: Soojus­juhtivus supplies strong committed-route evidence for Materjalide soojusjuhtivuse uurimine; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: temperature-and-heat-transfer
+        record_id: heating-research-et
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4921
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Uurimisülesanne
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - experiment
+          - practice_et
+          - data_interpretation
+        match_strength: supporting
+        match_scope:
+          - practice
+          - practical_work
+        selection_rationale: Uurimisülesanne supplies supporting committed-route evidence for Materjalide soojusjuhtivuse uurimine; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: thermal-conductivity-et
+          programme_type: unknown
+        - record_id: heating-research-et
+          programme_type: unknown
+      bridging_content: independently_authored_practical_required
+    bridge_requirement:
+      required: true
+      reason: The insulation comparison, cooling measurement and cooling graph are not one registered protocol.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Materjalide soojusjuhtivuse uurimine; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - The insulation comparison, cooling measurement and cooling graph are not one registered protocol.
+  - mapping_id: lesson-045
+    source_record_kind: lesson_range
+    source_block_id: loodusnahtused
+    lesson_start: 45
+    lesson_end: 45
+    source_pages:
+      - 12
+    source_topic_et: Soojusjuhtivuse teema hindamine ja kinnistamine
+    normalized_mapping_topic_et: Soojusjuhtivuse teema hindamine ja kinnistamine
+    topic_inventory_refs:
+      - temperature-and-heat-transfer
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: temperature-and-heat-transfer
+        record_id: heat-energy-ru-revision
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18928
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Итоги и обобщение
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - revision
+          - assessment
+          - practice_ru
+        match_strength: strong
+        match_scope:
+          - revision
+          - assessment
+          - practice
+        selection_rationale: Итоги и обобщение supplies strong committed-route evidence for Soojusjuhtivuse teema hindamine ja kinnistamine; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: temperature-and-heat-transfer
+        record_id: thermal-conductivity-et
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4916
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Soojus­juhtivus
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - experiment
+          - practice_et
+        match_strength: supporting
+        match_scope:
+          - practice
+          - practical_work
+        selection_rationale: Soojus­juhtivus supplies supporting committed-route evidence for Soojusjuhtivuse teema hindamine ja kinnistamine; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: heat-energy-ru-revision
+          programme_type: unknown
+        - record_id: thermal-conductivity-et
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: The teacher-selected practical defence and feedback rubric remain unregistered.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Soojusjuhtivuse teema hindamine ja kinnistamine; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - The teacher-selected practical defence and feedback rubric remain unregistered.
+  - mapping_id: lesson-046
+    source_record_kind: lesson_range
+    source_block_id: loodusnahtused
+    lesson_start: 46
+    lesson_end: 46
+    source_pages:
+      - 12
+    source_topic_et: Keemilised reaktsioonid meie ümber
+    normalized_mapping_topic_et: Keemilised reaktsioonid meie ümber
+    topic_inventory_refs:
+      - chemical-reactions-combustion-and-experiments
+    coverage_status: matched
+    opiq_matches:
+      - topic_inventory_ref: chemical-reactions-combustion-and-experiments
+        record_id: chemical-reaction-combustion-ru
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3082
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Химическая реакция. Горение
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: Химическая реакция. Горение supplies exact committed-route evidence for Keemilised reaktsioonid meie ümber; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: chemical-reactions-combustion-and-experiments
+        record_id: chemical-reaction-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30947
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Keemiline reaktsioon
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+        selection_rationale: Keemiline reaktsioon supplies exact committed-route evidence for Keemilised reaktsioonid meie ümber; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: chemical-reactions-combustion-and-experiments
+        record_id: candle-combustion-et
+        canonical_url: https://www.opiq.ee/kit/100/chapter/6929
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Küünla põlemine
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - experiment
+          - practice_et
+          - data_interpretation
+        match_strength: strong
+        match_scope:
+          - practical_work
+          - practice
+        selection_rationale: Küünla põlemine supplies strong committed-route evidence for Keemilised reaktsioonid meie ümber; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: chemical-reaction-combustion-ru
+          programme_type: unknown
+        - record_id: chemical-reaction-et-current
+          programme_type: unknown
+        - record_id: candle-combustion-et
+          programme_type: unknown
+      bridging_content: none
+    bridge_requirement:
+      required: false
+      reason: Exact committed-route page evidence covers the complete normalized content scope; this does not establish default-course eligibility.
+    mapping_confidence: high
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route covers the complete normalized content scope for Keemilised reaktsioonid meie ümber; programme eligibility remains independently unresolved.
+    gap_notes: []
+  - mapping_id: lesson-047
+    source_record_kind: lesson_range
+    source_block_id: loodusnahtused
+    lesson_start: 47
+    lesson_end: 47
+    source_pages:
+      - 12
+    source_topic_et: Keemiliste reaktsioonide uurimine
+    normalized_mapping_topic_et: Keemiliste reaktsioonide uurimine
+    topic_inventory_refs:
+      - chemical-reactions-combustion-and-experiments
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: chemical-reactions-combustion-and-experiments
+        record_id: chemical-experiments-et
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4928
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Keemilisi katseid
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - experiment
+          - practice_et
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practical_work
+          - practice
+        selection_rationale: Keemilisi katseid supplies exact committed-route evidence for Keemiliste reaktsioonide uurimine; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: chemical-reactions-combustion-and-experiments
+        record_id: chemical-reaction-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30947
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Keemiline reaktsioon
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        match_strength: strong
+        match_scope:
+          - core_content
+          - terminology
+        selection_rationale: Keemiline reaktsioon supplies strong committed-route evidence for Keemiliste reaktsioonide uurimine; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: chemical-experiments-et
+          programme_type: unknown
+        - record_id: chemical-reaction-et-current
+          programme_type: unknown
+      bridging_content: independently_authored_practical_required
+    bridge_requirement:
+      required: true
+      reason: The source-required equipment controls, complete safety protocol and rubric are not established.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Keemiliste reaktsioonide uurimine; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - The source-required equipment controls, complete safety protocol and rubric are not established.
+  - mapping_id: lesson-048
+    source_record_kind: lesson_range
+    source_block_id: loodusnahtused
+    lesson_start: 48
+    lesson_end: 48
+    source_pages:
+      - 12
+    source_topic_et: Kivimite uurimine
+    normalized_mapping_topic_et: Kivimite uurimine
+    topic_inventory_refs:
+      - density-material-properties-and-earth-materials
+      - pure-substances-mixtures-solutions-and-separation
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: pure-substances-mixtures-solutions-and-separation
+        record_id: pure-substances-mixtures-ru
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18907
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Чистые вещества и смеси веществ
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+        match_strength: strong
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: Чистые вещества и смеси веществ supplies strong committed-route evidence for Kivimite uurimine; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: density-material-properties-and-earth-materials
+        record_id: rocks-minerals-et-support
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30780
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Puhas aine ja segu
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - optional_extension
+        match_strength: supporting
+        match_scope:
+          - core_content
+          - terminology
+        selection_rationale: Puhas aine ja segu supplies supporting committed-route evidence for Kivimite uurimine; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: pure-substances-mixtures-ru
+          programme_type: unknown
+        - record_id: rocks-minerals-et-support
+          programme_type: unknown
+      bridging_content: independently_authored_practical_required
+    bridge_requirement:
+      required: true
+      reason: No complete specimen protocol covers density, heating and acid-reaction comparisons.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Kivimite uurimine; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - No complete specimen protocol covers density, heating and acid-reaction comparisons.
+  - mapping_id: lesson-049
+    source_record_kind: lesson_range
+    source_block_id: loodusnahtused
+    lesson_start: 49
+    lesson_end: 49
+    source_pages:
+      - 13
+    source_topic_et: Katsete kokkuvõtete esitamine
+    normalized_mapping_topic_et: Katsete kokkuvõtete esitamine
+    topic_inventory_refs:
+      - chemical-reactions-combustion-and-experiments
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: chemical-reactions-combustion-and-experiments
+        record_id: chemical-experiments-et
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4928
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Keemilisi katseid
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - experiment
+          - practice_et
+          - data_interpretation
+        match_strength: supporting
+        match_scope:
+          - practical_work
+          - practice
+        selection_rationale: Keemilisi katseid supplies supporting committed-route evidence for Katsete kokkuvõtete esitamine; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: chemical-reactions-combustion-and-experiments
+        record_id: chemical-reactions-ru-revision
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18935
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Итоги и обобщение
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - revision
+          - assessment
+          - practice_ru
+        match_strength: supporting
+        match_scope:
+          - revision
+          - assessment
+        selection_rationale: Итоги и обобщение supplies supporting committed-route evidence for Katsete kokkuvõtete esitamine; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: chemical-experiments-et
+          programme_type: unknown
+        - record_id: chemical-reactions-ru-revision
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: The exact limescale-removal comparison and presentation rubric are not registered.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Katsete kokkuvõtete esitamine; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - The exact limescale-removal comparison and presentation rubric are not registered.
+  - mapping_id: lesson-050
+    source_record_kind: lesson_range
+    source_block_id: loodusnahtused
+    lesson_start: 50
+    lesson_end: 50
+    source_pages:
+      - 13
+    source_topic_et: Kasvamine ja areng
+    normalized_mapping_topic_et: Kasvamine ja areng
+    topic_inventory_refs:
+      - scientific-method-observation-and-experiment
+      - ecosystems-adaptation-growth-and-natural-balance
+      - data-tables-graphs-and-variables
+    coverage_status: matched
+    opiq_matches:
+      - topic_inventory_ref: scientific-method-observation-and-experiment
+        record_id: research-tasks-ru
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18896
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Исследовательские задания
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - practice_ru
+          - experiment
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+          - practical_work
+        selection_rationale: Исследовательские задания supplies exact committed-route evidence for Kasvamine ja areng; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: ecosystems-adaptation-growth-and-natural-balance
+        record_id: environment-organisms-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/31309
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Keskkond kujundab organisme
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        match_strength: strong
+        match_scope:
+          - core_content
+          - terminology
+        selection_rationale: Keskkond kujundab organisme supplies strong committed-route evidence for Kasvamine ja areng; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: research-tasks-ru
+          programme_type: unknown
+        - record_id: environment-organisms-et-current
+          programme_type: unknown
+      bridging_content: none
+    bridge_requirement:
+      required: false
+      reason: Exact committed-route page evidence covers the complete normalized content scope; this does not establish default-course eligibility.
+    mapping_confidence: high
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route covers the complete normalized content scope for Kasvamine ja areng; programme eligibility remains independently unresolved.
+    gap_notes: []
+  - mapping_id: lesson-051
+    source_record_kind: lesson_range
+    source_block_id: loodusnahtused
+    lesson_start: 51
+    lesson_end: 51
+    source_pages:
+      - 13
+    source_topic_et: Salati kasvukiirust mõjutavad tegurid
+    normalized_mapping_topic_et: Salati kasvukiirust mõjutavad tegurid
+    topic_inventory_refs:
+      - ecosystems-adaptation-growth-and-natural-balance
+      - scientific-method-observation-and-experiment
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: ecosystems-adaptation-growth-and-natural-balance
+        record_id: environment-organisms-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/31309
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Keskkond kujundab organisme
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        match_strength: strong
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+        selection_rationale: Keskkond kujundab organisme supplies strong committed-route evidence for Salati kasvukiirust mõjutavad tegurid; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: scientific-method-observation-and-experiment
+        record_id: research-tasks-et
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4887
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Uurimis­ülesandeid
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - practice_et
+          - experiment
+          - data_interpretation
+        match_strength: supporting
+        match_scope:
+          - practice
+          - practical_work
+        selection_rationale: Uurimis­ülesandeid supplies supporting committed-route evidence for Salati kasvukiirust mõjutavad tegurid; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: environment-organisms-et-current
+          programme_type: unknown
+        - record_id: research-tasks-et
+          programme_type: unknown
+      bridging_content: independently_authored_practical_required
+    bridge_requirement:
+      required: true
+      reason: The inventory lacks the long-term lettuce-growth protocol, controlled-variable log and rubric.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Salati kasvukiirust mõjutavad tegurid; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - The inventory lacks the long-term lettuce-growth protocol, controlled-variable log and rubric.
+  - mapping_id: lesson-052
+    source_record_kind: lesson_range
+    source_block_id: loodusnahtused
+    lesson_start: 52
+    lesson_end: 52
+    source_pages:
+      - 13
+    source_topic_et: Loodusnähtuste liikide kokkuvõte
+    normalized_mapping_topic_et: Loodusnähtuste liikide kokkuvõte
+    topic_inventory_refs:
+      - models-bodies-and-natural-phenomena
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: models-bodies-and-natural-phenomena
+        record_id: natural-phenomena-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30943
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Loodusnähtused
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+        selection_rationale: Loodusnähtused supplies exact committed-route evidence for Loodusnähtuste liikide kokkuvõte; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: models-bodies-and-natural-phenomena
+        record_id: models-bodies-ru-core
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18903
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Тела, вещества, явления и модели
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        match_strength: strong
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: Тела, вещества, явления и модели supplies strong committed-route evidence for Loodusnähtuste liikide kokkuvõte; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: natural-phenomena-et-current
+          programme_type: unknown
+        - record_id: models-bodies-ru-core
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: The poster or short presentation has no explicit oral evidence or assessment rubric.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Loodusnähtuste liikide kokkuvõte; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - The poster or short presentation has no explicit oral evidence or assessment rubric.
+  - mapping_id: lesson-053
+    source_record_kind: lesson_range
+    source_block_id: elusa-ja-eluta-looduse-seosed
+    lesson_start: 53
+    lesson_end: 53
+    source_pages:
+      - 14
+    source_topic_et: Inimene uurib ökosüsteeme
+    normalized_mapping_topic_et: Inimene uurib ökosüsteeme
+    topic_inventory_refs:
+      - ecosystems-adaptation-growth-and-natural-balance
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: ecosystems-adaptation-growth-and-natural-balance
+        record_id: living-nonliving-relations-ru
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18945
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Связи живой и неживой природы
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        match_strength: strong
+        match_scope:
+          - core_content
+        selection_rationale: Связи живой и неживой природы supplies strong committed-route evidence for Inimene uurib ökosüsteeme; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: ecosystems-adaptation-growth-and-natural-balance
+        record_id: ecosystem-satellite-et
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4930
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Uurime ökosüsteeme kosmosest
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - digital_map
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: Uurime ökosüsteeme kosmosest supplies exact committed-route evidence for Inimene uurib ökosüsteeme; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: living-nonliving-relations-ru
+          programme_type: unknown
+        - record_id: ecosystem-satellite-et
+          programme_type: unknown
+      bridging_content: independently_authored_practical_required
+    bridge_requirement:
+      required: true
+      reason: The ecological-pyramid construction and learner product are not registered completely.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Inimene uurib ökosüsteeme; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - The ecological-pyramid construction and learner product are not registered completely.
+  - mapping_id: lesson-054
+    source_record_kind: lesson_range
+    source_block_id: elusa-ja-eluta-looduse-seosed
+    lesson_start: 54
+    lesson_end: 54
+    source_pages:
+      - 15
+    source_topic_et: Ökosüsteemi uurimine taimeruudu meetodil
+    normalized_mapping_topic_et: Ökosüsteemi uurimine taimeruudu meetodil
+    topic_inventory_refs:
+      - ecosystems-adaptation-growth-and-natural-balance
+    coverage_status: missing
+    opiq_matches: []
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material: []
+      bridging_content: independently_authored_practical_required
+    bridge_requirement:
+      required: true
+      reason: No registered page provides the quadrat fieldwork protocol, species-count and cover table, comparison procedure or assessment.
+    mapping_confidence: low
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as missing for Ökosüsteemi uurimine taimeruudu meetodil; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - No registered page provides the quadrat fieldwork protocol, species-count and cover table, comparison procedure or assessment.
+  - mapping_id: lesson-055
+    source_record_kind: lesson_range
+    source_block_id: elusa-ja-eluta-looduse-seosed
+    lesson_start: 55
+    lesson_end: 55
+    source_pages:
+      - 15
+    source_topic_et: Süsinikuringe ökosüsteemides
+    normalized_mapping_topic_et: Süsinikuringe ökosüsteemides
+    topic_inventory_refs:
+      - photosynthesis-respiration-and-carbon-cycle
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: photosynthesis-respiration-and-carbon-cycle
+        record_id: carbon-cycle-et
+        canonical_url: https://www.opiq.ee/kit/44/chapter/2091
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_est
+        title: Süsinik ringleb
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - bilingual_visual
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+        selection_rationale: Süsinik ringleb supplies exact committed-route evidence for Süsinikuringe ökosüsteemides; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: photosynthesis-respiration-and-carbon-cycle
+        record_id: photosynthesis-respiration-ru
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18934
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Фотосинтез и дыхание
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        match_strength: strong
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: Фотосинтез и дыхание supplies strong committed-route evidence for Süsinikuringe ökosüsteemides; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: carbon-cycle-et
+          programme_type: unknown
+        - record_id: photosynthesis-respiration-ru
+          programme_type: unknown
+      bridging_content: independently_authored_practical_required
+    bridge_requirement:
+      required: true
+      reason: The complete learner-created carbon-cycle scheme procedure and preparation criteria are absent.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Süsinikuringe ökosüsteemides; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - The complete learner-created carbon-cycle scheme procedure and preparation criteria are absent.
+  - mapping_id: lesson-056
+    source_record_kind: lesson_range
+    source_block_id: elusa-ja-eluta-looduse-seosed
+    lesson_start: 56
+    lesson_end: 56
+    source_pages:
+      - 15
+    source_topic_et: Süsinikuringe kinnistamine ja õuesõpe
+    normalized_mapping_topic_et: Süsinikuringe kinnistamine ja õuesõpe
+    topic_inventory_refs:
+      - photosynthesis-respiration-and-carbon-cycle
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: photosynthesis-respiration-and-carbon-cycle
+        record_id: photosynthesis-respiration-ru
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18934
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Фотосинтез и дыхание
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        match_strength: strong
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: Фотосинтез и дыхание supplies strong committed-route evidence for Süsinikuringe kinnistamine ja õuesõpe; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: photosynthesis-respiration-and-carbon-cycle
+        record_id: carbon-cycle-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4931
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Süsiniku­ringe ökosüsteemi­des
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - bilingual_visual
+        match_strength: supporting
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+        selection_rationale: Süsiniku­ringe ökosüsteemi­des supplies supporting committed-route evidence for Süsinikuringe kinnistamine ja õuesõpe; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: photosynthesis-respiration-ru
+          programme_type: unknown
+        - record_id: carbon-cycle-et-koolibri
+          programme_type: unknown
+      bridging_content: independently_authored_practical_required
+    bridge_requirement:
+      required: true
+      reason: The source-row outdoor consolidation activity is not a registered procedure.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Süsinikuringe kinnistamine ja õuesõpe; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - The source-row outdoor consolidation activity is not a registered procedure.
+  - mapping_id: lesson-057
+    source_record_kind: lesson_range
+    source_block_id: elusa-ja-eluta-looduse-seosed
+    lesson_start: 57
+    lesson_end: 57
+    source_pages:
+      - 15
+    source_topic_et: Fotosünteesi uurimine
+    normalized_mapping_topic_et: Fotosünteesi uurimine
+    topic_inventory_refs:
+      - photosynthesis-respiration-and-carbon-cycle
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: photosynthesis-respiration-and-carbon-cycle
+        record_id: photosynthesis-respiration-ru
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18934
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Фотосинтез и дыхание
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        match_strength: strong
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: Фотосинтез и дыхание supplies strong committed-route evidence for Fotosünteesi uurimine; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: photosynthesis-respiration-ru
+          programme_type: unknown
+      bridging_content: independently_authored_practical_required
+    bridge_requirement:
+      required: true
+      reason: No complete registered practical or virtual photosynthesis protocol and rubric matches the source row.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Fotosünteesi uurimine; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - No complete registered practical or virtual photosynthesis protocol and rubric matches the source row.
+  - mapping_id: lesson-058
+    source_record_kind: lesson_range
+    source_block_id: elusa-ja-eluta-looduse-seosed
+    lesson_start: 58
+    lesson_end: 58
+    source_pages:
+      - 15
+    source_topic_et: Süsinikuringe uurimine puu aastarõngaste abil
+    normalized_mapping_topic_et: Süsinikuringe uurimine puu aastarõngaste abil
+    topic_inventory_refs:
+      - photosynthesis-respiration-and-carbon-cycle
+    coverage_status: matched
+    opiq_matches:
+      - topic_inventory_ref: photosynthesis-respiration-and-carbon-cycle
+        record_id: carbon-cycle-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4931
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Süsiniku­ringe ökosüsteemi­des
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - bilingual_visual
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+        selection_rationale: Süsiniku­ringe ökosüsteemi­des supplies exact committed-route evidence for Süsinikuringe uurimine puu aastarõngaste abil; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: carbon-cycle-et-koolibri
+          programme_type: unknown
+      bridging_content: none
+    bridge_requirement:
+      required: false
+      reason: Exact committed-route page evidence covers the complete normalized content scope; this does not establish default-course eligibility.
+    mapping_confidence: high
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route covers the complete normalized content scope for Süsinikuringe uurimine puu aastarõngaste abil; programme eligibility remains independently unresolved.
+    gap_notes: []
+  - mapping_id: lesson-059
+    source_record_kind: lesson_range
+    source_block_id: elusa-ja-eluta-looduse-seosed
+    lesson_start: 59
+    lesson_end: 59
+    source_pages:
+      - 15
+      - 16
+    source_topic_et: Kasvuhooneefekti modelleerimine
+    normalized_mapping_topic_et: Kasvuhooneefekti modelleerimine
+    topic_inventory_refs:
+      - greenhouse-effect-and-climate-change
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: greenhouse-effect-and-climate-change
+        record_id: greenhouse-model-et-experiment
+        canonical_url: https://www.opiq.ee/kit/100/chapter/6931
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Kasvuhooneefekti mudel
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - experiment
+          - practice_et
+          - data_interpretation
+          - bilingual_visual
+        match_strength: strong
+        match_scope:
+          - core_content
+          - practical_work
+          - practice
+        selection_rationale: Kasvuhooneefekti mudel supplies strong committed-route evidence for Kasvuhooneefekti modelleerimine; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: greenhouse-effect-and-climate-change
+        record_id: greenhouse-effect-ru
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18941
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Парниковый эффект
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        match_strength: strong
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: Парниковый эффект supplies strong committed-route evidence for Kasvuhooneefekti modelleerimine; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: greenhouse-model-et-experiment
+          programme_type: unknown
+        - record_id: greenhouse-effect-ru
+          programme_type: unknown
+      bridging_content: independently_authored_practical_required
+    bridge_requirement:
+      required: true
+      reason: The page uses a computer model, not the physical mini-greenhouse protocol, controls and rubric.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Kasvuhooneefekti modelleerimine; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - The page uses a computer model, not the physical mini-greenhouse protocol, controls and rubric.
+  - mapping_id: lesson-060
+    source_record_kind: lesson_range
+    source_block_id: elusa-ja-eluta-looduse-seosed
+    lesson_start: 60
+    lesson_end: 60
+    source_pages:
+      - 16
+    source_topic_et: Kohastumine elukeskkonna tingimustega
+    normalized_mapping_topic_et: Kohastumine elukeskkonna tingimustega
+    topic_inventory_refs:
+      - ecosystems-adaptation-growth-and-natural-balance
+    coverage_status: matched
+    opiq_matches:
+      - topic_inventory_ref: ecosystems-adaptation-growth-and-natural-balance
+        record_id: environment-organisms-ru
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3100
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Влияние окружающей среды на формирование живых организмов
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: Влияние окружающей среды на формирование живых организмов supplies exact committed-route evidence for Kohastumine elukeskkonna tingimustega; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: ecosystems-adaptation-growth-and-natural-balance
+        record_id: environment-organisms-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/31309
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Keskkond kujundab organisme
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+        selection_rationale: Keskkond kujundab organisme supplies exact committed-route evidence for Kohastumine elukeskkonna tingimustega; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: environment-organisms-ru
+          programme_type: unknown
+        - record_id: environment-organisms-et-current
+          programme_type: unknown
+      bridging_content: none
+    bridge_requirement:
+      required: false
+      reason: Exact committed-route page evidence covers the complete normalized content scope; this does not establish default-course eligibility.
+    mapping_confidence: high
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route covers the complete normalized content scope for Kohastumine elukeskkonna tingimustega; programme eligibility remains independently unresolved.
+    gap_notes: []
+  - mapping_id: lesson-061
+    source_record_kind: lesson_range
+    source_block_id: elusa-ja-eluta-looduse-seosed
+    lesson_start: 61
+    lesson_end: 61
+    source_pages:
+      - 16
+    source_topic_et: Teadus, tehnoloogia ja looduslik tasakaal
+    normalized_mapping_topic_et: Teadus, tehnoloogia ja looduslik tasakaal
+    topic_inventory_refs:
+      - ecosystems-adaptation-growth-and-natural-balance
+      - natural-sciences-technology-and-information
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: ecosystems-adaptation-growth-and-natural-balance
+        record_id: environment-organisms-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/31309
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Keskkond kujundab organisme
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        match_strength: strong
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+        selection_rationale: Keskkond kujundab organisme supplies strong committed-route evidence for Teadus, tehnoloogia ja looduslik tasakaal; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: natural-sciences-technology-and-information
+        record_id: science-intro-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30107
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Loodusteadused
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        match_strength: supporting
+        match_scope:
+          - core_content
+          - terminology
+        selection_rationale: Loodusteadused supplies supporting committed-route evidence for Teadus, tehnoloogia ja looduslik tasakaal; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: environment-organisms-et-current
+          programme_type: unknown
+        - record_id: science-intro-et-current
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: The group presentation has no explicit oral Estonian evidence or presentation rubric.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Teadus, tehnoloogia ja looduslik tasakaal; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - The group presentation has no explicit oral Estonian evidence or presentation rubric.
+  - mapping_id: lesson-062
+    source_record_kind: lesson_range
+    source_block_id: elusa-ja-eluta-looduse-seosed
+    lesson_start: 62
+    lesson_end: 62
+    source_pages:
+      - 16
+    source_topic_et: Ökoloogiline jalajälg ja säästev eluviis
+    normalized_mapping_topic_et: Ökoloogiline jalajälg ja säästev eluviis
+    topic_inventory_refs:
+      - sustainable-consumption-footprint-and-recycling
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: sustainable-consumption-footprint-and-recycling
+        record_id: ecological-footprint-ru
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18942
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Экологический след
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: Экологический след supplies exact committed-route evidence for Ökoloogiline jalajälg ja säästev eluviis; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: sustainable-consumption-footprint-and-recycling
+        record_id: ecological-footprint-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/31311
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Ökoloogiline jalajälg
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - data_interpretation
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+        selection_rationale: Ökoloogiline jalajälg supplies exact committed-route evidence for Ökoloogiline jalajälg ja säästev eluviis; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: ecological-footprint-ru
+          programme_type: unknown
+        - record_id: ecological-footprint-et-current
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: The project data product, savings proposal and presentation require teacher-authored criteria.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Ökoloogiline jalajälg ja säästev eluviis; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - The project data product, savings proposal and presentation require teacher-authored criteria.
+  - mapping_id: lesson-063
+    source_record_kind: lesson_range
+    source_block_id: elusa-ja-eluta-looduse-seosed
+    lesson_start: 63
+    lesson_end: 63
+    source_pages:
+      - 16
+    source_topic_et: Säästlik tarbimine ja materjalide taaskasutus
+    normalized_mapping_topic_et: Säästlik tarbimine ja materjalide taaskasutus
+    topic_inventory_refs:
+      - sustainable-consumption-footprint-and-recycling
+    coverage_status: matched
+    opiq_matches:
+      - topic_inventory_ref: sustainable-consumption-footprint-and-recycling
+        record_id: product-lifecycle-ru
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18943
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Жизненный цикл продукции и материалов
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        match_strength: exact
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: Жизненный цикл продукции и материалов supplies exact committed-route evidence for Säästlik tarbimine ja materjalide taaskasutus; programme type and default-course eligibility remain unverified.
+      - topic_inventory_ref: sustainable-consumption-footprint-and-recycling
+        record_id: sustainable-life-recycling-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/31312
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Säästev eluviis ja materjalide taaskasutus
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+        selection_rationale: Säästev eluviis ja materjalide taaskasutus supplies exact committed-route evidence for Säästlik tarbimine ja materjalide taaskasutus; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: product-lifecycle-ru
+          programme_type: unknown
+        - record_id: sustainable-life-recycling-et-current
+          programme_type: unknown
+      bridging_content: none
+    bridge_requirement:
+      required: false
+      reason: Exact committed-route page evidence covers the complete normalized content scope; this does not establish default-course eligibility.
+    mapping_confidence: high
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route covers the complete normalized content scope for Säästlik tarbimine ja materjalide taaskasutus; programme eligibility remains independently unresolved.
+    gap_notes: []
+  - mapping_id: lesson-064
+    source_record_kind: lesson_range
+    source_block_id: elusa-ja-eluta-looduse-seosed
+    lesson_start: 64
+    lesson_end: 64
+    source_pages:
+      - 16
+    source_topic_et: Materjalide taaskasutus
+    normalized_mapping_topic_et: Materjalide taaskasutus
+    topic_inventory_refs:
+      - sustainable-consumption-footprint-and-recycling
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: sustainable-consumption-footprint-and-recycling
+        record_id: product-lifecycle-et
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4934
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Toodete ja materjalide elutsükkel
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - bilingual_visual
+        match_strength: exact
+        match_scope:
+          - core_content
+          - terminology
+          - practice
+        selection_rationale: Toodete ja materjalide elutsükkel supplies exact committed-route evidence for Materjalide taaskasutus; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: product-lifecycle-et
+          programme_type: unknown
+      bridging_content: independently_authored_practical_required
+    bridge_requirement:
+      required: true
+      reason: The source design brief, learner-choice boundaries and presentation rubric are absent.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Materjalide taaskasutus; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - The source design brief, learner-choice boundaries and presentation rubric are absent.
+  - mapping_id: lessons-065-070
+    source_record_kind: lesson_range
+    source_block_id: elusa-ja-eluta-looduse-seosed
+    lesson_start: 65
+    lesson_end: 70
+    source_pages:
+      - 16
+    source_topic_et: Õppekäigud, viktoriinid ja tööde lõpetamise varutunnid
+    normalized_mapping_topic_et: Õppekäigud, viktoriinid ja tööde lõpetamise varutunnid
+    topic_inventory_refs:
+      - sustainable-consumption-footprint-and-recycling
+    coverage_status: ambiguous
+    opiq_matches:
+      - topic_inventory_ref: sustainable-consumption-footprint-and-recycling
+        record_id: product-lifecycle-et
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4934
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Toodete ja materjalide elutsükkel
+        language: et
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - bilingual_visual
+        match_strength: supporting
+        match_scope:
+          - core_content
+          - practice
+        selection_rationale: Toodete ja materjalide elutsükkel supplies supporting committed-route evidence for Õppekäigud, viktoriinid ja tööde lõpetamise varutunnid; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: product-lifecycle-et
+          programme_type: unknown
+      bridging_content: teacher_review_required
+    bridge_requirement:
+      required: true
+      reason: The preserved 65-70 row mixes field trips, quizzes, reserve time and unfinished work; one recycling page cannot determine six lesson topics or a complete match.
+    mapping_confidence: low
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as ambiguous for Õppekäigud, viktoriinid ja tööde lõpetamise varutunnid; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - The preserved 65-70 row mixes field trips, quizzes, reserve time and unfinished work; one recycling page cannot determine six lesson topics or a complete match.
+unnumbered_source_mappings:
+  - mapping_id: unnumbered-inimene-uurib-loodust-wrap-up
+    source_record_kind: unnumbered_source_row
+    source_row_id: inimene-uurib-loodust-wrap-up
+    source_block_id: inimene-uurib-loodust
+    placement:
+      after_lesson: 19
+      before_lesson: 20
+    source_pages:
+      - 6
+    source_topic_et: Kordamine, kinnistamine ja hindamine
+    normalized_mapping_topic_et: Kordamine, kinnistamine ja hindamine
+    topic_inventory_refs:
+      - measurement-instruments-units-and-reliability
+    coverage_status: partial
+    opiq_matches:
+      - topic_inventory_ref: measurement-instruments-units-and-reliability
+        record_id: measurement-uncertainty-ru-core
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3060
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Неопределенность измерений. Представление результатов измерений
+        language: ru
+        programme_type: unknown
+        programme_type_evidence_status: ambiguous
+        default_course_eligibility: unverified
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - data_interpretation
+          - assessment
+        match_strength: supporting
+        match_scope:
+          - revision
+          - assessment
+        selection_rationale: Неопределенность измерений. Представление результатов измерений supplies supporting committed-route evidence for Kordamine, kinnistamine ja hindamine; programme type and default-course eligibility remain unverified.
+    evidence_classification:
+      teacher_plan_material:
+        provenance_kind: supplementary_teacher_work_plan
+        canonical: false
+      opiq_material:
+        - record_id: measurement-uncertainty-ru-core
+          programme_type: unknown
+      bridging_content: independently_authored_assessment_required
+    bridge_requirement:
+      required: true
+      reason: Section-level assessment support does not cover workbook or portfolio submission and teacher-held evaluation criteria.
+    mapping_confidence: medium
+    review_status: mapping_review_pending
+    rationale: The exact Grade 7 science route is classified as partial for Kordamine, kinnistamine ja hindamine; the evidence boundary and unresolved programme eligibility remain explicit.
+    gap_notes:
+      - Section-level assessment support does not cover workbook or portfolio submission and teacher-held evaluation criteria.
+topic_inventory_comparison:
+  - topic_id: natural-sciences-technology-and-information
+    represented_in_teacher_plan: true
+    source_mapping_ids:
+      - lesson-001
+      - lesson-002
+      - lesson-003
+      - lesson-061
+    representation_status: represented
+    notes: Represented by explicit source rows in this supplementary teacher-plan sample; this is not an official allocation claim.
+  - topic_id: scientific-method-observation-and-experiment
+    represented_in_teacher_plan: true
+    source_mapping_ids:
+      - lesson-002
+      - lesson-003
+      - lessons-004-005
+      - lessons-018-019
+      - lesson-050
+      - lesson-051
+    representation_status: represented
+    notes: Represented by explicit source rows in this supplementary teacher-plan sample; this is not an official allocation claim.
+  - topic_id: measurement-instruments-units-and-reliability
+    represented_in_teacher_plan: true
+    source_mapping_ids:
+      - lesson-006
+      - lesson-007
+      - lesson-008
+      - lesson-014
+      - lesson-015
+      - unnumbered-inimene-uurib-loodust-wrap-up
+    representation_status: represented
+    notes: Represented by explicit source rows in this supplementary teacher-plan sample; this is not an official allocation claim.
+  - topic_id: length-area-volume-mass-and-plan
+    represented_in_teacher_plan: true
+    source_mapping_ids:
+      - lessons-009-010
+      - lessons-011-012
+      - lesson-013
+      - lessons-016-017
+    representation_status: represented
+    notes: Represented by explicit source rows in this supplementary teacher-plan sample; this is not an official allocation claim.
+  - topic_id: data-tables-graphs-and-variables
+    represented_in_teacher_plan: true
+    source_mapping_ids:
+      - lessons-018-019
+      - lesson-044
+      - lesson-050
+    representation_status: represented
+    notes: Represented by explicit source rows in this supplementary teacher-plan sample; this is not an official allocation claim.
+  - topic_id: models-bodies-and-natural-phenomena
+    represented_in_teacher_plan: true
+    source_mapping_ids:
+      - lesson-020
+      - lesson-021
+      - lesson-035
+      - lesson-052
+    representation_status: represented
+    notes: Represented by explicit source rows in this supplementary teacher-plan sample; this is not an official allocation claim.
+  - topic_id: atoms-elements-and-periodic-table
+    represented_in_teacher_plan: true
+    source_mapping_ids:
+      - lesson-020
+      - lesson-021
+      - lesson-024
+      - lesson-028
+    representation_status: represented
+    notes: Represented by explicit source rows in this supplementary teacher-plan sample; this is not an official allocation claim.
+  - topic_id: molecules-cells-ions-and-chemical-bonds
+    represented_in_teacher_plan: true
+    source_mapping_ids:
+      - lesson-020
+      - lesson-022
+      - lesson-028
+    representation_status: represented
+    notes: Represented by explicit source rows in this supplementary teacher-plan sample; this is not an official allocation claim.
+  - topic_id: states-of-matter-and-phase-changes
+    represented_in_teacher_plan: true
+    source_mapping_ids:
+      - lesson-023
+      - lesson-030
+    representation_status: represented
+    notes: Represented by explicit source rows in this supplementary teacher-plan sample; this is not an official allocation claim.
+  - topic_id: density-material-properties-and-earth-materials
+    represented_in_teacher_plan: true
+    source_mapping_ids:
+      - lesson-025
+      - lessons-026-027
+      - lesson-028
+      - lesson-029
+      - lesson-048
+    representation_status: represented
+    notes: Represented by explicit source rows in this supplementary teacher-plan sample; this is not an official allocation claim.
+  - topic_id: pure-substances-mixtures-solutions-and-separation
+    represented_in_teacher_plan: true
+    source_mapping_ids:
+      - lesson-029
+      - lesson-030
+      - lessons-031-032
+      - lesson-033
+      - lesson-034
+      - lesson-048
+    representation_status: represented
+    notes: Represented by explicit source rows in this supplementary teacher-plan sample; this is not an official allocation claim.
+  - topic_id: motion-speed-and-force
+    represented_in_teacher_plan: true
+    source_mapping_ids:
+      - lesson-036
+      - lesson-037
+      - lesson-038
+    representation_status: represented
+    notes: Represented by explicit source rows in this supplementary teacher-plan sample; this is not an official allocation claim.
+  - topic_id: work-energy-and-transformations
+    represented_in_teacher_plan: true
+    source_mapping_ids:
+      - lesson-039
+      - lesson-040
+      - lesson-041
+      - lesson-042
+    representation_status: represented
+    notes: Represented by explicit source rows in this supplementary teacher-plan sample; this is not an official allocation claim.
+  - topic_id: temperature-and-heat-transfer
+    represented_in_teacher_plan: true
+    source_mapping_ids:
+      - lesson-043
+      - lesson-044
+      - lesson-045
+    representation_status: represented
+    notes: Represented by explicit source rows in this supplementary teacher-plan sample; this is not an official allocation claim.
+  - topic_id: chemical-reactions-combustion-and-experiments
+    represented_in_teacher_plan: true
+    source_mapping_ids:
+      - lesson-035
+      - lesson-046
+      - lesson-047
+      - lesson-049
+    representation_status: represented
+    notes: Represented by explicit source rows in this supplementary teacher-plan sample; this is not an official allocation claim.
+  - topic_id: photosynthesis-respiration-and-carbon-cycle
+    represented_in_teacher_plan: true
+    source_mapping_ids:
+      - lesson-055
+      - lesson-056
+      - lesson-057
+      - lesson-058
+    representation_status: represented
+    notes: Represented by explicit source rows in this supplementary teacher-plan sample; this is not an official allocation claim.
+  - topic_id: ecosystems-adaptation-growth-and-natural-balance
+    represented_in_teacher_plan: true
+    source_mapping_ids:
+      - lesson-050
+      - lesson-051
+      - lesson-053
+      - lesson-054
+      - lesson-060
+      - lesson-061
+    representation_status: represented
+    notes: Represented by explicit source rows in this supplementary teacher-plan sample; this is not an official allocation claim.
+  - topic_id: greenhouse-effect-and-climate-change
+    represented_in_teacher_plan: true
+    source_mapping_ids:
+      - lesson-059
+    representation_status: represented
+    notes: Represented by explicit source rows in this supplementary teacher-plan sample; this is not an official allocation claim.
+  - topic_id: sustainable-consumption-footprint-and-recycling
+    represented_in_teacher_plan: true
+    source_mapping_ids:
+      - lesson-062
+      - lesson-063
+      - lesson-064
+      - lessons-065-070
+    representation_status: represented
+    notes: Represented by explicit source rows in this supplementary teacher-plan sample; this is not an official allocation claim.
+mapping_summary:
+  total_source_lesson_ranges: 58
+  unnumbered_source_row_count: 1
+  total_source_records: 59
+  matched_count: 12
+  partial_count: 44
+  missing_count: 2
+  ambiguous_count: 1
+  outside_route_count: 0
+  mappings_with_russian_opiq_evidence: 44
+  mappings_with_estonian_opiq_evidence: 49
+  mappings_requiring_bridge: 47
+  represented_topic_inventory_count: 19
+  not_represented_topic_inventory_count: 0
+  ordinary_programme_verified_match_count: 0
+  unknown_programme_match_count: 104
+  unassigned_annual_slot_count: 0
+known_gaps:
+  - All five Grade 7 science books retain unknown programme type with ambiguous evidence and are not verified for ordinary default-course selection.
+  - The route supplies no explicit oral Estonian support, so presentations, defences and oral reports require independently authored or teacher-reviewed support.
+  - Experiment, measurement, model, graph, revision and assessment pages do not automatically establish the complete teacher-plan protocol, product, safety controls or rubric.
+  - The unnumbered wrap-up row and lessons 14, 33 and 65-70 retain their source ambiguities without invented lesson numbers, topics or cross-route evidence.
+  - This crosswalk classifies the supplementary sample only; it creates no official curriculum map, annual architecture, annual sequence or independently authored teaching artifact.
+completeness:
+  all_extracted_lesson_ranges_classified: true
+  all_extracted_unnumbered_rows_classified: true
+  all_extracted_source_records_classified: true
+  declared_complete_for_source_extraction: true
+  canonical_opiq_mapping_complete: false
+  official_curriculum_complete: false
+  exact_grade_official_allocation_claimed: false
+  live_opiq_catalogue_complete: false
+  programme_type_verification_complete: false
+  default_course_selection_complete: false

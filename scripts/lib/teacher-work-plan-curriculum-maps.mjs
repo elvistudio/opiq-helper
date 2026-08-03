@@ -17,6 +17,8 @@ const GRADE_6_PATH =
   'curriculum-maps/grade-6-science/teacher-work-plan-crosswalk.yaml';
 const GRADE_7_GEOGRAPHY_PATH =
   'curriculum-maps/grade-7-geography/teacher-work-plan-crosswalk.yaml';
+const GRADE_7_SCIENCE_PATH =
+  'curriculum-maps/grade-7-science/teacher-work-plan-crosswalk.yaml';
 export const TEACHER_WORK_PLAN_MAP_PATH = GRADE_5_PATH;
 
 const GRADE_5_TOPIC_IDS = Object.freeze([
@@ -62,6 +64,28 @@ const GRADE_7_GEOGRAPHY_TOPIC_IDS = Object.freeze([
   'landform-change-weathering-erosion-and-human-impact',
   'countries-peoples-and-cultural-diversity',
   'population-distribution-change-migration-and-urbanization',
+]);
+
+const GRADE_7_SCIENCE_TOPIC_IDS = Object.freeze([
+  'natural-sciences-technology-and-information',
+  'scientific-method-observation-and-experiment',
+  'measurement-instruments-units-and-reliability',
+  'length-area-volume-mass-and-plan',
+  'data-tables-graphs-and-variables',
+  'models-bodies-and-natural-phenomena',
+  'atoms-elements-and-periodic-table',
+  'molecules-cells-ions-and-chemical-bonds',
+  'states-of-matter-and-phase-changes',
+  'density-material-properties-and-earth-materials',
+  'pure-substances-mixtures-solutions-and-separation',
+  'motion-speed-and-force',
+  'work-energy-and-transformations',
+  'temperature-and-heat-transfer',
+  'chemical-reactions-combustion-and-experiments',
+  'photosynthesis-respiration-and-carbon-cycle',
+  'ecosystems-adaptation-growth-and-natural-balance',
+  'greenhouse-effect-and-climate-change',
+  'sustainable-consumption-footprint-and-recycling',
 ]);
 
 export const TEACHER_WORK_PLAN_MAP_CONTRACTS = Object.freeze({
@@ -122,6 +146,28 @@ export const TEACHER_WORK_PLAN_MAP_CONTRACTS = Object.freeze({
     requireUnassignedAnnualSlot: false,
     programmePolicy: 'content_only_unknown',
   }),
+  [GRADE_7_SCIENCE_PATH]: Object.freeze({
+    artifactPath: GRADE_7_SCIENCE_PATH,
+    mapId: 'grade-7-science-teacher-work-plan-crosswalk',
+    grade: 7,
+    subject: 'science',
+    subjectEt: 'loodusõpetus',
+    sourceId: 'grade-7-science',
+    extractionPath: 'evaluations/teacher-work-plans/grade-7-science-extraction.json',
+    topicIds: GRADE_7_SCIENCE_TOPIC_IDS,
+    existingArtifacts: Object.freeze({
+      book_inventory: 'curriculum-maps/grade-7-science/book-inventory.yaml',
+      topic_inventory: 'curriculum-maps/grade-7-science/topic-inventory.yaml',
+      official_curriculum_map: null,
+      annual_architecture: null,
+    }),
+    requireSourceRecordKind: true,
+    requireUnassignedAnnualSlot: false,
+    requireUnnumberedSourceRows: true,
+    expectedUnnumberedSourceRowCount: 1,
+    forbidOralLanguageEvidence: true,
+    programmePolicy: 'content_only_unknown',
+  }),
 });
 
 export const TEACHER_WORK_PLAN_MAP_PATHS = Object.freeze(
@@ -132,7 +178,7 @@ const EXTRACTION_STATUS_CONTRACTS = Object.freeze({
   'evaluations/teacher-work-plans/grade-5-science-extraction.json': 'partial',
   'evaluations/teacher-work-plans/grade-6-science-extraction.json': 'partial',
   'evaluations/teacher-work-plans/grade-7-geography-extraction.json': 'partial',
-  'evaluations/teacher-work-plans/grade-7-science-extraction.json': 'deferred',
+  'evaluations/teacher-work-plans/grade-7-science-extraction.json': 'partial',
 });
 
 const COVERAGE_STATUSES = Object.freeze([
@@ -365,6 +411,12 @@ function validateRouteAndSources(diagnostics, repository, collection) {
     ['/source_extraction/lesson_range_count', artifact.source_extraction?.lesson_range_count, extraction.lesson_ranges.length],
     ['/source_extraction/extracted_lesson_span', artifact.source_extraction?.extracted_lesson_span, extraction.annual_allocation.extracted_lesson_span],
   ];
+  if (contract.requireUnnumberedSourceRows) comparisons.push(
+    ['/source_extraction/unnumbered_row_count', artifact.source_extraction?.unnumbered_row_count, extraction.unnumbered_rows?.length ?? 0],
+    ['/source_extraction/source_record_count', artifact.source_extraction?.source_record_count, extraction.lesson_ranges.length + (extraction.unnumbered_rows?.length ?? 0)],
+    ['/mapping_method/additional_units', artifact.mapping_method?.additional_units, ['unnumbered_source_row']],
+    ['/mapping_method/unnumbered_row_handling', artifact.mapping_method?.unnumbered_row_handling, 'preserve_without_lesson_number'],
+  );
   for (const [field, actual, expected] of comparisons) {
     if (!sameValues(actual, expected)) diagnostics.push(diagnostic(artifactPath, field, `expected ${JSON.stringify(expected)}, found ${JSON.stringify(actual)}`));
   }
@@ -424,40 +476,68 @@ function validateProgrammeMatch(diagnostics, repository, match, matchField, inve
   }
 }
 
+function expectedMappingKind(sourceRange) {
+  return sourceRange?.record_kind === 'unassigned_annual_slot'
+    ? 'unassigned_annual_slot'
+    : 'lesson_range';
+}
+
 function validateMappings(diagnostics, repository) {
   const { artifact, artifactPath, contract, extraction, topicInventory, bookInventory, routeRecords, qa } = repository;
   const mappings = artifact.lesson_range_mappings ?? [];
+  const unnumberedMappings = artifact.unnumbered_source_mappings ?? [];
   const sourceRanges = extraction.lesson_ranges ?? [];
-  addDuplicateDiagnostics(diagnostics, mappings.map((mapping) => mapping.mapping_id), artifactPath, '/lesson_range_mappings', 'mapping_id');
+  const sourceRows = extraction.unnumbered_rows ?? [];
+  const combinedMappings = [...mappings, ...unnumberedMappings];
+  addDuplicateDiagnostics(diagnostics, combinedMappings.map((mapping) => mapping.mapping_id), artifactPath, '/', 'mapping_id');
   addDuplicateDiagnostics(diagnostics, mappings.map(sourceRangeKey), artifactPath, '/lesson_range_mappings', 'source lesson range');
   const expectedByKey = new Map(sourceRanges.map((range) => [sourceRangeKey(range), range]));
   const actualKeys = mappings.map(sourceRangeKey);
   for (const expectedKey of expectedByKey.keys()) if (!actualKeys.includes(expectedKey)) diagnostics.push(diagnostic(artifactPath, '/lesson_range_mappings', `missing source range ${expectedKey}`));
   for (const actualKey of actualKeys) if (!expectedByKey.has(actualKey)) diagnostics.push(diagnostic(artifactPath, '/lesson_range_mappings', `invented or split source range ${actualKey}`));
+  const expectedRowsById = new Map(sourceRows.map((row) => [row.row_id, row]));
+  const actualRowIds = unnumberedMappings.map((mapping) => mapping.source_row_id);
+  addDuplicateDiagnostics(diagnostics, actualRowIds, artifactPath, '/unnumbered_source_mappings', 'source row ID');
+  for (const rowId of expectedRowsById.keys()) if (!actualRowIds.includes(rowId)) diagnostics.push(diagnostic(artifactPath, '/unnumbered_source_mappings', `missing unnumbered source row ${rowId}`));
+  for (const rowId of actualRowIds) if (!expectedRowsById.has(rowId)) diagnostics.push(diagnostic(artifactPath, '/unnumbered_source_mappings', `invented unnumbered source row ${rowId}`));
+  if (contract.requireUnnumberedSourceRows) {
+    if (unnumberedMappings.length !== contract.expectedUnnumberedSourceRowCount) diagnostics.push(diagnostic(artifactPath, '/unnumbered_source_mappings', `expected exactly ${contract.expectedUnnumberedSourceRowCount} unnumbered source row`));
+  } else if (unnumberedMappings.length > 0) diagnostics.push(diagnostic(artifactPath, '/unnumbered_source_mappings', `${contract.sourceId} does not allow unnumbered source mappings`));
   const topicsById = new Map((topicInventory.topics ?? []).map((topic) => [topic.topic_id, topic]));
   const recordsById = collectTopicRecords(topicInventory);
   const booksById = new Map((bookInventory.books ?? []).map((book) => [book.book_id, book]));
   const routeByUrl = new Map();
   for (const record of routeRecords) routeByUrl.set(record.url, [...(routeByUrl.get(record.url) ?? []), record]);
+  const entries = [
+    ...mappings.map((mapping, index) => ({ mapping, field: `/lesson_range_mappings/${index}`, sourceRecord: expectedByKey.get(sourceRangeKey(mapping)), expectedKind: expectedMappingKind(expectedByKey.get(sourceRangeKey(mapping))) })),
+    ...unnumberedMappings.map((mapping, index) => ({ mapping, field: `/unnumbered_source_mappings/${index}`, sourceRecord: expectedRowsById.get(mapping.source_row_id), expectedKind: 'unnumbered_source_row' })),
+  ];
 
-  for (const [index, mapping] of mappings.entries()) {
-    const field = `/lesson_range_mappings/${index}`;
-    const sourceRange = expectedByKey.get(sourceRangeKey(mapping));
-    const expectedKind = sourceRange?.record_kind ?? 'lesson_range';
+  for (const { mapping, field, sourceRecord, expectedKind } of entries) {
     if (contract.requireSourceRecordKind && mapping.source_record_kind !== expectedKind) {
       diagnostics.push(diagnostic(artifactPath, `${field}/source_record_kind`, `expected ${expectedKind}`));
     } else if (mapping.source_record_kind !== undefined && mapping.source_record_kind !== expectedKind) {
       diagnostics.push(diagnostic(artifactPath, `${field}/source_record_kind`, `expected ${expectedKind}`));
     }
-    if (sourceRange) {
+    if (sourceRecord && expectedKind === 'unnumbered_source_row') {
       for (const [name, expected] of [
-        ['source_pages', sourceRange.source_pages],
-        ['source_topic_et', sourceRange.topic_et],
-        ['source_block_id', expectedSourceBlock(extraction, sourceRange)],
+        ['source_row_id', sourceRecord.row_id],
+        ['source_pages', sourceRecord.source_pages],
+        ['source_topic_et', sourceRecord.topic_et],
+        ['source_block_id', sourceRecord.block_id],
+        ['placement', sourceRecord.placement],
+      ]) if (!sameValues(mapping[name], expected)) diagnostics.push(diagnostic(artifactPath, `${field}/${name}`, `expected ${JSON.stringify(expected)}, found ${JSON.stringify(mapping[name])}`));
+      if (Object.hasOwn(mapping, 'lesson_start') || Object.hasOwn(mapping, 'lesson_end')) diagnostics.push(diagnostic(artifactPath, field, 'unnumbered source row cannot have lesson_start or lesson_end'));
+      if (mapping.source_block_id === null) diagnostics.push(diagnostic(artifactPath, `${field}/source_block_id`, 'unnumbered source row requires a non-null block'));
+    } else if (sourceRecord) {
+      for (const [name, expected] of [
+        ['source_pages', sourceRecord.source_pages],
+        ['source_topic_et', sourceRecord.topic_et],
+        ['source_block_id', expectedSourceBlock(extraction, sourceRecord)],
       ]) if (!sameValues(mapping[name], expected)) diagnostics.push(diagnostic(artifactPath, `${field}/${name}`, `expected ${JSON.stringify(expected)}, found ${JSON.stringify(mapping[name])}`));
     }
     const isUnassigned = expectedKind === 'unassigned_annual_slot';
-    if (!isUnassigned && mapping.source_block_id === null) diagnostics.push(diagnostic(artifactPath, `${field}/source_block_id`, 'ordinary lesson range cannot have a null block'));
+    if (expectedKind === 'lesson_range' && mapping.source_block_id === null) diagnostics.push(diagnostic(artifactPath, `${field}/source_block_id`, 'ordinary lesson range cannot have a null block'));
     if (isUnassigned) {
       if (mapping.source_block_id !== null) diagnostics.push(diagnostic(artifactPath, `${field}/source_block_id`, 'unassigned annual slot must have a null block'));
       if ((mapping.topic_inventory_refs ?? []).length > 0) diagnostics.push(diagnostic(artifactPath, `${field}/topic_inventory_refs`, 'unassigned annual slot cannot reference a topic'));
@@ -487,6 +567,7 @@ function validateMappings(diagnostics, repository) {
         if (!sameValues(match[name], inventoryRecord[name])) diagnostics.push(diagnostic(artifactPath, `${matchField}/${name}`, `value differs from topic inventory record ${match.record_id}`));
       }
       if (!(match.instructional_roles ?? []).every((role) => inventoryRecord.instructional_roles?.includes(role))) diagnostics.push(diagnostic(artifactPath, `${matchField}/instructional_roles`, 'role is not declared by the topic inventory record'));
+      if (contract.forbidOralLanguageEvidence && (match.match_scope?.includes('oral_language_support') || match.instructional_roles?.includes('oral_answer_et'))) diagnostics.push(diagnostic(artifactPath, matchField, `${contract.sourceId} has no explicit oral-language page evidence`));
       const book = booksById.get(match.book_id);
       if (!book) diagnostics.push(diagnostic(artifactPath, `${matchField}/book_id`, `unknown audited book ID ${match.book_id}`));
       else {
@@ -522,7 +603,7 @@ function validateMappings(diagnostics, repository) {
       if (!matches.some((match) => ['exact', 'strong'].includes(match.match_strength))) diagnostics.push(diagnostic(artifactPath, `${field}/opiq_matches`, 'matched status cannot rely only on supporting or keyword evidence'));
       if (gaps.length > 0 || bridging !== 'none') diagnostics.push(diagnostic(artifactPath, field, 'matched status cannot declare gaps or required bridging'));
       for (const scope of ['fieldwork', 'practical_work', 'assessment']) {
-        if (sourceRange && hasSourceActivity(sourceRange, scope) && !matches.some((match) => match.match_scope?.includes(scope))) diagnostics.push(diagnostic(artifactPath, `${field}/coverage_status`, `matched source activity requires ${scope} page evidence`));
+        if (sourceRecord && hasSourceActivity(sourceRecord, scope) && !matches.some((match) => match.match_scope?.includes(scope))) diagnostics.push(diagnostic(artifactPath, `${field}/coverage_status`, `matched source activity requires ${scope} page evidence`));
       }
     } else if (mapping.coverage_status === 'partial') {
       if (matches.length === 0) diagnostics.push(diagnostic(artifactPath, `${field}/opiq_matches`, 'partial status requires limited positive Opiq evidence'));
@@ -544,7 +625,10 @@ function validateTopicComparison(diagnostics, repository) {
   if (!sameValues(inventoryIds, contract.topicIds)) diagnostics.push(diagnostic(artifactPath, '/topic_inventory_comparison', `${contract.sourceId} topic inventory must retain the registered topic IDs`));
   addDuplicateDiagnostics(diagnostics, comparisons.map((entry) => entry.topic_id), artifactPath, '/topic_inventory_comparison', 'topic ID');
   if (!sameValues(comparisons.map((entry) => entry.topic_id), contract.topicIds)) diagnostics.push(diagnostic(artifactPath, '/topic_inventory_comparison', `must contain all ${contract.topicIds.length} topic IDs exactly once in inventory order`));
-  const mappings = artifact.lesson_range_mappings ?? [];
+  const mappings = [
+    ...(artifact.lesson_range_mappings ?? []),
+    ...(artifact.unnumbered_source_mappings ?? []),
+  ];
   const mappingIds = new Set(mappings.map((mapping) => mapping.mapping_id));
   const unassignedIds = new Set(mappings.filter((mapping) => mapping.source_record_kind === 'unassigned_annual_slot').map((mapping) => mapping.mapping_id));
   for (const [index, comparison] of comparisons.entries()) {
@@ -562,11 +646,13 @@ function validateTopicComparison(diagnostics, repository) {
 }
 
 function computedSummary(artifact, contract) {
-  const mappings = artifact.lesson_range_mappings ?? [];
+  const lessonRangeMappings = artifact.lesson_range_mappings ?? [];
+  const unnumberedMappings = artifact.unnumbered_source_mappings ?? [];
+  const mappings = [...lessonRangeMappings, ...unnumberedMappings];
   const comparisons = artifact.topic_inventory_comparison ?? [];
   const matches = mappings.flatMap((mapping) => mapping.opiq_matches ?? []);
   const summary = {
-    total_source_lesson_ranges: mappings.length,
+    total_source_lesson_ranges: lessonRangeMappings.length,
     ...Object.fromEntries(COVERAGE_STATUSES.map((status) => [`${status}_count`, mappings.filter((mapping) => mapping.coverage_status === status).length])),
     mappings_with_russian_opiq_evidence: mappings.filter((mapping) => mapping.opiq_matches?.some((match) => match.language === 'ru')).length,
     mappings_with_estonian_opiq_evidence: mappings.filter((mapping) => mapping.opiq_matches?.some((match) => match.language === 'et')).length,
@@ -579,6 +665,10 @@ function computedSummary(artifact, contract) {
     unknown_programme_match_count: matches.filter((match) => match.programme_type === 'unknown').length,
     unassigned_annual_slot_count: mappings.filter((mapping) => mapping.source_record_kind === 'unassigned_annual_slot').length,
   });
+  if (contract.requireUnnumberedSourceRows) Object.assign(summary, {
+    unnumbered_source_row_count: unnumberedMappings.length,
+    total_source_records: mappings.length,
+  });
   return summary;
 }
 
@@ -588,7 +678,13 @@ function validateSummaryAndCompleteness(diagnostics, repository) {
   for (const [field, value] of Object.entries(expected)) if (artifact.mapping_summary?.[field] !== value) diagnostics.push(diagnostic(artifactPath, `/mapping_summary/${field}`, `expected computed value ${value}`));
   if (expected.total_source_lesson_ranges !== repository.extraction.lesson_ranges.length) diagnostics.push(diagnostic(artifactPath, '/mapping_summary/total_source_lesson_ranges', `expected ${repository.extraction.lesson_ranges.length}`));
   const coverageTotal = COVERAGE_STATUSES.reduce((sum, status) => sum + expected[`${status}_count`], 0);
-  if (coverageTotal !== expected.total_source_lesson_ranges) diagnostics.push(diagnostic(artifactPath, '/mapping_summary', 'five coverage counts must sum to all source lesson ranges'));
+  const expectedCoverageTotal = contract.requireUnnumberedSourceRows ? expected.total_source_records : expected.total_source_lesson_ranges;
+  if (coverageTotal !== expectedCoverageTotal) diagnostics.push(diagnostic(artifactPath, '/mapping_summary', 'five coverage counts must sum to all classified source records'));
+  if (contract.requireUnnumberedSourceRows) {
+    const extractionUnnumberedCount = repository.extraction.unnumbered_rows?.length ?? 0;
+    if (expected.unnumbered_source_row_count !== extractionUnnumberedCount) diagnostics.push(diagnostic(artifactPath, '/mapping_summary/unnumbered_source_row_count', `expected ${extractionUnnumberedCount}`));
+    if (expected.total_source_records !== repository.extraction.lesson_ranges.length + extractionUnnumberedCount) diagnostics.push(diagnostic(artifactPath, '/mapping_summary/total_source_records', `expected ${repository.extraction.lesson_ranges.length + extractionUnnumberedCount}`));
+  }
   if (contract.requireUnassignedAnnualSlot && expected.unassigned_annual_slot_count !== 1) diagnostics.push(diagnostic(artifactPath, '/mapping_summary/unassigned_annual_slot_count', 'Grade 6 requires exactly one unassigned annual slot'));
   if (contract.requireSourceRecordKind && !contract.requireUnassignedAnnualSlot && expected.unassigned_annual_slot_count !== 0) diagnostics.push(diagnostic(artifactPath, '/mapping_summary/unassigned_annual_slot_count', `${contract.sourceId} forbids unassigned annual slots`));
   if (contract.programmePolicy === 'content_only_unknown' && expected.ordinary_programme_verified_match_count !== 0) diagnostics.push(diagnostic(artifactPath, '/mapping_summary/ordinary_programme_verified_match_count', `${contract.sourceId} has no verified ordinary-programme matches`));
@@ -597,6 +693,10 @@ function validateSummaryAndCompleteness(diagnostics, repository) {
     for (const field of ['programme_type_verification_complete', 'default_course_selection_complete']) if (artifact.completeness?.[field] !== false) diagnostics.push(diagnostic(artifactPath, `/completeness/${field}`, `unresolved ${contract.sourceId} programme claim must remain false`));
   }
   if (artifact.completeness?.all_extracted_lesson_ranges_classified !== true) diagnostics.push(diagnostic(artifactPath, '/completeness/all_extracted_lesson_ranges_classified', 'all extracted ranges must be classified'));
+  if (contract.requireUnnumberedSourceRows) {
+    if (artifact.completeness?.all_extracted_unnumbered_rows_classified !== true) diagnostics.push(diagnostic(artifactPath, '/completeness/all_extracted_unnumbered_rows_classified', 'all extracted unnumbered rows must be classified'));
+    if (artifact.completeness?.all_extracted_source_records_classified !== true) diagnostics.push(diagnostic(artifactPath, '/completeness/all_extracted_source_records_classified', 'all extracted source records must be classified'));
+  }
   if (artifact.completeness?.declared_complete_for_source_extraction !== true) diagnostics.push(diagnostic(artifactPath, '/completeness/declared_complete_for_source_extraction', 'crosswalk must be complete only for the source extraction'));
 }
 
@@ -624,13 +724,17 @@ export function validateTeacherWorkPlanCurriculumMapRepository(collection) {
   validateExtractionStatuses(diagnostics, collection);
   diagnostics.sort((left, right) => compareBytewise(`${left.file}\0${left.field}\0${left.reason}`, `${right.file}\0${right.field}\0${right.reason}`));
   const perArtifact = Object.fromEntries(collection.artifacts.map((repository) => [repository.contract.sourceId, computedSummary(repository.artifact, repository.contract)]));
+  const totalSourceLessonRanges = Object.values(perArtifact).reduce((sum, entry) => sum + entry.total_source_lesson_ranges, 0);
+  const totalUnnumberedSourceRows = Object.values(perArtifact).reduce((sum, entry) => sum + (entry.unnumbered_source_row_count ?? 0), 0);
   return {
     diagnostics,
     summary: {
       errors: diagnostics.length,
       artifacts: collection.discoveredPaths.length,
       per_artifact: perArtifact,
-      total_source_lesson_ranges: Object.values(perArtifact).reduce((sum, entry) => sum + entry.total_source_lesson_ranges, 0),
+      total_source_lesson_ranges: totalSourceLessonRanges,
+      total_unnumbered_source_rows: totalUnnumberedSourceRows,
+      total_source_records: totalSourceLessonRanges + totalUnnumberedSourceRows,
     },
   };
 }
