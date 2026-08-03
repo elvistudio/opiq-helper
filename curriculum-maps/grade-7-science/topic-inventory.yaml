@@ -1,0 +1,2627 @@
+schema_version: "1.0"
+artifact_type: topic_inventory
+map_id: grade-7-science-topic-inventory
+grade: 7
+subject: science
+subject_et: loodusõpetus
+instruction_language: ru
+subject_support_language: et
+canonical_route:
+  source_id: grade-7-science
+  md_path: project-files/outputs/opiq_7klass_loodusopetus.md
+  source_archive: project-files/inputs/final-zips/opiq_7klass_loodusteadused_v2.zip
+  qa_path: project-files/outputs/opiq_7klass_loodusopetus_qa.json
+scope: deduplicated_inventory_not_final_annual_sequence
+coverage_status: partial
+grade_allocation_basis: curated_course_sequence
+unavailable_page_evidence_book_ids: []
+topics:
+  - topic_id: natural-sciences-technology-and-information
+    title_ru: Естественные науки, технологии и научная информация
+    title_et: Loodusteadused, tehnoloogia ja teadusinfo
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 7k_loodusõpetus_avita_2024_est
+      - 7k_loodusõpetus_avita_est
+      - 7k_loodusõpetus_koolibri_rus
+      - 7k_loodusõpetus_avita_rus
+    selected_records:
+      - record_id: science-intro-ru-core
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3052
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Естественные науки
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/64/chapter/3052
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_explanation_ru, practice_ru evidence in the Grade 7 science route.
+      - record_id: science-intro-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30107
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Loodusteadused
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/546/chapter/30107
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_source_et, terminology_et, practice_et evidence in the Grade 7 science route.
+    alternative_records:
+      - record_id: science-intro-ru-koolibri
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18884
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Что исследуют естественные науки
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/336/chapter/18884
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Retained as a useful exact-route alternative for core_explanation_ru, practice_ru; it is not required when the selected role set is used.
+    rejected_records:
+      - record_id: science-intro-et-legacy
+        canonical_url: https://www.opiq.ee/kit/44/chapter/2059
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_est
+        title: Loodusteadused
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/44/chapter/2059
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Records an overlapping exact-route page for core_source_et, terminology_et so the deduplication decision remains reviewable.
+        rejection_reason: Rejected from the recommended role set because selected records already supply its instructional role and this page adds no distinct evidence role.
+    source_recommendations:
+      russian_explanation:
+        - science-intro-ru-core
+        - science-intro-ru-koolibri
+      estonian_terminology_or_visuals:
+        - science-intro-et-current
+      practice:
+        - science-intro-ru-core
+        - science-intro-et-current
+        - science-intro-ru-koolibri
+      practical_or_assessment: []
+    availability:
+      russian: verified
+      estonian: verified
+      practical: missing
+      revision: missing
+      assessment: missing
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct data, experiment, revision or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - science-intro-et-legacy
+    known_gaps:
+      - No registered page provides a complete rubric for evaluating the reliability of external scientific information.
+  - topic_id: scientific-method-observation-and-experiment
+    title_ru: Научный метод, наблюдение и эксперимент
+    title_et: Loodusteaduslik meetod, vaatlus ja katse
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 7k_loodusõpetus_avita_2024_est
+      - 7k_loodusõpetus_koolibri_est
+      - 7k_loodusõpetus_koolibri_rus
+    selected_records:
+      - record_id: research-method-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30109
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Loodusteaduslik uurimismeetod
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/546/chapter/30109
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_source_et, terminology_et, practice_et, data_interpretation evidence in the Grade 7 science route.
+      - record_id: observation-experiment-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30110
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Vaatlus ja katse
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - experiment
+          - practice_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/546/chapter/30110
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_source_et, terminology_et, experiment, practice_et evidence in the Grade 7 science route.
+      - record_id: research-tasks-ru
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18896
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Исследовательские задания
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - practice_ru
+          - experiment
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/336/chapter/18896
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct practice_ru, experiment, data_interpretation evidence in the Grade 7 science route.
+    alternative_records:
+      - record_id: research-tasks-et
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4887
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Uurimis­ülesandeid
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - practice_et
+          - experiment
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/100/chapter/4887
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Retained as a useful exact-route alternative for practice_et, experiment, data_interpretation; it is not required when the selected role set is used.
+    rejected_records:
+      - record_id: natural-science-research-et-overlap
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4875
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Mida uurivad loodusteadlased
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/100/chapter/4875
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Records an overlapping exact-route page for core_source_et, terminology_et so the deduplication decision remains reviewable.
+        rejection_reason: Rejected from the recommended role set because selected records already supply its instructional role and this page adds no distinct evidence role.
+    source_recommendations:
+      russian_explanation: []
+      estonian_terminology_or_visuals:
+        - research-method-et-current
+        - observation-experiment-et-current
+      practice:
+        - research-method-et-current
+        - observation-experiment-et-current
+        - research-tasks-ru
+        - research-tasks-et
+      practical_or_assessment:
+        - observation-experiment-et-current
+        - research-tasks-ru
+        - research-tasks-et
+    availability:
+      russian: verified
+      estonian: verified
+      practical: verified
+      revision: missing
+      assessment: missing
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct data, experiment, revision or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - natural-science-research-et-overlap
+    known_gaps:
+      - The route has direct method and task evidence, but no single Russian page mirrors the full research-question, hypothesis, variable and reporting sequence.
+  - topic_id: measurement-instruments-units-and-reliability
+    title_ru: Измерительные приборы, единицы и надёжность измерений
+    title_et: Mõõteriistad, mõõtühikud ja mõõtmiste usaldusväärsus
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 7k_loodusõpetus_avita_2024_est
+      - 7k_loodusõpetus_avita_est
+      - 7k_loodusõpetus_koolibri_rus
+      - 7k_loodusõpetus_avita_rus
+    selected_records:
+      - record_id: measurement-instruments-ru-core
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3058
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Измерительные приборы
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/64/chapter/3058
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_explanation_ru, practice_ru, bilingual_visual evidence in the Grade 7 science route.
+      - record_id: measurement-instruments-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30113
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Mõõtmine ja mõõteriistad
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/546/chapter/30113
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_source_et, terminology_et, practice_et, data_interpretation evidence in the Grade 7 science route.
+      - record_id: measurement-uncertainty-ru-core
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3060
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Неопределенность измерений. Представление результатов измерений
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - data_interpretation
+          - assessment
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/64/chapter/3060
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_explanation_ru, practice_ru, data_interpretation, assessment evidence in the Grade 7 science route.
+    alternative_records:
+      - record_id: measurement-uncertainty-et-legacy
+        canonical_url: https://www.opiq.ee/kit/44/chapter/2067
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_est
+        title: Mõõtmise määramatus. Mõõtmistulemuste esitamine
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/44/chapter/2067
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Retained as a useful exact-route alternative for core_source_et, terminology_et, practice_et, data_interpretation; it is not required when the selected role set is used.
+    rejected_records:
+      - record_id: measurement-instruments-ru-overlap
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18886
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Для измерения нужен измерительный прибор
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/336/chapter/18886
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Records an overlapping exact-route page for core_explanation_ru, practice_ru so the deduplication decision remains reviewable.
+        rejection_reason: Rejected from the recommended role set because selected records already supply its instructional role and this page adds no distinct evidence role.
+    source_recommendations:
+      russian_explanation:
+        - measurement-instruments-ru-core
+        - measurement-uncertainty-ru-core
+      estonian_terminology_or_visuals:
+        - measurement-instruments-ru-core
+        - measurement-instruments-et-current
+        - measurement-uncertainty-et-legacy
+      practice:
+        - measurement-instruments-ru-core
+        - measurement-instruments-et-current
+        - measurement-uncertainty-ru-core
+        - measurement-uncertainty-et-legacy
+      practical_or_assessment:
+        - measurement-uncertainty-ru-core
+    availability:
+      russian: verified
+      estonian: verified
+      practical: missing
+      revision: missing
+      assessment: verified
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct data, experiment, revision or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - measurement-instruments-ru-overlap
+    known_gaps:
+      - Committed pages cover uncertainty and presentation, but do not supply a shared production assessment rubric for instrument handling.
+  - topic_id: length-area-volume-mass-and-plan
+    title_ru: Длина, площадь, объём, масса и составление плана
+    title_et: Pikkus, pindala, ruumala, mass ja plaani koostamine
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 7k_loodusõpetus_avita_2024_est
+      - 7k_loodusõpetus_koolibri_est
+      - 7k_loodusõpetus_koolibri_rus
+      - 7k_loodusõpetus_avita_rus
+    selected_records:
+      - record_id: measurement-methods-one-ru
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3061
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Методы измерений I
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/64/chapter/3061
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_explanation_ru, practice_ru, data_interpretation evidence in the Grade 7 science route.
+      - record_id: measurement-methods-two-ru
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3062
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Методы измерений II
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/64/chapter/3062
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_explanation_ru, practice_ru, data_interpretation evidence in the Grade 7 science route.
+      - record_id: plan-construction-et
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4879
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Plaani koostamine
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/100/chapter/4879
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_source_et, terminology_et, practice_et, data_interpretation evidence in the Grade 7 science route.
+      - record_id: area-volume-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30116
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Pindala ja ruum­ala mõõtmine
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/546/chapter/30116
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_source_et, terminology_et, practice_et evidence in the Grade 7 science route.
+    alternative_records:
+      - record_id: mass-measurement-ru
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18891
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Масса и ее измерение
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/336/chapter/18891
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Retained as a useful exact-route alternative for core_explanation_ru, practice_ru; it is not required when the selected role set is used.
+    rejected_records:
+      - record_id: area-measurement-et-overlap
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4880
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Pindala ja selle mõõtmine
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - practice_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/100/chapter/4880
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Records an overlapping exact-route page for core_source_et, practice_et so the deduplication decision remains reviewable.
+        rejection_reason: Rejected from the recommended role set because selected records already supply its instructional role and this page adds no distinct evidence role.
+    source_recommendations:
+      russian_explanation:
+        - measurement-methods-one-ru
+        - measurement-methods-two-ru
+        - mass-measurement-ru
+      estonian_terminology_or_visuals:
+        - plan-construction-et
+        - area-volume-et-current
+      practice:
+        - measurement-methods-one-ru
+        - measurement-methods-two-ru
+        - plan-construction-et
+        - area-volume-et-current
+        - mass-measurement-ru
+      practical_or_assessment: []
+    availability:
+      russian: verified
+      estonian: verified
+      practical: missing
+      revision: missing
+      assessment: missing
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct data, experiment, revision or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - area-measurement-et-overlap
+    known_gaps:
+      - Plan construction and measurement pages do not provide one common field protocol and assessment rubric spanning every requested quantity.
+  - topic_id: data-tables-graphs-and-variables
+    title_ru: Таблицы, диаграммы, графики и переменные
+    title_et: Tabelid, diagrammid, graafikud ja muutujad
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 7k_loodusõpetus_avita_2024_est
+      - 7k_loodusõpetus_koolibri_est
+      - 7k_loodusõpetus_koolibri_rus
+    selected_records:
+      - record_id: graph-construction-ru
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18954
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Как построить график
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/336/chapter/18954
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_explanation_ru, practice_ru, data_interpretation evidence in the Grade 7 science route.
+      - record_id: data-presentation-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30111
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Andmete kogumine ja esitamine
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/546/chapter/30111
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_source_et, terminology_et, practice_et, data_interpretation evidence in the Grade 7 science route.
+      - record_id: graph-construction-et
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4945
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Kuidas koostada graafikut
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - practice_et
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/100/chapter/4945
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_source_et, practice_et, data_interpretation evidence in the Grade 7 science route.
+    alternative_records:
+      - record_id: arithmetic-mean-ru
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18947
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Вычисление среднего арифметического
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/336/chapter/18947
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Retained as a useful exact-route alternative for core_explanation_ru, practice_ru, data_interpretation; it is not required when the selected role set is used.
+    rejected_records:
+      - record_id: arithmetic-mean-et-overlap
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4938
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Aritmeetilise keskmise arvutamine
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - practice_et
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/100/chapter/4938
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Records an overlapping exact-route page for core_source_et, practice_et, data_interpretation so the deduplication decision remains reviewable.
+        rejection_reason: Rejected from the recommended role set because selected records already supply its instructional role and this page adds no distinct evidence role.
+    source_recommendations:
+      russian_explanation:
+        - graph-construction-ru
+        - arithmetic-mean-ru
+      estonian_terminology_or_visuals:
+        - data-presentation-et-current
+        - graph-construction-et
+      practice:
+        - graph-construction-ru
+        - data-presentation-et-current
+        - graph-construction-et
+        - arithmetic-mean-ru
+      practical_or_assessment: []
+    availability:
+      russian: verified
+      estonian: verified
+      practical: missing
+      revision: missing
+      assessment: missing
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct data, experiment, revision or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - arithmetic-mean-et-overlap
+    known_gaps:
+      - The route supports graph construction and variables, but no single page supplies a complete cross-topic data-analysis assessment.
+  - topic_id: models-bodies-and-natural-phenomena
+    title_ru: Модели, тела и природные явления
+    title_et: Mudelid, kehad ja loodusnähtused
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 7k_loodusõpetus_avita_2024_est
+      - 7k_loodusõpetus_koolibri_est
+      - 7k_loodusõpetus_koolibri_rus
+      - 7k_loodusõpetus_avita_rus
+    selected_records:
+      - record_id: models-bodies-ru-core
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18903
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Тела, вещества, явления и модели
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/336/chapter/18903
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_explanation_ru, practice_ru, bilingual_visual evidence in the Grade 7 science route.
+      - record_id: models-bodies-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30112
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Mudel, keha ja nähtus
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/546/chapter/30112
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_source_et, terminology_et, practice_et, bilingual_visual evidence in the Grade 7 science route.
+      - record_id: natural-phenomena-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30943
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Loodusnähtused
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/546/chapter/30943
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_source_et, terminology_et, practice_et evidence in the Grade 7 science route.
+    alternative_records:
+      - record_id: models-symbols-ru-legacy
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3054
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Модели и символы
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/64/chapter/3054
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Retained as a useful exact-route alternative for core_explanation_ru, bilingual_visual; it is not required when the selected role set is used.
+    rejected_records:
+      - record_id: models-bodies-et-overlap
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4894
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Kehad, ained, nähtused ja mudelid
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/100/chapter/4894
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Records an overlapping exact-route page for core_source_et, terminology_et, bilingual_visual so the deduplication decision remains reviewable.
+        rejection_reason: Rejected from the recommended role set because selected records already supply its instructional role and this page adds no distinct evidence role.
+    source_recommendations:
+      russian_explanation:
+        - models-bodies-ru-core
+        - models-symbols-ru-legacy
+      estonian_terminology_or_visuals:
+        - models-bodies-ru-core
+        - models-bodies-et-current
+        - natural-phenomena-et-current
+        - models-symbols-ru-legacy
+      practice:
+        - models-bodies-ru-core
+        - models-bodies-et-current
+        - natural-phenomena-et-current
+      practical_or_assessment: []
+    availability:
+      russian: verified
+      estonian: verified
+      practical: missing
+      revision: missing
+      assessment: missing
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct data, experiment, revision or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - models-bodies-et-overlap
+    known_gaps:
+      - Classification pages introduce physical, chemical and biological phenomena, while detailed evidence is distributed across later topic groups.
+  - topic_id: atoms-elements-and-periodic-table
+    title_ru: Атомы, химические элементы и периодическая таблица
+    title_et: Aatomid, keemilised elemendid ja perioodilisustabel
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 7k_loodusõpetus_avita_2024_est
+      - 7k_loodusõpetus_koolibri_est
+      - 7k_loodusõpetus_koolibri_rus
+      - 7k_loodusõpetus_avita_rus
+    selected_records:
+      - record_id: atom-ru-core
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3074
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Что такое атом?
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/64/chapter/3074
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_explanation_ru, practice_ru, bilingual_visual evidence in the Grade 7 science route.
+      - record_id: elements-ru-core
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3076
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Химические элементы
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/64/chapter/3076
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_explanation_ru, practice_ru, bilingual_visual evidence in the Grade 7 science route.
+      - record_id: atom-structure-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30442
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Aatomi ehitus
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/546/chapter/30442
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_source_et, terminology_et, bilingual_visual evidence in the Grade 7 science route.
+      - record_id: periodic-table-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30443
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Keemiline element ja perioodilisustabel
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/546/chapter/30443
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_source_et, terminology_et, practice_et, bilingual_visual evidence in the Grade 7 science route.
+      - record_id: atoms-elements-ru-revision
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3080
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Повторение
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - revision
+          - assessment
+          - practice_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/64/chapter/3080
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct revision, assessment, practice_ru evidence in the Grade 7 science route.
+    alternative_records:
+      - record_id: atoms-elements-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4895
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Aatomid
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/100/chapter/4895
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Retained as a useful exact-route alternative for core_source_et, terminology_et, practice_et, bilingual_visual; it is not required when the selected role set is used.
+    rejected_records:
+      - record_id: atoms-elements-ru-overlap
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18904
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Атомы
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/336/chapter/18904
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Records an overlapping exact-route page for core_explanation_ru, practice_ru, bilingual_visual so the deduplication decision remains reviewable.
+        rejection_reason: Rejected from the recommended role set because selected records already supply its instructional role and this page adds no distinct evidence role.
+    source_recommendations:
+      russian_explanation:
+        - atom-ru-core
+        - elements-ru-core
+      estonian_terminology_or_visuals:
+        - atom-ru-core
+        - elements-ru-core
+        - atom-structure-et-current
+        - periodic-table-et-current
+        - atoms-elements-et-koolibri
+      practice:
+        - atom-ru-core
+        - elements-ru-core
+        - periodic-table-et-current
+        - atoms-elements-ru-revision
+        - atoms-elements-et-koolibri
+      practical_or_assessment:
+        - atoms-elements-ru-revision
+    availability:
+      russian: verified
+      estonian: verified
+      practical: missing
+      revision: verified
+      assessment: verified
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct data, experiment, revision or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - atoms-elements-ru-overlap
+    known_gaps:
+      - The route supplies models and revision questions but no registered hands-on atom-model construction protocol with a shared rubric.
+  - topic_id: molecules-cells-ions-and-chemical-bonds
+    title_ru: Молекулы, клетки, ионы и химические связи
+    title_et: Molekulid, rakud, ioonid ja keemilised sidemed
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 7k_loodusõpetus_avita_2024_est
+      - 7k_loodusõpetus_avita_est
+      - 7k_loodusõpetus_koolibri_est
+      - 7k_loodusõpetus_koolibri_rus
+      - 7k_loodusõpetus_avita_rus
+    selected_records:
+      - record_id: molecules-ru-core
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3081
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Что такое молекула, вещество и частица?
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/64/chapter/3081
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_explanation_ru, practice_ru, bilingual_visual evidence in the Grade 7 science route.
+      - record_id: ions-ru-core
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3088
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Что такое ион?
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/64/chapter/3088
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_explanation_ru, practice_ru, bilingual_visual evidence in the Grade 7 science route.
+      - record_id: chemical-bonds-et
+        canonical_url: https://www.opiq.ee/kit/44/chapter/2097
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_est
+        title: Keemilised sidemed
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/44/chapter/2097
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_source_et, terminology_et, bilingual_visual evidence in the Grade 7 science route.
+      - record_id: molecules-cells-et
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4896
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Molekulid ja rakud
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/100/chapter/4896
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_source_et, terminology_et, practice_et, bilingual_visual evidence in the Grade 7 science route.
+      - record_id: particles-bonds-ru-revision
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3093
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Повторение
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - revision
+          - assessment
+          - practice_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/64/chapter/3093
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct revision, assessment, practice_ru evidence in the Grade 7 science route.
+    alternative_records:
+      - record_id: simple-compound-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30444
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Liht- ja liitained
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/546/chapter/30444
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Retained as a useful exact-route alternative for core_source_et, terminology_et, practice_et; it is not required when the selected role set is used.
+    rejected_records:
+      - record_id: molecules-cells-ru-overlap
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18905
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Молекулы и клетки
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/336/chapter/18905
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Records an overlapping exact-route page for core_explanation_ru, practice_ru, bilingual_visual so the deduplication decision remains reviewable.
+        rejection_reason: Rejected from the recommended role set because selected records already supply its instructional role and this page adds no distinct evidence role.
+    source_recommendations:
+      russian_explanation:
+        - molecules-ru-core
+        - ions-ru-core
+      estonian_terminology_or_visuals:
+        - molecules-ru-core
+        - ions-ru-core
+        - chemical-bonds-et
+        - molecules-cells-et
+        - simple-compound-et-current
+      practice:
+        - molecules-ru-core
+        - ions-ru-core
+        - molecules-cells-et
+        - particles-bonds-ru-revision
+        - simple-compound-et-current
+      practical_or_assessment:
+        - particles-bonds-ru-revision
+    availability:
+      russian: verified
+      estonian: verified
+      practical: missing
+      revision: verified
+      assessment: verified
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct data, experiment, revision or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - molecules-cells-ru-overlap
+    known_gaps:
+      - Molecule and bond pages provide visual models, but no complete registered practical protocol for building and assessing molecular models.
+  - topic_id: states-of-matter-and-phase-changes
+    title_ru: Агрегатные состояния и фазовые переходы
+    title_et: Aine olekud ja olekumuutused
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 7k_loodusõpetus_avita_2024_est
+      - 7k_loodusõpetus_koolibri_est
+      - 7k_loodusõpetus_koolibri_rus
+      - 7k_loodusõpetus_avita_rus
+    selected_records:
+      - record_id: states-matter-ru-core
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18913
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Твердое, жидкое и газообразное состояние
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/336/chapter/18913
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_explanation_ru, practice_ru, bilingual_visual evidence in the Grade 7 science route.
+      - record_id: phase-changes-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30778
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Aine olekute muutused
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/546/chapter/30778
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_source_et, terminology_et, practice_et, bilingual_visual evidence in the Grade 7 science route.
+      - record_id: phase-change-research-et
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4912
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Uurimisülesandeid
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - experiment
+          - practice_et
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/100/chapter/4912
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct experiment, practice_et, data_interpretation evidence in the Grade 7 science route.
+      - record_id: states-matter-ru-revision
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18919
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Итоги и обобщение
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - revision
+          - assessment
+          - practice_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/336/chapter/18919
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct revision, assessment, practice_ru evidence in the Grade 7 science route.
+    alternative_records:
+      - record_id: phase-changes-ru-legacy
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3099
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Изменение агрегатного состояния
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/64/chapter/3099
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Retained as a useful exact-route alternative for core_explanation_ru, practice_ru, bilingual_visual; it is not required when the selected role set is used.
+    rejected_records:
+      - record_id: melting-freezing-et-overlap
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4905
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Sulamine ja tahkumine
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/100/chapter/4905
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Records an overlapping exact-route page for core_source_et, terminology_et, practice_et so the deduplication decision remains reviewable.
+        rejection_reason: Rejected from the recommended role set because selected records already supply its instructional role and this page adds no distinct evidence role.
+    source_recommendations:
+      russian_explanation:
+        - states-matter-ru-core
+        - phase-changes-ru-legacy
+      estonian_terminology_or_visuals:
+        - states-matter-ru-core
+        - phase-changes-et-current
+        - phase-changes-ru-legacy
+      practice:
+        - states-matter-ru-core
+        - phase-changes-et-current
+        - phase-change-research-et
+        - states-matter-ru-revision
+        - phase-changes-ru-legacy
+      practical_or_assessment:
+        - phase-change-research-et
+        - states-matter-ru-revision
+    availability:
+      russian: verified
+      estonian: verified
+      practical: verified
+      revision: verified
+      assessment: verified
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct data, experiment, revision or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - melting-freezing-et-overlap
+    known_gaps:
+      - Research pages cover selected phase changes, but not one unified experiment and assessment for every transition.
+  - topic_id: density-material-properties-and-earth-materials
+    title_ru: Плотность, свойства материалов и горные породы
+    title_et: Tihedus, materjalide omadused ja kivimid
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 7k_loodusõpetus_avita_2024_est
+      - 7k_loodusõpetus_koolibri_est
+      - 7k_loodusõpetus_koolibri_rus
+    selected_records:
+      - record_id: density-ru-core
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18892
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Плотность вещества
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/336/chapter/18892
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_explanation_ru, practice_ru, data_interpretation evidence in the Grade 7 science route.
+      - record_id: physical-properties-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30781
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Aine füüsikalised omadused
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/546/chapter/30781
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_source_et, terminology_et, practice_et evidence in the Grade 7 science route.
+      - record_id: salt-solution-density-et-experiment
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4902
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Soolalahuse tiheduse määramine
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - experiment
+          - practice_et
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/100/chapter/4902
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct experiment, practice_et, data_interpretation evidence in the Grade 7 science route.
+    alternative_records:
+      - record_id: rocks-minerals-et-support
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30780
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Puhas aine ja segu
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - optional_extension
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/546/chapter/30780
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Retained as a useful exact-route alternative for core_source_et, terminology_et, optional_extension; it is not required when the selected role set is used.
+    rejected_records:
+      - record_id: density-et-overlap
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4883
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Aine tihedus
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - practice_et
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/100/chapter/4883
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Records an overlapping exact-route page for core_source_et, practice_et, data_interpretation so the deduplication decision remains reviewable.
+        rejection_reason: Rejected from the recommended role set because selected records already supply its instructional role and this page adds no distinct evidence role.
+    source_recommendations:
+      russian_explanation:
+        - density-ru-core
+      estonian_terminology_or_visuals:
+        - physical-properties-et-current
+        - rocks-minerals-et-support
+      practice:
+        - density-ru-core
+        - physical-properties-et-current
+        - salt-solution-density-et-experiment
+      practical_or_assessment:
+        - salt-solution-density-et-experiment
+    availability:
+      russian: verified
+      estonian: verified
+      practical: verified
+      revision: missing
+      assessment: missing
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct data, experiment, revision or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - density-et-overlap
+    known_gaps:
+      - Rocks and minerals appear as a committed heading, but the route has no dedicated specimen-identification protocol or assessment rubric.
+  - topic_id: pure-substances-mixtures-solutions-and-separation
+    title_ru: Чистые вещества, смеси, растворы и методы разделения
+    title_et: Puhtad ained, segud, lahused ja lahutusmeetodid
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 7k_loodusõpetus_avita_2024_est
+      - 7k_loodusõpetus_koolibri_est
+      - 7k_loodusõpetus_koolibri_rus
+      - 7k_loodusõpetus_avita_rus
+    selected_records:
+      - record_id: pure-substances-mixtures-ru
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18907
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Чистые вещества и смеси веществ
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/336/chapter/18907
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_explanation_ru, practice_ru evidence in the Grade 7 science route.
+      - record_id: solutions-ru
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18908
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Растворы
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/336/chapter/18908
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_explanation_ru, practice_ru evidence in the Grade 7 science route.
+      - record_id: separation-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30782
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Segude lahutamine koostis­osadeks
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/546/chapter/30782
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_source_et, terminology_et, practice_et evidence in the Grade 7 science route.
+      - record_id: separation-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4900
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Kuidas lahutada segu koostis­osadeks
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - practice_et
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/100/chapter/4900
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_source_et, practice_et, data_interpretation evidence in the Grade 7 science route.
+      - record_id: mixtures-solutions-ru-revision
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18910
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Итоги и обобщение
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - revision
+          - assessment
+          - practice_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/336/chapter/18910
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct revision, assessment, practice_ru evidence in the Grade 7 science route.
+    alternative_records:
+      - record_id: mixture-separation-ru-legacy
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3104
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Отделение веществ от смесей
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/64/chapter/3104
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Retained as a useful exact-route alternative for core_explanation_ru, practice_ru; it is not required when the selected role set is used.
+    rejected_records:
+      - record_id: pure-mixtures-et-overlap
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4898
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Puhtad ained ja ainete segud
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/100/chapter/4898
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Records an overlapping exact-route page for core_source_et, terminology_et, practice_et so the deduplication decision remains reviewable.
+        rejection_reason: Rejected from the recommended role set because selected records already supply its instructional role and this page adds no distinct evidence role.
+    source_recommendations:
+      russian_explanation:
+        - pure-substances-mixtures-ru
+        - solutions-ru
+        - mixture-separation-ru-legacy
+      estonian_terminology_or_visuals:
+        - separation-et-current
+        - separation-et-koolibri
+      practice:
+        - pure-substances-mixtures-ru
+        - solutions-ru
+        - separation-et-current
+        - separation-et-koolibri
+        - mixtures-solutions-ru-revision
+        - mixture-separation-ru-legacy
+      practical_or_assessment:
+        - mixtures-solutions-ru-revision
+    availability:
+      russian: verified
+      estonian: verified
+      practical: missing
+      revision: verified
+      assessment: verified
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct data, experiment, revision or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - pure-mixtures-et-overlap
+    known_gaps:
+      - The committed pages explain several separation methods, but chromatography is not explicit in a registered canonical title or heading.
+  - topic_id: motion-speed-and-force
+    title_ru: Движение, скорость и сила
+    title_et: Liikumine, kiirus ja jõud
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 7k_loodusõpetus_avita_est
+      - 7k_loodusõpetus_koolibri_est
+      - 7k_loodusõpetus_koolibri_rus
+      - 7k_loodusõpetus_avita_rus
+    selected_records:
+      - record_id: motion-ru-core
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3064
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Что такое движение?
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/64/chapter/3064
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_explanation_ru, practice_ru evidence in the Grade 7 science route.
+      - record_id: force-ru-core
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3066
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Что такое сила?
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/64/chapter/3066
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_explanation_ru, practice_ru, bilingual_visual evidence in the Grade 7 science route.
+      - record_id: speed-determination-et
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4892
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Kiiruse määramine
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - experiment
+          - practice_et
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/100/chapter/4892
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct experiment, practice_et, data_interpretation evidence in the Grade 7 science route.
+      - record_id: motion-graph-et
+        canonical_url: https://www.opiq.ee/kit/44/chapter/2072
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_est
+        title: Liikumise kujutamine graafikul. Ühtlane ja mitteühtlane liikumine
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - practice_et
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/44/chapter/2072
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_source_et, practice_et, data_interpretation evidence in the Grade 7 science route.
+      - record_id: motion-force-ru-revision
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3068
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Повторение
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - revision
+          - assessment
+          - practice_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/64/chapter/3068
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct revision, assessment, practice_ru evidence in the Grade 7 science route.
+    alternative_records:
+      - record_id: speed-ru-koolibri
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18899
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Скорость движения тел
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/336/chapter/18899
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Retained as a useful exact-route alternative for core_explanation_ru, practice_ru, data_interpretation; it is not required when the selected role set is used.
+    rejected_records:
+      - record_id: motion-et-overlap
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4888
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Mehaaniline liikumine
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/100/chapter/4888
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Records an overlapping exact-route page for core_source_et, terminology_et, practice_et so the deduplication decision remains reviewable.
+        rejection_reason: Rejected from the recommended role set because selected records already supply its instructional role and this page adds no distinct evidence role.
+    source_recommendations:
+      russian_explanation:
+        - motion-ru-core
+        - force-ru-core
+        - speed-ru-koolibri
+      estonian_terminology_or_visuals:
+        - force-ru-core
+        - motion-graph-et
+      practice:
+        - motion-ru-core
+        - force-ru-core
+        - speed-determination-et
+        - motion-graph-et
+        - motion-force-ru-revision
+        - speed-ru-koolibri
+      practical_or_assessment:
+        - speed-determination-et
+        - motion-force-ru-revision
+    availability:
+      russian: verified
+      estonian: verified
+      practical: verified
+      revision: verified
+      assessment: verified
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct data, experiment, revision or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - motion-et-overlap
+    known_gaps:
+      - Speed determination is practical, while the route does not register one combined force-and-motion laboratory rubric.
+  - topic_id: work-energy-and-transformations
+    title_ru: Работа, энергия и её превращения
+    title_et: Töö, energia ja energia muundumised
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 7k_loodusõpetus_avita_2024_est
+      - 7k_loodusõpetus_avita_est
+      - 7k_loodusõpetus_koolibri_est
+      - 7k_loodusõpetus_avita_rus
+    selected_records:
+      - record_id: mechanical-work-ru
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3069
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Механическая работа
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/64/chapter/3069
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_explanation_ru, practice_ru evidence in the Grade 7 science route.
+      - record_id: energy-ru-core
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3070
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Что такое энергия?
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/64/chapter/3070
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_explanation_ru, practice_ru, bilingual_visual evidence in the Grade 7 science route.
+      - record_id: energy-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30945
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Energia
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/546/chapter/30945
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_source_et, terminology_et, practice_et evidence in the Grade 7 science route.
+      - record_id: work-energy-ru-revision
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3073
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Повторение
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - revision
+          - assessment
+          - practice_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/64/chapter/3073
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct revision, assessment, practice_ru evidence in the Grade 7 science route.
+    alternative_records:
+      - record_id: kinetic-energy-et
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4913
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Kineetiline energia
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/100/chapter/4913
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Retained as a useful exact-route alternative for core_source_et, terminology_et, practice_et; it is not required when the selected role set is used.
+    rejected_records:
+      - record_id: energy-et-overlap
+        canonical_url: https://www.opiq.ee/kit/44/chapter/2077
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_est
+        title: Mis on energia?
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/44/chapter/2077
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Records an overlapping exact-route page for core_source_et, terminology_et so the deduplication decision remains reviewable.
+        rejection_reason: Rejected from the recommended role set because selected records already supply its instructional role and this page adds no distinct evidence role.
+    source_recommendations:
+      russian_explanation:
+        - mechanical-work-ru
+        - energy-ru-core
+      estonian_terminology_or_visuals:
+        - energy-ru-core
+        - energy-et-current
+        - kinetic-energy-et
+      practice:
+        - mechanical-work-ru
+        - energy-ru-core
+        - energy-et-current
+        - work-energy-ru-revision
+        - kinetic-energy-et
+      practical_or_assessment:
+        - work-energy-ru-revision
+    availability:
+      russian: verified
+      estonian: verified
+      practical: missing
+      revision: verified
+      assessment: verified
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct data, experiment, revision or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - energy-et-overlap
+    known_gaps:
+      - Energy pages contain examples and revision, but do not provide one complete experiment for measuring energy transformations.
+  - topic_id: temperature-and-heat-transfer
+    title_ru: Температура и теплопередача
+    title_et: Temperatuur ja soojusülekanne
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 7k_loodusõpetus_avita_2024_est
+      - 7k_loodusõpetus_koolibri_est
+      - 7k_loodusõpetus_koolibri_rus
+      - 7k_loodusõpetus_avita_rus
+    selected_records:
+      - record_id: heat-temperature-ru
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18924
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Теплота и температура
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/336/chapter/18924
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_explanation_ru, practice_ru, bilingual_visual evidence in the Grade 7 science route.
+      - record_id: thermal-conductivity-et
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4916
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Soojus­juhtivus
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - experiment
+          - practice_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/100/chapter/4916
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_source_et, terminology_et, experiment, practice_et evidence in the Grade 7 science route.
+      - record_id: heating-research-et
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4921
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Uurimisülesanne
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - experiment
+          - practice_et
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/100/chapter/4921
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct experiment, practice_et, data_interpretation evidence in the Grade 7 science route.
+      - record_id: heat-energy-ru-revision
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18928
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Итоги и обобщение
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - revision
+          - assessment
+          - practice_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/336/chapter/18928
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct revision, assessment, practice_ru evidence in the Grade 7 science route.
+    alternative_records:
+      - record_id: heat-transfer-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30946
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Soojusenergia ja soojusülekanne
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/546/chapter/30946
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Retained as a useful exact-route alternative for core_source_et, terminology_et, practice_et, bilingual_visual; it is not required when the selected role set is used.
+    rejected_records:
+      - record_id: heat-transfer-ru-overlap
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3098
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Теплопередача
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/64/chapter/3098
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Records an overlapping exact-route page for core_explanation_ru, practice_ru, bilingual_visual so the deduplication decision remains reviewable.
+        rejection_reason: Rejected from the recommended role set because selected records already supply its instructional role and this page adds no distinct evidence role.
+    source_recommendations:
+      russian_explanation:
+        - heat-temperature-ru
+      estonian_terminology_or_visuals:
+        - heat-temperature-ru
+        - thermal-conductivity-et
+        - heat-transfer-et-current
+      practice:
+        - heat-temperature-ru
+        - thermal-conductivity-et
+        - heating-research-et
+        - heat-energy-ru-revision
+        - heat-transfer-et-current
+      practical_or_assessment:
+        - thermal-conductivity-et
+        - heating-research-et
+        - heat-energy-ru-revision
+    availability:
+      russian: verified
+      estonian: verified
+      practical: verified
+      revision: verified
+      assessment: verified
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct data, experiment, revision or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - heat-transfer-ru-overlap
+    known_gaps:
+      - The route supports selected heat experiments, but no common assessment rubric spans conduction, convection and radiation.
+  - topic_id: chemical-reactions-combustion-and-experiments
+    title_ru: Химические реакции, горение и опыты
+    title_et: Keemilised reaktsioonid, põlemine ja katsed
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 7k_loodusõpetus_avita_2024_est
+      - 7k_loodusõpetus_koolibri_est
+      - 7k_loodusõpetus_koolibri_rus
+      - 7k_loodusõpetus_avita_rus
+    selected_records:
+      - record_id: chemical-reaction-combustion-ru
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3082
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Химическая реакция. Горение
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/64/chapter/3082
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_explanation_ru, practice_ru evidence in the Grade 7 science route.
+      - record_id: chemical-reaction-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/30947
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Keemiline reaktsioon
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/546/chapter/30947
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_source_et, terminology_et, practice_et evidence in the Grade 7 science route.
+      - record_id: chemical-experiments-et
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4928
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Keemilisi katseid
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - experiment
+          - practice_et
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/100/chapter/4928
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct experiment, practice_et, data_interpretation evidence in the Grade 7 science route.
+      - record_id: chemical-reactions-ru-revision
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18935
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Итоги и обобщение
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - revision
+          - assessment
+          - practice_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/336/chapter/18935
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct revision, assessment, practice_ru evidence in the Grade 7 science route.
+    alternative_records:
+      - record_id: candle-combustion-et
+        canonical_url: https://www.opiq.ee/kit/100/chapter/6929
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Küünla põlemine
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - experiment
+          - practice_et
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/100/chapter/6929
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Retained as a useful exact-route alternative for experiment, practice_et, data_interpretation; it is not required when the selected role set is used.
+    rejected_records:
+      - record_id: combustion-ru-overlap
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18932
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Горение
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/336/chapter/18932
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Records an overlapping exact-route page for core_explanation_ru, practice_ru so the deduplication decision remains reviewable.
+        rejection_reason: Rejected from the recommended role set because selected records already supply its instructional role and this page adds no distinct evidence role.
+    source_recommendations:
+      russian_explanation:
+        - chemical-reaction-combustion-ru
+      estonian_terminology_or_visuals:
+        - chemical-reaction-et-current
+      practice:
+        - chemical-reaction-combustion-ru
+        - chemical-reaction-et-current
+        - chemical-experiments-et
+        - chemical-reactions-ru-revision
+        - candle-combustion-et
+      practical_or_assessment:
+        - chemical-experiments-et
+        - chemical-reactions-ru-revision
+        - candle-combustion-et
+    availability:
+      russian: verified
+      estonian: verified
+      practical: verified
+      revision: verified
+      assessment: verified
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct data, experiment, revision or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - combustion-ru-overlap
+    known_gaps:
+      - Exact experiments are present, but safe production use still requires teacher review of chemicals, equipment and risk controls.
+  - topic_id: photosynthesis-respiration-and-carbon-cycle
+    title_ru: Фотосинтез, дыхание и круговорот углерода
+    title_et: Fotosüntees, hingamine ja süsinikuringe
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 7k_loodusõpetus_avita_est
+      - 7k_loodusõpetus_koolibri_est
+      - 7k_loodusõpetus_koolibri_rus
+      - 7k_loodusõpetus_avita_rus
+    selected_records:
+      - record_id: photosynthesis-respiration-ru
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18934
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Фотосинтез и дыхание
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/336/chapter/18934
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_explanation_ru, practice_ru, bilingual_visual evidence in the Grade 7 science route.
+      - record_id: carbon-cycle-et
+        canonical_url: https://www.opiq.ee/kit/44/chapter/2091
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_est
+        title: Süsinik ringleb
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/44/chapter/2091
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_source_et, terminology_et, practice_et, bilingual_visual evidence in the Grade 7 science route.
+      - record_id: respiration-air-et-experiment
+        canonical_url: https://www.opiq.ee/kit/100/chapter/6930
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Hingamine ja õhu koostis
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - experiment
+          - practice_et
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/100/chapter/6930
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct experiment, practice_et, data_interpretation evidence in the Grade 7 science route.
+      - record_id: carbon-cycle-ru-revision
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3086
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Повторение
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - revision
+          - assessment
+          - practice_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/64/chapter/3086
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct revision, assessment, practice_ru evidence in the Grade 7 science route.
+    alternative_records:
+      - record_id: carbon-cycle-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4931
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Süsiniku­ringe ökosüsteemi­des
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/100/chapter/4931
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Retained as a useful exact-route alternative for core_source_et, terminology_et, practice_et, bilingual_visual; it is not required when the selected role set is used.
+    rejected_records:
+      - record_id: organism-reactions-ru-overlap
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3083
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Химические реакции, протекающие в организмах
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/64/chapter/3083
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Records an overlapping exact-route page for core_explanation_ru, practice_ru so the deduplication decision remains reviewable.
+        rejection_reason: Rejected from the recommended role set because selected records already supply its instructional role and this page adds no distinct evidence role.
+    source_recommendations:
+      russian_explanation:
+        - photosynthesis-respiration-ru
+      estonian_terminology_or_visuals:
+        - photosynthesis-respiration-ru
+        - carbon-cycle-et
+        - carbon-cycle-et-koolibri
+      practice:
+        - photosynthesis-respiration-ru
+        - carbon-cycle-et
+        - respiration-air-et-experiment
+        - carbon-cycle-ru-revision
+        - carbon-cycle-et-koolibri
+      practical_or_assessment:
+        - respiration-air-et-experiment
+        - carbon-cycle-ru-revision
+    availability:
+      russian: verified
+      estonian: verified
+      practical: verified
+      revision: verified
+      assessment: verified
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct data, experiment, revision or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - organism-reactions-ru-overlap
+    known_gaps:
+      - The route has respiration evidence and carbon-cycle models, but no registered full plant-growth experiment protocol and rubric.
+  - topic_id: ecosystems-adaptation-growth-and-natural-balance
+    title_ru: Экосистемы, приспособление, рост и природное равновесие
+    title_et: Ökosüsteemid, kohastumine, kasv ja looduslik tasakaal
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 7k_loodusõpetus_avita_2024_est
+      - 7k_loodusõpetus_avita_est
+      - 7k_loodusõpetus_koolibri_est
+      - 7k_loodusõpetus_koolibri_rus
+      - 7k_loodusõpetus_avita_rus
+    selected_records:
+      - record_id: living-nonliving-relations-ru
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18945
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Связи живой и неживой природы
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/336/chapter/18945
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_explanation_ru, practice_ru, bilingual_visual evidence in the Grade 7 science route.
+      - record_id: environment-organisms-ru
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3100
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Влияние окружающей среды на формирование живых организмов
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/64/chapter/3100
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_explanation_ru, practice_ru evidence in the Grade 7 science route.
+      - record_id: environment-organisms-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/31309
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Keskkond kujundab organisme
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/546/chapter/31309
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_source_et, terminology_et, practice_et evidence in the Grade 7 science route.
+      - record_id: ecosystem-satellite-et
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4930
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Uurime ökosüsteeme kosmosest
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - digital_map
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/100/chapter/4930
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_source_et, digital_map, data_interpretation evidence in the Grade 7 science route.
+    alternative_records:
+      - record_id: adaptation-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4929
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Kohastumine elukesk­konnaga
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/100/chapter/4929
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Retained as a useful exact-route alternative for core_source_et, terminology_et, practice_et; it is not required when the selected role set is used.
+    rejected_records:
+      - record_id: environment-growth-et-overlap
+        canonical_url: https://www.opiq.ee/kit/44/chapter/2107
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_est
+        title: Keskkond kujundab organisme
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/44/chapter/2107
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Records an overlapping exact-route page for core_source_et, terminology_et, practice_et so the deduplication decision remains reviewable.
+        rejection_reason: Rejected from the recommended role set because selected records already supply its instructional role and this page adds no distinct evidence role.
+    source_recommendations:
+      russian_explanation:
+        - living-nonliving-relations-ru
+        - environment-organisms-ru
+      estonian_terminology_or_visuals:
+        - living-nonliving-relations-ru
+        - environment-organisms-et-current
+        - ecosystem-satellite-et
+        - adaptation-et-koolibri
+      practice:
+        - living-nonliving-relations-ru
+        - environment-organisms-ru
+        - environment-organisms-et-current
+        - ecosystem-satellite-et
+        - adaptation-et-koolibri
+      practical_or_assessment: []
+    availability:
+      russian: verified
+      estonian: verified
+      practical: missing
+      revision: missing
+      assessment: missing
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct data, experiment, revision or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - environment-growth-et-overlap
+    known_gaps:
+      - Growth and development are explicit in a committed heading, but no selected page provides the long-term growth protocol required by the supplementary teacher plan.
+  - topic_id: greenhouse-effect-and-climate-change
+    title_ru: Парниковый эффект и изменение климата
+    title_et: Kasvuhooneefekt ja kliimamuutused
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 7k_loodusõpetus_avita_2024_est
+      - 7k_loodusõpetus_koolibri_est
+      - 7k_loodusõpetus_koolibri_rus
+      - 7k_loodusõpetus_avita_rus
+    selected_records:
+      - record_id: greenhouse-effect-ru
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18941
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Парниковый эффект
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/336/chapter/18941
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_explanation_ru, practice_ru, bilingual_visual evidence in the Grade 7 science route.
+      - record_id: greenhouse-climate-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/31310
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Kasvuhoone­efekt ja kliima­muutused
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/546/chapter/31310
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_source_et, terminology_et, practice_et, bilingual_visual evidence in the Grade 7 science route.
+      - record_id: greenhouse-model-et-experiment
+        canonical_url: https://www.opiq.ee/kit/100/chapter/6931
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Kasvuhooneefekti mudel
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - experiment
+          - practice_et
+          - data_interpretation
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/100/chapter/6931
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct experiment, practice_et, data_interpretation, bilingual_visual evidence in the Grade 7 science route.
+      - record_id: ecology-section-et-revision
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4936
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Kokkuvõte ja üldistus
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - revision
+          - assessment
+          - practice_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/100/chapter/4936
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct revision, assessment, practice_et evidence in the Grade 7 science route.
+    alternative_records:
+      - record_id: greenhouse-effect-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4932
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Kasvuhooneefekt
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/100/chapter/4932
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Retained as a useful exact-route alternative for core_source_et, terminology_et, practice_et, bilingual_visual; it is not required when the selected role set is used.
+    rejected_records:
+      - record_id: carbon-greenhouse-ru-overlap
+        canonical_url: https://www.opiq.ee/kit/64/chapter/3084
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_rus
+        title: Круговорот углерода в природе
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/64/chapter/3084
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Records an overlapping exact-route page for core_explanation_ru, practice_ru so the deduplication decision remains reviewable.
+        rejection_reason: Rejected from the recommended role set because selected records already supply its instructional role and this page adds no distinct evidence role.
+    source_recommendations:
+      russian_explanation:
+        - greenhouse-effect-ru
+      estonian_terminology_or_visuals:
+        - greenhouse-effect-ru
+        - greenhouse-climate-et-current
+        - greenhouse-model-et-experiment
+        - greenhouse-effect-et-koolibri
+      practice:
+        - greenhouse-effect-ru
+        - greenhouse-climate-et-current
+        - greenhouse-model-et-experiment
+        - ecology-section-et-revision
+        - greenhouse-effect-et-koolibri
+      practical_or_assessment:
+        - greenhouse-model-et-experiment
+        - ecology-section-et-revision
+    availability:
+      russian: verified
+      estonian: verified
+      practical: verified
+      revision: verified
+      assessment: verified
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct data, experiment, revision or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - carbon-greenhouse-ru-overlap
+    known_gaps:
+      - The model page supports investigation, while locally contextualized climate data and a production assessment rubric remain absent.
+  - topic_id: sustainable-consumption-footprint-and-recycling
+    title_ru: Устойчивое потребление, экологический след и переработка
+    title_et: Säästev tarbimine, ökoloogiline jalajälg ja taaskasutus
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 7k_loodusõpetus_avita_2024_est
+      - 7k_loodusõpetus_koolibri_est
+      - 7k_loodusõpetus_koolibri_rus
+    selected_records:
+      - record_id: ecological-footprint-ru
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18942
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Экологический след
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/336/chapter/18942
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_explanation_ru, practice_ru, data_interpretation evidence in the Grade 7 science route.
+      - record_id: product-lifecycle-ru
+        canonical_url: https://www.opiq.ee/kit/336/chapter/18943
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_rus
+        title: Жизненный цикл продукции и материалов
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/336/chapter/18943
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_explanation_ru, practice_ru, bilingual_visual evidence in the Grade 7 science route.
+      - record_id: sustainable-life-recycling-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/31312
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Säästev eluviis ja materjalide taaskasutus
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/546/chapter/31312
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_source_et, terminology_et, practice_et evidence in the Grade 7 science route.
+      - record_id: product-lifecycle-et
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4934
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Toodete ja materjalide elutsükkel
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/100/chapter/4934
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct core_source_et, terminology_et, practice_et, bilingual_visual evidence in the Grade 7 science route.
+      - record_id: urbanization-research-et
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4937
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Uurimisülesanne
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - practice_et
+          - data_interpretation
+          - assessment
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/100/chapter/4937
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Selected because the exact title, headings or tasks supply distinct practice_et, data_interpretation, assessment evidence in the Grade 7 science route.
+    alternative_records:
+      - record_id: ecological-footprint-et-current
+        canonical_url: https://www.opiq.ee/kit/546/chapter/31311
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_avita_2024_est
+        title: Ökoloogiline jalajälg
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/546/chapter/31311
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Retained as a useful exact-route alternative for core_source_et, terminology_et, practice_et, data_interpretation; it is not required when the selected role set is used.
+    rejected_records:
+      - record_id: ecological-footprint-et-overlap
+        canonical_url: https://www.opiq.ee/kit/100/chapter/4933
+        canonical_source_id: grade-7-science
+        book_id: 7k_loodusõpetus_koolibri_est
+        title: Ökoloogiline jalajälg
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - practice_et
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_7klass_loodusopetus.md / https://www.opiq.ee/kit/100/chapter/4933
+          notes: Canonical exact-route Grade 7 science page; committed evidence does not verify programme type.
+        selection_rationale: Records an overlapping exact-route page for core_source_et, terminology_et, practice_et, data_interpretation so the deduplication decision remains reviewable.
+        rejection_reason: Rejected from the recommended role set because selected records already supply its instructional role and this page adds no distinct evidence role.
+    source_recommendations:
+      russian_explanation:
+        - ecological-footprint-ru
+        - product-lifecycle-ru
+      estonian_terminology_or_visuals:
+        - product-lifecycle-ru
+        - sustainable-life-recycling-et-current
+        - product-lifecycle-et
+        - ecological-footprint-et-current
+      practice:
+        - ecological-footprint-ru
+        - product-lifecycle-ru
+        - sustainable-life-recycling-et-current
+        - product-lifecycle-et
+        - urbanization-research-et
+        - ecological-footprint-et-current
+      practical_or_assessment:
+        - urbanization-research-et
+    availability:
+      russian: verified
+      estonian: verified
+      practical: missing
+      revision: missing
+      assessment: verified
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct data, experiment, revision or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - ecological-footprint-et-overlap
+    known_gaps:
+      - The route covers footprint and product life cycles, but no canonical page supplies a complete recycling-product construction protocol or oral Estonian rubric.
+known_gaps:
+  - This evidence registry is not a final annual sequence and does not prove complete official Grade 7 science curriculum coverage.
+  - Programme type and ordinary-course eligibility remain unresolved for every selected, alternative, and rejected record.
+  - Experiment, measurement, model, revision, assessment and oral-language evidence varies by topic; known gaps are recorded within each topic group.
+  - The supplementary teacher work plan remains deferred and is not used to create canonical URLs or completeness claims.
+  - No live Opiq catalogue completeness check was performed.
