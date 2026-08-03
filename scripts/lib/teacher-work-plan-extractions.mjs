@@ -213,7 +213,7 @@ export const EXTRACTION_CONTRACTS = Object.freeze({
     route: Object.freeze({
       source_id: 'grade-7-science',
       md_path: 'project-files/outputs/opiq_7klass_loodusopetus.md',
-      mapping_status: 'deferred',
+      mapping_status: 'partial',
     }),
     pageCount: 17,
     lessonStart: 1,
@@ -1230,13 +1230,6 @@ export function validateTeacherWorkPlanChangedPaths(changedPaths) {
     if (repositoryPath === 'source-manifest.json') {
       diagnostics.push(makeDiagnostic(repositoryPath, 'source-manifest.json must remain unchanged'));
     } else if (
-      repositoryPath === GRADE_7_SCIENCE_PATH
-    ) {
-      diagnostics.push(makeDiagnostic(
-        repositoryPath,
-        'previously committed extractions must remain byte-identical',
-      ));
-    } else if (
       repositoryPath.startsWith('curriculum-maps/')
       && repositoryPath !== 'curriculum-maps/grade-5-science/teacher-work-plan-crosswalk.yaml'
       && repositoryPath !== 'curriculum-maps/grade-5-science/topic-inventory.yaml'
@@ -1244,8 +1237,10 @@ export function validateTeacherWorkPlanChangedPaths(changedPaths) {
       && repositoryPath !== 'curriculum-maps/grade-6-science/topic-inventory.yaml'
       && repositoryPath !== 'curriculum-maps/grade-7-geography/teacher-work-plan-crosswalk.yaml'
       && repositoryPath !== 'curriculum-maps/grade-7-geography/topic-inventory.yaml'
+      && repositoryPath !== 'curriculum-maps/grade-7-science/teacher-work-plan-crosswalk.yaml'
+      && repositoryPath !== 'curriculum-maps/grade-7-science/topic-inventory.yaml'
     ) {
-      diagnostics.push(makeDiagnostic(repositoryPath, 'only registered Grade 5/6/7 geography teacher work-plan crosswalks and their exact-route topic inventory dependencies are in mapping scope'));
+      diagnostics.push(makeDiagnostic(repositoryPath, 'only registered Grade 5/6/7 teacher work-plan crosswalks and their exact-route topic inventory dependencies are in mapping scope'));
     } else if (repositoryPath.startsWith('project-files/inputs/originals/')) {
       diagnostics.push(makeDiagnostic(repositoryPath, 'committed original sources must remain unchanged'));
     } else if (repositoryPath.startsWith('project-files/outputs/')) {
@@ -1264,12 +1259,19 @@ export function validateTeacherWorkPlanChangedPaths(changedPaths) {
         'curriculum-maps/grade-7-geography/topic-inventory.yaml',
         'docs/audits/grade-7-geography-teacher-work-plan-crosswalk.md',
       ].includes(repositoryPath);
+      const isGrade7ScienceMappingSupport = [
+        GRADE_7_SCIENCE_PATH,
+        'docs/audits/grade-7-science-teacher-work-plan-extraction.md',
+        'curriculum-maps/grade-7-science/teacher-work-plan-crosswalk.yaml',
+        'curriculum-maps/grade-7-science/topic-inventory.yaml',
+        'docs/audits/grade-7-science-teacher-work-plan-crosswalk.md',
+      ].includes(repositoryPath);
       const gradeMatch = repositoryPath.match(/(?:^|\/)grade-(\d+)(?=$|[-/])/u);
       const grade = gradeMatch ? Number.parseInt(gradeMatch[1], 10) : null;
-      if (grade !== null && ![5, 6].includes(grade) && !isGrade7GeographyMappingSupport) {
+      if (grade !== null && ![5, 6].includes(grade) && !isGrade7GeographyMappingSupport && !isGrade7ScienceMappingSupport) {
         diagnostics.push(makeDiagnostic(
           repositoryPath,
-          'only Grade 5/6 and registered Grade 7 geography mapping-phase artifacts are in scope',
+          'only Grade 5/6 and registered Grade 7 geography/science mapping-phase artifacts are in scope',
         ));
       }
     }

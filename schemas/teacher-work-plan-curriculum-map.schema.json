@@ -39,6 +39,10 @@
       "minItems": 1,
       "items": { "$ref": "#/$defs/lessonRangeMapping" }
     },
+    "unnumbered_source_mappings": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/unnumberedSourceMapping" }
+    },
     "topic_inventory_comparison": {
       "type": "array",
       "minItems": 1,
@@ -81,6 +85,8 @@
         "source_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
         "source_page_count": { "type": "integer", "minimum": 1 },
         "lesson_range_count": { "type": "integer", "minimum": 1 },
+        "unnumbered_row_count": { "type": "integer", "minimum": 0 },
+        "source_record_count": { "type": "integer", "minimum": 1 },
         "extracted_lesson_span": {
           "type": "object",
           "additionalProperties": false,
@@ -170,6 +176,14 @@
       ],
       "properties": {
         "unit": { "const": "source_lesson_range" },
+        "additional_units": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "prefixItems": [{ "const": "unnumbered_source_row" }],
+          "items": false
+        },
+        "unnumbered_row_handling": { "const": "preserve_without_lesson_number" },
         "source_range_splitting": { "const": "forbidden" },
         "canonical_evidence": { "const": "committed_route_only" },
         "topic_inventory_role": { "const": "stable_record_registry" },
@@ -356,6 +370,71 @@
         }
       }
     },
+    "unnumberedSourceMapping": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mapping_id",
+        "source_record_kind",
+        "source_row_id",
+        "source_block_id",
+        "placement",
+        "source_pages",
+        "source_topic_et",
+        "normalized_mapping_topic_et",
+        "topic_inventory_refs",
+        "coverage_status",
+        "opiq_matches",
+        "evidence_classification",
+        "bridge_requirement",
+        "mapping_confidence",
+        "review_status",
+        "rationale",
+        "gap_notes"
+      ],
+      "properties": {
+        "mapping_id": { "$ref": "#/$defs/slug" },
+        "source_record_kind": { "const": "unnumbered_source_row" },
+        "source_row_id": { "$ref": "#/$defs/slug" },
+        "source_block_id": { "$ref": "#/$defs/slug" },
+        "placement": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["after_lesson", "before_lesson"],
+          "properties": {
+            "after_lesson": { "type": "integer", "minimum": 1 },
+            "before_lesson": { "type": "integer", "minimum": 1 }
+          }
+        },
+        "source_pages": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "integer", "minimum": 1 }
+        },
+        "source_topic_et": { "$ref": "#/$defs/nonEmptyString" },
+        "normalized_mapping_topic_et": { "$ref": "#/$defs/nonEmptyString" },
+        "topic_inventory_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "coverage_status": { "$ref": "#/$defs/coverageStatus" },
+        "opiq_matches": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/opiqMatch" }
+        },
+        "evidence_classification": { "$ref": "#/$defs/evidenceClassification" },
+        "bridge_requirement": { "$ref": "#/$defs/bridgeRequirement" },
+        "mapping_confidence": { "enum": ["high", "medium", "low"] },
+        "review_status": { "enum": ["mapping_review_pending", "reviewed"] },
+        "rationale": { "$ref": "#/$defs/nonEmptyString" },
+        "gap_notes": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/nonEmptyString" }
+        }
+      }
+    },
     "topicComparison": {
       "type": "object",
       "additionalProperties": false,
@@ -398,6 +477,8 @@
       ],
       "properties": {
         "total_source_lesson_ranges": { "type": "integer", "minimum": 0 },
+        "unnumbered_source_row_count": { "type": "integer", "minimum": 0 },
+        "total_source_records": { "type": "integer", "minimum": 0 },
         "matched_count": { "type": "integer", "minimum": 0 },
         "partial_count": { "type": "integer", "minimum": 0 },
         "missing_count": { "type": "integer", "minimum": 0 },
@@ -426,6 +507,8 @@
       ],
       "properties": {
         "all_extracted_lesson_ranges_classified": { "const": true },
+        "all_extracted_unnumbered_rows_classified": { "const": true },
+        "all_extracted_source_records_classified": { "const": true },
         "declared_complete_for_source_extraction": { "const": true },
         "canonical_opiq_mapping_complete": { "const": false },
         "official_curriculum_complete": { "const": false },

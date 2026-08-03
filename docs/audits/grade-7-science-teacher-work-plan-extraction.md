@@ -1,6 +1,6 @@
 # Grade 7 science teacher work-plan extraction audit
 
-Status: extracted and structurally validated; canonical Opiq mapping is deferred.
+Status: source extraction complete and structurally validated; route mapping is partial, while canonical Opiq mapping remains incomplete.
 
 ## Scope and source
 
@@ -38,4 +38,4 @@ Lesson 51 remains a long-running experiment. Lessons 62 and 63 remain two separa
 
 ## Boundaries and conclusion
 
-This PDF is a supplementary, non-canonical teacher work-plan example. It is not a mandatory national sequence and does not establish complete official-curriculum coverage. Therefore `official_curriculum_complete` and `canonical_opiq_mapping_complete` remain `false`, while mapping status remains `deferred`. Curriculum mapping, Opiq URL matching, annual-course design, production lessons, teacher packs, translation, and Grade 7 geography changes remain outside this PR.
+This PDF is a supplementary, non-canonical teacher work-plan example. The source extraction is complete for 58 numbered ranges and one unnumbered row, while route mapping is only partial. It is not a mandatory national sequence and does not establish complete official-curriculum coverage. Therefore `official_curriculum_complete` and `canonical_opiq_mapping_complete` remain `false`, while mapping status is `partial`. Annual-course design, production lessons, teacher packs, translation, and Grade 7 geography changes remain outside this extraction.
