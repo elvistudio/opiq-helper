@@ -35,6 +35,7 @@ on:
       - docs/audits/grade-2-weather-water-safety-pilot-acceptance.md
       - docs/audits/grade-7-geography-teacher-work-plan-extraction.md
       - docs/audits/grade-7-science-teacher-work-plan-extraction.md
+      - docs/audits/grades-5-7-teacher-work-plan-gap-report.md
       - docs/migrations/teacher-work-plans-5-7-integration.md
       - docs/grade-5-science-annual-course.md
       - docs/lesson-plans.md
@@ -89,6 +90,7 @@ on:
       - docs/audits/grade-2-weather-water-safety-pilot-acceptance.md
       - docs/audits/grade-7-geography-teacher-work-plan-extraction.md
       - docs/audits/grade-7-science-teacher-work-plan-extraction.md
+      - docs/audits/grades-5-7-teacher-work-plan-gap-report.md
       - docs/migrations/teacher-work-plans-5-7-integration.md
       - docs/grade-5-science-annual-course.md
       - docs/lesson-plans.md
@@ -614,6 +616,12 @@ jobs:
 
       - name: Check teacher work-plan curriculum maps
         run: npm run check:teacher-work-plan-maps
+
+      - name: Test teacher work-plan gap report
+        run: npm run test:teacher-work-plan-gap-report
+
+      - name: Check generated teacher work-plan gap report
+        run: npm run check:teacher-work-plan-gap-report
 
   validate:
     name: Validate manifest and source records

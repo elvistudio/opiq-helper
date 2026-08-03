@@ -1,0 +1,600 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://elvistudio.github.io/opiq-helper/schemas/teacher-work-plan-gap-report.schema.json",
+  "title": "Grades 5-7 teacher work-plan gap report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "report_id",
+    "scope",
+    "inputs",
+    "aggregate_summary",
+    "route_summaries",
+    "gap_items",
+    "sample_topic_absences",
+    "oral_evidence_summary",
+    "boundaries",
+    "completeness"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "artifact_type": { "const": "teacher_work_plan_gap_report" },
+    "report_id": { "const": "grades-5-7-teacher-work-plan-gap-report" },
+    "scope": { "$ref": "#/$defs/scope" },
+    "inputs": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": { "$ref": "#/$defs/input" }
+    },
+    "aggregate_summary": { "$ref": "#/$defs/aggregateSummary" },
+    "route_summaries": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": { "$ref": "#/$defs/routeSummary" }
+    },
+    "gap_items": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/gapItem" }
+    },
+    "sample_topic_absences": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": { "$ref": "#/$defs/sampleTopicAbsence" }
+    },
+    "oral_evidence_summary": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": { "$ref": "#/$defs/oralEvidenceSummary" }
+    },
+    "boundaries": { "$ref": "#/$defs/boundaries" },
+    "completeness": { "$ref": "#/$defs/completeness" }
+  },
+  "$defs": {
+    "nonEmptyString": { "type": "string", "minLength": 1 },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "repositoryPath": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)+$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "routeId": {
+      "enum": [
+        "grade-5-science",
+        "grade-6-science",
+        "grade-7-geography",
+        "grade-7-science"
+      ]
+    },
+    "programmeType": {
+      "enum": [
+        "ordinary",
+        "supplementary",
+        "teacher_support",
+        "simplified_curriculum",
+        "unknown"
+      ]
+    },
+    "bridgeType": {
+      "enum": [
+        "independently_authored_bridge_required",
+        "independently_authored_practical_required",
+        "independently_authored_assessment_required",
+        "teacher_review_required"
+      ]
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "routes",
+        "source_kind",
+        "gap_unit",
+        "deduplication_key",
+        "live_catalogue_checked",
+        "official_curriculum_completeness_claimed",
+        "default_course_selection_claimed"
+      ],
+      "properties": {
+        "routes": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "prefixItems": [
+            { "const": "grade-5-science" },
+            { "const": "grade-6-science" },
+            { "const": "grade-7-geography" },
+            { "const": "grade-7-science" }
+          ],
+          "items": false
+        },
+        "source_kind": { "const": "supplementary_teacher_work_plan_crosswalks" },
+        "gap_unit": { "const": "source_mapping" },
+        "deduplication_key": { "const": "source_id_and_mapping_id" },
+        "live_catalogue_checked": { "const": false },
+        "official_curriculum_completeness_claimed": { "const": false },
+        "default_course_selection_claimed": { "const": false }
+      }
+    },
+    "input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "grade",
+        "subject",
+        "subject_et",
+        "crosswalk_path",
+        "crosswalk_sha256",
+        "extraction_path",
+        "lesson_range_mapping_count",
+        "unnumbered_source_row_count",
+        "total_source_record_count",
+        "mapping_status"
+      ],
+      "properties": {
+        "source_id": { "$ref": "#/$defs/routeId" },
+        "grade": { "type": "integer", "minimum": 5, "maximum": 7 },
+        "subject": { "enum": ["science", "geography"] },
+        "subject_et": { "enum": ["loodusõpetus", "geograafia"] },
+        "crosswalk_path": { "$ref": "#/$defs/repositoryPath" },
+        "crosswalk_sha256": { "$ref": "#/$defs/sha256" },
+        "extraction_path": { "$ref": "#/$defs/repositoryPath" },
+        "lesson_range_mapping_count": { "type": "integer", "minimum": 1 },
+        "unnumbered_source_row_count": { "type": "integer", "minimum": 0 },
+        "total_source_record_count": { "type": "integer", "minimum": 1 },
+        "mapping_status": { "const": "partial" }
+      }
+    },
+    "coverageCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["matched", "partial", "missing", "ambiguous", "outside_route"],
+      "properties": {
+        "matched": { "type": "integer", "minimum": 0 },
+        "partial": { "type": "integer", "minimum": 0 },
+        "missing": { "type": "integer", "minimum": 0 },
+        "ambiguous": { "type": "integer", "minimum": 0 },
+        "outside_route": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "sourceRecordKindCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lesson_range", "unassigned_annual_slot", "unnumbered_source_row"],
+      "properties": {
+        "lesson_range": { "type": "integer", "minimum": 0 },
+        "unassigned_annual_slot": { "type": "integer", "minimum": 0 },
+        "unnumbered_source_row": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "programmeCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ordinary",
+        "supplementary",
+        "teacher_support",
+        "simplified_curriculum",
+        "unknown"
+      ],
+      "properties": {
+        "ordinary": { "type": "integer", "minimum": 0 },
+        "supplementary": { "type": "integer", "minimum": 0 },
+        "teacher_support": { "type": "integer", "minimum": 0 },
+        "simplified_curriculum": { "type": "integer", "minimum": 0 },
+        "unknown": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "languageCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["et", "ru"],
+      "properties": {
+        "et": { "type": "integer", "minimum": 0 },
+        "ru": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "bridgeTypeCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "independently_authored_bridge_required",
+        "independently_authored_practical_required",
+        "independently_authored_assessment_required",
+        "teacher_review_required"
+      ],
+      "properties": {
+        "independently_authored_bridge_required": { "type": "integer", "minimum": 0 },
+        "independently_authored_practical_required": { "type": "integer", "minimum": 0 },
+        "independently_authored_assessment_required": { "type": "integer", "minimum": 0 },
+        "teacher_review_required": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "aggregateSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "route_count",
+        "lesson_range_mapping_count",
+        "unnumbered_source_row_count",
+        "total_source_record_count",
+        "matched_count",
+        "partial_count",
+        "missing_count",
+        "ambiguous_count",
+        "outside_route_count",
+        "gap_item_count",
+        "mappings_requiring_bridge_or_review",
+        "mappings_with_russian_evidence",
+        "mappings_with_estonian_evidence",
+        "route_local_topic_inventory_count",
+        "represented_topic_inventory_count",
+        "not_represented_topic_inventory_count",
+        "positive_match_occurrence_count",
+        "unique_positive_evidence_record_count",
+        "positive_match_counts_by_programme_type",
+        "positive_match_counts_by_language",
+        "bridge_type_counts",
+        "mappings_with_oral_language_support_scope",
+        "positive_matches_with_oral_answer_et_role"
+      ],
+      "properties": {
+        "route_count": { "const": 4 },
+        "lesson_range_mapping_count": { "type": "integer", "minimum": 1 },
+        "unnumbered_source_row_count": { "type": "integer", "minimum": 0 },
+        "total_source_record_count": { "type": "integer", "minimum": 1 },
+        "matched_count": { "type": "integer", "minimum": 0 },
+        "partial_count": { "type": "integer", "minimum": 0 },
+        "missing_count": { "type": "integer", "minimum": 0 },
+        "ambiguous_count": { "type": "integer", "minimum": 0 },
+        "outside_route_count": { "type": "integer", "minimum": 0 },
+        "gap_item_count": { "type": "integer", "minimum": 0 },
+        "mappings_requiring_bridge_or_review": { "type": "integer", "minimum": 0 },
+        "mappings_with_russian_evidence": { "type": "integer", "minimum": 0 },
+        "mappings_with_estonian_evidence": { "type": "integer", "minimum": 0 },
+        "route_local_topic_inventory_count": { "type": "integer", "minimum": 0 },
+        "represented_topic_inventory_count": { "type": "integer", "minimum": 0 },
+        "not_represented_topic_inventory_count": { "type": "integer", "minimum": 0 },
+        "positive_match_occurrence_count": { "type": "integer", "minimum": 0 },
+        "unique_positive_evidence_record_count": { "type": "integer", "minimum": 0 },
+        "positive_match_counts_by_programme_type": { "$ref": "#/$defs/programmeCounts" },
+        "positive_match_counts_by_language": { "$ref": "#/$defs/languageCounts" },
+        "bridge_type_counts": { "$ref": "#/$defs/bridgeTypeCounts" },
+        "mappings_with_oral_language_support_scope": { "type": "integer", "minimum": 0 },
+        "positive_matches_with_oral_answer_et_role": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "routeSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "grade",
+        "subject",
+        "subject_et",
+        "crosswalk_path",
+        "programme_policy",
+        "lesson_range_mapping_count",
+        "unnumbered_source_row_count",
+        "total_source_record_count",
+        "source_record_kind_counts",
+        "coverage_counts",
+        "gap_item_count",
+        "bridge_type_counts",
+        "mappings_with_russian_evidence",
+        "mappings_with_estonian_evidence",
+        "positive_match_occurrence_count",
+        "unique_positive_evidence_record_count",
+        "positive_match_counts_by_programme_type",
+        "represented_topic_inventory_count",
+        "not_represented_topic_inventory_count",
+        "represented_topic_ids",
+        "not_represented_topic_ids",
+        "mappings_with_oral_language_support_scope",
+        "positive_matches_with_oral_answer_et_role",
+        "extraction_mapping_status",
+        "canonical_opiq_mapping_complete",
+        "official_curriculum_complete",
+        "default_course_selection_complete"
+      ],
+      "properties": {
+        "source_id": { "$ref": "#/$defs/routeId" },
+        "grade": { "type": "integer", "minimum": 5, "maximum": 7 },
+        "subject": { "enum": ["science", "geography"] },
+        "subject_et": { "enum": ["loodusõpetus", "geograafia"] },
+        "crosswalk_path": { "$ref": "#/$defs/repositoryPath" },
+        "programme_policy": { "enum": ["verified_ordinary", "content_only_unknown"] },
+        "lesson_range_mapping_count": { "type": "integer", "minimum": 1 },
+        "unnumbered_source_row_count": { "type": "integer", "minimum": 0 },
+        "total_source_record_count": { "type": "integer", "minimum": 1 },
+        "source_record_kind_counts": { "$ref": "#/$defs/sourceRecordKindCounts" },
+        "coverage_counts": { "$ref": "#/$defs/coverageCounts" },
+        "gap_item_count": { "type": "integer", "minimum": 0 },
+        "bridge_type_counts": { "$ref": "#/$defs/bridgeTypeCounts" },
+        "mappings_with_russian_evidence": { "type": "integer", "minimum": 0 },
+        "mappings_with_estonian_evidence": { "type": "integer", "minimum": 0 },
+        "positive_match_occurrence_count": { "type": "integer", "minimum": 0 },
+        "unique_positive_evidence_record_count": { "type": "integer", "minimum": 0 },
+        "positive_match_counts_by_programme_type": { "$ref": "#/$defs/programmeCounts" },
+        "represented_topic_inventory_count": { "type": "integer", "minimum": 0 },
+        "not_represented_topic_inventory_count": { "type": "integer", "minimum": 0 },
+        "represented_topic_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "not_represented_topic_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "mappings_with_oral_language_support_scope": { "type": "integer", "minimum": 0 },
+        "positive_matches_with_oral_answer_et_role": { "type": "integer", "minimum": 0 },
+        "extraction_mapping_status": { "const": "partial" },
+        "canonical_opiq_mapping_complete": { "const": false },
+        "official_curriculum_complete": { "const": false },
+        "default_course_selection_complete": { "const": false }
+      }
+    },
+    "lessonSpan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lesson_start", "lesson_end"],
+      "properties": {
+        "lesson_start": { "type": "integer", "minimum": 1 },
+        "lesson_end": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "placement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["after_lesson", "before_lesson"],
+      "properties": {
+        "after_lesson": { "type": "integer", "minimum": 1 },
+        "before_lesson": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "evidenceLanguages": {
+      "anyOf": [
+        { "type": "array", "maxItems": 0 },
+        {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "prefixItems": [{ "const": "et" }],
+          "items": false
+        },
+        {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "prefixItems": [{ "const": "ru" }],
+          "items": false
+        },
+        {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "prefixItems": [{ "const": "et" }, { "const": "ru" }],
+          "items": false
+        }
+      ]
+    },
+    "gapItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "gap_id",
+        "source_id",
+        "grade",
+        "subject",
+        "subject_et",
+        "mapping_id",
+        "source_record_kind",
+        "source_block_id",
+        "lesson_span",
+        "placement",
+        "source_pages",
+        "source_topic_et",
+        "normalized_mapping_topic_et",
+        "coverage_status",
+        "bridge_type",
+        "bridge_reason",
+        "gap_notes",
+        "topic_inventory_refs",
+        "evidence_languages",
+        "positive_match_record_ids",
+        "positive_match_urls",
+        "positive_match_programme_types",
+        "mapping_confidence",
+        "review_status"
+      ],
+      "properties": {
+        "gap_id": { "$ref": "#/$defs/slug" },
+        "source_id": { "$ref": "#/$defs/routeId" },
+        "grade": { "type": "integer", "minimum": 5, "maximum": 7 },
+        "subject": { "enum": ["science", "geography"] },
+        "subject_et": { "enum": ["loodusõpetus", "geograafia"] },
+        "mapping_id": { "$ref": "#/$defs/slug" },
+        "source_record_kind": {
+          "enum": ["lesson_range", "unassigned_annual_slot", "unnumbered_source_row"]
+        },
+        "source_block_id": {
+          "anyOf": [
+            { "$ref": "#/$defs/slug" },
+            { "type": "null" }
+          ]
+        },
+        "lesson_span": {
+          "anyOf": [
+            { "$ref": "#/$defs/lessonSpan" },
+            { "type": "null" }
+          ]
+        },
+        "placement": {
+          "anyOf": [
+            { "$ref": "#/$defs/placement" },
+            { "type": "null" }
+          ]
+        },
+        "source_pages": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "integer", "minimum": 1 }
+        },
+        "source_topic_et": { "$ref": "#/$defs/nonEmptyString" },
+        "normalized_mapping_topic_et": { "$ref": "#/$defs/nonEmptyString" },
+        "coverage_status": { "enum": ["partial", "missing", "ambiguous", "outside_route"] },
+        "bridge_type": { "$ref": "#/$defs/bridgeType" },
+        "bridge_reason": { "$ref": "#/$defs/nonEmptyString" },
+        "gap_notes": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/nonEmptyString" }
+        },
+        "topic_inventory_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "evidence_languages": { "$ref": "#/$defs/evidenceLanguages" },
+        "positive_match_record_ids": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "positive_match_urls": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^https://www\\.opiq\\.ee/kit/[0-9]+/chapter/[0-9]+$"
+          }
+        },
+        "positive_match_programme_types": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/programmeType" }
+        },
+        "mapping_confidence": { "enum": ["high", "medium", "low"] },
+        "review_status": { "enum": ["mapping_review_pending", "reviewed"] }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "source_record_kind": { "const": "unnumbered_source_row" } },
+            "required": ["source_record_kind"]
+          },
+          "then": {
+            "properties": {
+              "lesson_span": { "type": "null" },
+              "placement": { "$ref": "#/$defs/placement" },
+              "source_block_id": { "$ref": "#/$defs/slug" }
+            }
+          },
+          "else": {
+            "properties": {
+              "lesson_span": { "$ref": "#/$defs/lessonSpan" },
+              "placement": { "type": "null" }
+            }
+          }
+        }
+      ]
+    },
+    "sampleTopicAbsence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "topic_id",
+        "classification",
+        "official_curriculum_gap_claimed",
+        "notes"
+      ],
+      "properties": {
+        "source_id": { "enum": ["grade-5-science", "grade-6-science"] },
+        "topic_id": { "$ref": "#/$defs/slug" },
+        "classification": { "const": "not_represented_in_supplementary_teacher_plan_sample" },
+        "official_curriculum_gap_claimed": { "const": false },
+        "notes": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "oralEvidenceSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "registered_topic_records_with_oral_answer_et_role",
+        "positive_match_occurrences_with_oral_answer_et_role",
+        "mappings_with_oral_language_support_scope",
+        "explicit_oral_page_evidence_available"
+      ],
+      "properties": {
+        "source_id": { "$ref": "#/$defs/routeId" },
+        "registered_topic_records_with_oral_answer_et_role": { "type": "integer", "minimum": 0 },
+        "positive_match_occurrences_with_oral_answer_et_role": { "type": "integer", "minimum": 0 },
+        "mappings_with_oral_language_support_scope": { "type": "integer", "minimum": 0 },
+        "explicit_oral_page_evidence_available": { "type": "boolean" }
+      }
+    },
+    "boundaries": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "official_curriculum_complete",
+        "exact_grade_official_allocation_verified",
+        "live_opiq_catalogue_complete",
+        "default_course_selection_complete",
+        "reusable_teaching_artifacts_created",
+        "semantic_work_package_review_complete",
+        "notes"
+      ],
+      "properties": {
+        "official_curriculum_complete": { "const": false },
+        "exact_grade_official_allocation_verified": { "const": false },
+        "live_opiq_catalogue_complete": { "const": false },
+        "default_course_selection_complete": { "const": false },
+        "reusable_teaching_artifacts_created": { "const": false },
+        "semantic_work_package_review_complete": { "const": false },
+        "notes": {
+          "type": "array",
+          "minItems": 4,
+          "items": { "$ref": "#/$defs/nonEmptyString" }
+        }
+      }
+    },
+    "completeness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "all_registered_crosswalks_loaded",
+        "all_source_records_accounted_for",
+        "all_nonmatched_mappings_indexed",
+        "gap_index_complete_for_registered_crosswalks",
+        "official_curriculum_complete",
+        "reusable_artifact_backlog_complete",
+        "live_catalogue_complete"
+      ],
+      "properties": {
+        "all_registered_crosswalks_loaded": { "const": true },
+        "all_source_records_accounted_for": { "const": true },
+        "all_nonmatched_mappings_indexed": { "const": true },
+        "gap_index_complete_for_registered_crosswalks": { "const": true },
+        "official_curriculum_complete": { "const": false },
+        "reusable_artifact_backlog_complete": { "const": false },
+        "live_catalogue_complete": { "const": false }
+      }
+    }
+  }
+}

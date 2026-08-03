@@ -126,6 +126,12 @@ test('teacher work-plan paths select the focused extraction job', () => {
 test('teacher work-plan curriculum-map dependencies select the focused map job', () => {
   for (const repositoryPath of [
     'curriculum-maps/grade-5-science/teacher-work-plan-crosswalk.yaml',
+    'evaluations/teacher-work-plans/grades-5-7-gap-report.json',
+    'docs/audits/grades-5-7-teacher-work-plan-gap-report.md',
+    'schemas/teacher-work-plan-gap-report.schema.json',
+    'scripts/lib/teacher-work-plan-gap-report.mjs',
+    'scripts/generate-teacher-work-plan-gap-report.mjs',
+    'scripts/teacher-work-plan-gap-report.test.mjs',
     'schemas/teacher-work-plan-curriculum-map.schema.json',
     'scripts/lib/teacher-work-plan-curriculum-maps.mjs',
     'scripts/check-teacher-work-plan-curriculum-maps.mjs',
