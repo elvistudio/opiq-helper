@@ -1,6 +1,6 @@
 # Teacher work plans for Grades 5-7: source integration plan
 
-Status: planned; original PDFs must be committed before extraction work starts.
+Status: four originals, source extractions, route-specific crosswalks and the generated cross-route gap report are complete; reusable teaching artifacts remain pending, and official curriculum completeness is not verified.
 
 ## Source set
 
@@ -12,6 +12,15 @@ The source set consists of four Estonian-language teacher work-plan PDFs:
 4. `project-files/inputs/originals/teacher-work-plans/Opetaja-tookava-Loodusopetus-7-klass.pdf`
 
 These files are supplementary curriculum-planning sources. They are not Opiq exports, do not replace canonical Opiq routes, and do not prove full coverage of the official curriculum.
+
+## Current implementation status
+
+- Original PDFs and machine-readable provenance are complete under `project-files/inputs/originals/teacher-work-plans/`.
+- Four source-PDF extractions are complete for the preserved source records under `evaluations/teacher-work-plans/`.
+- Four route-specific crosswalks are complete for source-record classification under `curriculum-maps/grade-5-science/`, `curriculum-maps/grade-6-science/`, `curriculum-maps/grade-7-geography/` and `curriculum-maps/grade-7-science/`.
+- The deterministic cross-route gap index is complete for those registered crosswalks: [machine-readable JSON](../../evaluations/teacher-work-plans/grades-5-7-gap-report.json) and [generated audit](../audits/grades-5-7-teacher-work-plan-gap-report.md).
+- Reusable bridge, practical, assessment and oral-support teaching artifacts remain pending; Phase 5 is not complete.
+- Official curriculum completeness, exact-grade official allocation, default-course selection and live-catalogue completeness remain unverified.
 
 ## Routing boundaries
 
@@ -41,12 +50,16 @@ They must not be used to copy long textbook passages or to present a sample work
 
 ### 1. Preserve originals and provenance
 
+Implementation status: complete for all four registered source PDFs.
+
 - Commit the four PDFs unchanged under `project-files/inputs/originals/teacher-work-plans/`.
 - Record SHA-256, byte size, page count, displayed title, author when present, grade, subject and source language in a machine-readable provenance file.
 - Mark provenance kind as `supplementary_teacher_work_plan`.
 - Keep original filenames in metadata even when repository filenames are ASCII-normalized.
 
 ### 2. Extract structured planning data
+
+Implementation status: complete for source extraction from all four PDFs; this does not establish route or official-curriculum completeness.
 
 Create one normalized artifact per PDF containing:
 
@@ -64,6 +77,8 @@ Create one normalized artifact per PDF containing:
 Prefer table-aware extraction and visual verification of every page. Do not rely on OCR when embedded text is available.
 
 ### 3. Build route-specific curriculum maps
+
+Implementation status: complete for classifying every registered source record in all four supplementary crosswalks; canonical and official completeness remain false.
 
 Create or extend curriculum maps separately for:
 
@@ -84,6 +99,8 @@ A teacher work plan can strengthen curriculum mapping but does not by itself est
 
 ### 4. Compare with existing project artifacts
 
+Implementation status: complete for the four registered samples through the generated cross-route gap report. The report indexes gaps and sample-only topic absences without creating teaching artifacts.
+
 For each route:
 
 - check `source-manifest.json` first;
@@ -93,6 +110,8 @@ For each route:
 - flag Opiq topics that are not represented in the sample work plan without treating them as errors.
 
 ### 5. Produce reusable teaching artifacts
+
+Implementation status: pending. The gap report is an evidence-backed backlog index, not a completed reusable-artifact set.
 
 After mapping is reviewed, derive small, source-attributed artifacts such as:
 
@@ -106,6 +125,8 @@ After mapping is reviewed, derive small, source-attributed artifacts such as:
 All adaptations must cite the source PDF and page and be labelled as translation, adaptation or independently authored material.
 
 ### 6. QA and regression protection
+
+Implementation status: ongoing; focused crosswalk and generated-report validation is registered in CI.
 
 Add checks that verify:
 

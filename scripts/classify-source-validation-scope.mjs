@@ -39,6 +39,12 @@ const TEACHER_WORK_PLAN_PREFIXES = Object.freeze([
 
 const TEACHER_WORK_PLAN_MAP_EXACT = new Set([
   'source-manifest.json',
+  'evaluations/teacher-work-plans/grades-5-7-gap-report.json',
+  'docs/audits/grades-5-7-teacher-work-plan-gap-report.md',
+  'schemas/teacher-work-plan-gap-report.schema.json',
+  'scripts/lib/teacher-work-plan-gap-report.mjs',
+  'scripts/generate-teacher-work-plan-gap-report.mjs',
+  'scripts/teacher-work-plan-gap-report.test.mjs',
   'evaluations/teacher-work-plans/grade-5-science-extraction.json',
   'project-files/outputs/opiq_5klass_loodusopetus.md',
   'project-files/outputs/opiq_5klass_loodusopetus_qa.json',
