@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
 import { before, test } from 'node:test';
 import {
   loadCurriculumMapRepository,
@@ -44,6 +45,14 @@ function grade7GeographyTopic(repository, topicId = 'geography-introduction-and-
     (candidate) => candidate.topic_id === topicId,
   );
   assert.ok(topic, `missing Grade 7 geography topic ${topicId}`);
+  return topic;
+}
+
+function grade7ScienceTopic(repository, topicId = 'natural-sciences-technology-and-information') {
+  const topic = routeArtifact(repository, 'topic_inventory', 'grade-7-science').data.topics.find(
+    (candidate) => candidate.topic_id === topicId,
+  );
+  assert.ok(topic, `missing Grade 7 science topic ${topicId}`);
   return topic;
 }
 
@@ -225,7 +234,7 @@ test('Grade 6 route evidence inventory passes with exact accounting', () => {
 test('Grade 6 course artifacts are fixed to registered route-scoped paths', () => {
   for (const [field, value, pattern] of [
     ['source_id', 'grade-5-science', /expected topic_inventory at curriculum-maps\/grade-5-science/u],
-    ['source_id', 'grade-7-science', /course artifacts are not registered for route grade-7-science/u],
+    ['source_id', 'grade-7-science', /expected topic_inventory at curriculum-maps\/grade-7-science/u],
     ['md_path', 'project-files/outputs/opiq_5klass_loodusopetus.md', /canonical_route\/md_path.*expected project-files\/outputs\/opiq_6klass/u],
     ['source_archive', 'project-files/inputs/final-zips/wrong.zip', /canonical_route\/source_archive.*expected project-files\/inputs\/final-zips\/opiq_6klass/u],
     ['qa_path', 'project-files/outputs/wrong-qa.json', /canonical_route\/qa_path.*expected project-files\/outputs\/opiq_6klass/u],
@@ -448,6 +457,28 @@ const grade7GeographyTopicIds = [
   'landform-change-weathering-erosion-and-human-impact',
   'countries-peoples-and-cultural-diversity',
   'population-distribution-change-migration-and-urbanization',
+];
+
+const grade7ScienceTopicIds = [
+  'natural-sciences-technology-and-information',
+  'scientific-method-observation-and-experiment',
+  'measurement-instruments-units-and-reliability',
+  'length-area-volume-mass-and-plan',
+  'data-tables-graphs-and-variables',
+  'models-bodies-and-natural-phenomena',
+  'atoms-elements-and-periodic-table',
+  'molecules-cells-ions-and-chemical-bonds',
+  'states-of-matter-and-phase-changes',
+  'density-material-properties-and-earth-materials',
+  'pure-substances-mixtures-solutions-and-separation',
+  'motion-speed-and-force',
+  'work-energy-and-transformations',
+  'temperature-and-heat-transfer',
+  'chemical-reactions-combustion-and-experiments',
+  'photosynthesis-respiration-and-carbon-cycle',
+  'ecosystems-adaptation-growth-and-natural-balance',
+  'greenhouse-effect-and-climate-change',
+  'sustainable-consumption-footprint-and-recycling',
 ];
 
 test('Grade 7 geography route evidence inventory passes exact source, language, book, and topic accounting', () => {
@@ -707,6 +738,381 @@ test('Grade 7 geography rejects thematic units, completeness claims, and seriali
   const serialization = cloneRepository();
   routeArtifact(serialization, 'topic_inventory', 'grade-7-geography').text += '\n';
   assertFailsWith(serialization, /Grade 7 geography inventory YAML must use deterministic serialization/u);
+});
+
+test('Grade 7 science route evidence inventory passes exact source, language, book, and topic accounting', () => {
+  const repository = cloneRepository();
+  const route = repository.routes['grade-7-science'];
+  const books = routeArtifact(repository, 'book_inventory', 'grade-7-science').data;
+  const topics = routeArtifact(repository, 'topic_inventory', 'grade-7-science').data;
+  assert.deepEqual(books.source_audit, {
+    source_records: 325,
+    canonical_records: 314,
+    cover_detail_records_excluded: 7,
+    administrative_records_excluded: 4,
+    source_books: 5,
+    books_with_page_records: 5,
+    notes: books.source_audit.notes,
+  });
+  assert.equal(325, 314 + 7 + 4);
+  assert.equal(route.records.length, 314);
+  assert.deepEqual(route.qa.languages, { et: 179, ru: 135 });
+  assert.equal(179 + 135, 314);
+  assert.deepEqual(route.qa.checksums, {
+    source_archive_sha256: '693b231023bdf9fe4ff083f09b363798476c76619151f65cedf3ae5067f2fc8e',
+    output_file_sha256: '4f9be8d91fe5a44711d991c2ac8ac4a3e3910d14a5b75d52c4526cc7d8687373',
+  });
+  assert.deepEqual(books.books.map((book) => ({
+    book_id: book.book_id,
+    kit_id: book.kit_id,
+    kit_url: book.kit_url,
+    title: book.title,
+    publisher: book.publisher,
+    language: book.language,
+    source_record_count: book.source_record_count,
+    canonical_record_count: book.canonical_record_count,
+  })), [
+    { book_id: '7k_loodusõpetus_avita_2024_est', kit_id: 546, kit_url: 'https://www.opiq.ee/Kit/Details/546', title: 'Loodusõpetus 7. klassile (2024)', publisher: 'Avita', language: 'et', source_record_count: 36, canonical_record_count: 34 },
+    { book_id: '7k_loodusõpetus_avita_est', kit_id: 44, kit_url: 'https://www.opiq.ee/Kit/Details/44', title: 'Loodusõpetus 7. klassile', publisher: 'unknown', language: 'et', source_record_count: 62, canonical_record_count: 59 },
+    { book_id: '7k_loodusõpetus_koolibri_est', kit_id: 100, kit_url: 'https://www.opiq.ee/Kit/Details/100', title: 'Loodusõpetus 7. klassile', publisher: 'Koolibri', language: 'et', source_record_count: 87, canonical_record_count: 86 },
+    { book_id: '7k_loodusõpetus_koolibri_rus', kit_id: 336, kit_url: 'https://www.opiq.ee/Kit/Details/336', title: 'Естествознание 7 класс', publisher: 'unknown', language: 'ru', source_record_count: 78, canonical_record_count: 76 },
+    { book_id: '7k_loodusõpetus_avita_rus', kit_id: 64, kit_url: 'https://www.opiq.ee/Kit/Details/64', title: 'Природоведение для 7 класса', publisher: 'Avita', language: 'ru', source_record_count: 62, canonical_record_count: 59 },
+  ]);
+  assert.equal(books.books.reduce((sum, book) => sum + book.source_record_count, 0), 325);
+  assert.equal(books.books.reduce((sum, book) => sum + book.canonical_record_count, 0), 314);
+  assert.deepEqual(topics.topics.map((topic) => topic.topic_id), grade7ScienceTopicIds);
+  assert.equal(topics.scope, 'deduplicated_inventory_not_final_annual_sequence');
+  assert.deepEqual(errors(repository), []);
+});
+
+test('Grade 7 science topic records are globally unique exact-route canonical evidence', () => {
+  const repository = cloneRepository();
+  const inventory = routeArtifact(repository, 'topic_inventory', 'grade-7-science').data;
+  const route = repository.routes['grade-7-science'];
+  const canonicalByUrl = new Map(route.records.map((record) => [record.url, record]));
+  const detailUrls = new Set(route.archiveRecords
+    .filter((record) => /^https:\/\/www\.opiq\.ee\/Kit\/Details\//u.test(record.url))
+    .map((record) => record.url));
+  const administrativeUrls = new Set([
+    'https://www.opiq.ee/kit/546/chapter/32440',
+    'https://www.opiq.ee/kit/44/chapter/2118',
+    'https://www.opiq.ee/kit/64/chapter/3110',
+    'https://www.opiq.ee/kit/64/chapter/3111',
+  ]);
+  const records = inventory.topics.flatMap((topic) => [
+    ...topic.selected_records,
+    ...topic.alternative_records,
+    ...topic.rejected_records,
+  ]);
+  assert.deepEqual({
+    selected: inventory.topics.reduce((sum, topic) => sum + topic.selected_records.length, 0),
+    alternative: inventory.topics.reduce((sum, topic) => sum + topic.alternative_records.length, 0),
+    rejected: inventory.topics.reduce((sum, topic) => sum + topic.rejected_records.length, 0),
+  }, { selected: 74, alternative: 19, rejected: 19 });
+  assert.equal(new Set(records.map((record) => record.record_id)).size, records.length);
+  assert.equal(new Set(records.map((record) => record.canonical_url)).size, records.length);
+  for (const topic of inventory.topics) {
+    const usableIds = new Set([...topic.selected_records, ...topic.alternative_records].map((record) => record.record_id));
+    const rejectedIds = new Set(topic.rejected_records.map((record) => record.record_id));
+    assert.ok([...usableIds].every((id) => !rejectedIds.has(id)));
+    for (const ids of Object.values(topic.source_recommendations)) {
+      assert.ok(ids.every((id) => usableIds.has(id)));
+    }
+  }
+  for (const record of records) {
+    const canonical = canonicalByUrl.get(record.canonical_url);
+    assert.ok(canonical, record.canonical_url);
+    assert.equal(record.canonical_source_id, 'grade-7-science');
+    assert.equal(record.book_id, canonical.book_id);
+    assert.equal(record.title, canonical.title);
+    assert.equal(record.language, canonical.language);
+    assert.equal(record.programme_type, 'unknown');
+    assert.equal(canonical.class, 7);
+    assert.equal(canonical.subject.en, 'science');
+    assert.equal(canonical.subject.et, 'loodusõpetus');
+    assert.equal(detailUrls.has(record.canonical_url), false);
+    assert.equal(administrativeUrls.has(record.canonical_url), false);
+  }
+  assert.ok(inventory.topics.every((topic) => topic.selected_records.length > 0));
+  assert.deepEqual(errors(repository), []);
+});
+
+test('Grade 7 science introduction practice does not fabricate oral Estonian evidence', () => {
+  const repository = cloneRepository();
+  const scienceIntro = grade7ScienceTopic(repository).selected_records.find(
+    (record) => record.record_id === 'science-intro-et-current',
+  );
+  assert.ok(scienceIntro);
+  assert.deepEqual(scienceIntro.instructional_roles, [
+    'core_source_et',
+    'terminology_et',
+    'practice_et',
+  ]);
+  const etBooks = routeArtifact(repository, 'book_inventory', 'grade-7-science').data.books
+    .filter((book) => book.language === 'et');
+  assert.equal(etBooks.length, 3);
+  assert.ok(etBooks.every((book) => !book.likely_roles.includes('oral_answer_et')));
+});
+
+test('Grade 7 science inventory registry requires exactly its two route-scoped artifacts', () => {
+  for (const type of ['book_inventory', 'topic_inventory']) {
+    const repository = cloneRepository();
+    repository.artifacts = repository.artifacts.filter((candidate) => !(
+      candidate.data.artifact_type === type
+      && candidate.data.canonical_route?.source_id === 'grade-7-science'
+    ));
+    assertFailsWith(repository, new RegExp(`grade-7-science requires exactly one ${type}|registered grade-7-science route evidence was not loaded`, 'u'));
+  }
+
+  const extra = cloneRepository();
+  const duplicate = structuredClone(routeArtifact(extra, 'topic_inventory', 'grade-7-science'));
+  duplicate.file = 'curriculum-maps/grade-7-science/extra-topic-inventory.yaml';
+  duplicate.data.map_id = 'grade-7-science-extra-topic-inventory';
+  extra.artifacts.push(duplicate);
+  assertFailsWith(extra, /requires exactly one topic_inventory, found 2|expected topic_inventory at curriculum-maps\/grade-7-science/u);
+});
+
+test('Grade 7 science artifact identity, route metadata, checksums, and status fail closed', () => {
+  for (const [target, field, value, pattern] of [
+    ['artifact', 'file', 'curriculum-maps/grade-7-science/wrong.yaml', /expected topic_inventory at curriculum-maps\/grade-7-science/u],
+    ['data', 'map_id', 'wrong-grade-7-science-map', /map_id.*expected grade-7-science-topic-inventory/u],
+    ['data', 'grade', 6, /grade.*expected 7, found 6/u],
+    ['data', 'subject', 'geography', /subject.*expected science, found geography/u],
+    ['data', 'subject_et', 'geograafia', /subject_et.*expected loodusõpetus, found geograafia/u],
+  ]) {
+    const repository = cloneRepository();
+    const topicArtifact = routeArtifact(repository, 'topic_inventory', 'grade-7-science');
+    if (target === 'artifact') topicArtifact[field] = value;
+    else topicArtifact.data[field] = value;
+    assertFailsWith(repository, pattern);
+  }
+  for (const [field, value, pattern] of [
+    ['source_id', 'grade-7-geography', /expected topic_inventory at curriculum-maps\/grade-7-geography/u],
+    ['md_path', 'project-files/outputs/opiq_7klass_geograafia.md', /canonical_route\/md_path.*expected project-files\/outputs\/opiq_7klass_loodusopetus/u],
+    ['source_archive', 'project-files/inputs/final-zips/wrong.zip', /canonical_route\/source_archive.*opiq_7klass_loodusteadused/u],
+    ['qa_path', 'project-files/outputs/wrong-qa.json', /canonical_route\/qa_path.*opiq_7klass_loodusopetus_qa/u],
+  ]) {
+    const repository = cloneRepository();
+    routeArtifact(repository, 'topic_inventory', 'grade-7-science').data.canonical_route[field] = value;
+    assertFailsWith(repository, pattern);
+  }
+  const count = cloneRepository();
+  count.routes['grade-7-science'].source.record_count = 313;
+  assertFailsWith(count, /record_count expected 314, found 313/u);
+  const status = cloneRepository();
+  status.routes['grade-7-science'].source.coverage_status = 'verified';
+  assertFailsWith(status, /coverage_status expected available_not_curriculum_verified, found verified/u);
+  for (const field of ['source_archive_sha256', 'output_file_sha256']) {
+    const repository = cloneRepository();
+    repository.routes['grade-7-science'].qa.checksums[field] = '0'.repeat(64);
+    assertFailsWith(repository, new RegExp(field, 'u'));
+  }
+  const regularFile = cloneRepository();
+  regularFile.routes['grade-7-science'].archiveIsRegularFile = false;
+  assertFailsWith(regularFile, /source archive must be a regular file/u);
+});
+
+test('Grade 7 science source accounting rejects count and language drift', () => {
+  for (const [field, value, pattern] of [
+    ['source_records', 324, /source_records.*expected 325/u],
+    ['canonical_records', 313, /canonical_records.*expected 314/u],
+    ['cover_detail_records_excluded', 6, /cover_detail_records_excluded.*expected 7/u],
+    ['administrative_records_excluded', 3, /administrative_records_excluded.*expected 4/u],
+    ['source_books', 4, /source_books.*expected 5/u],
+    ['books_with_page_records', 4, /books_with_page_records.*expected 5/u],
+  ]) {
+    const repository = cloneRepository();
+    routeArtifact(repository, 'book_inventory', 'grade-7-science').data.source_audit[field] = value;
+    assertFailsWith(repository, pattern);
+  }
+  for (const [language, value] of [['et', 178], ['ru', 134]]) {
+    const repository = cloneRepository();
+    repository.routes['grade-7-science'].qa.languages[language] = value;
+    assertFailsWith(repository, new RegExp(`languages/${language} expected`, 'u'));
+  }
+});
+
+test('Grade 7 science books reject missing, invented, duplicate, and altered metadata', () => {
+  const missing = cloneRepository();
+  routeArtifact(missing, 'book_inventory', 'grade-7-science').data.books.pop();
+  assertFailsWith(missing, /archive book .* is missing from the audit|expected 5, found 4/u);
+
+  const invented = cloneRepository();
+  const inventedBooks = routeArtifact(invented, 'book_inventory', 'grade-7-science').data.books;
+  const sixth = structuredClone(inventedBooks[0]);
+  sixth.book_id = 'invented-grade-7-science-book';
+  sixth.kit_id = 999;
+  sixth.kit_url = 'https://www.opiq.ee/Kit/Details/999';
+  inventedBooks.push(sixth);
+  assertFailsWith(invented, /audited book invented-grade-7-science-book is absent|expected 5, found 6/u);
+
+  const duplicate = cloneRepository();
+  const duplicateBooks = routeArtifact(duplicate, 'book_inventory', 'grade-7-science').data.books;
+  duplicateBooks[1].book_id = duplicateBooks[0].book_id;
+  assertFailsWith(duplicate, /duplicate book ID/u);
+
+  for (const [index, field, value, pattern] of [
+    [0, 'kit_id', 999, /kit metadata does not match source URLs|expected 546/u],
+    [0, 'kit_url', 'https://www.opiq.ee/Kit/Details/44', /kit metadata does not match source URLs|expected https:\/\/www\.opiq\.ee\/Kit\/Details\/546/u],
+    [0, 'title', 'Wrong title', /title.*expected Loodusõpetus 7\. klassile/u],
+    [1, 'publisher', 'Avita', /publisher.*expected unknown/u],
+    [0, 'language', 'ru', /expected archive language et|language.*expected et/u],
+    [0, 'source_record_count', 35, /expected 36 source records|source_record_count.*expected 36/u],
+    [0, 'canonical_record_count', 33, /expected 34 canonical records|canonical_record_count.*expected 34/u],
+  ]) {
+    const repository = cloneRepository();
+    routeArtifact(repository, 'book_inventory', 'grade-7-science').data.books[index][field] = value;
+    assertFailsWith(repository, pattern);
+  }
+});
+
+test('Grade 7 science programme ambiguity and ordinary eligibility cannot be promoted', () => {
+  for (const [field, value, pattern] of [
+    ['programme_type', 'ordinary', /programme_type.*expected unknown/u],
+    ['eligible_for_ordinary_course', true, /eligible_for_ordinary_course.*expected false/u],
+  ]) {
+    const repository = cloneRepository();
+    routeArtifact(repository, 'book_inventory', 'grade-7-science').data.books[0][field] = value;
+    assertFailsWith(repository, pattern);
+  }
+  const evidence = cloneRepository();
+  routeArtifact(evidence, 'book_inventory', 'grade-7-science').data.books[0].programme_type_evidence.status = 'verified';
+  assertFailsWith(evidence, /programme_type_evidence\/status.*expected ambiguous/u);
+  const topicPromotion = cloneRepository();
+  grade7ScienceTopic(topicPromotion).selected_records[0].programme_type = 'ordinary';
+  assertFailsWith(topicPromotion, /programme_type expected unknown/u);
+});
+
+test('Grade 7 science archive reconciliation rejects URL, ownership, detail, and administrative drift', () => {
+  const duplicate = cloneRepository();
+  const duplicateRoute = duplicate.routes['grade-7-science'];
+  const pageIndexes = duplicateRoute.archiveRecords
+    .map((record, index) => ({ record, index }))
+    .filter(({ record }) => /^https:\/\/www\.opiq\.ee\/kit\/\d+\/chapter\//u.test(record.url));
+  duplicateRoute.archiveRecords[pageIndexes[1].index].url = pageIndexes[0].record.url;
+  assertFailsWith(duplicate, /duplicate source URL|archive and canonical URL sets disagree/u);
+
+  const ownership = cloneRepository();
+  ownership.routes['grade-7-science'].records[0].book_id = '7k_loodusõpetus_avita_est';
+  assertFailsWith(ownership, /book_id: expected/u);
+
+  const unknownAdministrative = cloneRepository();
+  const administrativeRecord = unknownAdministrative.routes['grade-7-science'].archiveRecords.find(
+    (record) => record.url === 'https://www.opiq.ee/kit/546/chapter/32440',
+  );
+  administrativeRecord.url = 'https://www.opiq.ee/kit/546/chapter/999999';
+  assertFailsWith(unknownAdministrative, /administrative_records.*expected 4|archive and canonical URL sets disagree/u);
+
+  const detailDrift = cloneRepository();
+  const detailRecord = detailDrift.routes['grade-7-science'].archiveRecords.find(
+    (record) => record.url === 'https://www.opiq.ee/Kit/Details/546',
+  );
+  detailRecord.book_id = '7k_loodusõpetus_avita_est';
+  assertFailsWith(detailDrift, /cover_records.*expected|source_records.*expected/u);
+});
+
+test('Grade 7 science topic evidence rejects foreign, administrative, detail, unknown, duplicate, and altered records', () => {
+  for (const [url, pattern] of [
+    ['https://www.opiq.ee/kit/301/chapter/16602', /URL must occur exactly once/u],
+    ['https://www.opiq.ee/kit/580/chapter/33076', /URL must occur exactly once/u],
+    ['https://www.opiq.ee/kit/64/chapter/999999', /URL must occur exactly once/u],
+    ['https://www.opiq.ee/kit/546/chapter/32440', /URL must occur exactly once/u],
+    ['https://www.opiq.ee/Kit/Details/546', /URL must occur exactly once/u],
+  ]) {
+    const repository = cloneRepository();
+    grade7ScienceTopic(repository).selected_records[0].canonical_url = url;
+    assertFailsWith(repository, pattern);
+  }
+  for (const [field, value, pattern] of [
+    ['title', 'Wrong title', /title expected/u],
+    ['language', 'et', /language expected/u],
+    ['book_id', '7k_loodusõpetus_avita_2024_est', /book_id expected/u],
+  ]) {
+    const repository = cloneRepository();
+    grade7ScienceTopic(repository).selected_records[0][field] = value;
+    assertFailsWith(repository, pattern);
+  }
+  const duplicateUrl = cloneRepository();
+  grade7ScienceTopic(duplicateUrl, grade7ScienceTopicIds[1]).alternative_records[0].canonical_url = grade7ScienceTopic(duplicateUrl).selected_records[0].canonical_url;
+  assertFailsWith(duplicateUrl, /duplicate topic inventory canonical URL/u);
+  const duplicateId = cloneRepository();
+  grade7ScienceTopic(duplicateId, grade7ScienceTopicIds[1]).selected_records[0].record_id = grade7ScienceTopic(duplicateId).selected_records[0].record_id;
+  assertFailsWith(duplicateId, /duplicate topic record ID/u);
+  const overlap = cloneRepository();
+  const overlapTopic = grade7ScienceTopic(overlap);
+  overlapTopic.rejected_records[0] = structuredClone(overlapTopic.selected_records[0]);
+  overlapTopic.rejected_records[0].rejection_reason = 'Deliberate overlap mutation for fail-closed regression coverage.';
+  overlapTopic.deduplication.rejected_record_ids = [overlapTopic.rejected_records[0].record_id];
+  assertFailsWith(overlap, /duplicate topic canonical URL|duplicate topic record ID/u);
+});
+
+test('Grade 7 science recommendations reject unknown, rejected, and role-incompatible targets', () => {
+  const unknown = cloneRepository();
+  grade7ScienceTopic(unknown).source_recommendations.practice.push('unknown-record');
+  assertFailsWith(unknown, /unknown selected or alternative record ID unknown-record/u);
+
+  const rejected = cloneRepository();
+  const rejectedTopic = grade7ScienceTopic(rejected);
+  rejectedTopic.source_recommendations.practice.push(rejectedTopic.rejected_records[0].record_id);
+  assertFailsWith(rejected, /unknown selected or alternative record ID/u);
+
+  const incompatible = cloneRepository();
+  const incompatibleTopic = grade7ScienceTopic(incompatible);
+  const russianId = incompatibleTopic.source_recommendations.russian_explanation[0];
+  const russianRecord = [...incompatibleTopic.selected_records, ...incompatibleTopic.alternative_records]
+    .find((record) => record.record_id === russianId);
+  russianRecord.instructional_roles = ['practice_ru'];
+  assertFailsWith(incompatible, /does not declare a role allowed for russian_explanation/u);
+});
+
+test('Grade 7 science stable topic registry rejects missing, duplicate, unknown, and reordered IDs', () => {
+  const missing = cloneRepository();
+  routeArtifact(missing, 'topic_inventory', 'grade-7-science').data.topics.pop();
+  assertFailsWith(missing, /expected stable topic IDs in order|expected 19, found 18/u);
+  const duplicate = cloneRepository();
+  const duplicateTopics = routeArtifact(duplicate, 'topic_inventory', 'grade-7-science').data.topics;
+  duplicateTopics[1].topic_id = duplicateTopics[0].topic_id;
+  assertFailsWith(duplicate, /duplicate topic ID|expected stable topic IDs/u);
+  const unknown = cloneRepository();
+  routeArtifact(unknown, 'topic_inventory', 'grade-7-science').data.topics[0].topic_id = 'unknown-grade-7-science-topic';
+  assertFailsWith(unknown, /expected stable topic IDs/u);
+  const reordered = cloneRepository();
+  const reorderedTopics = routeArtifact(reordered, 'topic_inventory', 'grade-7-science').data.topics;
+  [reorderedTopics[0], reorderedTopics[1]] = [reorderedTopics[1], reorderedTopics[0]];
+  assertFailsWith(reordered, /expected stable topic IDs in order/u);
+});
+
+test('Grade 7 science rejects thematic units, completeness claims, and serialization drift', () => {
+  const thematic = cloneRepository();
+  const unit = structuredClone(thematic.artifacts.find((candidate) => candidate.data.artifact_type === 'thematic_unit'));
+  unit.file = 'curriculum-maps/grade-7-science/unexpected-unit.yaml';
+  unit.data.grade = 7;
+  unit.data.subject = 'science';
+  unit.data.subject_et = 'loodusõpetus';
+  unit.data.canonical_route = structuredClone(routeArtifact(thematic, 'topic_inventory', 'grade-7-science').data.canonical_route);
+  thematic.artifacts.push(unit);
+  assertFailsWith(thematic, /thematic units are not registered at this path for grade-7-science|does not yet permit thematic_unit/u);
+  for (const field of ['official_curriculum_complete', 'official_exact_grade_allocation', 'final_annual_sequence', 'live_catalogue_complete']) {
+    const repository = cloneRepository();
+    routeArtifact(repository, 'topic_inventory', 'grade-7-science').data[field] = true;
+    assertFailsWith(repository, new RegExp(`unknown field ${field}`, 'u'));
+  }
+  const serialization = cloneRepository();
+  routeArtifact(serialization, 'topic_inventory', 'grade-7-science').text += '\n';
+  assertFailsWith(serialization, /Grade 7 science inventory YAML must use deterministic serialization/u);
+});
+
+test('Grade 7 science teacher-plan extraction remains deferred and outside inventory artifacts', () => {
+  const extraction = JSON.parse(fs.readFileSync(
+    new URL('../evaluations/teacher-work-plans/grade-7-science-extraction.json', import.meta.url),
+    'utf8',
+  ));
+  assert.equal(extraction.route_context.mapping_status, 'deferred');
+  assert.equal(extraction.completeness.canonical_opiq_mapping_complete, false);
+  assert.equal(extraction.completeness.official_curriculum_complete, false);
+  assert.equal(baseline.artifacts.some((candidate) => (
+    candidate.file === 'curriculum-maps/grade-7-science/teacher-work-plan-crosswalk.yaml'
+  )), false);
 });
 
 test('course YAML rejects duplicate keys and aliases', () => {

@@ -177,6 +177,109 @@ const courseRouteContracts = new Map([
       },
     ],
   }],
+  ['grade-7-science', {
+    artifactPaths: {
+      book_inventory: 'curriculum-maps/grade-7-science/book-inventory.yaml',
+      topic_inventory: 'curriculum-maps/grade-7-science/topic-inventory.yaml',
+    },
+    requireThematicUnit: false,
+    allowAmbiguousTopicSelection: true,
+    route: {
+      grade: 7,
+      subject: 'science',
+      subject_et: 'loodusõpetus',
+      md_path: 'project-files/outputs/opiq_7klass_loodusopetus.md',
+      source_archive: 'project-files/inputs/final-zips/opiq_7klass_loodusteadused_v2.zip',
+      qa_path: 'project-files/outputs/opiq_7klass_loodusopetus_qa.json',
+      record_count: 314,
+      coverage_status: 'available_not_curriculum_verified',
+    },
+    sourceAudit: {
+      source_records: 325,
+      canonical_records: 314,
+      cover_detail_records_excluded: 7,
+      administrative_records_excluded: 4,
+      source_books: 5,
+      books_with_page_records: 5,
+    },
+    languageCounts: { et: 179, ru: 135 },
+    checksums: {
+      source_archive_sha256: '693b231023bdf9fe4ff083f09b363798476c76619151f65cedf3ae5067f2fc8e',
+      output_file_sha256: '4f9be8d91fe5a44711d991c2ac8ac4a3e3910d14a5b75d52c4526cc7d8687373',
+    },
+    verifiedOn: '2026-08-03',
+    mapIds: {
+      book_inventory: 'grade-7-science-book-inventory',
+      topic_inventory: 'grade-7-science-topic-inventory',
+    },
+    administrativeUrls: [
+      'https://www.opiq.ee/kit/546/chapter/32440',
+      'https://www.opiq.ee/kit/44/chapter/2118',
+      'https://www.opiq.ee/kit/64/chapter/3110',
+      'https://www.opiq.ee/kit/64/chapter/3111',
+    ],
+    coverDetailCounts: {
+      '7k_loodusõpetus_avita_2024_est': 1,
+      '7k_loodusõpetus_avita_est': 2,
+      '7k_loodusõpetus_koolibri_est': 1,
+      '7k_loodusõpetus_koolibri_rus': 2,
+      '7k_loodusõpetus_avita_rus': 1,
+    },
+    recommendationRoles: {
+      russian_explanation: ['core_explanation_ru'],
+      estonian_terminology_or_visuals: ['core_source_et', 'terminology_et', 'definition_et', 'bilingual_visual'],
+      practice: ['practice_ru', 'practice_et', 'experiment', 'data_interpretation', 'revision', 'assessment'],
+      practical_or_assessment: ['practice_ru', 'practice_et', 'experiment', 'fieldwork', 'revision', 'assessment'],
+    },
+    topicIds: [
+      'natural-sciences-technology-and-information',
+      'scientific-method-observation-and-experiment',
+      'measurement-instruments-units-and-reliability',
+      'length-area-volume-mass-and-plan',
+      'data-tables-graphs-and-variables',
+      'models-bodies-and-natural-phenomena',
+      'atoms-elements-and-periodic-table',
+      'molecules-cells-ions-and-chemical-bonds',
+      'states-of-matter-and-phase-changes',
+      'density-material-properties-and-earth-materials',
+      'pure-substances-mixtures-solutions-and-separation',
+      'motion-speed-and-force',
+      'work-energy-and-transformations',
+      'temperature-and-heat-transfer',
+      'chemical-reactions-combustion-and-experiments',
+      'photosynthesis-respiration-and-carbon-cycle',
+      'ecosystems-adaptation-growth-and-natural-balance',
+      'greenhouse-effect-and-climate-change',
+      'sustainable-consumption-footprint-and-recycling',
+    ],
+    books: [
+      {
+        book_id: '7k_loodusõpetus_avita_2024_est', kit_id: 546,
+        kit_url: 'https://www.opiq.ee/Kit/Details/546', title: 'Loodusõpetus 7. klassile (2024)',
+        publisher: 'Avita', language: 'et', source_record_count: 36, canonical_record_count: 34,
+      },
+      {
+        book_id: '7k_loodusõpetus_avita_est', kit_id: 44,
+        kit_url: 'https://www.opiq.ee/Kit/Details/44', title: 'Loodusõpetus 7. klassile',
+        publisher: 'unknown', language: 'et', source_record_count: 62, canonical_record_count: 59,
+      },
+      {
+        book_id: '7k_loodusõpetus_koolibri_est', kit_id: 100,
+        kit_url: 'https://www.opiq.ee/Kit/Details/100', title: 'Loodusõpetus 7. klassile',
+        publisher: 'Koolibri', language: 'et', source_record_count: 87, canonical_record_count: 86,
+      },
+      {
+        book_id: '7k_loodusõpetus_koolibri_rus', kit_id: 336,
+        kit_url: 'https://www.opiq.ee/Kit/Details/336', title: 'Естествознание 7 класс',
+        publisher: 'unknown', language: 'ru', source_record_count: 78, canonical_record_count: 76,
+      },
+      {
+        book_id: '7k_loodusõpetus_avita_rus', kit_id: 64,
+        kit_url: 'https://www.opiq.ee/Kit/Details/64', title: 'Природоведение для 7 класса',
+        publisher: 'Avita', language: 'ru', source_record_count: 62, canonical_record_count: 59,
+      },
+    ],
+  }],
 ]);
 
 function isPlainObject(value) {
@@ -792,8 +895,8 @@ function validateRegisteredRouteEvidence(diagnostics, artifacts, routeData, cont
 
   for (const artifact of artifacts) {
     if (artifact.text !== serializeCurriculumYaml(artifact.data)) {
-      const label = sourceId === 'grade-6-science' ? 'Grade 6' : 'Grade 7 geography';
-      diagnostics.push(makeDiagnostic('error', artifact.file, '/', `${label} inventory YAML must use deterministic serialization`));
+      const routeLabel = `Grade ${contract.route.grade} ${contract.route.subject}`;
+      diagnostics.push(makeDiagnostic('error', artifact.file, '/', `${routeLabel} inventory YAML must use deterministic serialization`));
     }
     if (artifact.data.artifact_type === 'book_inventory') {
       if (contract.mapIds?.book_inventory) {
@@ -1032,7 +1135,7 @@ export function validatePageReferences(
   }
 }
 
-function validateTopicInventory(diagnostics, artifact, bookInventory) {
+function validateTopicInventory(diagnostics, artifact, bookInventory, contract) {
   const inventory = artifact.data;
   const books = new Set((bookInventory?.books ?? []).map((book) => book.book_id));
   addDuplicateDiagnostics(diagnostics, (inventory.topics ?? []).map((topic) => topic.topic_id), {
@@ -1049,9 +1152,28 @@ function validateTopicInventory(diagnostics, artifact, bookInventory) {
     addDuplicateDiagnostics(diagnostics, records.map((record) => record.canonical_url), {
       file: artifact.file, field, label: 'topic canonical URL',
     });
-    const usableIds = new Set([...(topic.selected_records ?? []), ...(topic.alternative_records ?? [])].map((record) => record.record_id));
+    const usableRecords = [...(topic.selected_records ?? []), ...(topic.alternative_records ?? [])];
+    const usableIds = new Set(usableRecords.map((record) => record.record_id));
+    const usableById = new Map(usableRecords.map((record) => [record.record_id, record]));
     for (const [role, ids] of Object.entries(topic.source_recommendations ?? {})) {
-      for (const id of ids) if (!usableIds.has(id)) diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/source_recommendations/${role}`, `unknown selected or alternative record ID ${id}`));
+      for (const id of ids) {
+        if (!usableIds.has(id)) {
+          diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/source_recommendations/${role}`, `unknown selected or alternative record ID ${id}`));
+          continue;
+        }
+        const allowedRoles = contract?.recommendationRoles?.[role];
+        if (
+          allowedRoles
+          && !usableById.get(id)?.instructional_roles?.some((recordRole) => allowedRoles.includes(recordRole))
+        ) {
+          diagnostics.push(makeDiagnostic(
+            'error',
+            artifact.file,
+            `${field}/source_recommendations/${role}`,
+            `recommended record ${id} does not declare a role allowed for ${role}`,
+          ));
+        }
+      }
     }
     const rejectedIds = new Set((topic.rejected_records ?? []).map((record) => record.record_id));
     const declaredRejected = new Set(topic.deduplication?.rejected_record_ids ?? []);
@@ -1285,13 +1407,15 @@ export function validateCurriculumMapRepository(context) {
         ),
       });
     }
-    if (artifact.data.artifact_type === 'topic_inventory') validateTopicInventory(diagnostics, artifact, bookArtifact?.data);
+    if (artifact.data.artifact_type === 'topic_inventory') {
+      validateTopicInventory(diagnostics, artifact, bookArtifact?.data, contractsByArtifact.get(artifact));
+    }
     if (artifact.data.artifact_type === 'thematic_unit') {
       validateThematicUnit(diagnostics, artifact, officialById.get(artifact.data.official_curriculum?.curriculum_map_id));
     }
   }
 
-  for (const sourceId of ['grade-6-science', 'grade-7-geography']) {
+  for (const sourceId of ['grade-6-science', 'grade-7-geography', 'grade-7-science']) {
     const registeredArtifacts = courseArtifacts.filter((artifact) => artifact.data.canonical_route?.source_id === sourceId);
     validateRegisteredRouteEvidence(
       diagnostics,
