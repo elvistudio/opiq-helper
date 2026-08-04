@@ -9,6 +9,12 @@ import {
   loadTeacherWorkPlanCurriculumMapRepository,
   validateTeacherWorkPlanCurriculumMapRepository,
 } from './teacher-work-plan-curriculum-maps.mjs';
+import {
+  WORK_PACKAGE_REVIEW_SUMMARY,
+  formatTeacherWorkPlanWorkPackageDiagnostic,
+  loadTeacherWorkPlanWorkPackages,
+  validateTeacherWorkPlanWorkPackages,
+} from './teacher-work-plan-work-packages.mjs';
 
 export const GAP_REPORT_JSON_PATH =
   'evaluations/teacher-work-plans/grades-5-7-gap-report.json';
@@ -329,7 +335,18 @@ function buildRouteModel(repository) {
   };
 }
 
-function buildReportFromValidatedRepository(repository) {
+function attachWorkPackageReview(report) {
+  return {
+    ...report,
+    work_package_review: structuredClone(WORK_PACKAGE_REVIEW_SUMMARY),
+    boundaries: {
+      ...report.boundaries,
+      semantic_work_package_review_complete: true,
+    },
+  };
+}
+
+function buildReportFromValidatedRepository(repository, { includeWorkPackageReview = true } = {}) {
   const bySourceId = new Map(repository.artifacts.map((entry) => [entry.contract.sourceId, entry]));
   const orderedRepositories = ROUTE_ORDER.map((sourceId) => bySourceId.get(sourceId));
   if (orderedRepositories.some((entry) => entry === undefined) || bySourceId.size !== ROUTE_ORDER.length) {
@@ -435,7 +452,7 @@ function buildReportFromValidatedRepository(repository) {
     sum + report.aggregate_summary[`${status}_count`]
   ), 0);
   if (gapItems.length !== nonMatchedCount) throw new Error('aggregate gap count differs from non-matched mapping count');
-  return report;
+  return includeWorkPackageReview ? attachWorkPackageReview(report) : report;
 }
 
 async function validatedRepository({ rootDir, repository }) {
@@ -453,9 +470,27 @@ async function validatedRepository({ rootDir, repository }) {
 export async function buildTeacherWorkPlanGapReport({
   rootDir = process.cwd(),
   repository = null,
+  workPackageArtifactText = null,
 } = {}) {
   const loaded = await validatedRepository({ rootDir, repository });
-  return buildReportFromValidatedRepository(loaded);
+  const baseReport = buildReportFromValidatedRepository(loaded, { includeWorkPackageReview: false });
+  const workPackages = await loadTeacherWorkPlanWorkPackages({
+    rootDir,
+    gapReport: baseReport,
+    artifactText: workPackageArtifactText,
+    includeMarkdown: false,
+  });
+  const workPackageValidation = validateTeacherWorkPlanWorkPackages(workPackages.artifact, {
+    schema: workPackages.schema,
+    gapReport: baseReport,
+  });
+  if (workPackageValidation.diagnostics.length > 0) {
+    throw new Error([
+      'teacher work-plan semantic review failed before gap report generation',
+      ...workPackageValidation.diagnostics.map(formatTeacherWorkPlanWorkPackageDiagnostic),
+    ].join('\n'));
+  }
+  return attachWorkPackageReview(baseReport);
 }
 
 export function serializeTeacherWorkPlanGapReport(report) {
@@ -559,7 +594,17 @@ export function renderTeacherWorkPlanGapReportMarkdown(report) {
     '',
     'Programme eligibility remains route-specific. Unknown content evidence is not promoted to ordinary-programme or default-course eligibility, and simplified material has no positive occurrence in this report.',
     '',
-    '## 10. Complete gap registry grouped by route',
+    '## 10. Priority work-package review',
+    '',
+    `Semantic review is complete for ${report.work_package_review.priority_gap_count} missing or ambiguous gaps: ${report.work_package_review.work_package_count} work packages, ${report.work_package_review.ready_for_authoring_count} ready for authoring and ${report.work_package_review.blocked_teacher_review_count} blocked by teacher review.`,
+    '',
+    `Selected first pilot: \`${report.work_package_review.selected_pilot_package_id}\`.`,
+    '',
+    `Machine-readable review: [\`${report.work_package_review.path}\`](../../${report.work_package_review.path}). Generated audit: [\`docs/audits/grades-5-7-priority-work-packages.md\`](grades-5-7-priority-work-packages.md).`,
+    '',
+    'The review does not create reusable teaching artifacts and does not resolve any gap.',
+    '',
+    '## 11. Complete gap registry grouped by route',
     '',
   ];
   for (const route of report.scope.routes) {
@@ -572,13 +617,13 @@ export function renderTeacherWorkPlanGapReportMarkdown(report) {
     lines.push('');
   }
   lines.push(
-    '## 11. Completeness limitations',
+    '## 12. Completeness limitations',
     '',
     '- All 262 registered source records are accounted for, and all 193 non-matched mappings are indexed once.',
     '- Gap-index completeness applies only to the four registered supplementary crosswalks.',
     '- Official curriculum completeness and exact-grade official allocation are not verified.',
     '- No annual architecture, reusable teaching artifact, default-course selection, or live-catalogue verification is created here.',
-    '- Semantic work-package review and the reusable-artifact backlog remain incomplete.',
+    '- Semantic work-package review is complete; reusable teaching artifacts and the reusable-artifact backlog remain incomplete.',
   );
   return `${lines.join('\n')}\n`;
 }

@@ -15,6 +15,7 @@
     "gap_items",
     "sample_topic_absences",
     "oral_evidence_summary",
+    "work_package_review",
     "boundaries",
     "completeness"
   ],
@@ -53,6 +54,7 @@
       "maxItems": 4,
       "items": { "$ref": "#/$defs/oralEvidenceSummary" }
     },
+    "work_package_review": { "$ref": "#/$defs/workPackageReview" },
     "boundaries": { "$ref": "#/$defs/boundaries" },
     "completeness": { "$ref": "#/$defs/completeness" }
   },
@@ -548,6 +550,32 @@
         "explicit_oral_page_evidence_available": { "type": "boolean" }
       }
     },
+    "workPackageReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "review_id",
+        "path",
+        "priority_gap_count",
+        "work_package_count",
+        "ready_for_authoring_count",
+        "blocked_teacher_review_count",
+        "multi_gap_package_count",
+        "selected_pilot_package_id",
+        "semantic_work_package_review_complete"
+      ],
+      "properties": {
+        "review_id": { "const": "grades-5-7-priority-work-packages" },
+        "path": { "const": "evaluations/teacher-work-plans/grades-5-7-priority-work-packages.yaml" },
+        "priority_gap_count": { "const": 17 },
+        "work_package_count": { "const": 16 },
+        "ready_for_authoring_count": { "const": 13 },
+        "blocked_teacher_review_count": { "const": 3 },
+        "multi_gap_package_count": { "const": 1 },
+        "selected_pilot_package_id": { "const": "grade-6-science-soil-organisms" },
+        "semantic_work_package_review_complete": { "const": true }
+      }
+    },
     "boundaries": {
       "type": "object",
       "additionalProperties": false,
@@ -566,7 +594,7 @@
         "live_opiq_catalogue_complete": { "const": false },
         "default_course_selection_complete": { "const": false },
         "reusable_teaching_artifacts_created": { "const": false },
-        "semantic_work_package_review_complete": { "const": false },
+        "semantic_work_package_review_complete": { "const": true },
         "notes": {
           "type": "array",
           "minItems": 4,

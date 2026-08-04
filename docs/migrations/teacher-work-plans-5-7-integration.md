@@ -1,6 +1,6 @@
 # Teacher work plans for Grades 5-7: source integration plan
 
-Status: four originals, source extractions, route-specific crosswalks and the generated cross-route gap report are complete; reusable teaching artifacts remain pending, and official curriculum completeness is not verified.
+Status: four originals, source extractions, route-specific crosswalks, the generated cross-route gap report and the priority semantic work-package review are complete; reusable teaching artifacts remain pending, Phase 5 is not complete, and official curriculum completeness is not verified.
 
 ## Source set
 
@@ -19,6 +19,8 @@ These files are supplementary curriculum-planning sources. They are not Opiq exp
 - Four source-PDF extractions are complete for the preserved source records under `evaluations/teacher-work-plans/`.
 - Four route-specific crosswalks are complete for source-record classification under `curriculum-maps/grade-5-science/`, `curriculum-maps/grade-6-science/`, `curriculum-maps/grade-7-geography/` and `curriculum-maps/grade-7-science/`.
 - The deterministic cross-route gap index is complete for those registered crosswalks: [machine-readable JSON](../../evaluations/teacher-work-plans/grades-5-7-gap-report.json) and [generated audit](../audits/grades-5-7-teacher-work-plan-gap-report.md).
+- Priority semantic review is complete: 17 missing or ambiguous gaps are preserved in 16 work packages, with 13 ready for authoring and 3 blocked by teacher review. See the [hand-reviewed package registry](../../evaluations/teacher-work-plans/grades-5-7-priority-work-packages.yaml) and [generated priority audit](../audits/grades-5-7-priority-work-packages.md).
+- The selected first pilot is `grade-6-science-soil-organisms`; its materials and lightweight reusable-artifact contract belong to a separate follow-up PR.
 - Reusable bridge, practical, assessment and oral-support teaching artifacts remain pending; Phase 5 is not complete.
 - Official curriculum completeness, exact-grade official allocation, default-course selection and live-catalogue completeness remain unverified.
 
@@ -99,7 +101,7 @@ A teacher work plan can strengthen curriculum mapping but does not by itself est
 
 ### 4. Compare with existing project artifacts
 
-Implementation status: complete for the four registered samples through the generated cross-route gap report. The report indexes gaps and sample-only topic absences without creating teaching artifacts.
+Implementation status: complete for the four registered samples through the generated cross-route gap report and semantic priority review. The report indexes gaps and sample-only topic absences, while the review preserves 17 missing or ambiguous gaps in 16 packages without creating teaching artifacts.
 
 For each route:
 
@@ -111,7 +113,7 @@ For each route:
 
 ### 5. Produce reusable teaching artifacts
 
-Implementation status: pending. The gap report is an evidence-backed backlog index, not a completed reusable-artifact set.
+Implementation status: pending. Semantic review has selected `grade-6-science-soil-organisms` as the first bounded pilot and classified 13 packages as ready and 3 as teacher-review blocked, but no reusable artifact has been created and the reusable-artifact backlog remains incomplete.
 
 After mapping is reviewed, derive small, source-attributed artifacts such as:
 
@@ -147,8 +149,9 @@ Run focused tests during authoring. Run the full test suite once the complete so
 3. Extract Grade 6 science using the same schema.
 4. Extract Grade 7 geography and Grade 7 science independently.
 5. Build four route-specific curriculum maps.
-6. Add gap reports and reusable teaching artifacts.
-7. Add focused validation, then run the full repository test suite.
+6. Generate the cross-route gap report and complete semantic work-package review.
+7. Create the lightweight reusable-artifact contract and bounded Grade 6 soil-organisms pilot in a separate PR.
+8. Add focused validation, then run the full repository test suite after Phase 5 is complete.
 
 ## Acceptance criteria
 

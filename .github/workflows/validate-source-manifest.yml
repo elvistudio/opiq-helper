@@ -36,6 +36,7 @@ on:
       - docs/audits/grade-7-geography-teacher-work-plan-extraction.md
       - docs/audits/grade-7-science-teacher-work-plan-extraction.md
       - docs/audits/grades-5-7-teacher-work-plan-gap-report.md
+      - docs/audits/grades-5-7-priority-work-packages.md
       - docs/migrations/teacher-work-plans-5-7-integration.md
       - docs/grade-5-science-annual-course.md
       - docs/lesson-plans.md
@@ -91,6 +92,7 @@ on:
       - docs/audits/grade-7-geography-teacher-work-plan-extraction.md
       - docs/audits/grade-7-science-teacher-work-plan-extraction.md
       - docs/audits/grades-5-7-teacher-work-plan-gap-report.md
+      - docs/audits/grades-5-7-priority-work-packages.md
       - docs/migrations/teacher-work-plans-5-7-integration.md
       - docs/grade-5-science-annual-course.md
       - docs/lesson-plans.md
@@ -622,6 +624,12 @@ jobs:
 
       - name: Check generated teacher work-plan gap report
         run: npm run check:teacher-work-plan-gap-report
+
+      - name: Test teacher work-plan priority packages
+        run: npm run test:teacher-work-plan-work-packages
+
+      - name: Check generated teacher work-plan priority packages
+        run: npm run check:teacher-work-plan-work-packages
 
   validate:
     name: Validate manifest and source records

@@ -105,6 +105,23 @@ test('production report validates and uses four exact input routes in order', ()
   assert.deepEqual(report.route_summaries.map(({ source_id }) => source_id), Object.keys(expectedCrosswalks));
 });
 
+test('semantic work-package review summary is exact while reusable artifacts remain absent', () => {
+  assert.deepEqual(report.work_package_review, {
+    review_id: 'grades-5-7-priority-work-packages',
+    path: 'evaluations/teacher-work-plans/grades-5-7-priority-work-packages.yaml',
+    priority_gap_count: 17,
+    work_package_count: 16,
+    ready_for_authoring_count: 13,
+    blocked_teacher_review_count: 3,
+    multi_gap_package_count: 1,
+    selected_pilot_package_id: 'grade-6-science-soil-organisms',
+    semantic_work_package_review_complete: true,
+  });
+  assert.equal(report.boundaries.semantic_work_package_review_complete, true);
+  assert.equal(report.boundaries.reusable_teaching_artifacts_created, false);
+  assert.equal(report.completeness.reusable_artifact_backlog_complete, false);
+});
+
 test('input crosswalk paths and SHA-256 values are exact and current', () => {
   for (const input of report.inputs) {
     const expected = expectedCrosswalks[input.source_id];
@@ -381,7 +398,37 @@ test('completeness, live catalogue and reusable artifacts cannot be promoted', (
     (candidate) => { candidate.boundaries.reusable_teaching_artifacts_created = true; },
     (candidate) => { candidate.completeness.official_curriculum_complete = true; },
     (candidate) => { candidate.completeness.reusable_artifact_backlog_complete = true; },
+    (candidate) => { candidate.boundaries.semantic_work_package_review_complete = false; },
   ]) assertInvalid(mutate, /must be equal to constant|differs/u);
+});
+
+test('builder refuses stale or invalid semantic work-package review YAML', async () => {
+  const workPackageText = await fs.readFile(
+    path.join(repositoryRoot, 'evaluations/teacher-work-plans/grades-5-7-priority-work-packages.yaml'),
+    'utf8',
+  );
+  await assert.rejects(
+    buildTeacherWorkPlanGapReport({
+      rootDir: repositoryRoot,
+      repository: crosswalkRepository,
+      workPackageArtifactText: workPackageText.replace(
+        'grade-6-science-soil-organisms',
+        'grade-6-science-invented-pilot',
+      ),
+    }),
+    /semantic review failed|exact production order|selected pilot/u,
+  );
+  await assert.rejects(
+    buildTeacherWorkPlanGapReport({
+      rootDir: repositoryRoot,
+      repository: crosswalkRepository,
+      workPackageArtifactText: workPackageText.replace(
+        'Mullaorganismide välivaatlus',
+        'Invented source topic',
+      ),
+    }),
+    /semantic review failed|source gap snapshot/u,
+  );
 });
 
 test('unknown fields and nondeterministic property order are rejected', () => {
