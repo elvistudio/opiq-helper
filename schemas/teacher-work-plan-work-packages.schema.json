@@ -213,6 +213,10 @@
         "blocked_teacher_review_count",
         "implemented_package_id",
         "artifact_index_path",
+        "human_review_workflow_count",
+        "completed_human_review_record_count",
+        "teacher_review_pending_count",
+        "local_safety_review_pending_count",
         "source_gap_resolution_claimed"
       ],
       "properties": {
@@ -225,6 +229,10 @@
         "artifact_index_path": {
           "const": "teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml"
         },
+        "human_review_workflow_count": { "const": 1 },
+        "completed_human_review_record_count": { "const": 0 },
+        "teacher_review_pending_count": { "const": 1 },
+        "local_safety_review_pending_count": { "const": 1 },
         "source_gap_resolution_claimed": { "const": false }
       }
     },
@@ -446,6 +454,7 @@
         "artifact_index_path",
         "delivered_capabilities",
         "supported_gap_ids",
+        "human_review",
         "source_gap_resolution_claimed"
       ],
       "properties": {
@@ -469,7 +478,42 @@
             "enum": ["grade-6-science-lesson-008", "grade-6-science-lesson-009"]
           }
         },
+        "human_review": { "$ref": "#/$defs/humanReviewTracking" },
         "source_gap_resolution_claimed": { "const": false }
+      }
+    },
+    "humanReviewTracking": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "registry_path",
+        "content_fingerprint",
+        "teacher_review_status",
+        "local_safety_review_status",
+        "completed_teacher_review_count",
+        "completed_safety_review_count",
+        "classroom_trial_status",
+        "review_decision_recorded",
+        "classroom_ready",
+        "publication_ready",
+        "effectiveness_claimed"
+      ],
+      "properties": {
+        "registry_path": {
+          "const": "teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/review-registry.yaml"
+        },
+        "content_fingerprint": {
+          "const": "894cc83f54c158485f6d6ba699d8a1298c3e57056e315281b79d69e84f366613"
+        },
+        "teacher_review_status": { "const": "pending" },
+        "local_safety_review_status": { "const": "pending" },
+        "completed_teacher_review_count": { "const": 0 },
+        "completed_safety_review_count": { "const": 0 },
+        "classroom_trial_status": { "const": "not_tested" },
+        "review_decision_recorded": { "const": false },
+        "classroom_ready": { "const": false },
+        "publication_ready": { "const": false },
+        "effectiveness_claimed": { "const": false }
       }
     },
     "completeness": {

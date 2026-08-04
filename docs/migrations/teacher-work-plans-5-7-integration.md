@@ -1,6 +1,6 @@
 # Teacher work plans for Grades 5-7: source integration plan
 
-Status: four originals, source extractions, route-specific crosswalks, the generated cross-route gap report and the priority semantic work-package review are complete. Phase 5 has started with one internal-draft Grade 6 soil-organisms reusable artifact; teacher and local safety review remain pending, the backlog is incomplete, and official curriculum completeness is not verified.
+Status: four originals, source extractions, route-specific crosswalks, the generated cross-route gap report and the priority semantic work-package review are complete. Phase 5 has started with one internal-draft Grade 6 soil-organisms reusable artifact and a fingerprint-pinned human-review workflow. No human decision is recorded: teacher and local safety review remain pending, classroom trial is not tested, the backlog is incomplete, and official curriculum completeness is not verified.
 
 ## Source set
 
@@ -21,7 +21,8 @@ These files are supplementary curriculum-planning sources. They are not Opiq exp
 - The deterministic cross-route gap index is complete for those registered crosswalks: [machine-readable JSON](../../evaluations/teacher-work-plans/grades-5-7-gap-report.json) and [generated audit](../audits/grades-5-7-teacher-work-plan-gap-report.md).
 - Priority semantic review is complete: 17 missing or ambiguous gaps are preserved in 16 work packages, with 13 ready for authoring and 3 blocked by teacher review. See the [hand-reviewed package registry](../../evaluations/teacher-work-plans/grades-5-7-priority-work-packages.yaml) and [generated priority audit](../audits/grades-5-7-priority-work-packages.md).
 - The selected P0 pilot `grade-6-science-soil-organisms` now has an [internal-draft artifact index](../../teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml) and seven material capabilities: teacher guide, practical protocol, observation table, student worksheet, answer key, assessment rubric and oral support.
-- The pilot gives independently authored support to two source gaps, but both canonical Opiq crosswalk gaps remain `missing`. Teacher review and local safety review are pending, and classroom trial is `not_tested`.
+- A [human-review registry](../../teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/review-registry.yaml), teacher-review template, local-safety-review template and review guide now pin the exact material fingerprint. They contain no reviewer identity, completed record or approval decision.
+- The pilot gives independently authored support to two source gaps, but both canonical Opiq crosswalk gaps remain `missing`. Teacher review and local safety review are pending, classroom trial is `not_tested`, and classroom/publication readiness remains false.
 - Twelve semantically ready packages remain unimplemented and three remain blocked by teacher review. The reusable-artifact backlog and Phase 5 are not complete.
 - Official curriculum completeness, exact-grade official allocation, default-course selection and live-catalogue completeness remain unverified.
 
@@ -114,7 +115,7 @@ For each route:
 
 ### 5. Produce reusable teaching artifacts
 
-Implementation status: started, not complete. The selected `grade-6-science-soil-organisms` P0 package has a lightweight internal-draft reusable artifact with seven capabilities and independently authored support for lessons 8–9. The canonical Opiq gaps remain `missing`; teacher review and local safety review are pending, classroom trial is not tested, 12 authorable packages remain unimplemented, 3 remain blocked, and the reusable-artifact backlog remains incomplete.
+Implementation status: started, not complete. The selected `grade-6-science-soil-organisms` P0 package has a lightweight internal-draft reusable artifact with seven capabilities, independently authored support for lessons 8–9 and a fail-closed human-review packet pinned to the current material fingerprint. The packet has zero completed review records and does not fabricate approval. The canonical Opiq gaps remain `missing`; teacher review and local safety review are pending, classroom trial is not tested, 12 authorable packages remain unimplemented, 3 remain blocked, and the reusable-artifact backlog remains incomplete.
 
 After mapping is reviewed, derive small, source-attributed artifacts such as:
 
@@ -151,7 +152,7 @@ Run focused tests during authoring. Run the full test suite once the complete so
 4. Extract Grade 7 geography and Grade 7 science independently.
 5. Build four route-specific curriculum maps.
 6. Generate the cross-route gap report and complete semantic work-package review.
-7. Validate and review the lightweight reusable-artifact contract and bounded Grade 6 soil-organisms internal draft.
+7. Validate the lightweight reusable-artifact contract, create the fingerprint-pinned review workflow, and obtain real teacher and local-safety review for the bounded Grade 6 soil-organisms internal draft.
 8. Continue the remaining 12 authorable packages only after pilot review; keep the 3 decision-blocked packages separate.
 9. Run the full repository test suite after Phase 5 is complete.
 

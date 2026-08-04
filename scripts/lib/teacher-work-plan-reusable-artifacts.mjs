@@ -17,6 +17,7 @@ export const REUSABLE_ARTIFACT_SCHEMA_PATH =
 const INDEX_PATH =
   'teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml';
 const PILOT_ROOT = 'teacher-work-plan-artifacts/grade-6-science/soil-organisms';
+const REVIEW_REGISTRY_PATH = `${PILOT_ROOT}/reviews/review-registry.yaml`;
 const GAP_REPORT_PATH = 'evaluations/teacher-work-plans/grades-5-7-gap-report.json';
 const TOPIC_INVENTORY_PATH = 'curriculum-maps/grade-6-science/topic-inventory.yaml';
 const BOOK_INVENTORY_PATH = 'curriculum-maps/grade-6-science/book-inventory.yaml';
@@ -33,6 +34,7 @@ const EXPECTED_FILES = Object.freeze([
   'observation-table.md',
   'oral-support.md',
   'practical-protocol.md',
+  'reviews',
   'student-worksheet.md',
   'teacher-guide.md',
 ]);
@@ -298,6 +300,20 @@ export async function loadTeacherWorkPlanReusableArtifactRepository({
     }
   }
 
+  let reviewRegistry = null;
+  try {
+    const reviewText = artifactOverrides.has(REVIEW_REGISTRY_PATH)
+      ? artifactOverrides.get(REVIEW_REGISTRY_PATH)
+      : await fs.readFile(safeRepositoryPath(root, REVIEW_REGISTRY_PATH), 'utf8');
+    reviewRegistry = {
+      file: REVIEW_REGISTRY_PATH,
+      text: reviewText,
+      data: parseStrictYaml(reviewText, REVIEW_REGISTRY_PATH),
+    };
+  } catch (error) {
+    loadDiagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/', error.message));
+  }
+
   const resolvedGapReport = gapReport ?? await readJson(root, GAP_REPORT_PATH);
   const workPackageRepository = workPackages
     ? { artifact: workPackages, gapReport: resolvedGapReport, schema: await readJson(root, 'schemas/teacher-work-plan-work-packages.schema.json') }
@@ -330,6 +346,7 @@ export async function loadTeacherWorkPlanReusableArtifactRepository({
     extraction,
     languageProfiles,
     canonicalMarkdown,
+    reviewRegistry,
     pilotDirectoryFiles: pilotDirectoryFiles.sort(compareBytewise),
   };
 }
@@ -528,6 +545,33 @@ export function validateTeacherWorkPlanReusableArtifactRepository(repository) {
   const expectedFingerprint = computeTeacherWorkPlanArtifactFingerprint(artifact.materials ?? []);
   if (artifact.content_fingerprint?.value !== expectedFingerprint) diagnostics.push(diagnostic(file, '/content_fingerprint/value', 'aggregate content fingerprint is stale'));
 
+  const expectedHumanReview = {
+    registry_path: REVIEW_REGISTRY_PATH,
+    teacher_review: { status: 'pending', completed_record_path: null },
+    local_safety_review: { status: 'pending', completed_record_path: null },
+    classroom_trial: { status: 'not_tested', completed_record_path: null },
+    reviewed_content_fingerprint: null,
+  };
+  validateExact(diagnostics, file, '/human_review', artifact.human_review, expectedHumanReview, 'human review must link the exact pending registry without completed evidence');
+  const reviewRegistry = repository.reviewRegistry?.data;
+  if (!reviewRegistry) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/', 'pending human-review registry is missing'));
+  else {
+    validateExact(diagnostics, REVIEW_REGISTRY_PATH, '/artifact_id', reviewRegistry.artifact_id, artifact.artifact_id, 'review registry must reference the reusable artifact');
+    validateExact(diagnostics, REVIEW_REGISTRY_PATH, '/artifact_index_path', reviewRegistry.artifact_index_path, INDEX_PATH, 'review registry must reference the exact artifact index');
+    validateExact(diagnostics, REVIEW_REGISTRY_PATH, '/content_fingerprint', reviewRegistry.content_fingerprint, artifact.content_fingerprint?.value, 'review registry must pin the current material fingerprint');
+    if (reviewRegistry.teacher_review?.status !== 'pending'
+      || reviewRegistry.local_safety_review?.status !== 'pending'
+      || reviewRegistry.classroom_trial?.status !== 'not_tested'
+      || (reviewRegistry.teacher_review?.completed_record_paths ?? []).length !== 0
+      || (reviewRegistry.local_safety_review?.completed_record_paths ?? []).length !== 0
+      || (reviewRegistry.classroom_trial?.completed_record_paths ?? []).length !== 0) {
+      diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/', 'review registry must remain pending with no completed human evidence or classroom trial'));
+    }
+    for (const flag of ['review_complete', 'local_safety_review_complete', 'classroom_trial_complete', 'classroom_ready', 'publication_ready', 'customer_released', 'effectiveness_claimed']) {
+      if (reviewRegistry.boundaries?.[flag] !== false) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, `/boundaries/${flag}`, `${flag} cannot be promoted`));
+    }
+  }
+
   const materialText = new Map([...artifactEntry.materialBytes.entries()].map(([materialPath, bytes]) => [materialPath, bytes?.toString('utf8') ?? '']));
   const guideUrls = (materialText.get(`${PILOT_ROOT}/teacher-guide.md`) ?? '')
     .match(/https:\/\/www\.opiq\.ee\/kit\/[0-9]+\/chapter\/[0-9]+/gu) ?? [];
@@ -559,6 +603,9 @@ export function validateTeacherWorkPlanReusableArtifactRepository(repository) {
       opiq_context_records: artifact.opiq_context_records?.length ?? 0,
       fingerprint: artifact.content_fingerprint?.value ?? null,
       canonical_gap_statuses_unchanged: artifact.source_gap_support?.canonical_opiq_gap_status_unchanged === true,
+      review_registry: repository.reviewRegistry ? 1 : 0,
+      completed_review_records: (repository.reviewRegistry?.data?.teacher_review?.completed_record_paths?.length ?? 0)
+        + (repository.reviewRegistry?.data?.local_safety_review?.completed_record_paths?.length ?? 0),
     },
   };
 }

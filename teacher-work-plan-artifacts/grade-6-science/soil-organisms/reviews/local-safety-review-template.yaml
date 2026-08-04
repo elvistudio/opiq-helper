@@ -1,0 +1,98 @@
+schema_version: "1.0"
+artifact_type: teacher_work_plan_artifact_local_safety_review
+template: true
+review_identity:
+  review_id: null
+  reviewer_id: null
+  reviewer_name: null
+  reviewer_role: null
+  organization: null
+  review_date: null
+artifact_identity:
+  artifact_id: grade-6-science-soil-organisms
+  artifact_index_path: teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml
+  content_fingerprint: 894cc83f54c158485f6d6ba699d8a1298c3e57056e315281b79d69e84f366613
+  package_id: grade-6-science-soil-organisms
+  route: grade-6-science
+  grade: 6
+  subject: science
+  subject_et: loodusõpetus
+local_context:
+  school_or_organization: null
+  site_description: null
+  planned_activity_date: null
+  group_size: null
+  adult_supervision_count: null
+  weather_limitations: null
+  accessibility_adjustments: null
+  permission_requirements: null
+  emergency_contact_process: null
+review_scope:
+  - area: school_or_site_context
+    status: not_reviewed
+    notes: null
+    finding_ids: []
+  - area: exact_observation_locations
+    status: not_reviewed
+    notes: null
+    finding_ids: []
+  - area: weather_and_terrain
+    status: not_reviewed
+    notes: null
+    finding_ids: []
+  - area: restricted_or_protected_area_permissions
+    status: not_reviewed
+    notes: null
+    finding_ids: []
+  - area: hazardous_objects_and_waste
+    status: not_reviewed
+    notes: null
+    finding_ids: []
+  - area: organisms_and_allergy_risks
+    status: not_reviewed
+    notes: null
+    finding_ids: []
+  - area: tools_and_gloves
+    status: not_reviewed
+    notes: null
+    finding_ids: []
+  - area: hygiene_and_handwashing
+    status: not_reviewed
+    notes: null
+    finding_ids: []
+  - area: accessibility_and_participation
+    status: not_reviewed
+    notes: null
+    finding_ids: []
+  - area: supervision_and_stop_signals
+    status: not_reviewed
+    notes: null
+    finding_ids: []
+  - area: indoor_fallback
+    status: not_reviewed
+    notes: null
+    finding_ids: []
+  - area: emergency_or_incident_procedure
+    status: not_reviewed
+    notes: null
+    finding_ids: []
+  - area: restoration_and_ethical_return
+    status: not_reviewed
+    notes: null
+    finding_ids: []
+findings: []
+decision:
+  status: pending
+  rationale: null
+  open_blocking_findings: []
+  open_major_findings: []
+  required_changes_complete: false
+  reviewed_fingerprint_matches: false
+  conditions: []
+safety_boundaries:
+  named_context_only: true
+  universal_safety_claimed: false
+  other_site_legal_permission_claimed: false
+  all_weather_approval_claimed: false
+  protected_area_permission_claimed: false
+  classroom_readiness_claimed: false

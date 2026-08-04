@@ -59,6 +59,10 @@ function cloneRepository(repository = baseline) {
     manifest: structuredClone(repository.manifest),
     extraction: structuredClone(repository.extraction),
     languageProfiles: structuredClone(repository.languageProfiles),
+    reviewRegistry: repository.reviewRegistry && {
+      ...repository.reviewRegistry,
+      data: structuredClone(repository.reviewRegistry.data),
+    },
     pilotDirectoryFiles: [...repository.pilotDirectoryFiles],
   };
 }
@@ -100,6 +104,8 @@ test('production Grade 6 soil-organisms reusable artifact is exact and internall
     opiq_context_records: 4,
     fingerprint: '894cc83f54c158485f6d6ba699d8a1298c3e57056e315281b79d69e84f366613',
     canonical_gap_statuses_unchanged: true,
+    review_registry: 1,
+    completed_review_records: 0,
   });
 
   const data = artifact(baseline);
@@ -161,6 +167,16 @@ test('production Grade 6 soil-organisms reusable artifact is exact and internall
   assert.equal(data.readiness.publication_ready, false);
   assert.equal(data.source_gap_support.source_gap_resolution_claimed, false);
   assert.equal(data.source_gap_support.canonical_opiq_gap_status_unchanged, true);
+  assert.deepEqual(data.human_review, {
+    registry_path: `${PILOT_ROOT}/reviews/review-registry.yaml`,
+    teacher_review: { status: 'pending', completed_record_path: null },
+    local_safety_review: { status: 'pending', completed_record_path: null },
+    classroom_trial: { status: 'not_tested', completed_record_path: null },
+    reviewed_content_fingerprint: null,
+  });
+  assert.equal(baseline.reviewRegistry.data.content_fingerprint, data.content_fingerprint.value);
+  assert.deepEqual(baseline.reviewRegistry.data.teacher_review.completed_record_paths, []);
+  assert.deepEqual(baseline.reviewRegistry.data.local_safety_review.completed_record_paths, []);
 });
 
 test('artifact material hashes and aggregate fingerprint remain exact production values', () => {
@@ -253,6 +269,10 @@ const mutations = [
   ['canonical gap marked changed', (repo) => { artifact(repo).source_gap_support.canonical_opiq_gap_status_unchanged = false; }, /cannot change or resolve|must be equal to constant/u],
   ['crosswalk gap promoted', (repo) => { repo.crosswalk.lesson_range_mappings.find(({ mapping_id }) => mapping_id === 'lesson-008').coverage_status = 'partial'; }, /must remain missing/u],
   ['official completeness promoted', (repo) => { artifact(repo).source_gap_support.official_curriculum_complete = true; }, /must be equal to constant/u],
+  ['missing review registry', (repo) => { repo.reviewRegistry = null; }, /review registry is missing/u],
+  ['stale review fingerprint', (repo) => { repo.reviewRegistry.data.content_fingerprint = '0'.repeat(64); }, /pin the current material fingerprint/u],
+  ['teacher review promoted without evidence', (repo) => { repo.reviewRegistry.data.teacher_review.status = 'approved'; }, /remain pending/u],
+  ['artifact human review promoted', (repo) => { artifact(repo).human_review.teacher_review.status = 'approved'; }, /must be equal to constant|exact pending registry/u],
   ['unknown field', (repo) => { artifact(repo).unexpected = true; }, /unknown field unexpected/u],
 ];
 
