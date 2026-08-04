@@ -120,6 +120,8 @@ A fail-closed human-review workflow now exists at [`teacher-work-plan-artifacts/
 
 A classroom-trial workflow and template now exist at [`teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/classroom-trial-template.yaml`](../../teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/classroom-trial-template.yaml), but no trial has been conducted and zero analysed trial records are registered. Prerequisite reviews remain pending, trial status is `not_tested`, and classroom readiness and effectiveness claims remain false.
 
+Next authoring selection: `grade-6-science-photosynthesis` for `grade-6-science-lesson-016`, status `selected_not_started`, planned root `teacher-work-plan-artifacts/grade-6-science/photosynthesis`. No materials, artifact index, human-review workflow or classroom-trial workflow has been created for it, and no source-gap resolution is claimed.
+
 This independently authored support does not change either canonical Opiq gap from `missing`. Teacher review and local safety review remain pending, classroom/publication readiness remains false, and no source-gap resolution is claimed.
 
 ## 11. Complete gap registry grouped by route

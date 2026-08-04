@@ -1,6 +1,6 @@
 # Teacher work plans for Grades 5-7: source integration plan
 
-Status: four originals, source extractions, route-specific crosswalks, the generated cross-route gap report and the priority semantic work-package review are complete. Phase 5 has started with one internal-draft Grade 6 soil-organisms reusable artifact plus fingerprint-pinned human-review and classroom-trial workflows. No human decision or trial record is recorded: teacher and local safety review remain pending, classroom trial is not tested, the backlog is incomplete, and official curriculum completeness is not verified.
+Status: four originals, source extractions, route-specific crosswalks, the generated cross-route gap report and the priority semantic work-package review are complete. Phase 5 has started with one internal-draft Grade 6 soil-organisms reusable artifact plus fingerprint-pinned human-review and classroom-trial workflows. The former singleton infrastructure is now generalized through a central artifact registry and immutable package validation profiles. Grade 6 photosynthesis is selected as package 2 but remains not started. No human decision or trial record is recorded: teacher and local safety review remain pending, classroom trial is not tested, the backlog is incomplete, and official curriculum completeness is not verified.
 
 ## Source set
 
@@ -21,6 +21,8 @@ These files are supplementary curriculum-planning sources. They are not Opiq exp
 - The deterministic cross-route gap index is complete for those registered crosswalks: [machine-readable JSON](../../evaluations/teacher-work-plans/grades-5-7-gap-report.json) and [generated audit](../audits/grades-5-7-teacher-work-plan-gap-report.md).
 - Priority semantic review is complete: 17 missing or ambiguous gaps are preserved in 16 work packages, with 13 ready for authoring and 3 blocked by teacher review. See the [hand-reviewed package registry](../../evaluations/teacher-work-plans/grades-5-7-priority-work-packages.yaml) and [generated priority audit](../audits/grades-5-7-priority-work-packages.md).
 - The selected P0 pilot `grade-6-science-soil-organisms` now has an [internal-draft artifact index](../../teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml) and seven material capabilities: teacher guide, practical protocol, observation table, student worksheet, answer key, assessment rubric and oral support.
+- The [central reusable-artifact registry](../../teacher-work-plan-artifacts/artifact-registry.yaml) discovers and validates registered packages through immutable profiles. Soil organisms remains the only implemented artifact; its files and evidence states are unchanged.
+- `grade-6-science-photosynthesis` is selected as the next P1 package for `grade-6-science-lesson-016`, with planned root `teacher-work-plan-artifacts/grade-6-science/photosynthesis`. No directory, material, artifact index, human-review workflow or classroom-trial workflow exists for it, and the source gap remains `missing`.
 - A [human-review registry](../../teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/review-registry.yaml), teacher-review template, local-safety-review template and review guide now pin the exact material fingerprint. They contain no reviewer identity, completed record or approval decision.
 - A separate [classroom-trial template](../../teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/classroom-trial-template.yaml) and guide now define a fail-closed future workflow. No trial has been conducted or registered; prerequisites remain unsatisfied and status remains `not_tested`.
 - The pilot gives independently authored support to two source gaps, but both canonical Opiq crosswalk gaps remain `missing`. Teacher review and local safety review are pending, classroom/publication readiness remains false, and the seven materials and aggregate fingerprint are unchanged.
@@ -116,7 +118,7 @@ For each route:
 
 ### 5. Produce reusable teaching artifacts
 
-Implementation status: started, not complete. The selected `grade-6-science-soil-organisms` P0 package has a lightweight internal-draft reusable artifact with seven capabilities, independently authored support for lessons 8–9, a fail-closed human-review packet and a separate classroom-trial workflow pinned to the current material fingerprint. The packets have zero completed review or trial records and do not fabricate approval or classroom evidence. The canonical Opiq gaps remain `missing`; teacher review and local safety review are pending, classroom trial is `not_tested`, classroom readiness remains false, 12 authorable packages remain unimplemented, 3 remain blocked, and the reusable-artifact backlog remains incomplete.
+Implementation status: started, not complete. The selected `grade-6-science-soil-organisms` P0 package has a lightweight internal-draft reusable artifact with seven capabilities, independently authored support for lessons 8–9, a fail-closed human-review packet and a separate classroom-trial workflow pinned to the current material fingerprint. A central registry now supports multiple independent artifacts without weakening route-local profiles. Soil organisms remains the only implemented artifact. `grade-6-science-photosynthesis` is selected next for lesson 16 but has no authored files, review workflow or trial workflow; its exact-route Opiq gap remains `missing`. The soil packets have zero completed review or trial records and do not fabricate approval or classroom evidence. Teacher review and local safety review are pending, classroom trial is `not_tested`, classroom readiness remains false, 12 authorable packages remain unimplemented, 3 remain blocked, and the reusable-artifact backlog remains incomplete.
 
 After mapping is reviewed, derive small, source-attributed artifacts such as:
 
@@ -154,7 +156,7 @@ Run focused tests during authoring. Run the full test suite once the complete so
 5. Build four route-specific curriculum maps.
 6. Generate the cross-route gap report and complete semantic work-package review.
 7. Validate the lightweight reusable-artifact contract, create the fingerprint-pinned review and classroom-trial workflows, then obtain real teacher and named-context local-safety review before conducting any bounded Grade 6 soil-organisms trial.
-8. Continue the remaining 12 authorable packages only after pilot review; keep the 3 decision-blocked packages separate.
+8. Use the central registry and a new route-local validation profile to author the selected `grade-6-science-photosynthesis` package in a separate PR; do not infer review or trial evidence from framework registration. Continue the remaining authorable packages only after bounded review, and keep the 3 decision-blocked packages separate.
 9. Run the full repository test suite after Phase 5 is complete.
 
 ## Acceptance criteria

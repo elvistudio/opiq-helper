@@ -1,0 +1,40 @@
+schema_version: "1.0"
+artifact_type: teacher_work_plan_reusable_artifact_registry
+registry_id: grades-5-7-teacher-work-plan-reusable-artifacts
+scope:
+  routes:
+    - grade-5-science
+    - grade-6-science
+    - grade-7-geography
+    - grade-7-science
+  route_locked: true
+  live_catalogue_checked: false
+  official_curriculum_completeness_claimed: false
+  annual_architecture_created: false
+  default_course_selection_complete: false
+  source_gap_resolution_claimed: false
+artifacts:
+  - artifact_id: grade-6-science-soil-organisms
+    package_id: grade-6-science-soil-organisms
+    route: grade-6-science
+    root_path: teacher-work-plan-artifacts/grade-6-science/soil-organisms
+    index_path: teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml
+    validation_profile_id: grade-6-science-soil-organisms-v1
+    lifecycle_status: internal_draft
+    content_fingerprint: 894cc83f54c158485f6d6ba699d8a1298c3e57056e315281b79d69e84f366613
+    review_registry_path: teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/review-registry.yaml
+    classroom_trial_template_path: teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/classroom-trial-template.yaml
+authoring_queue:
+  next_package_id: grade-6-science-photosynthesis
+  status: selected_not_started
+  selection_order: 2
+  planned_root_path: teacher-work-plan-artifacts/grade-6-science/photosynthesis
+  selection_reason: >-
+    This is the next route-local P1 package after the soil-organisms pilot. It is
+    one bounded missing Grade 6 science practical gap with no blocking question
+    and five declared reusable-artifact capabilities.
+  materials_created: false
+  artifact_index_created: false
+  human_review_workflow_created: false
+  classroom_trial_workflow_created: false
+  source_gap_resolution_claimed: false

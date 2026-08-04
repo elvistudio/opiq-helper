@@ -6,7 +6,11 @@ import Ajv2020 from 'ajv/dist/2020.js';
 import { parseDocument } from 'yaml';
 
 import {
-  loadTeacherWorkPlanWorkPackages,
+  TEACHER_WORK_PLAN_ARTIFACT_REGISTRY_PATH,
+  loadTeacherWorkPlanArtifactRegistry,
+  validateTeacherWorkPlanArtifactRegistry,
+} from './teacher-work-plan-artifact-registry.mjs';
+import {
   validateTeacherWorkPlanWorkPackages,
 } from './teacher-work-plan-work-packages.mjs';
 
@@ -14,172 +18,10 @@ export const REUSABLE_ARTIFACT_ROOT = 'teacher-work-plan-artifacts';
 export const REUSABLE_ARTIFACT_SCHEMA_PATH =
   'schemas/teacher-work-plan-reusable-artifact.schema.json';
 
-const INDEX_PATH =
-  'teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml';
-const PILOT_ROOT = 'teacher-work-plan-artifacts/grade-6-science/soil-organisms';
-const REVIEW_REGISTRY_PATH = `${PILOT_ROOT}/reviews/review-registry.yaml`;
 const GAP_REPORT_PATH = 'evaluations/teacher-work-plans/grades-5-7-gap-report.json';
-const TOPIC_INVENTORY_PATH = 'curriculum-maps/grade-6-science/topic-inventory.yaml';
-const BOOK_INVENTORY_PATH = 'curriculum-maps/grade-6-science/book-inventory.yaml';
-const CROSSWALK_PATH = 'curriculum-maps/grade-6-science/teacher-work-plan-crosswalk.yaml';
-const MANIFEST_PATH = 'source-manifest.json';
-const EXTRACTION_PATH = 'evaluations/teacher-work-plans/grade-6-science-extraction.json';
+const WORK_PACKAGE_SCHEMA_PATH = 'schemas/teacher-work-plan-work-packages.schema.json';
 const LANGUAGE_PROFILE_PATH = 'lesson-plans/language-profiles.yaml';
-const CANONICAL_MARKDOWN_PATH = 'project-files/outputs/opiq_6klass_loodusopetus.md';
-
-const EXPECTED_FILES = Object.freeze([
-  'answer-key.md',
-  'artifact-index.yaml',
-  'assessment-rubric.md',
-  'observation-table.md',
-  'oral-support.md',
-  'practical-protocol.md',
-  'reviews',
-  'student-worksheet.md',
-  'teacher-guide.md',
-]);
-
-const EXPECTED_CAPABILITIES = Object.freeze([
-  'teacher_guide',
-  'practical_protocol',
-  'observation_table',
-  'student_worksheet',
-  'answer_key',
-  'assessment_rubric',
-  'oral_support',
-]);
-
-const EXPECTED_MATERIAL_PATHS = Object.freeze([
-  `${PILOT_ROOT}/teacher-guide.md`,
-  `${PILOT_ROOT}/practical-protocol.md`,
-  `${PILOT_ROOT}/observation-table.md`,
-  `${PILOT_ROOT}/student-worksheet.md`,
-  `${PILOT_ROOT}/answer-key.md`,
-  `${PILOT_ROOT}/assessment-rubric.md`,
-  `${PILOT_ROOT}/oral-support.md`,
-]);
-
-const EXPECTED_GAPS = Object.freeze([
-  Object.freeze({
-    gap_id: 'grade-6-science-lesson-008',
-    mapping_id: 'lesson-008',
-    source_record_kind: 'lesson_range',
-    source_block_id: 'muld',
-    lesson_span: { lesson_start: 8, lesson_end: 8 },
-    source_pages: [3, 4],
-    source_topic_et: 'Mullaorganismide välivaatlus',
-    normalized_mapping_topic_et: 'Mullaorganismide välivaatlus',
-    coverage_status: 'missing',
-    bridge_type: 'independently_authored_practical_required',
-    topic_inventory_refs: ['soil-formation-and-properties'],
-  }),
-  Object.freeze({
-    gap_id: 'grade-6-science-lesson-009',
-    mapping_id: 'lesson-009',
-    source_record_kind: 'lesson_range',
-    source_block_id: 'muld',
-    lesson_span: { lesson_start: 9, lesson_end: 9 },
-    source_pages: [4],
-    source_topic_et: 'Mullaorganismid',
-    normalized_mapping_topic_et: 'Mullaorganismid',
-    coverage_status: 'missing',
-    bridge_type: 'independently_authored_bridge_required',
-    topic_inventory_refs: ['soil-formation-and-properties'],
-  }),
-]);
-
-const EXPECTED_CONTEXT = Object.freeze([
-  Object.freeze({
-    inventory_bucket: 'selected_records',
-    topic_inventory_ref: 'soil-formation-and-properties',
-    record_id: 'soil-ru-core',
-    canonical_url: 'https://www.opiq.ee/kit/269/chapter/15287',
-    canonical_source_id: 'grade-6-science',
-    book_id: '5k_loodusõpetus_koolibri_rus',
-    title: 'Состав почвы',
-    language: 'ru',
-    programme_type: 'unknown',
-    programme_type_evidence_status: 'ambiguous',
-    default_course_eligibility: 'unverified',
-    instructional_roles: ['core_explanation_ru', 'practice_ru'],
-    relationship_to_pilot: 'soil_context_only_not_soil_organism_evidence',
-    required_for_learner_completion: false,
-  }),
-  Object.freeze({
-    inventory_bucket: 'selected_records',
-    topic_inventory_ref: 'soil-formation-and-properties',
-    record_id: 'soil-et-formation',
-    canonical_url: 'https://www.opiq.ee/kit/580/chapter/32151',
-    canonical_source_id: 'grade-6-science',
-    book_id: '5k_loodusõpetus_koolibri_2025_est',
-    title: 'Muldade teke ja areng',
-    language: 'et',
-    programme_type: 'unknown',
-    programme_type_evidence_status: 'ambiguous',
-    default_course_eligibility: 'unverified',
-    instructional_roles: ['core_source_et', 'terminology_et', 'bilingual_visual'],
-    relationship_to_pilot: 'soil_context_only_not_soil_organism_evidence',
-    required_for_learner_completion: false,
-  }),
-  Object.freeze({
-    inventory_bucket: 'selected_records',
-    topic_inventory_ref: 'soil-formation-and-properties',
-    record_id: 'soil-et-pit',
-    canonical_url: 'https://www.opiq.ee/kit/580/chapter/32155',
-    canonical_source_id: 'grade-6-science',
-    book_id: '5k_loodusõpetus_koolibri_2025_est',
-    title: 'Mullakaeve',
-    language: 'et',
-    programme_type: 'unknown',
-    programme_type_evidence_status: 'ambiguous',
-    default_course_eligibility: 'unverified',
-    instructional_roles: ['practice_et', 'experiment', 'fieldwork', 'data_interpretation'],
-    relationship_to_pilot: 'soil_context_only_not_soil_organism_protocol',
-    required_for_learner_completion: false,
-  }),
-  Object.freeze({
-    inventory_bucket: 'alternative_records',
-    topic_inventory_ref: 'soil-formation-and-properties',
-    record_id: 'soil-ru-pit',
-    canonical_url: 'https://www.opiq.ee/kit/269/chapter/15292',
-    canonical_source_id: 'grade-6-science',
-    book_id: '5k_loodusõpetus_koolibri_rus',
-    title: 'Почвенный разрез',
-    language: 'ru',
-    programme_type: 'unknown',
-    programme_type_evidence_status: 'ambiguous',
-    default_course_eligibility: 'unverified',
-    instructional_roles: ['practice_ru', 'data_interpretation'],
-    relationship_to_pilot: 'soil_context_only_not_soil_organism_protocol',
-    required_for_learner_completion: false,
-  }),
-]);
-
-const EXPECTED_TERMS = Object.freeze([
-  Object.freeze({ et: 'muld', ru: 'почва' }),
-  Object.freeze({ et: 'mullaorganism', ru: 'почвенный организм' }),
-  Object.freeze({ et: 'vaatlus', ru: 'наблюдение' }),
-  Object.freeze({ et: 'elupaik', ru: 'место обитания' }),
-  Object.freeze({ et: 'niiskus', ru: 'влажность' }),
-  Object.freeze({ et: 'lagundaja', ru: 'разрушитель органических остатков / редуцент' }),
-]);
-
-const STUDENT_FACING_PATHS = new Set([
-  `${PILOT_ROOT}/observation-table.md`,
-  `${PILOT_ROOT}/student-worksheet.md`,
-  `${PILOT_ROOT}/oral-support.md`,
-]);
-
-const INTERNAL_LEAK_PATTERNS = Object.freeze([
-  /gap_id/iu,
-  /mapping_id/iu,
-  /programme_type/iu,
-  /source_gap/iu,
-  /curriculum-maps\//iu,
-  /evaluations\//iu,
-  /project-files\//iu,
-  /teacher-work-plan-crosswalk/iu,
-]);
+const MANIFEST_PATH = 'source-manifest.json';
 
 function sha256(bytes) {
   return crypto.createHash('sha256').update(bytes).digest('hex');
@@ -217,6 +59,12 @@ function safeRepositoryPath(rootDir, repositoryPath) {
   return resolved;
 }
 
+function insideRoot(rootDir, repositoryPath, repositoryRoot) {
+  const resolved = safeRepositoryPath(rootDir, repositoryPath);
+  const expectedRoot = safeRepositoryPath(rootDir, repositoryRoot);
+  return resolved.startsWith(`${expectedRoot}${path.sep}`);
+}
+
 function parseStrictYaml(text, file) {
   if (text.includes('\t')) throw new Error(`${file}: invalid YAML: tabs are forbidden`);
   const document = parseDocument(text, {
@@ -235,21 +83,6 @@ function parseStrictYaml(text, file) {
   return document.toJS({ maxAliasCount: 0 });
 }
 
-async function walkForIndexes(root, relative = '') {
-  const directory = path.join(root, relative);
-  const entries = await fs.readdir(directory, { withFileTypes: true }).catch((error) => {
-    if (error.code === 'ENOENT') return [];
-    throw error;
-  });
-  const results = [];
-  for (const entry of entries.sort((a, b) => compareBytewise(a.name, b.name))) {
-    const next = relative ? `${relative}/${entry.name}` : entry.name;
-    if (entry.isDirectory()) results.push(...await walkForIndexes(root, next));
-    else if (entry.isFile() && entry.name === 'artifact-index.yaml') results.push(next);
-  }
-  return results;
-}
-
 async function readJson(rootDir, repositoryPath) {
   return JSON.parse(await fs.readFile(safeRepositoryPath(rootDir, repositoryPath), 'utf8'));
 }
@@ -257,6 +90,18 @@ async function readJson(rootDir, repositoryPath) {
 async function readYaml(rootDir, repositoryPath) {
   const text = await fs.readFile(safeRepositoryPath(rootDir, repositoryPath), 'utf8');
   return parseStrictYaml(text, repositoryPath);
+}
+
+async function readYamlEntry(rootDir, repositoryPath, overrides, loadDiagnostics) {
+  try {
+    const text = overrides.has(repositoryPath)
+      ? overrides.get(repositoryPath)
+      : await fs.readFile(safeRepositoryPath(rootDir, repositoryPath), 'utf8');
+    return { file: repositoryPath, text, data: parseStrictYaml(text, repositoryPath) };
+  } catch (error) {
+    loadDiagnostics.push(diagnostic(repositoryPath, '/', error.message));
+    return null;
+  }
 }
 
 export function computeTeacherWorkPlanArtifactFingerprint(materials) {
@@ -272,82 +117,107 @@ export async function loadTeacherWorkPlanReusableArtifactRepository({
   workPackages = null,
   artifactOverrides = new Map(),
   materialOverrides = new Map(),
+  registryText = null,
+  discoveredIndexPaths = null,
+  profiles = null,
 } = {}) {
   const root = path.resolve(rootDir);
-  const relativeIndexes = await walkForIndexes(path.join(root, REUSABLE_ARTIFACT_ROOT));
-  const indexPaths = relativeIndexes.map((entry) => `${REUSABLE_ARTIFACT_ROOT}/${entry}`);
-  const loadDiagnostics = [];
-  const artifacts = [];
-  for (const indexPath of indexPaths) {
-    try {
-      const text = artifactOverrides.has(indexPath)
-        ? artifactOverrides.get(indexPath)
-        : await fs.readFile(safeRepositoryPath(root, indexPath), 'utf8');
-      const data = parseStrictYaml(text, indexPath);
-      const materialBytes = new Map();
-      for (const material of data.materials ?? []) {
-        const bytes = materialOverrides.has(material.artifact_path)
-          ? Buffer.from(materialOverrides.get(material.artifact_path))
-          : await fs.readFile(safeRepositoryPath(root, material.artifact_path)).catch((error) => {
-            if (error.code === 'ENOENT') return null;
-            throw error;
-          });
-        materialBytes.set(material.artifact_path, bytes);
-      }
-      artifacts.push({ file: indexPath, text, data, materialBytes });
-    } catch (error) {
-      loadDiagnostics.push(diagnostic(indexPath, '/', error.message));
-    }
-  }
-
-  let reviewRegistry = null;
-  try {
-    const reviewText = artifactOverrides.has(REVIEW_REGISTRY_PATH)
-      ? artifactOverrides.get(REVIEW_REGISTRY_PATH)
-      : await fs.readFile(safeRepositoryPath(root, REVIEW_REGISTRY_PATH), 'utf8');
-    reviewRegistry = {
-      file: REVIEW_REGISTRY_PATH,
-      text: reviewText,
-      data: parseStrictYaml(reviewText, REVIEW_REGISTRY_PATH),
-    };
-  } catch (error) {
-    loadDiagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/', error.message));
-  }
-
   const resolvedGapReport = gapReport ?? await readJson(root, GAP_REPORT_PATH);
-  const workPackageRepository = workPackages
-    ? { artifact: workPackages, gapReport: resolvedGapReport, schema: await readJson(root, 'schemas/teacher-work-plan-work-packages.schema.json') }
-    : await loadTeacherWorkPlanWorkPackages({ rootDir: root, gapReport: resolvedGapReport, includeMarkdown: false });
-  const [schema, topicInventory, bookInventory, crosswalk, manifest, extraction, languageProfiles, canonicalMarkdown, pilotDirectoryFiles] = await Promise.all([
+  const registryRepository = await loadTeacherWorkPlanArtifactRegistry({
+    rootDir: root,
+    registryText: registryText ?? artifactOverrides.get(TEACHER_WORK_PLAN_ARTIFACT_REGISTRY_PATH) ?? null,
+    indexOverrides: artifactOverrides,
+    discoveredIndexPaths,
+    ...(profiles ? { profiles } : {}),
+    workPackages,
+    gapReport: resolvedGapReport,
+  });
+  const loadDiagnostics = [...registryRepository.loadDiagnostics];
+  const [schema, manifest, languageProfiles] = await Promise.all([
     readJson(root, REUSABLE_ARTIFACT_SCHEMA_PATH),
-    readYaml(root, TOPIC_INVENTORY_PATH),
-    readYaml(root, BOOK_INVENTORY_PATH),
-    readYaml(root, CROSSWALK_PATH),
     readJson(root, MANIFEST_PATH),
-    readJson(root, EXTRACTION_PATH),
     readYaml(root, LANGUAGE_PROFILE_PATH),
-    fs.readFile(safeRepositoryPath(root, CANONICAL_MARKDOWN_PATH), 'utf8'),
-    fs.readdir(safeRepositoryPath(root, PILOT_ROOT)).catch((error) => {
-      if (error.code === 'ENOENT') return [];
-      throw error;
-    }),
   ]);
+  const workPackageRepository = registryRepository.workPackageRepository;
+  if (workPackages && !workPackageRepository.schema) {
+    workPackageRepository.schema = await readJson(root, WORK_PACKAGE_SCHEMA_PATH);
+  }
+  const indexByPath = new Map(registryRepository.indexes.map((entry) => [entry.file, entry]));
+  const artifactContexts = [];
+  for (const registryEntry of registryRepository.registry?.data?.artifacts ?? []) {
+    const indexEntry = indexByPath.get(registryEntry.index_path) ?? null;
+    const profile = registryRepository.profiles?.[registryEntry.validation_profile_id] ?? null;
+    const route = (manifest.sources ?? []).find(({ id }) => id === registryEntry.route) ?? null;
+    if (!indexEntry || !profile || !route) {
+      artifactContexts.push({ registryEntry, profile, indexEntry, route });
+      continue;
+    }
+    const routeBase = `curriculum-maps/${registryEntry.route}`;
+    const paths = {
+      topicInventory: `${routeBase}/topic-inventory.yaml`,
+      bookInventory: `${routeBase}/book-inventory.yaml`,
+      crosswalk: `${routeBase}/teacher-work-plan-crosswalk.yaml`,
+      extraction: `evaluations/teacher-work-plans/${registryEntry.route}-extraction.json`,
+      canonicalMarkdown: route.md_path,
+      qa: route.qa_path,
+      reviewRegistry: registryEntry.review_registry_path,
+    };
+    let dependencies = null;
+    try {
+      const [topicInventory, bookInventory, crosswalk, extraction, canonicalMarkdown, qa, rootDirectoryFiles, reviewRegistry] = await Promise.all([
+        readYaml(root, paths.topicInventory),
+        readYaml(root, paths.bookInventory),
+        readYaml(root, paths.crosswalk),
+        readJson(root, paths.extraction),
+        fs.readFile(safeRepositoryPath(root, paths.canonicalMarkdown), 'utf8'),
+        paths.qa ? readJson(root, paths.qa) : Promise.resolve(null),
+        fs.readdir(safeRepositoryPath(root, registryEntry.root_path)).catch((error) => {
+          if (error.code === 'ENOENT') return [];
+          throw error;
+        }),
+        readYamlEntry(root, paths.reviewRegistry, artifactOverrides, loadDiagnostics),
+      ]);
+      dependencies = {
+        paths,
+        topicInventory,
+        bookInventory,
+        crosswalk,
+        extraction,
+        canonicalMarkdown,
+        qa,
+        rootDirectoryFiles: rootDirectoryFiles.sort(compareBytewise),
+        reviewRegistry,
+      };
+    } catch (error) {
+      loadDiagnostics.push(diagnostic(registryEntry.index_path, '/', error.message));
+    }
+    const materialBytes = new Map();
+    for (const material of indexEntry.data.materials ?? []) {
+      const bytes = materialOverrides.has(material.artifact_path)
+        ? Buffer.from(materialOverrides.get(material.artifact_path))
+        : await fs.readFile(safeRepositoryPath(root, material.artifact_path)).catch((error) => {
+          if (error.code === 'ENOENT') return null;
+          throw error;
+        });
+      materialBytes.set(material.artifact_path, bytes);
+    }
+    const artifactEntry = { ...indexEntry, materialBytes };
+    artifactContexts.push({ registryEntry, profile, indexEntry: artifactEntry, route, dependencies });
+  }
+  const artifacts = artifactContexts.filter(({ indexEntry }) => indexEntry).map(({ indexEntry }) => indexEntry);
   return {
     rootDir: root,
-    artifacts,
-    loadDiagnostics,
+    registryRepository,
+    registry: registryRepository.registry,
     schema,
     gapReport: resolvedGapReport,
     workPackageRepository,
-    topicInventory,
-    bookInventory,
-    crosswalk,
     manifest,
-    extraction,
     languageProfiles,
-    canonicalMarkdown,
-    reviewRegistry,
-    pilotDirectoryFiles: pilotDirectoryFiles.sort(compareBytewise),
+    artifactContexts,
+    artifacts,
+    artifactById: new Map(artifactContexts.map((context) => [context.registryEntry.artifact_id, context])),
+    loadDiagnostics,
   };
 }
 
@@ -355,9 +225,11 @@ function validateExact(diagnostics, file, field, actual, expected, reason) {
   if (!exactJson(actual, expected)) diagnostics.push(diagnostic(file, field, reason));
 }
 
-function allTopicRecords(topic) {
-  return ['selected_records', 'alternative_records', 'rejected_records'].flatMap((bucket) => (
-    (topic?.[bucket] ?? []).map((record) => ({ bucket, record }))
+function allTopicRecords(topicInventory) {
+  return (topicInventory.topics ?? []).flatMap((topic) => (
+    ['selected_records', 'alternative_records', 'rejected_records'].flatMap((bucket) => (
+      (topic?.[bucket] ?? []).map((record) => ({ topicId: topic.topic_id, bucket, record }))
+    ))
   ));
 }
 
@@ -365,100 +237,91 @@ function countOccurrences(text, needle) {
   return text.split(needle).length - 1;
 }
 
-function validateMaterialContent(diagnostics, entry) {
+function validateMaterialContent(diagnostics, context) {
+  const { indexEntry: entry, profile } = context;
   const file = entry.file;
-  for (const material of entry.data.materials ?? []) {
+  const studentPaths = new Set(profile.studentFacingPaths);
+  const allowedUrlPaths = new Set(profile.urlAllowedPaths);
+  for (const [index, material] of (entry.data.materials ?? []).entries()) {
     const materialPath = material.artifact_path;
     const bytes = entry.materialBytes.get(materialPath);
     if (bytes === null || bytes === undefined) {
-      diagnostics.push(diagnostic(file, `/materials/${material.material_id}`, `missing material ${materialPath}`));
+      diagnostics.push(diagnostic(file, `/materials/${index}`, `missing material ${materialPath}`));
       continue;
     }
     const text = bytes.toString('utf8');
     if (!Buffer.from(text, 'utf8').equals(bytes)) diagnostics.push(diagnostic(materialPath, '/', 'material must be valid UTF-8'));
     if (!text.endsWith('\n')) diagnostics.push(diagnostic(materialPath, '/', 'material must end with a newline'));
     if (text.includes('\t')) diagnostics.push(diagnostic(materialPath, '/', 'tabs are forbidden in material files'));
-    if (!materialPath.endsWith('.md')) diagnostics.push(diagnostic(file, '/materials', 'material must be Markdown'));
-    if (sha256(bytes) !== material.sha256) diagnostics.push(diagnostic(file, `/materials/${material.material_id}/sha256`, `stale hash for ${materialPath}`));
-
+    if (!materialPath.endsWith('.md')) diagnostics.push(diagnostic(file, `/materials/${index}/artifact_path`, 'material must be Markdown'));
+    if (sha256(bytes) !== material.sha256) diagnostics.push(diagnostic(file, `/materials/${index}/sha256`, `stale hash for ${materialPath}`));
     const urls = text.match(/https?:\/\/[^\s)\]>]+/gu) ?? [];
-    if (materialPath !== `${PILOT_ROOT}/teacher-guide.md` && urls.length > 0) {
-      diagnostics.push(diagnostic(materialPath, '/', 'URLs are allowed only in teacher-guide.md'));
-    }
+    if (!allowedUrlPaths.has(materialPath) && urls.length > 0) diagnostics.push(diagnostic(materialPath, '/', 'URLs are forbidden by the selected artifact profile'));
     for (const url of urls) {
-      if (!/^https:\/\/www\.opiq\.ee\/kit\/[0-9]+\/chapter\/[0-9]+$/iu.test(url)) {
-        diagnostics.push(diagnostic(materialPath, '/', `non-Opiq external URL is forbidden: ${url}`));
+      if (!/^https:\/\/www\.opiq\.ee\/kit\/[0-9]+\/chapter\/[0-9]+$/iu.test(url)) diagnostics.push(diagnostic(materialPath, '/', `non-Opiq external URL is forbidden: ${url}`));
+    }
+    if (studentPaths.has(materialPath)) {
+      for (const needle of profile.internalLeakPatterns) {
+        if (text.toLocaleLowerCase('en').includes(needle.toLocaleLowerCase('en'))) diagnostics.push(diagnostic(materialPath, '/', `student-facing internal analysis leakage matches ${needle}`));
       }
     }
-    if (STUDENT_FACING_PATHS.has(materialPath)) {
-      for (const pattern of INTERNAL_LEAK_PATTERNS) {
-        if (pattern.test(text)) diagnostics.push(diagnostic(materialPath, '/', `student-facing internal analysis leakage matches ${pattern}`));
-      }
-    }
   }
+  const materialText = new Map([...entry.materialBytes.entries()].map(([materialPath, bytes]) => [materialPath, bytes?.toString('utf8') ?? '']));
+  for (const rule of profile.materialContentRules) {
+    const text = materialText.get(rule.path) ?? '';
+    if (!rule.requiredStrings.every((value) => text.includes(value))) diagnostics.push(diagnostic(rule.path, '/', rule.description));
+  }
+  const guideText = materialText.get(profile.urlAllowedPaths[0]) ?? '';
+  const guideUrls = guideText.match(/https:\/\/www\.opiq\.ee\/kit\/[0-9]+\/chapter\/[0-9]+/gu) ?? [];
+  validateExact(diagnostics, profile.urlAllowedPaths[0], '/urls', guideUrls, profile.contextRecords.map(({ canonical_url }) => canonical_url), 'profile URL-bearing material must contain exactly the registered context URLs in order');
 }
 
-function hasEvery(text, values) {
-  return values.every((value) => text.includes(value));
-}
-
-export function validateTeacherWorkPlanReusableArtifactRepository(repository) {
-  const diagnostics = [...(repository.loadDiagnostics ?? [])];
-  const file = repository.artifacts[0]?.file ?? INDEX_PATH;
-  if (!exactJson(repository.artifacts.map((entry) => entry.file), [INDEX_PATH])) {
-    diagnostics.push(diagnostic(REUSABLE_ARTIFACT_ROOT, '/', `expected exactly one artifact index at ${INDEX_PATH}`));
+function validateArtifactContext(diagnostics, repository, context, schemaValidate) {
+  const { registryEntry, profile, indexEntry, route, dependencies } = context;
+  const file = indexEntry?.file ?? registryEntry.index_path;
+  if (!indexEntry) diagnostics.push(diagnostic(file, '/', 'registered artifact index is missing'));
+  if (!profile) diagnostics.push(diagnostic(file, '/', `registered validation profile is missing for ${registryEntry.artifact_id}`));
+  if (!route) diagnostics.push(diagnostic(file, '/canonical_route/source_id', `registered source route ${registryEntry.route} is missing from source manifest`));
+  if (!dependencies) diagnostics.push(diagnostic(file, '/', 'registered route-local artifact dependencies could not be loaded'));
+  if (!indexEntry || !profile || !route || !dependencies) return;
+  const artifact = indexEntry.data;
+  if (!schemaValidate(artifact)) {
+    for (const error of schemaValidate.errors ?? []) diagnostics.push(diagnostic(file, error.instancePath || '/', schemaReason(error)));
   }
-  if (!exactJson(repository.pilotDirectoryFiles, EXPECTED_FILES)) {
-    diagnostics.push(diagnostic(PILOT_ROOT, '/', `pilot directory must contain exactly ${EXPECTED_FILES.join(', ')}`));
-  }
+  validateExact(diagnostics, profile.rootPath, '/', dependencies.rootDirectoryFiles, profile.expectedRootEntries, 'artifact root contents differ from the selected validation profile');
+  validateExact(diagnostics, file, '/artifact_id', artifact.artifact_id, registryEntry.artifact_id, 'artifact ID differs from central registry');
+  validateExact(diagnostics, file, '/package_id', artifact.package_id, registryEntry.package_id, 'package ID differs from central registry');
+  validateExact(diagnostics, file, '/identity', {
+    grade: artifact.identity?.grade,
+    subject: artifact.identity?.subject,
+    subjectEt: artifact.identity?.subject_et,
+  }, profile.identity, 'artifact identity differs from selected profile');
+  validateExact(diagnostics, file, '/canonical_route', artifact.canonical_route, {
+    source_id: route.id,
+    md_path: route.md_path,
+    source_archive: route.source_archive,
+    qa_path: route.qa_path,
+    record_count: route.record_count,
+    coverage_status: route.coverage_status,
+  }, 'canonical route must exactly match source manifest');
 
-  const workPackageValidation = validateTeacherWorkPlanWorkPackages(
-    repository.workPackageRepository.artifact,
-    { schema: repository.workPackageRepository.schema, gapReport: repository.gapReport },
-  );
-  for (const problem of workPackageValidation.diagnostics) {
-    diagnostics.push(diagnostic(problem.file, problem.field, `work-package dependency: ${problem.reason}`));
-  }
-
-  const artifactEntry = repository.artifacts[0];
-  if (!artifactEntry) {
-    diagnostics.sort((a, b) => compareBytewise(`${a.file}\0${a.field}\0${a.reason}`, `${b.file}\0${b.field}\0${b.reason}`));
-    return { diagnostics, summary: { artifacts: 0, source_gaps_supported: 0, materials: 0, opiq_context_records: 0 } };
-  }
-  const artifact = artifactEntry.data;
-  const ajv = new Ajv2020({ allErrors: true, strict: true, validateFormats: false });
-  const validate = ajv.compile(repository.schema);
-  if (!validate(artifact)) {
-    for (const error of validate.errors ?? []) diagnostics.push(diagnostic(file, error.instancePath || '/', schemaReason(error)));
-  }
-
-  const sourceRoute = (repository.manifest.sources ?? []).find(({ id }) => id === 'grade-6-science');
-  validateExact(diagnostics, file, '/canonical_route', artifact.canonical_route, sourceRoute && {
-    source_id: sourceRoute.id,
-    md_path: sourceRoute.md_path,
-    source_archive: sourceRoute.source_archive,
-    qa_path: sourceRoute.qa_path,
-    record_count: sourceRoute.record_count,
-    coverage_status: sourceRoute.coverage_status,
-  }, 'canonical route must exactly match the source manifest');
-
-  const pilotPackage = (repository.workPackageRepository.artifact.work_packages ?? [])
-    .find(({ package_id }) => package_id === 'grade-6-science-soil-organisms');
-  const expectedPackageLink = pilotPackage && {
+  const workPackage = (repository.workPackageRepository.artifact.work_packages ?? [])
+    .find(({ package_id }) => package_id === registryEntry.package_id);
+  const expectedPackageLink = workPackage && {
     review_id: repository.workPackageRepository.artifact.review_id,
     review_path: 'evaluations/teacher-work-plans/grades-5-7-priority-work-packages.yaml',
-    package_id: pilotPackage.package_id,
-    authoring_status: pilotPackage.authoring_status,
-    priority_tier: pilotPackage.priority_tier,
-    selected_as_first_pilot: pilotPackage.selected_as_first_pilot,
-    planned_root_path: pilotPackage.planned_root_path,
-    proposed_deliverables: pilotPackage.proposed_deliverables,
+    package_id: workPackage.package_id,
+    authoring_status: workPackage.authoring_status,
+    priority_tier: workPackage.priority_tier,
+    selected_as_first_pilot: workPackage.selected_as_first_pilot,
+    planned_root_path: workPackage.planned_root_path,
+    proposed_deliverables: workPackage.proposed_deliverables,
   };
-  validateExact(diagnostics, file, '/source_work_package', artifact.source_work_package, expectedPackageLink, 'source work-package linkage must match the selected P0 registry entry');
+  validateExact(diagnostics, file, '/source_work_package', artifact.source_work_package, expectedPackageLink, 'source work-package linkage must match the registered package');
 
   const gapById = new Map((repository.gapReport.gap_items ?? []).map((gap) => [gap.gap_id, gap]));
-  const gapSnapshots = EXPECTED_GAPS.map((expected) => {
-    const gap = gapById.get(expected.gap_id);
+  const gapSnapshots = profile.sourceGaps.map(({ gap_id }) => {
+    const gap = gapById.get(gap_id);
     return gap && {
       gap_id: gap.gap_id,
       mapping_id: gap.mapping_id,
@@ -473,146 +336,151 @@ export function validateTeacherWorkPlanReusableArtifactRepository(repository) {
       topic_inventory_refs: gap.topic_inventory_refs,
     };
   });
-  validateExact(diagnostics, file, '/source_gaps', artifact.source_gaps, gapSnapshots, 'source gap snapshots must match the two current missing gap-report entries');
-  validateExact(diagnostics, file, '/source_gaps', gapSnapshots, EXPECTED_GAPS, 'production source gaps must remain exact lessons 8 and 9 with missing status');
-  const crosswalkMappings = new Map((repository.crosswalk.lesson_range_mappings ?? []).map((mapping) => [mapping.mapping_id, mapping]));
-  for (const expected of EXPECTED_GAPS) {
-    const mapping = crosswalkMappings.get(expected.mapping_id);
-    if (!mapping || mapping.coverage_status !== 'missing' || (mapping.opiq_matches ?? []).length !== 0) {
-      diagnostics.push(diagnostic(CROSSWALK_PATH, `/lesson_range_mappings/${expected.mapping_id}`, 'pilot source gap must remain missing with no positive Opiq match in the production crosswalk'));
-    }
+  validateExact(diagnostics, file, '/source_gaps', artifact.source_gaps, gapSnapshots, 'source-gap snapshots must match the current gap report');
+  validateExact(diagnostics, file, '/source_gaps', gapSnapshots, profile.sourceGaps, 'source gaps differ from the selected validation profile');
+  const mappings = new Map([
+    ...(dependencies.crosswalk.lesson_range_mappings ?? []),
+    ...(dependencies.crosswalk.unnumbered_source_mappings ?? []),
+  ].map((mapping) => [mapping.mapping_id, mapping]));
+  for (const expected of profile.sourceGaps) {
+    const mapping = mappings.get(expected.mapping_id);
+    if (!mapping || mapping.coverage_status !== expected.coverage_status || (mapping.opiq_matches ?? []).length !== 0) diagnostics.push(diagnostic(
+      dependencies.paths.crosswalk,
+      `/mappings/${expected.mapping_id}`,
+      'artifact source gap must retain its registered status and positive Opiq-match boundary',
+    ));
   }
 
-  const extraction = repository.extraction;
+  const extraction = dependencies.extraction;
   validateExact(diagnostics, file, '/teacher_plan_source', artifact.teacher_plan_source, {
-    extraction_path: EXTRACTION_PATH,
+    extraction_path: dependencies.paths.extraction,
     source_pdf_path: extraction.source.repository_path,
     original_filename: extraction.source.original_filename,
     source_sha256: extraction.source.sha256,
     source_page_count: extraction.source.page_count,
-    relevant_source_pages: [3, 4],
+    relevant_source_pages: profile.teacherPlanRelevantPages,
     provenance_kind: extraction.source.provenance_kind,
     canonical: extraction.source.canonical,
-  }, 'teacher-plan provenance must match the exact Grade 6 extraction');
+  }, 'teacher-plan provenance must match the exact route extraction and profile pages');
+  const languageProfile = (repository.languageProfiles.profiles ?? [])
+    .find(({ profile_id }) => profile_id === artifact.learner_language_profile?.profile_id);
+  if (!languageProfile
+    || languageProfile.profile_id !== profile.languageProfile.profileId
+    || languageProfile.grade !== profile.languageProfile.grade
+    || languageProfile.subject !== profile.languageProfile.subject
+    || languageProfile.learner_language_level !== profile.languageProfile.learnerLanguageLevel) diagnostics.push(diagnostic(file, '/learner_language_profile', 'language profile is missing or differs from the selected validation profile'));
+  validateExact(diagnostics, file, '/language_support/productive_terms', artifact.language_support?.productive_terms, profile.productiveTerms, 'productive terms differ from the selected validation profile');
 
-  const profile = (repository.languageProfiles.profiles ?? [])
-    .find(({ profile_id }) => profile_id === 'grade-6-science-a2-default');
-  if (!profile || profile.grade !== 6 || profile.subject !== 'science' || profile.learner_language_level !== 'A2') {
-    diagnostics.push(diagnostic(file, '/learner_language_profile', 'Grade 6 science A2 profile is missing or inconsistent'));
-  }
-  validateExact(diagnostics, file, '/language_support/productive_terms', artifact.language_support?.productive_terms, EXPECTED_TERMS, 'productive language support must contain the exact six terms in order');
-
-  const soilTopic = (repository.topicInventory.topics ?? [])
-    .find(({ topic_id }) => topic_id === 'soil-formation-and-properties');
-  const registered = new Map(allTopicRecords(soilTopic).map(({ bucket, record }) => [record.record_id, { bucket, record }]));
-  for (const [index, context] of (artifact.opiq_context_records ?? []).entries()) {
-    const inventory = registered.get(context.record_id);
-    if (!inventory) diagnostics.push(diagnostic(file, `/opiq_context_records/${index}/record_id`, 'unknown topic-inventory record'));
+  const registeredRecords = new Map(allTopicRecords(dependencies.topicInventory).map((entry) => [entry.record.record_id, entry]));
+  for (const [index, contextRecord] of (artifact.opiq_context_records ?? []).entries()) {
+    const inventory = registeredRecords.get(contextRecord.record_id);
+    if (!inventory) diagnostics.push(diagnostic(file, `/opiq_context_records/${index}/record_id`, 'unknown route-local topic-inventory record'));
     else {
-      validateExact(diagnostics, file, `/opiq_context_records/${index}/inventory_bucket`, context.inventory_bucket, inventory.bucket, 'context record bucket differs from topic inventory');
-      const expectedRecord = EXPECTED_CONTEXT[index];
-      validateExact(diagnostics, file, `/opiq_context_records/${index}`, context, expectedRecord, 'optional context record differs from exact production contract');
+      if (inventory.bucket === 'rejected_records') diagnostics.push(diagnostic(file, `/opiq_context_records/${index}`, 'rejected record cannot be optional context evidence'));
+      if (inventory.topicId !== contextRecord.topic_inventory_ref) diagnostics.push(diagnostic(file, `/opiq_context_records/${index}/topic_inventory_ref`, 'context topic differs from route-local inventory'));
+      if (inventory.bucket !== contextRecord.inventory_bucket) diagnostics.push(diagnostic(file, `/opiq_context_records/${index}/inventory_bucket`, 'context bucket differs from route-local inventory'));
       for (const fieldName of ['record_id', 'canonical_url', 'canonical_source_id', 'book_id', 'title', 'language', 'programme_type', 'instructional_roles']) {
-        if (!exactJson(context[fieldName], inventory.record[fieldName])) diagnostics.push(diagnostic(file, `/opiq_context_records/${index}/${fieldName}`, `metadata differs from topic inventory for ${context.record_id}`));
+        if (!exactJson(contextRecord[fieldName], inventory.record[fieldName])) diagnostics.push(diagnostic(file, `/opiq_context_records/${index}/${fieldName}`, `metadata differs from route-local inventory for ${contextRecord.record_id}`));
       }
-      if (inventory.bucket === 'rejected_records') diagnostics.push(diagnostic(file, `/opiq_context_records/${index}`, 'rejected record cannot be optional positive context'));
     }
-    if (context.instructional_roles?.includes('oral_answer_et')) diagnostics.push(diagnostic(file, `/opiq_context_records/${index}/instructional_roles`, 'oral_answer_et is not available for pilot context'));
-    if (countOccurrences(repository.canonicalMarkdown, context.canonical_url) !== 1) diagnostics.push(diagnostic(file, `/opiq_context_records/${index}/canonical_url`, 'context URL must occur exactly once in canonical Markdown'));
-    const book = (repository.bookInventory.books ?? []).find(({ book_id }) => book_id === context.book_id);
-    if (!book || book.programme_type !== context.programme_type || book.programme_type_evidence?.status !== context.programme_type_evidence_status || book.eligible_for_ordinary_course !== false) {
-      diagnostics.push(diagnostic(file, `/opiq_context_records/${index}`, 'programme evidence or eligibility differs from exact book inventory'));
-    }
+    if (countOccurrences(dependencies.canonicalMarkdown, contextRecord.canonical_url) !== 1) diagnostics.push(diagnostic(file, `/opiq_context_records/${index}/canonical_url`, 'context URL must occur exactly once in route canonical Markdown'));
+    const book = (dependencies.bookInventory.books ?? []).find(({ book_id }) => book_id === contextRecord.book_id);
+    if (!book
+      || book.programme_type !== contextRecord.programme_type
+      || book.programme_type_evidence?.status !== contextRecord.programme_type_evidence_status
+      || book.eligible_for_ordinary_course !== false) diagnostics.push(diagnostic(file, `/opiq_context_records/${index}`, 'programme evidence or eligibility differs from route-local book inventory'));
+    if (contextRecord.required_for_learner_completion !== false) diagnostics.push(diagnostic(file, `/opiq_context_records/${index}/required_for_learner_completion`, 'Opiq context cannot be required for learner completion'));
   }
-  validateExact(diagnostics, file, '/opiq_context_records', artifact.opiq_context_records, EXPECTED_CONTEXT, 'expected exact four optional context records in selected/alternative order');
+  validateExact(diagnostics, file, '/opiq_context_records', artifact.opiq_context_records, profile.contextRecords, 'context records differ from selected validation profile');
 
-  validateExact(diagnostics, file, '/materials/capability', (artifact.materials ?? []).map(({ capability }) => capability), EXPECTED_CAPABILITIES, 'material capabilities must match the exact seven-item order');
-  validateExact(diagnostics, file, '/materials/artifact_path', (artifact.materials ?? []).map(({ artifact_path }) => artifact_path), EXPECTED_MATERIAL_PATHS, 'material paths must match the exact seven-item order');
-  if (new Set((artifact.materials ?? []).map(({ capability }) => capability)).size !== artifact.materials?.length) diagnostics.push(diagnostic(file, '/materials', 'duplicate material capability'));
+  const capabilities = (artifact.materials ?? []).map(({ capability }) => capability);
+  const materialPaths = (artifact.materials ?? []).map(({ artifact_path }) => artifact_path);
+  validateExact(diagnostics, file, '/materials/capability', capabilities, profile.capabilities, 'material capabilities differ from selected validation profile');
+  validateExact(diagnostics, file, '/materials/artifact_path', materialPaths, profile.materialPaths, 'material paths differ from selected validation profile');
+  if (workPackage && !exactJson(capabilities, workPackage.proposed_deliverables)) diagnostics.push(diagnostic(file, '/materials/capability', 'material capabilities differ from work-package deliverables'));
+  if (new Set(capabilities).size !== capabilities.length) diagnostics.push(diagnostic(file, '/materials', 'duplicate material capability'));
   for (const [index, material] of (artifact.materials ?? []).entries()) {
     try {
-      const resolved = safeRepositoryPath(repository.rootDir, material.artifact_path);
-      const pilot = safeRepositoryPath(repository.rootDir, PILOT_ROOT);
-      if (!resolved.startsWith(`${pilot}${path.sep}`)) diagnostics.push(diagnostic(file, `/materials/${index}/artifact_path`, 'material path must stay inside the pilot root'));
+      if (!insideRoot(repository.rootDir, material.artifact_path, registryEntry.root_path)) diagnostics.push(diagnostic(file, `/materials/${index}/artifact_path`, 'material path must stay inside the registered artifact root'));
     } catch (error) {
       diagnostics.push(diagnostic(file, `/materials/${index}/artifact_path`, error.message));
     }
-    const shouldLinkAnswer = ['observation_table', 'student_worksheet'].includes(material.capability);
-    const expectedAnswer = shouldLinkAnswer ? `${PILOT_ROOT}/answer-key.md` : undefined;
-    if (material.answer_key_path !== expectedAnswer) diagnostics.push(diagnostic(file, `/materials/${index}/answer_key_path`, shouldLinkAnswer ? 'observation table and worksheet must point to answer-key.md' : 'answer-key path is allowed only on observation table and worksheet'));
+    const expectedAnswer = profile.answerKeyLinks[material.capability];
+    if (material.answer_key_path !== expectedAnswer) diagnostics.push(diagnostic(file, `/materials/${index}/answer_key_path`, expectedAnswer ? 'material must point to its profile-declared answer key' : 'answer-key path is not declared for this capability'));
   }
-  validateMaterialContent(diagnostics, artifactEntry);
+  validateMaterialContent(diagnostics, context);
   const expectedFingerprint = computeTeacherWorkPlanArtifactFingerprint(artifact.materials ?? []);
   if (artifact.content_fingerprint?.value !== expectedFingerprint) diagnostics.push(diagnostic(file, '/content_fingerprint/value', 'aggregate content fingerprint is stale'));
+  if (artifact.content_fingerprint?.value !== registryEntry.content_fingerprint) diagnostics.push(diagnostic(file, '/content_fingerprint/value', 'aggregate fingerprint differs from central registry'));
 
-const expectedHumanReview = {
-    registry_path: REVIEW_REGISTRY_PATH,
+  const expectedHumanReview = {
+    registry_path: registryEntry.review_registry_path,
     teacher_review: { status: 'pending', completed_record_path: null },
     local_safety_review: { status: 'pending', completed_record_path: null },
     classroom_trial: {
       workflow_created: true,
-      template_path: `${PILOT_ROOT}/reviews/classroom-trial-template.yaml`,
+      template_path: registryEntry.classroom_trial_template_path,
       status: 'not_tested',
       completed_record_path: null,
     },
     reviewed_content_fingerprint: null,
   };
-  validateExact(diagnostics, file, '/human_review', artifact.human_review, expectedHumanReview, 'human review must link the exact pending registry without completed evidence');
-  const reviewRegistry = repository.reviewRegistry?.data;
-  if (!reviewRegistry) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/', 'pending human-review registry is missing'));
+  validateExact(diagnostics, file, '/human_review', artifact.human_review, expectedHumanReview, 'human-review linkage differs from registry or pending evidence state');
+  const reviewRegistry = dependencies.reviewRegistry?.data;
+  if (!reviewRegistry) diagnostics.push(diagnostic(registryEntry.review_registry_path, '/', 'registered review registry is missing'));
   else {
-    validateExact(diagnostics, REVIEW_REGISTRY_PATH, '/artifact_id', reviewRegistry.artifact_id, artifact.artifact_id, 'review registry must reference the reusable artifact');
-    validateExact(diagnostics, REVIEW_REGISTRY_PATH, '/artifact_index_path', reviewRegistry.artifact_index_path, INDEX_PATH, 'review registry must reference the exact artifact index');
-    validateExact(diagnostics, REVIEW_REGISTRY_PATH, '/content_fingerprint', reviewRegistry.content_fingerprint, artifact.content_fingerprint?.value, 'review registry must pin the current material fingerprint');
-    validateExact(diagnostics, REVIEW_REGISTRY_PATH, '/classroom_trial/template_path', reviewRegistry.classroom_trial?.template_path, `${PILOT_ROOT}/reviews/classroom-trial-template.yaml`, 'review registry must link the exact classroom-trial template');
+    if (reviewRegistry.artifact_id !== artifact.artifact_id) diagnostics.push(diagnostic(registryEntry.review_registry_path, '/artifact_id', 'review registry references another artifact'));
+    if (reviewRegistry.artifact_index_path !== registryEntry.index_path) diagnostics.push(diagnostic(registryEntry.review_registry_path, '/artifact_index_path', 'review registry references another index'));
+    if (reviewRegistry.content_fingerprint !== artifact.content_fingerprint?.value) diagnostics.push(diagnostic(registryEntry.review_registry_path, '/content_fingerprint', 'review registry fingerprint is stale'));
+    if (reviewRegistry.classroom_trial?.template_path !== registryEntry.classroom_trial_template_path) diagnostics.push(diagnostic(registryEntry.review_registry_path, '/classroom_trial/template_path', 'review registry trial template differs from central registry'));
     if (reviewRegistry.teacher_review?.status !== 'pending'
       || reviewRegistry.local_safety_review?.status !== 'pending'
       || reviewRegistry.classroom_trial?.status !== 'not_tested'
       || (reviewRegistry.teacher_review?.completed_record_paths ?? []).length !== 0
       || (reviewRegistry.local_safety_review?.completed_record_paths ?? []).length !== 0
-      || (reviewRegistry.classroom_trial?.completed_record_paths ?? []).length !== 0) {
-      diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/', 'review registry must remain pending with no completed human evidence or classroom trial'));
-    }
-    if (reviewRegistry.boundaries?.classroom_trial_workflow_created !== true) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/boundaries/classroom_trial_workflow_created', 'classroom-trial workflow must be registered without implying evidence'));
-    for (const flag of ['review_complete', 'local_safety_review_complete', 'classroom_trial_complete', 'classroom_ready', 'publication_ready', 'customer_released', 'effectiveness_claimed']) {
-      if (reviewRegistry.boundaries?.[flag] !== false) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, `/boundaries/${flag}`, `${flag} cannot be promoted`));
-    }
+      || (reviewRegistry.classroom_trial?.completed_record_paths ?? []).length !== 0) diagnostics.push(diagnostic(registryEntry.review_registry_path, '/', 'production review workflow must remain pending with zero completed evidence records'));
   }
-
-  const materialText = new Map([...artifactEntry.materialBytes.entries()].map(([materialPath, bytes]) => [materialPath, bytes?.toString('utf8') ?? '']));
-  const guideUrls = (materialText.get(`${PILOT_ROOT}/teacher-guide.md`) ?? '')
-    .match(/https:\/\/www\.opiq\.ee\/kit\/[0-9]+\/chapter\/[0-9]+/gu) ?? [];
-  validateExact(diagnostics, `${PILOT_ROOT}/teacher-guide.md`, '/urls', guideUrls, EXPECTED_CONTEXT.map(({ canonical_url }) => canonical_url), 'teacher guide must contain exactly the four registered optional Opiq context URLs in order');
-  const protocol = materialText.get(`${PILOT_ROOT}/practical-protocol.md`) ?? '';
-  const observation = materialText.get(`${PILOT_ROOT}/observation-table.md`) ?? '';
-  const answer = materialText.get(`${PILOT_ROOT}/answer-key.md`) ?? '';
-  const rubric = materialText.get(`${PILOT_ROOT}/assessment-rubric.md`) ?? '';
-  const oral = materialText.get(`${PILOT_ROOT}/oral-support.md`) ?? '';
-  if (!hasEvery(protocol, ['25 × 25', 'одинаковой площади', 'одинаковом времени', 'верхних 2 см', 'Indoor fallback', 'возвращает организмы', 'вымыть руки'])) diagnostics.push(diagnostic(`${PILOT_ROOT}/practical-protocol.md`, '/', 'protocol is missing an exact area/time, low-impact, fallback, return, or hygiene guard'));
-  if (!hasEvery(observation, ['Определение до вида не требуется', 'Одинаковая площадь', 'Одинаковое время', 'не доказывает причину', 'вернули организмы'])) diagnostics.push(diagnostic(`${PILOT_ROOT}/observation-table.md`, '/', 'observation table is missing comparison or scientific-limit guards'));
-  if (!hasEvery(answer, ['Полный модельный ответ по-русски', 'не оценивает всю популяцию или биоразнообразие', 'не доказывает причину', 'фиксированных «правильных» полевых чисел нет'])) diagnostics.push(diagnostic(`${PILOT_ROOT}/answer-key.md`, '/', 'answer key is missing full Russian answer or variable-count limitations'));
-  if (!hasEvery(rubric, ['Safety gate', 'Предметное знание', 'Исследовательская процедура', 'Качество данных', 'Сравнение и заключение', 'Групповое сообщение', 'Эстонская языковая поддержка', 'не вычитается из предметного результата'])) diagnostics.push(diagnostic(`${PILOT_ROOT}/assessment-rubric.md`, '/', 'rubric does not separate required evidence dimensions'));
-  if (!hasEvery(oral, EXPECTED_TERMS.map(({ et }) => et)) || !oral.includes('3–5')) diagnostics.push(diagnostic(`${PILOT_ROOT}/oral-support.md`, '/', 'oral support must include exact six terms and a 3–5 sentence output'));
-
-  if (artifact.readiness?.teacher_review?.status !== 'pending' || artifact.readiness?.local_safety_review?.status !== 'pending' || artifact.readiness?.classroom_trial?.status !== 'not_tested') diagnostics.push(diagnostic(file, '/readiness', 'teacher and safety reviews must remain pending and classroom trial not tested'));
+  if (artifact.readiness?.teacher_review?.status !== 'pending'
+    || artifact.readiness?.local_safety_review?.status !== 'pending'
+    || artifact.readiness?.classroom_trial?.status !== 'not_tested') diagnostics.push(diagnostic(file, '/readiness', 'review states must remain pending and classroom trial not tested'));
   for (const flag of ['classroom_ready', 'publication_ready', 'customer_released', 'effectiveness_claimed']) {
     if (artifact.readiness?.[flag] !== false) diagnostics.push(diagnostic(file, `/readiness/${flag}`, `${flag} cannot be promoted`));
   }
-  if (artifact.source_gap_support?.source_gap_resolution_claimed !== false || artifact.source_gap_support?.canonical_opiq_gap_status_unchanged !== true) diagnostics.push(diagnostic(file, '/source_gap_support', 'independently authored support cannot change or resolve canonical Opiq gap status'));
+  if (artifact.source_gap_support?.source_gap_resolution_claimed !== false
+    || artifact.source_gap_support?.canonical_opiq_gap_status_unchanged !== true
+    || artifact.source_gap_support?.official_curriculum_complete !== false
+    || artifact.source_gap_support?.annual_architecture_created !== false
+    || artifact.source_gap_support?.default_course_selection_complete !== false
+    || artifact.source_gap_support?.live_catalogue_complete !== false) diagnostics.push(diagnostic(file, '/source_gap_support', 'reusable support cannot promote canonical gaps, curriculum, annual architecture, default-course selection or live catalogue completeness'));
+}
 
+export function validateTeacherWorkPlanReusableArtifactRepository(repository) {
+  const diagnostics = [...(repository.loadDiagnostics ?? [])];
+  const registryValidation = validateTeacherWorkPlanArtifactRegistry(repository.registryRepository);
+  for (const problem of registryValidation.diagnostics) diagnostics.push(diagnostic(problem.file, problem.field, `artifact-registry dependency: ${problem.reason}`));
+  const workPackageValidation = validateTeacherWorkPlanWorkPackages(
+    repository.workPackageRepository.artifact,
+    { schema: repository.workPackageRepository.schema, gapReport: repository.gapReport },
+  );
+  for (const problem of workPackageValidation.diagnostics) diagnostics.push(diagnostic(problem.file, problem.field, `work-package dependency: ${problem.reason}`));
+  const ajv = new Ajv2020({ allErrors: true, strict: true, validateFormats: false });
+  const validate = ajv.compile(repository.schema);
+  for (const context of repository.artifactContexts) validateArtifactContext(diagnostics, repository, context, validate);
   diagnostics.sort((a, b) => compareBytewise(`${a.file}\0${a.field}\0${a.reason}`, `${b.file}\0${b.field}\0${b.reason}`));
+  const artifacts = repository.artifactContexts.map(({ indexEntry }) => indexEntry?.data).filter(Boolean);
   return {
     diagnostics,
     summary: {
-      artifacts: repository.artifacts.length,
-      source_gaps_supported: artifact.source_gap_support?.supported_gap_ids?.length ?? 0,
-      materials: artifact.materials?.length ?? 0,
-      opiq_context_records: artifact.opiq_context_records?.length ?? 0,
-      fingerprint: artifact.content_fingerprint?.value ?? null,
-      canonical_gap_statuses_unchanged: artifact.source_gap_support?.canonical_opiq_gap_status_unchanged === true,
-      review_registry: repository.reviewRegistry ? 1 : 0,
-      completed_review_records: (repository.reviewRegistry?.data?.teacher_review?.completed_record_paths?.length ?? 0)
-        + (repository.reviewRegistry?.data?.local_safety_review?.completed_record_paths?.length ?? 0),
+      artifacts: artifacts.length,
+      source_gaps_supported: artifacts.reduce((total, artifact) => total + (artifact.source_gap_support?.supported_gap_ids?.length ?? 0), 0),
+      materials: artifacts.reduce((total, artifact) => total + (artifact.materials?.length ?? 0), 0),
+      opiq_context_records: artifacts.reduce((total, artifact) => total + (artifact.opiq_context_records?.length ?? 0), 0),
+      fingerprints: Object.fromEntries(artifacts.map((artifact) => [artifact.artifact_id, artifact.content_fingerprint?.value ?? null])),
+      canonical_gap_statuses_unchanged: artifacts.every((artifact) => artifact.source_gap_support?.canonical_opiq_gap_status_unchanged === true),
+      review_registries: repository.artifactContexts.filter(({ dependencies }) => dependencies?.reviewRegistry).length,
+      completed_review_records: repository.artifactContexts.reduce((total, { dependencies }) => total
+        + (dependencies?.reviewRegistry?.data?.teacher_review?.completed_record_paths?.length ?? 0)
+        + (dependencies?.reviewRegistry?.data?.local_safety_review?.completed_record_paths?.length ?? 0), 0),
     },
   };
 }

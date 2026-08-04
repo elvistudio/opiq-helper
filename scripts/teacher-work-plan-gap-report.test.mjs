@@ -148,6 +148,16 @@ test('semantic review and one internal-draft reusable implementation are exact',
     canonical_gap_status_unchanged: true,
     source_gap_resolution_claimed: false,
   });
+  assert.deepEqual(report.authoring_queue, {
+    selected_next_package_id: 'grade-6-science-photosynthesis',
+    selected_next_package_status: 'selected_not_started',
+    selected_next_gap_ids: ['grade-6-science-lesson-016'],
+    selected_next_planned_root: 'teacher-work-plan-artifacts/grade-6-science/photosynthesis',
+    selected_next_material_count: 0,
+    selected_next_review_workflow_created: false,
+    selected_next_trial_workflow_created: false,
+    source_gap_resolution_claimed: false,
+  });
   assert.equal(report.boundaries.reusable_teaching_artifacts_created, true);
   assert.equal(report.completeness.reusable_artifact_backlog_complete, false);
 });

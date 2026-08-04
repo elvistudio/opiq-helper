@@ -89,7 +89,9 @@ test('ready, blocked and multi-gap accounting is exact', () => {
     blocked_teacher_review_count: 3,
     multi_gap_package_count: 1,
     selected_pilot_package_id: 'grade-6-science-soil-organisms',
+    next_authoring_package_id: 'grade-6-science-photosynthesis',
   });
+  assert.deepEqual(artifact.authoring_queue, teacherWorkPlanWorkPackageContracts.authoringQueue);
   assert.deepEqual(
     artifact.work_packages.filter(({ authoring_status }) => authoring_status === 'blocked_teacher_review')
       .map(({ package_id }) => package_id),

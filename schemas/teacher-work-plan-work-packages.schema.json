@@ -14,6 +14,7 @@
     "architecture_decision",
     "summary",
     "implementation_summary",
+    "authoring_queue",
     "work_packages",
     "completeness"
   ],
@@ -27,6 +28,7 @@
     "architecture_decision": { "$ref": "#/$defs/architectureDecision" },
     "summary": { "$ref": "#/$defs/summary" },
     "implementation_summary": { "$ref": "#/$defs/implementationSummary" },
+    "authoring_queue": { "$ref": "#/$defs/authoringQueue" },
     "work_packages": {
       "type": "array",
       "minItems": 16,
@@ -189,7 +191,8 @@
         "ready_for_authoring_count",
         "blocked_teacher_review_count",
         "multi_gap_package_count",
-        "selected_pilot_package_id"
+        "selected_pilot_package_id",
+        "next_authoring_package_id"
       ],
       "properties": {
         "priority_gap_count": { "const": 17 },
@@ -199,6 +202,9 @@
         "multi_gap_package_count": { "const": 1 },
         "selected_pilot_package_id": {
           "const": "grade-6-science-soil-organisms"
+        },
+        "next_authoring_package_id": {
+          "const": "grade-6-science-photosynthesis"
         }
       }
     },
@@ -221,6 +227,8 @@
         "classroom_trial_template_count",
         "completed_classroom_trial_record_count",
         "classroom_trial_not_tested_count",
+        "next_selected_package_id",
+        "next_selected_package_status",
         "source_gap_resolution_claimed"
       ],
       "properties": {
@@ -241,6 +249,62 @@
         "classroom_trial_template_count": { "const": 1 },
         "completed_classroom_trial_record_count": { "const": 0 },
         "classroom_trial_not_tested_count": { "const": 1 },
+        "next_selected_package_id": { "const": "grade-6-science-photosynthesis" },
+        "next_selected_package_status": { "const": "selected_not_started" },
+        "source_gap_resolution_claimed": { "const": false }
+      }
+    },
+    "authoringQueue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "package_id",
+        "route",
+        "priority_tier",
+        "authoring_status",
+        "package_kind",
+        "source_gap_ids",
+        "planned_root_path",
+        "proposed_capabilities",
+        "status",
+        "materials_created",
+        "artifact_index_created",
+        "human_review_workflow_created",
+        "classroom_trial_workflow_created",
+        "source_gap_resolution_claimed"
+      ],
+      "properties": {
+        "package_id": { "const": "grade-6-science-photosynthesis" },
+        "route": { "const": "grade-6-science" },
+        "priority_tier": { "const": "p1" },
+        "authoring_status": { "const": "ready_for_authoring" },
+        "package_kind": { "const": "single_gap" },
+        "source_gap_ids": {
+          "type": "array",
+          "prefixItems": [{ "const": "grade-6-science-lesson-016" }],
+          "items": false,
+          "minItems": 1,
+          "maxItems": 1
+        },
+        "planned_root_path": { "const": "teacher-work-plan-artifacts/grade-6-science/photosynthesis" },
+        "proposed_capabilities": {
+          "type": "array",
+          "prefixItems": [
+            { "const": "practical_protocol" },
+            { "const": "observation_table" },
+            { "const": "student_worksheet" },
+            { "const": "answer_key" },
+            { "const": "assessment_rubric" }
+          ],
+          "items": false,
+          "minItems": 5,
+          "maxItems": 5
+        },
+        "status": { "const": "selected_not_started" },
+        "materials_created": { "const": false },
+        "artifact_index_created": { "const": false },
+        "human_review_workflow_created": { "const": false },
+        "classroom_trial_workflow_created": { "const": false },
         "source_gap_resolution_claimed": { "const": false }
       }
     },

@@ -61,18 +61,14 @@
         "subject_et"
       ],
       "properties": {
-        "artifact_id": { "const": "grade-6-science-soil-organisms" },
-        "artifact_index_path": {
-          "const": "teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml"
-        },
-        "content_fingerprint": {
-          "const": "894cc83f54c158485f6d6ba699d8a1298c3e57056e315281b79d69e84f366613"
-        },
-        "package_id": { "const": "grade-6-science-soil-organisms" },
-        "route": { "const": "grade-6-science" },
-        "grade": { "const": 6 },
-        "subject": { "const": "science" },
-        "subject_et": { "const": "loodusõpetus" }
+        "artifact_id": { "$ref": "#/$defs/slug" },
+        "artifact_index_path": { "$ref": "#/$defs/repositoryPath" },
+        "content_fingerprint": { "$ref": "#/$defs/sha256" },
+        "package_id": { "$ref": "#/$defs/slug" },
+        "route": { "enum": ["grade-5-science", "grade-6-science", "grade-7-geography", "grade-7-science"] },
+        "grade": { "type": "integer", "minimum": 5, "maximum": 7 },
+        "subject": { "enum": ["science", "geography"] },
+        "subject_et": { "enum": ["loodusõpetus", "geograafia"] }
       }
     },
     "reviewIdentity": {
@@ -290,22 +286,16 @@
       "properties": {
         "schema_version": { "const": "1.0" },
         "artifact_type": { "const": "teacher_work_plan_artifact_review_registry" },
-        "registry_id": { "const": "grade-6-science-soil-organisms-review-registry" },
-        "artifact_id": { "const": "grade-6-science-soil-organisms" },
-        "artifact_index_path": {
-          "const": "teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml"
-        },
-        "content_fingerprint": {
-          "const": "894cc83f54c158485f6d6ba699d8a1298c3e57056e315281b79d69e84f366613"
-        },
+        "registry_id": { "$ref": "#/$defs/slug" },
+        "artifact_id": { "$ref": "#/$defs/slug" },
+        "artifact_index_path": { "$ref": "#/$defs/repositoryPath" },
+        "content_fingerprint": { "$ref": "#/$defs/sha256" },
         "teacher_review": {
           "allOf": [
             { "$ref": "#/$defs/reviewChannel" },
             {
               "properties": {
-                "template_path": {
-                  "const": "teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/teacher-review-template.yaml"
-                },
+                "template_path": { "$ref": "#/$defs/repositoryPath" },
                 "status": {
                   "enum": ["pending", "approved", "approved_with_nonblocking_changes", "changes_required", "rejected"]
                 }
@@ -318,9 +308,7 @@
             { "$ref": "#/$defs/reviewChannel" },
             {
               "properties": {
-                "template_path": {
-                  "const": "teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/local-safety-review-template.yaml"
-                },
+                "template_path": { "$ref": "#/$defs/repositoryPath" },
                 "status": {
                   "enum": ["pending", "approved_for_named_context", "approved_with_conditions", "changes_required", "rejected"]
                 }
@@ -333,9 +321,7 @@
           "additionalProperties": false,
           "required": ["template_path", "completed_record_paths", "status"],
           "properties": {
-            "template_path": {
-              "const": "teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/classroom-trial-template.yaml"
-            },
+            "template_path": { "$ref": "#/$defs/repositoryPath" },
             "completed_record_paths": {
               "type": "array",
               "uniqueItems": true,

@@ -232,18 +232,14 @@
         "content_fingerprint"
       ],
       "properties": {
-        "artifact_id": { "const": "grade-6-science-soil-organisms" },
-        "artifact_index_path": {
-          "const": "teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml"
-        },
-        "package_id": { "const": "grade-6-science-soil-organisms" },
-        "route": { "const": "grade-6-science" },
-        "grade": { "const": 6 },
-        "subject": { "const": "science" },
-        "subject_et": { "const": "loodusõpetus" },
-        "content_fingerprint": {
-          "const": "894cc83f54c158485f6d6ba699d8a1298c3e57056e315281b79d69e84f366613"
-        }
+        "artifact_id": { "$ref": "#/$defs/slug" },
+        "artifact_index_path": { "$ref": "#/$defs/repositoryPath" },
+        "package_id": { "$ref": "#/$defs/slug" },
+        "route": { "$ref": "#/$defs/slug" },
+        "grade": { "type": "integer", "minimum": 1, "maximum": 12 },
+        "subject": { "$ref": "#/$defs/slug" },
+        "subject_et": { "$ref": "#/$defs/nonEmptyString" },
+        "content_fingerprint": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
       }
     },
     "prerequisites": {
@@ -329,21 +325,16 @@
         "delivery_scope": { "const": "classroom" },
         "lesson_parts": {
           "type": "array",
-          "prefixItems": [
-            { "const": "part-1" },
-            { "const": "part-2" }
-          ],
-          "items": false,
-          "minItems": 2,
-          "maxItems": 2
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
         },
         "planned_duration_minutes": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["part-1", "part-2"],
-          "properties": {
-            "part-1": { "const": 45 },
-            "part-2": { "const": 45 }
+          "minProperties": 1,
+          "patternProperties": {
+            "^[a-z0-9]+(?:-[a-z0-9]+)*$": { "type": "integer", "minimum": 1 }
           }
         },
         "group_size": {
@@ -446,43 +437,6 @@
         }
       }
     },
-    "part1Dimensions": {
-      "type": "array",
-      "minItems": 10,
-      "maxItems": 10,
-      "prefixItems": [
-        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "timing" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "setup_and_transitions" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "instruction_comprehension" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "practical_safety" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "equal_area_and_time_adherence" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "observation_and_data_recording" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "material_usability" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "accessibility_and_participation" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "ethical_return_and_restoration" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "method_naturalness" } } }] }
-      ],
-      "items": false
-    },
-    "part2Dimensions": {
-      "type": "array",
-      "minItems": 11,
-      "maxItems": 11,
-      "prefixItems": [
-        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "timing" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "setup_and_transitions" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "instruction_comprehension" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "group_synthesis" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "russian_subject_explanation" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "estonian_language_support" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "assessment_and_feedback" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "material_usability" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "accessibility_and_participation" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "immediate_recall_and_transfer" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "method_naturalness" } } }] }
-      ],
-      "items": false
-    },
     "partObservationBase": {
       "type": "object",
       "additionalProperties": false,
@@ -495,51 +449,24 @@
         "dimensions"
       ],
       "properties": {
-        "part_id": { "enum": ["part-1", "part-2"] },
-        "source_gap_id": {
-          "enum": ["grade-6-science-lesson-008", "grade-6-science-lesson-009"]
-        },
+        "part_id": { "$ref": "#/$defs/slug" },
+        "source_gap_id": { "$ref": "#/$defs/slug" },
         "title_et": { "$ref": "#/$defs/nonEmptyString" },
-        "planned_duration_minutes": { "const": 45 },
+        "planned_duration_minutes": { "type": "integer", "minimum": 1 },
         "actual_duration_minutes": {
           "oneOf": [{ "type": "integer", "minimum": 1 }, { "type": "null" }]
         },
-        "dimensions": { "type": "array" }
+        "dimensions": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/observationDimension" }
+        }
       }
     },
     "partObservations": {
       "type": "array",
-      "minItems": 2,
-      "maxItems": 2,
-      "prefixItems": [
-        {
-          "allOf": [
-            { "$ref": "#/$defs/partObservationBase" },
-            {
-              "properties": {
-                "part_id": { "const": "part-1" },
-                "source_gap_id": { "const": "grade-6-science-lesson-008" },
-                "title_et": { "const": "Mullaorganismide välivaatlus" },
-                "dimensions": { "$ref": "#/$defs/part1Dimensions" }
-              }
-            }
-          ]
-        },
-        {
-          "allOf": [
-            { "$ref": "#/$defs/partObservationBase" },
-            {
-              "properties": {
-                "part_id": { "const": "part-2" },
-                "source_gap_id": { "const": "grade-6-science-lesson-009" },
-                "title_et": { "const": "Mullaorganismid" },
-                "dimensions": { "$ref": "#/$defs/part2Dimensions" }
-              }
-            }
-          ]
-        }
-      ],
-      "items": false
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/partObservationBase" }
     },
     "aggregateObservations": {
       "type": "object",
