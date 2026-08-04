@@ -1,0 +1,435 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://elvistudio.github.io/opiq-helper/schemas/teacher-work-plan-work-packages.schema.json",
+  "title": "Teacher work-plan priority work packages",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "review_id",
+    "source_gap_report",
+    "scope",
+    "semantic_grouping_policy",
+    "architecture_decision",
+    "summary",
+    "work_packages",
+    "completeness"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "artifact_type": { "const": "teacher_work_plan_priority_work_packages" },
+    "review_id": { "const": "grades-5-7-priority-work-packages" },
+    "source_gap_report": { "$ref": "#/$defs/sourceGapReport" },
+    "scope": { "$ref": "#/$defs/scope" },
+    "semantic_grouping_policy": { "$ref": "#/$defs/groupingPolicy" },
+    "architecture_decision": { "$ref": "#/$defs/architectureDecision" },
+    "summary": { "$ref": "#/$defs/summary" },
+    "work_packages": {
+      "type": "array",
+      "minItems": 16,
+      "maxItems": 16,
+      "items": { "$ref": "#/$defs/workPackage" }
+    },
+    "completeness": { "$ref": "#/$defs/completeness" }
+  },
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "repositoryPath": {
+      "type": "string",
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.{1,2}(?:/|$))(?!.*\\\\)(?!.*//)[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*$"
+    },
+    "routeId": {
+      "enum": [
+        "grade-5-science",
+        "grade-6-science",
+        "grade-7-geography",
+        "grade-7-science"
+      ]
+    },
+    "coverageStatus": {
+      "enum": ["missing", "ambiguous"]
+    },
+    "bridgeType": {
+      "enum": [
+        "independently_authored_bridge_required",
+        "independently_authored_practical_required",
+        "independently_authored_assessment_required",
+        "teacher_review_required"
+      ]
+    },
+    "capability": {
+      "enum": [
+        "teacher_guide",
+        "author_created_bridge",
+        "practical_protocol",
+        "observation_table",
+        "student_worksheet",
+        "answer_key",
+        "assessment_rubric",
+        "oral_support",
+        "teacher_decision_record"
+      ]
+    },
+    "sourceGapReport": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "report_id"],
+      "properties": {
+        "path": {
+          "const": "evaluations/teacher-work-plans/grades-5-7-gap-report.json"
+        },
+        "report_id": {
+          "const": "grades-5-7-teacher-work-plan-gap-report"
+        }
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "routes",
+        "included_coverage_statuses",
+        "priority_gap_count",
+        "sample_topic_absences_included",
+        "partial_gaps_included",
+        "matched_gaps_included",
+        "live_catalogue_checked",
+        "official_curriculum_completeness_claimed",
+        "reusable_teaching_artifacts_created"
+      ],
+      "properties": {
+        "routes": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/routeId" }
+        },
+        "included_coverage_statuses": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/coverageStatus" }
+        },
+        "priority_gap_count": { "const": 17 },
+        "sample_topic_absences_included": { "const": false },
+        "partial_gaps_included": { "const": false },
+        "matched_gaps_included": { "const": false },
+        "live_catalogue_checked": { "const": false },
+        "official_curriculum_completeness_claimed": { "const": false },
+        "reusable_teaching_artifacts_created": { "const": false }
+      }
+    },
+    "groupingPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "unit",
+        "cross_route_grouping",
+        "cross_grade_grouping",
+        "cross_subject_grouping",
+        "fuzzy_deduplication",
+        "consecutive_same_route_grouping",
+        "source_gap_preservation",
+        "gap_resolution_claimed"
+      ],
+      "properties": {
+        "unit": { "const": "source_gap" },
+        "cross_route_grouping": { "const": "forbidden" },
+        "cross_grade_grouping": { "const": "forbidden" },
+        "cross_subject_grouping": { "const": "forbidden" },
+        "fuzzy_deduplication": { "const": "forbidden" },
+        "consecutive_same_route_grouping": {
+          "const": "allowed_with_explicit_rationale"
+        },
+        "source_gap_preservation": { "const": "required" },
+        "gap_resolution_claimed": { "const": false }
+      }
+    },
+    "architectureDecision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "next_artifact_model",
+        "lesson_plan_schema_used_now",
+        "teacher_pack_schema_used_now",
+        "official_curriculum_map_created",
+        "annual_architecture_created",
+        "rationale"
+      ],
+      "properties": {
+        "next_artifact_model": {
+          "const": "lightweight_teacher_work_plan_reusable_artifact"
+        },
+        "lesson_plan_schema_used_now": { "const": false },
+        "teacher_pack_schema_used_now": { "const": false },
+        "official_curriculum_map_created": { "const": false },
+        "annual_architecture_created": { "const": false },
+        "rationale": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "priority_gap_count",
+        "work_package_count",
+        "ready_for_authoring_count",
+        "blocked_teacher_review_count",
+        "multi_gap_package_count",
+        "selected_pilot_package_id"
+      ],
+      "properties": {
+        "priority_gap_count": { "const": 17 },
+        "work_package_count": { "const": 16 },
+        "ready_for_authoring_count": { "const": 13 },
+        "blocked_teacher_review_count": { "const": 3 },
+        "multi_gap_package_count": { "const": 1 },
+        "selected_pilot_package_id": {
+          "const": "grade-6-science-soil-organisms"
+        }
+      }
+    },
+    "lessonSpan": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["lesson_start", "lesson_end"],
+          "properties": {
+            "lesson_start": { "type": "integer", "minimum": 1 },
+            "lesson_end": { "type": "integer", "minimum": 1 }
+          }
+        },
+        { "type": "null" }
+      ]
+    },
+    "placement": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["after_lesson", "before_lesson"],
+          "properties": {
+            "after_lesson": { "type": "integer", "minimum": 1 },
+            "before_lesson": { "type": "integer", "minimum": 1 }
+          }
+        },
+        { "type": "null" }
+      ]
+    },
+    "sourceGapRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "gap_id",
+        "mapping_id",
+        "source_record_kind",
+        "coverage_status",
+        "bridge_type",
+        "lesson_span",
+        "placement",
+        "source_pages",
+        "source_topic_et",
+        "normalized_mapping_topic_et",
+        "topic_inventory_refs"
+      ],
+      "properties": {
+        "gap_id": {
+          "type": "string",
+          "pattern": "^grade-[567]-(?:science|geography)-[a-z0-9-]+$"
+        },
+        "mapping_id": { "$ref": "#/$defs/slug" },
+        "source_record_kind": {
+          "enum": ["lesson_range", "unassigned_annual_slot", "unnumbered_source_row"]
+        },
+        "coverage_status": { "$ref": "#/$defs/coverageStatus" },
+        "bridge_type": { "$ref": "#/$defs/bridgeType" },
+        "lesson_span": { "$ref": "#/$defs/lessonSpan" },
+        "placement": { "$ref": "#/$defs/placement" },
+        "source_pages": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "integer", "minimum": 1 }
+        },
+        "source_topic_et": { "$ref": "#/$defs/nonEmptyString" },
+        "normalized_mapping_topic_et": { "$ref": "#/$defs/nonEmptyString" },
+        "topic_inventory_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        }
+      }
+    },
+    "workPackage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "package_id",
+        "source_id",
+        "grade",
+        "subject",
+        "subject_et",
+        "authoring_status",
+        "priority_tier",
+        "package_kind",
+        "source_gap_refs",
+        "source_block_ids",
+        "source_pages",
+        "source_topics_et",
+        "topic_inventory_refs",
+        "required_bridge_types",
+        "proposed_artifact_capabilities",
+        "planned_root_path",
+        "proposed_deliverables",
+        "blocking_questions",
+        "grouping_rationale",
+        "source_boundary_notes",
+        "resolution_claimed",
+        "selected_as_first_pilot"
+      ],
+      "properties": {
+        "package_id": {
+          "type": "string",
+          "pattern": "^grade-[567]-(?:science|geography)-[a-z0-9-]+$"
+        },
+        "source_id": { "$ref": "#/$defs/routeId" },
+        "grade": { "enum": [5, 6, 7] },
+        "subject": { "enum": ["science", "geography"] },
+        "subject_et": { "enum": ["loodusõpetus", "geograafia"] },
+        "authoring_status": {
+          "enum": ["ready_for_authoring", "blocked_teacher_review"]
+        },
+        "priority_tier": { "enum": ["p0", "p1", "p2"] },
+        "package_kind": {
+          "enum": ["single_gap", "grouped_consecutive_gaps", "teacher_review_decision"]
+        },
+        "source_gap_refs": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/sourceGapRef" }
+        },
+        "source_block_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "source_pages": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "integer", "minimum": 1 }
+        },
+        "source_topics_et": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/nonEmptyString" }
+        },
+        "topic_inventory_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "required_bridge_types": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/bridgeType" }
+        },
+        "proposed_artifact_capabilities": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/capability" }
+        },
+        "planned_root_path": { "$ref": "#/$defs/repositoryPath" },
+        "proposed_deliverables": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/capability" }
+        },
+        "blocking_questions": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/nonEmptyString" }
+        },
+        "grouping_rationale": { "$ref": "#/$defs/nonEmptyString" },
+        "source_boundary_notes": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/nonEmptyString" }
+        },
+        "resolution_claimed": { "const": false },
+        "selected_as_first_pilot": { "type": "boolean" }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "authoring_status": { "const": "blocked_teacher_review" } },
+            "required": ["authoring_status"]
+          },
+          "then": {
+            "properties": {
+              "blocking_questions": { "type": "array", "minItems": 1 },
+              "proposed_deliverables": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 1,
+                "items": { "const": "teacher_decision_record" }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "authoring_status": { "const": "ready_for_authoring" } },
+            "required": ["authoring_status"]
+          },
+          "then": {
+            "properties": {
+              "blocking_questions": { "type": "array", "maxItems": 0 }
+            }
+          }
+        }
+      ]
+    },
+    "completeness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "all_missing_and_ambiguous_gaps_classified",
+        "every_priority_gap_assigned_once",
+        "semantic_work_package_review_complete",
+        "reusable_teaching_artifacts_created",
+        "reusable_artifact_backlog_complete",
+        "official_curriculum_complete",
+        "live_catalogue_complete"
+      ],
+      "properties": {
+        "all_missing_and_ambiguous_gaps_classified": { "const": true },
+        "every_priority_gap_assigned_once": { "const": true },
+        "semantic_work_package_review_complete": { "const": true },
+        "reusable_teaching_artifacts_created": { "const": false },
+        "reusable_artifact_backlog_complete": { "const": false },
+        "official_curriculum_complete": { "const": false },
+        "live_catalogue_complete": { "const": false }
+      }
+    }
+  }
+}

@@ -1,0 +1,719 @@
+schema_version: "1.0"
+artifact_type: teacher_work_plan_priority_work_packages
+review_id: grades-5-7-priority-work-packages
+source_gap_report:
+  path: evaluations/teacher-work-plans/grades-5-7-gap-report.json
+  report_id: grades-5-7-teacher-work-plan-gap-report
+scope:
+  routes:
+    - grade-5-science
+    - grade-6-science
+    - grade-7-geography
+    - grade-7-science
+  included_coverage_statuses:
+    - missing
+    - ambiguous
+  priority_gap_count: 17
+  sample_topic_absences_included: false
+  partial_gaps_included: false
+  matched_gaps_included: false
+  live_catalogue_checked: false
+  official_curriculum_completeness_claimed: false
+  reusable_teaching_artifacts_created: false
+semantic_grouping_policy:
+  unit: source_gap
+  cross_route_grouping: forbidden
+  cross_grade_grouping: forbidden
+  cross_subject_grouping: forbidden
+  fuzzy_deduplication: forbidden
+  consecutive_same_route_grouping: allowed_with_explicit_rationale
+  source_gap_preservation: required
+  gap_resolution_claimed: false
+architecture_decision:
+  next_artifact_model: lightweight_teacher_work_plan_reusable_artifact
+  lesson_plan_schema_used_now: false
+  teacher_pack_schema_used_now: false
+  official_curriculum_map_created: false
+  annual_architecture_created: false
+  rationale: >-
+    Production lesson and teacher-pack validation requires registered official and course-map
+    evidence that the Grade 6 and Grade 7 routes do not currently provide. The next PR must add a
+    bounded lightweight reusable-artifact contract without weakening or bypassing those existing
+    validators.
+summary:
+  priority_gap_count: 17
+  work_package_count: 16
+  ready_for_authoring_count: 13
+  blocked_teacher_review_count: 3
+  multi_gap_package_count: 1
+  selected_pilot_package_id: grade-6-science-soil-organisms
+work_packages:
+  - package_id: grade-5-science-year-start-workflow
+    source_id: grade-5-science
+    grade: 5
+    subject: science
+    subject_et: loodusõpetus
+    authoring_status: blocked_teacher_review
+    priority_tier: p2
+    package_kind: teacher_review_decision
+    source_gap_refs:
+      - gap_id: grade-5-science-lesson-001
+        mapping_id: lesson-001
+        source_record_kind: lesson_range
+        coverage_status: missing
+        bridge_type: teacher_review_required
+        lesson_span: { lesson_start: 1, lesson_end: 1 }
+        placement: null
+        source_pages: [2]
+        source_topic_et: Õppeaasta sissejuhatus ja töökorraldus
+        normalized_mapping_topic_et: Õppeaasta sissejuhatus ja töökorraldus
+        topic_inventory_refs: [rivers-and-lakes]
+    source_block_ids: [jogi-ja-jarv-vesi-kui-elukeskkond]
+    source_pages: [2]
+    source_topics_et: [Õppeaasta sissejuhatus ja töökorraldus]
+    topic_inventory_refs: [rivers-and-lakes]
+    required_bridge_types: [teacher_review_required]
+    proposed_artifact_capabilities: [teacher_decision_record]
+    planned_root_path: teacher-work-plan-artifacts/grade-5-science/year-start-workflow
+    proposed_deliverables: [teacher_decision_record]
+    blocking_questions:
+      - Which local class workflow, learner grouping and portfolio conventions should be used?
+    grouping_rationale: >-
+      The single source row is preserved because its local class workflow cannot be derived from
+      route evidence.
+    source_boundary_notes:
+      - The teacher plan is supplementary and does not establish a mandatory school-wide workflow.
+    resolution_claimed: false
+    selected_as_first_pilot: false
+
+  - package_id: grade-5-science-local-water-events
+    source_id: grade-5-science
+    grade: 5
+    subject: science
+    subject_et: loodusõpetus
+    authoring_status: ready_for_authoring
+    priority_tier: p1
+    package_kind: single_gap
+    source_gap_refs:
+      - gap_id: grade-5-science-lesson-022
+        mapping_id: lesson-022
+        source_record_kind: lesson_range
+        coverage_status: missing
+        bridge_type: independently_authored_bridge_required
+        lesson_span: { lesson_start: 22, lesson_end: 22 }
+        placement: null
+        source_pages: [9]
+        source_topic_et: Kodupiirkonna veekogudega seotud sündmused
+        normalized_mapping_topic_et: Kodupiirkonna veekogudega seotud sündmused
+        topic_inventory_refs: [rivers-and-lakes]
+    source_block_ids: [jogi-ja-jarv-vesi-kui-elukeskkond]
+    source_pages: [9]
+    source_topics_et: [Kodupiirkonna veekogudega seotud sündmused]
+    topic_inventory_refs: [rivers-and-lakes]
+    required_bridge_types: [independently_authored_bridge_required]
+    proposed_artifact_capabilities:
+      - author_created_bridge
+      - student_worksheet
+      - answer_key
+      - assessment_rubric
+    planned_root_path: teacher-work-plan-artifacts/grade-5-science/local-water-events
+    proposed_deliverables:
+      - author_created_bridge
+      - student_worksheet
+      - answer_key
+      - assessment_rubric
+    blocking_questions: []
+    grouping_rationale: >-
+      The local-history and creative collection row is a distinct single source gap with no
+      adjacent missing row that shares the same instructional product.
+    source_boundary_notes:
+      - Local source selection must be teacher-curated and cannot rely on the historical external link.
+    resolution_claimed: false
+    selected_as_first_pilot: false
+
+  - package_id: grade-5-science-north-estonia-cliff-coast
+    source_id: grade-5-science
+    grade: 5
+    subject: science
+    subject_et: loodusõpetus
+    authoring_status: ready_for_authoring
+    priority_tier: p1
+    package_kind: single_gap
+    source_gap_refs:
+      - gap_id: grade-5-science-lesson-055
+        mapping_id: lesson-055
+        source_record_kind: lesson_range
+        coverage_status: missing
+        bridge_type: independently_authored_bridge_required
+        lesson_span: { lesson_start: 55, lesson_end: 55 }
+        placement: null
+        source_pages: [21]
+        source_topic_et: Põhja-Eesti pankrannik
+        normalized_mapping_topic_et: Põhja-Eesti pankrannik
+        topic_inventory_refs: [landforms-and-map-reading]
+    source_block_ids: [pinnavormid-ja-pinnamood]
+    source_pages: [21]
+    source_topics_et: [Põhja-Eesti pankrannik]
+    topic_inventory_refs: [landforms-and-map-reading]
+    required_bridge_types: [independently_authored_bridge_required]
+    proposed_artifact_capabilities:
+      - author_created_bridge
+      - student_worksheet
+      - answer_key
+      - assessment_rubric
+    planned_root_path: teacher-work-plan-artifacts/grade-5-science/north-estonia-cliff-coast
+    proposed_deliverables:
+      - author_created_bridge
+      - student_worksheet
+      - answer_key
+      - assessment_rubric
+    blocking_questions: []
+    grouping_rationale: >-
+      The North Estonian cliff-coast case is a bounded regional bridge and remains separate from
+      unrelated landform gaps.
+    source_boundary_notes:
+      - The historical external link is not treated as current canonical or live-catalogue evidence.
+    resolution_claimed: false
+    selected_as_first_pilot: false
+
+  - package_id: grade-6-science-year-start-workflow
+    source_id: grade-6-science
+    grade: 6
+    subject: science
+    subject_et: loodusõpetus
+    authoring_status: ready_for_authoring
+    priority_tier: p1
+    package_kind: single_gap
+    source_gap_refs:
+      - gap_id: grade-6-science-lesson-001
+        mapping_id: lesson-001
+        source_record_kind: lesson_range
+        coverage_status: missing
+        bridge_type: independently_authored_bridge_required
+        lesson_span: { lesson_start: 1, lesson_end: 1 }
+        placement: null
+        source_pages: [1]
+        source_topic_et: Õppeaasta sissejuhatus ja töökorraldus
+        normalized_mapping_topic_et: Õppeaasta sissejuhatus ja töökorraldus
+        topic_inventory_refs: [soil-formation-and-properties]
+    source_block_ids: [muld]
+    source_pages: [1]
+    source_topics_et: [Õppeaasta sissejuhatus ja töökorraldus]
+    topic_inventory_refs: [soil-formation-and-properties]
+    required_bridge_types: [independently_authored_bridge_required]
+    proposed_artifact_capabilities: [author_created_bridge, student_worksheet, answer_key]
+    planned_root_path: teacher-work-plan-artifacts/grade-6-science/year-start-workflow
+    proposed_deliverables: [author_created_bridge, student_worksheet, answer_key]
+    blocking_questions: []
+    grouping_rationale: >-
+      This is a bounded Grade 6 orientation row that can be authored as a generic evidence-based
+      workflow without assigning the unallocated annual slot or importing another route.
+    source_boundary_notes:
+      - The package may support examples and discussion but cannot claim official annual sequencing.
+    resolution_claimed: false
+    selected_as_first_pilot: false
+
+  - package_id: grade-6-science-soil-organisms
+    source_id: grade-6-science
+    grade: 6
+    subject: science
+    subject_et: loodusõpetus
+    authoring_status: ready_for_authoring
+    priority_tier: p0
+    package_kind: grouped_consecutive_gaps
+    source_gap_refs:
+      - gap_id: grade-6-science-lesson-008
+        mapping_id: lesson-008
+        source_record_kind: lesson_range
+        coverage_status: missing
+        bridge_type: independently_authored_practical_required
+        lesson_span: { lesson_start: 8, lesson_end: 8 }
+        placement: null
+        source_pages: [3, 4]
+        source_topic_et: Mullaorganismide välivaatlus
+        normalized_mapping_topic_et: Mullaorganismide välivaatlus
+        topic_inventory_refs: [soil-formation-and-properties]
+      - gap_id: grade-6-science-lesson-009
+        mapping_id: lesson-009
+        source_record_kind: lesson_range
+        coverage_status: missing
+        bridge_type: independently_authored_bridge_required
+        lesson_span: { lesson_start: 9, lesson_end: 9 }
+        placement: null
+        source_pages: [4]
+        source_topic_et: Mullaorganismid
+        normalized_mapping_topic_et: Mullaorganismid
+        topic_inventory_refs: [soil-formation-and-properties]
+    source_block_ids: [muld]
+    source_pages: [3, 4]
+    source_topics_et: [Mullaorganismide välivaatlus, Mullaorganismid]
+    topic_inventory_refs: [soil-formation-and-properties]
+    required_bridge_types:
+      - independently_authored_practical_required
+      - independently_authored_bridge_required
+    proposed_artifact_capabilities:
+      - teacher_guide
+      - practical_protocol
+      - observation_table
+      - student_worksheet
+      - answer_key
+      - assessment_rubric
+      - oral_support
+    planned_root_path: teacher-work-plan-artifacts/grade-6-science/soil-organisms
+    proposed_deliverables:
+      - teacher_guide
+      - practical_protocol
+      - observation_table
+      - student_worksheet
+      - answer_key
+      - assessment_rubric
+      - oral_support
+    blocking_questions: []
+    grouping_rationale: >-
+      These are consecutive records in the same Grade 6 route and muld block. Lesson 8 requires a
+      field-observation practical and documentation; lesson 9 requires soil-organism content,
+      group synthesis and presentation. One two-part package can preserve both source gaps while
+      keeping their practical and bridge requirements distinct.
+    source_boundary_notes:
+      - Exact-route soil pages provide soil context but no direct page-level evidence for soil organisms.
+      - Field observation, documentation, group work, information synthesis and presentation come from the supplementary plan.
+      - Grade 6 A2 oral support will be independently authored and is not represented as Opiq oral-page evidence.
+      - The lightweight reusable-artifact contract and all seven deliverables belong to a separate PR.
+    resolution_claimed: false
+    selected_as_first_pilot: true
+
+  - package_id: grade-6-science-photosynthesis
+    source_id: grade-6-science
+    grade: 6
+    subject: science
+    subject_et: loodusõpetus
+    authoring_status: ready_for_authoring
+    priority_tier: p1
+    package_kind: single_gap
+    source_gap_refs:
+      - gap_id: grade-6-science-lesson-016
+        mapping_id: lesson-016
+        source_record_kind: lesson_range
+        coverage_status: missing
+        bridge_type: independently_authored_practical_required
+        lesson_span: { lesson_start: 16, lesson_end: 16 }
+        placement: null
+        source_pages: [6]
+        source_topic_et: Fotosüntees
+        normalized_mapping_topic_et: Fotosüntees
+        topic_inventory_refs: [garden-and-field-ecosystems]
+    source_block_ids: [aed-ja-pold-elukeskkonnana]
+    source_pages: [6]
+    source_topics_et: [Fotosüntees]
+    topic_inventory_refs: [garden-and-field-ecosystems]
+    required_bridge_types: [independently_authored_practical_required]
+    proposed_artifact_capabilities:
+      - practical_protocol
+      - observation_table
+      - student_worksheet
+      - answer_key
+      - assessment_rubric
+    planned_root_path: teacher-work-plan-artifacts/grade-6-science/photosynthesis
+    proposed_deliverables:
+      - practical_protocol
+      - observation_table
+      - student_worksheet
+      - answer_key
+      - assessment_rubric
+    blocking_questions: []
+    grouping_rationale: >-
+      The photosynthesis observation or experiment is a distinct single practical gap.
+    source_boundary_notes:
+      - A future protocol must independently specify equipment, safety, observations and reasoning.
+    resolution_claimed: false
+    selected_as_first_pilot: false
+
+  - package_id: grade-6-science-garden-field-food-products
+    source_id: grade-6-science
+    grade: 6
+    subject: science
+    subject_et: loodusõpetus
+    authoring_status: ready_for_authoring
+    priority_tier: p1
+    package_kind: single_gap
+    source_gap_refs:
+      - gap_id: grade-6-science-lesson-022
+        mapping_id: lesson-022
+        source_record_kind: lesson_range
+        coverage_status: missing
+        bridge_type: independently_authored_practical_required
+        lesson_span: { lesson_start: 22, lesson_end: 22 }
+        placement: null
+        source_pages: [8]
+        source_topic_et: Põlluja aiasaadused kui toiduained
+        normalized_mapping_topic_et: Põlluja aiasaadused kui toiduained
+        topic_inventory_refs: [garden-and-field-ecosystems]
+    source_block_ids: [aed-ja-pold-elukeskkonnana]
+    source_pages: [8]
+    source_topics_et: [Põlluja aiasaadused kui toiduained]
+    topic_inventory_refs: [garden-and-field-ecosystems]
+    required_bridge_types: [independently_authored_practical_required]
+    proposed_artifact_capabilities: [practical_protocol, observation_table, student_worksheet, answer_key]
+    planned_root_path: teacher-work-plan-artifacts/grade-6-science/garden-field-food-products
+    proposed_deliverables: [practical_protocol, observation_table, student_worksheet, answer_key]
+    blocking_questions: []
+    grouping_rationale: >-
+      The food-products investigation is one bounded source row and remains separate from general
+      garden and field ecosystem content.
+    source_boundary_notes:
+      - Historical teacher-plan links are not treated as current evidence or a required dependency.
+    resolution_claimed: false
+    selected_as_first_pilot: false
+
+  - package_id: grade-6-science-wood-processing
+    source_id: grade-6-science
+    grade: 6
+    subject: science
+    subject_et: loodusõpetus
+    authoring_status: ready_for_authoring
+    priority_tier: p1
+    package_kind: single_gap
+    source_gap_refs:
+      - gap_id: grade-6-science-lesson-038
+        mapping_id: lesson-038
+        source_record_kind: lesson_range
+        coverage_status: missing
+        bridge_type: independently_authored_bridge_required
+        lesson_span: { lesson_start: 38, lesson_end: 38 }
+        placement: null
+        source_pages: [13]
+        source_topic_et: Puidu töötlemine
+        normalized_mapping_topic_et: Puidu töötlemine
+        topic_inventory_refs: [forest-ecosystem, estonian-natural-resources]
+    source_block_ids: [mets-elukeskkonnana]
+    source_pages: [13]
+    source_topics_et: [Puidu töötlemine]
+    topic_inventory_refs: [forest-ecosystem, estonian-natural-resources]
+    required_bridge_types: [independently_authored_bridge_required]
+    proposed_artifact_capabilities: [author_created_bridge, student_worksheet, answer_key]
+    planned_root_path: teacher-work-plan-artifacts/grade-6-science/wood-processing
+    proposed_deliverables: [author_created_bridge, student_worksheet, answer_key]
+    blocking_questions: []
+    grouping_rationale: >-
+      Wood processing is a distinct resource-use bridge and does not share a practical product
+      with another priority row.
+    source_boundary_notes:
+      - The package must distinguish route evidence about forests and resources from independently authored processing content.
+    resolution_claimed: false
+    selected_as_first_pilot: false
+
+  - package_id: grade-6-science-air-composition
+    source_id: grade-6-science
+    grade: 6
+    subject: science
+    subject_et: loodusõpetus
+    authoring_status: ready_for_authoring
+    priority_tier: p1
+    package_kind: single_gap
+    source_gap_refs:
+      - gap_id: grade-6-science-lesson-051
+        mapping_id: lesson-051
+        source_record_kind: lesson_range
+        coverage_status: missing
+        bridge_type: independently_authored_practical_required
+        lesson_span: { lesson_start: 51, lesson_end: 51 }
+        placement: null
+        source_pages: [16]
+        source_topic_et: "Õhu koostis: hapnik, süsihappegaas ja lämmastik"
+        normalized_mapping_topic_et: "Õhu koostis: hapnik, süsihappegaas ja lämmastik"
+        topic_inventory_refs: [air-properties-and-weather]
+    source_block_ids: [ohk]
+    source_pages: [16]
+    source_topics_et: ["Õhu koostis: hapnik, süsihappegaas ja lämmastik"]
+    topic_inventory_refs: [air-properties-and-weather]
+    required_bridge_types: [independently_authored_practical_required]
+    proposed_artifact_capabilities: [practical_protocol, observation_table, student_worksheet, answer_key]
+    planned_root_path: teacher-work-plan-artifacts/grade-6-science/air-composition
+    proposed_deliverables: [practical_protocol, observation_table, student_worksheet, answer_key]
+    blocking_questions: []
+    grouping_rationale: >-
+      The exact air-composition practical is a single source row with a medium-confidence table
+      continuation that remains visible in its boundary notes.
+    source_boundary_notes:
+      - The extraction has medium confidence for the lesson-51 topic continuation.
+      - A conceptual air-properties page does not substitute for a safe practical protocol.
+    resolution_claimed: false
+    selected_as_first_pilot: false
+
+  - package_id: grade-6-science-water-cycle
+    source_id: grade-6-science
+    grade: 6
+    subject: science
+    subject_et: loodusõpetus
+    authoring_status: ready_for_authoring
+    priority_tier: p1
+    package_kind: single_gap
+    source_gap_refs:
+      - gap_id: grade-6-science-lesson-055
+        mapping_id: lesson-055
+        source_record_kind: lesson_range
+        coverage_status: missing
+        bridge_type: independently_authored_bridge_required
+        lesson_span: { lesson_start: 55, lesson_end: 55 }
+        placement: null
+        source_pages: [17]
+        source_topic_et: Veeringe
+        normalized_mapping_topic_et: Veeringe
+        topic_inventory_refs: [air-properties-and-weather]
+    source_block_ids: [ohk]
+    source_pages: [17]
+    source_topics_et: [Veeringe]
+    topic_inventory_refs: [air-properties-and-weather]
+    required_bridge_types: [independently_authored_bridge_required]
+    proposed_artifact_capabilities: [author_created_bridge, student_worksheet, answer_key]
+    planned_root_path: teacher-work-plan-artifacts/grade-6-science/water-cycle
+    proposed_deliverables: [author_created_bridge, student_worksheet, answer_key]
+    blocking_questions: []
+    grouping_rationale: >-
+      The water-cycle process is a bounded conceptual bridge and remains independent of the
+      water-versus-air habitat comparison.
+    source_boundary_notes:
+      - The historical teacher-plan game link is not treated as current canonical evidence.
+    resolution_claimed: false
+    selected_as_first_pilot: false
+
+  - package_id: grade-6-science-water-air-habitat-comparison
+    source_id: grade-6-science
+    grade: 6
+    subject: science
+    subject_et: loodusõpetus
+    authoring_status: ready_for_authoring
+    priority_tier: p1
+    package_kind: single_gap
+    source_gap_refs:
+      - gap_id: grade-6-science-lesson-058
+        mapping_id: lesson-058
+        source_record_kind: lesson_range
+        coverage_status: missing
+        bridge_type: independently_authored_bridge_required
+        lesson_span: { lesson_start: 58, lesson_end: 58 }
+        placement: null
+        source_pages: [18]
+        source_topic_et: Vee ja õhu kui elukeskkonna võrdlemine
+        normalized_mapping_topic_et: Vee ja õhu kui elukeskkonna võrdlemine
+        topic_inventory_refs: [air-properties-and-weather]
+    source_block_ids: [ohk]
+    source_pages: [18]
+    source_topics_et: [Vee ja õhu kui elukeskkonna võrdlemine]
+    topic_inventory_refs: [air-properties-and-weather]
+    required_bridge_types: [independently_authored_bridge_required]
+    proposed_artifact_capabilities: [author_created_bridge, student_worksheet, answer_key]
+    planned_root_path: teacher-work-plan-artifacts/grade-6-science/water-air-habitat-comparison
+    proposed_deliverables: [author_created_bridge, student_worksheet, answer_key]
+    blocking_questions: []
+    grouping_rationale: >-
+      The requested habitat comparison has its own comparison product and remains a single gap.
+    source_boundary_notes:
+      - General pages about air or water do not establish the direct comparison requested by the source row.
+    resolution_claimed: false
+    selected_as_first_pilot: false
+
+  - package_id: grade-6-science-baltic-fish-coastal-birds
+    source_id: grade-6-science
+    grade: 6
+    subject: science
+    subject_et: loodusõpetus
+    authoring_status: ready_for_authoring
+    priority_tier: p1
+    package_kind: single_gap
+    source_gap_refs:
+      - gap_id: grade-6-science-lesson-069
+        mapping_id: lesson-069
+        source_record_kind: lesson_range
+        coverage_status: missing
+        bridge_type: independently_authored_practical_required
+        lesson_span: { lesson_start: 69, lesson_end: 69 }
+        placement: null
+        source_pages: [22]
+        source_topic_et: Läänemere kalad ja rannikulinnud
+        normalized_mapping_topic_et: Läänemere kalad ja rannikulinnud
+        topic_inventory_refs: [baltic-sea-ecosystem]
+    source_block_ids: [laanemeri-elukeskkonnana]
+    source_pages: [22]
+    source_topics_et: [Läänemere kalad ja rannikulinnud]
+    topic_inventory_refs: [baltic-sea-ecosystem]
+    required_bridge_types: [independently_authored_practical_required]
+    proposed_artifact_capabilities: [practical_protocol, observation_table, student_worksheet, answer_key]
+    planned_root_path: teacher-work-plan-artifacts/grade-6-science/baltic-fish-coastal-birds
+    proposed_deliverables: [practical_protocol, observation_table, student_worksheet, answer_key]
+    blocking_questions: []
+    grouping_rationale: >-
+      Fish and coastal-bird identification is one practical source row and remains separate from
+      broader Baltic conditions or protection content.
+    source_boundary_notes:
+      - The registered algae page does not supply the requested fish and coastal-bird identification evidence.
+      - Historical external links are not treated as current route evidence.
+    resolution_claimed: false
+    selected_as_first_pilot: false
+
+  - package_id: grade-6-science-unassigned-lesson-105
+    source_id: grade-6-science
+    grade: 6
+    subject: science
+    subject_et: loodusõpetus
+    authoring_status: blocked_teacher_review
+    priority_tier: p2
+    package_kind: teacher_review_decision
+    source_gap_refs:
+      - gap_id: grade-6-science-lesson-105-unassigned
+        mapping_id: lesson-105-unassigned
+        source_record_kind: unassigned_annual_slot
+        coverage_status: ambiguous
+        bridge_type: teacher_review_required
+        lesson_span: { lesson_start: 105, lesson_end: 105 }
+        placement: null
+        source_pages: [1, 31]
+        source_topic_et: Aastaplaani allikas jaotamata 105. tund
+        normalized_mapping_topic_et: Aastaplaani jaotamata tund; õppeteemat ei määrata
+        topic_inventory_refs: []
+    source_block_ids: []
+    source_pages: [1, 31]
+    source_topics_et: [Aastaplaani allikas jaotamata 105. tund]
+    topic_inventory_refs: []
+    required_bridge_types: [teacher_review_required]
+    proposed_artifact_capabilities: [teacher_decision_record]
+    planned_root_path: teacher-work-plan-artifacts/grade-6-science/unassigned-lesson-105
+    proposed_deliverables: [teacher_decision_record]
+    blocking_questions:
+      - Which topic or local annual-course purpose, if any, should be assigned to lesson 105?
+    grouping_rationale: >-
+      The explicit unassigned annual slot is preserved alone because the source provides neither a
+      topic nor a thematic block.
+    source_boundary_notes:
+      - No topic ID, Opiq URL or annual placement may be invented before the teacher decision.
+    resolution_claimed: false
+    selected_as_first_pilot: false
+
+  - package_id: grade-7-science-mixture-separation-review
+    source_id: grade-7-science
+    grade: 7
+    subject: science
+    subject_et: loodusõpetus
+    authoring_status: ready_for_authoring
+    priority_tier: p1
+    package_kind: single_gap
+    source_gap_refs:
+      - gap_id: grade-7-science-lesson-034
+        mapping_id: lesson-034
+        source_record_kind: lesson_range
+        coverage_status: missing
+        bridge_type: independently_authored_assessment_required
+        lesson_span: { lesson_start: 34, lesson_end: 34 }
+        placement: null
+        source_pages: [10]
+        source_topic_et: Segude eraldamise kordamine ja kinnistamine
+        normalized_mapping_topic_et: Segude eraldamise kordamine ja kinnistamine
+        topic_inventory_refs: [pure-substances-mixtures-solutions-and-separation]
+    source_block_ids: [ainete-ja-kehade-mitmekesisus]
+    source_pages: [10]
+    source_topics_et: [Segude eraldamise kordamine ja kinnistamine]
+    topic_inventory_refs: [pure-substances-mixtures-solutions-and-separation]
+    required_bridge_types: [independently_authored_assessment_required]
+    proposed_artifact_capabilities: [student_worksheet, answer_key, assessment_rubric]
+    planned_root_path: teacher-work-plan-artifacts/grade-7-science/mixture-separation-review
+    proposed_deliverables: [student_worksheet, answer_key, assessment_rubric]
+    blocking_questions: []
+    grouping_rationale: >-
+      The chromatography exhibition review and feedback are a distinct assessment package.
+    source_boundary_notes:
+      - A section review page would not by itself establish the exhibition task, criteria or feedback rubric.
+    resolution_claimed: false
+    selected_as_first_pilot: false
+
+  - package_id: grade-7-science-quadrat-fieldwork
+    source_id: grade-7-science
+    grade: 7
+    subject: science
+    subject_et: loodusõpetus
+    authoring_status: ready_for_authoring
+    priority_tier: p1
+    package_kind: single_gap
+    source_gap_refs:
+      - gap_id: grade-7-science-lesson-054
+        mapping_id: lesson-054
+        source_record_kind: lesson_range
+        coverage_status: missing
+        bridge_type: independently_authored_practical_required
+        lesson_span: { lesson_start: 54, lesson_end: 54 }
+        placement: null
+        source_pages: [15]
+        source_topic_et: Ökosüsteemi uurimine taimeruudu meetodil
+        normalized_mapping_topic_et: Ökosüsteemi uurimine taimeruudu meetodil
+        topic_inventory_refs: [ecosystems-adaptation-growth-and-natural-balance]
+    source_block_ids: [elusa-ja-eluta-looduse-seosed]
+    source_pages: [15]
+    source_topics_et: [Ökosüsteemi uurimine taimeruudu meetodil]
+    topic_inventory_refs: [ecosystems-adaptation-growth-and-natural-balance]
+    required_bridge_types: [independently_authored_practical_required]
+    proposed_artifact_capabilities:
+      - practical_protocol
+      - observation_table
+      - student_worksheet
+      - answer_key
+      - assessment_rubric
+    planned_root_path: teacher-work-plan-artifacts/grade-7-science/quadrat-fieldwork
+    proposed_deliverables:
+      - practical_protocol
+      - observation_table
+      - student_worksheet
+      - answer_key
+      - assessment_rubric
+    blocking_questions: []
+    grouping_rationale: >-
+      The quadrat method, species count, cover estimate and habitat comparison form one bounded
+      fieldwork protocol.
+    source_boundary_notes:
+      - Route content about ecosystems does not provide the required quadrat procedure, table or assessment.
+    resolution_claimed: false
+    selected_as_first_pilot: false
+
+  - package_id: grade-7-science-reserve-lessons-65-70
+    source_id: grade-7-science
+    grade: 7
+    subject: science
+    subject_et: loodusõpetus
+    authoring_status: blocked_teacher_review
+    priority_tier: p2
+    package_kind: teacher_review_decision
+    source_gap_refs:
+      - gap_id: grade-7-science-lessons-065-070
+        mapping_id: lessons-065-070
+        source_record_kind: lesson_range
+        coverage_status: ambiguous
+        bridge_type: teacher_review_required
+        lesson_span: { lesson_start: 65, lesson_end: 70 }
+        placement: null
+        source_pages: [16]
+        source_topic_et: Õppekäigud, viktoriinid ja tööde lõpetamise varutunnid
+        normalized_mapping_topic_et: Õppekäigud, viktoriinid ja tööde lõpetamise varutunnid
+        topic_inventory_refs: [sustainable-consumption-footprint-and-recycling]
+    source_block_ids: [elusa-ja-eluta-looduse-seosed]
+    source_pages: [16]
+    source_topics_et: ["Õppekäigud, viktoriinid ja tööde lõpetamise varutunnid"]
+    topic_inventory_refs: [sustainable-consumption-footprint-and-recycling]
+    required_bridge_types: [teacher_review_required]
+    proposed_artifact_capabilities: [teacher_decision_record]
+    planned_root_path: teacher-work-plan-artifacts/grade-7-science/reserve-lessons-65-70
+    proposed_deliverables: [teacher_decision_record]
+    blocking_questions:
+      - Which excursions, quizzes, unfinished work or reserve uses should be assigned to each preserved lesson in the 65-70 range?
+    grouping_rationale: >-
+      The heterogeneous 65-70 source row must remain intact and blocked because one supporting
+      recycling page cannot determine six lesson purposes.
+    source_boundary_notes:
+      - The range combines excursions, quizzes, reserve time and unfinished work and cannot be authored as one exact topic.
+    resolution_claimed: false
+    selected_as_first_pilot: false
+completeness:
+  all_missing_and_ambiguous_gaps_classified: true
+  every_priority_gap_assigned_once: true
+  semantic_work_package_review_complete: true
+  reusable_teaching_artifacts_created: false
+  reusable_artifact_backlog_complete: false
+  official_curriculum_complete: false
+  live_catalogue_complete: false

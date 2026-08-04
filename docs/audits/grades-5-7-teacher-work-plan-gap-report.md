@@ -104,7 +104,17 @@ Positive match occurrences by language: et: 252; ru: 178.
 
 Programme eligibility remains route-specific. Unknown content evidence is not promoted to ordinary-programme or default-course eligibility, and simplified material has no positive occurrence in this report.
 
-## 10. Complete gap registry grouped by route
+## 10. Priority work-package review
+
+Semantic review is complete for 17 missing or ambiguous gaps: 16 work packages, 13 ready for authoring and 3 blocked by teacher review.
+
+Selected first pilot: `grade-6-science-soil-organisms`.
+
+Machine-readable review: [`evaluations/teacher-work-plans/grades-5-7-priority-work-packages.yaml`](../../evaluations/teacher-work-plans/grades-5-7-priority-work-packages.yaml). Generated audit: [`docs/audits/grades-5-7-priority-work-packages.md`](grades-5-7-priority-work-packages.md).
+
+The review does not create reusable teaching artifacts and does not resolve any gap.
+
+## 11. Complete gap registry grouped by route
 
 ### `grade-5-science`
 
@@ -311,10 +321,10 @@ Programme eligibility remains route-specific. Unknown content evidence is not pr
 - <a id="gap-grade-7-science-lesson-064"></a>`grade-7-science-lesson-064` — Materjalide taaskasutus — `partial` — `independently_authored_practical_required` — pages 16
 - <a id="gap-grade-7-science-lessons-065-070"></a>`grade-7-science-lessons-065-070` — Õppekäigud, viktoriinid ja tööde lõpetamise varutunnid — `ambiguous` — `teacher_review_required` — pages 16
 
-## 11. Completeness limitations
+## 12. Completeness limitations
 
 - All 262 registered source records are accounted for, and all 193 non-matched mappings are indexed once.
 - Gap-index completeness applies only to the four registered supplementary crosswalks.
 - Official curriculum completeness and exact-grade official allocation are not verified.
 - No annual architecture, reusable teaching artifact, default-course selection, or live-catalogue verification is created here.
-- Semantic work-package review and the reusable-artifact backlog remain incomplete.
+- Semantic work-package review is complete; reusable teaching artifacts and the reusable-artifact backlog remain incomplete.

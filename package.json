@@ -2,6 +2,7 @@
   "private": true,
   "scripts": {
     "check:teacher-work-plan-gap-report": "node scripts/generate-teacher-work-plan-gap-report.mjs --check",
+    "check:teacher-work-plan-work-packages": "node scripts/generate-teacher-work-plan-work-packages.mjs --check",
     "check:teacher-work-plan-maps": "node scripts/check-teacher-work-plan-curriculum-maps.mjs",
     "check:teacher-work-plans": "node scripts/check-teacher-work-plan-extractions.mjs",
     "check:2026-27-compliance": "node scripts/generate-2026-27-compliance.mjs --check",
@@ -54,6 +55,7 @@
     "generate:grade-4-course-architecture": "node scripts/generate-grade-4-course-architecture.mjs",
     "generate:2026-27-compliance": "node scripts/generate-2026-27-compliance.mjs",
     "generate:teacher-work-plan-gap-report": "node scripts/generate-teacher-work-plan-gap-report.mjs --write",
+    "generate:teacher-work-plan-work-packages": "node scripts/generate-teacher-work-plan-work-packages.mjs --write",
     "generate:pedagogy-regression-report": "node scripts/generate-pedagogy-regression-report.mjs",
     "generate:pedagogy-water-pilot": "node scripts/generate-pedagogy-integrated-water-pilot.mjs",
     "query:pedagogy": "node scripts/query-pedagogy-activities.mjs",
@@ -99,6 +101,7 @@
     "test:synthesis": "node --test scripts/topic-synthesis.test.mjs",
     "test:topics": "node --test scripts/known-topic-regressions.test.mjs",
     "test:teacher-work-plan-gap-report": "node --test scripts/teacher-work-plan-gap-report.test.mjs",
+    "test:teacher-work-plan-work-packages": "node --test scripts/teacher-work-plan-work-packages.test.mjs",
     "test:teacher-work-plan-maps": "node --test scripts/teacher-work-plan-curriculum-maps.test.mjs",
     "test:teacher-work-plans": "node --test scripts/teacher-work-plan-extractions.test.mjs",
     "test:validation-scope": "node --test scripts/classify-source-validation-scope.test.mjs"
