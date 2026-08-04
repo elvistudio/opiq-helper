@@ -93,10 +93,11 @@ major or blocking finding.
 
 ## 10. Classroom-trial boundary
 
-This packet does not create a classroom-trial record. Classroom trial remains
-`not_tested`; classroom readiness remains false. A later trial must use a
-separate human-evidence contract and must not be inferred from review, pull
-request approval, or merge state.
+The classroom-trial workflow and template are documented in
+`classroom-trial-guide.md`. They do not create a classroom-trial record and are
+not evidence. Classroom trial remains `not_tested`; classroom readiness remains
+false. A future trial must meet the separate trial contract and must not be
+inferred from review, pull-request approval, or merge state.
 
 ## 11. Prohibited claims
 

@@ -589,6 +589,12 @@
         "artifact_index_path",
         "implementation_status",
         "human_review",
+        "classroom_trial_workflow_created",
+        "classroom_trial_template_path",
+        "completed_classroom_trial_record_count",
+        "classroom_trial_status",
+        "classroom_ready",
+        "effectiveness_claimed",
         "canonical_gap_status_unchanged",
         "source_gap_resolution_claimed"
       ],
@@ -602,6 +608,14 @@
         },
         "implementation_status": { "const": "internal_draft_pending_teacher_review" },
         "human_review": { "$ref": "#/$defs/humanReviewTracking" },
+        "classroom_trial_workflow_created": { "const": true },
+        "classroom_trial_template_path": {
+          "const": "teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/classroom-trial-template.yaml"
+        },
+        "completed_classroom_trial_record_count": { "const": 0 },
+        "classroom_trial_status": { "const": "not_tested" },
+        "classroom_ready": { "const": false },
+        "effectiveness_claimed": { "const": false },
         "canonical_gap_status_unchanged": { "const": true },
         "source_gap_resolution_claimed": { "const": false }
       }

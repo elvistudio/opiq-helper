@@ -70,6 +70,7 @@ const SELECTED_PILOT_PACKAGE_ID = 'grade-6-science-soil-organisms';
 const SELECTED_PILOT_ROOT = 'teacher-work-plan-artifacts/grade-6-science/soil-organisms';
 const SELECTED_PILOT_INDEX = `${SELECTED_PILOT_ROOT}/artifact-index.yaml`;
 const SELECTED_PILOT_REVIEW_REGISTRY = `${SELECTED_PILOT_ROOT}/reviews/review-registry.yaml`;
+const SELECTED_PILOT_TRIAL_TEMPLATE = `${SELECTED_PILOT_ROOT}/reviews/classroom-trial-template.yaml`;
 const SELECTED_PILOT_FINGERPRINT = '894cc83f54c158485f6d6ba699d8a1298c3e57056e315281b79d69e84f366613';
 const SELECTED_PILOT_DELIVERABLES = Object.freeze([
   'teacher_guide',
@@ -93,6 +94,10 @@ const IMPLEMENTATION_SUMMARY = Object.freeze({
   completed_human_review_record_count: 0,
   teacher_review_pending_count: 1,
   local_safety_review_pending_count: 1,
+  classroom_trial_workflow_count: 1,
+  classroom_trial_template_count: 1,
+  completed_classroom_trial_record_count: 0,
+  classroom_trial_not_tested_count: 1,
   source_gap_resolution_claimed: false,
 });
 
@@ -112,6 +117,14 @@ const PILOT_IMPLEMENTATION = Object.freeze({
     review_decision_recorded: false,
     classroom_ready: false,
     publication_ready: false,
+    effectiveness_claimed: false,
+  },
+  classroom_trial: {
+    workflow_created: true,
+    template_path: SELECTED_PILOT_TRIAL_TEMPLATE,
+    completed_record_count: 0,
+    status: 'not_tested',
+    classroom_ready: false,
     effectiveness_claimed: false,
   },
   source_gap_resolution_claimed: false,
@@ -567,7 +580,7 @@ export function renderTeacherWorkPlanWorkPackagesMarkdown(artifact) {
     '',
     'This generated audit records the completed semantic review of the 17 missing or ambiguous source-backed gaps in the four registered supplementary teacher-plan crosswalks. The review defines 16 work packages: 13 are semantically authorable and 3 remain blocked by explicit teacher decisions.',
     '',
-    'Semantic review remains complete. One selected P0 package now has internal-draft materials and a fail-closed human-review workflow; teacher review and local safety review remain pending, no review decision is recorded, and no canonical source gap is resolved.',
+    'Semantic review remains complete. One selected P0 package now has internal-draft materials plus fail-closed human-review and classroom-trial workflows; teacher review and local safety review remain pending, classroom trial remains not tested, no review decision is recorded, and no canonical source gap is resolved.',
     '',
     '## 2. Why semantic review precedes authoring',
     '',
@@ -598,6 +611,8 @@ export function renderTeacherWorkPlanWorkPackagesMarkdown(artifact) {
     'Blocked packages propose only a `teacher_decision_record`; they do not propose worksheets, practical protocols or gap resolution.',
     '',
     `The pilot review registry is [\`${pilot.implementation.human_review.registry_path}\`](../../${pilot.implementation.human_review.registry_path}). It pins fingerprint \`${pilot.implementation.human_review.content_fingerprint}\`, contains zero completed teacher or safety records, keeps both reviews pending, and leaves classroom trial \`not_tested\`.`,
+    '',
+    `The classroom-trial template is [\`${pilot.implementation.classroom_trial.template_path}\`](../../${pilot.implementation.classroom_trial.template_path}). Its workflow exists, but no trial has been conducted or registered; classroom readiness and effectiveness claims remain false.`,
     '',
     '## 6. Grouping decisions',
     '',
@@ -631,7 +646,7 @@ export function renderTeacherWorkPlanWorkPackagesMarkdown(artifact) {
     '',
     '## 11. What remains pending',
     '',
-    '- One P0 package has internal-draft reusable materials and a review workflow, but no completed review record or decision; teacher review and local safety review remain pending.',
+    '- One P0 package has internal-draft reusable materials, a review workflow and a classroom-trial workflow, but no completed review or trial record; teacher review and local safety review remain pending and classroom trial remains `not_tested`.',
     '- Twelve semantically ready packages remain not started.',
     '- The reusable-artifact backlog is not complete.',
     '- Three packages require teacher decisions before authoring.',

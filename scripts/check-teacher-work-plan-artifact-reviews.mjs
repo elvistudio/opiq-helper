@@ -23,6 +23,8 @@ else {
     + `${result.summary.local_safety_review_templates} local-safety-review template, `
     + `${result.summary.completed_teacher_reviews} completed teacher reviews, and `
     + `${result.summary.completed_safety_reviews} completed safety reviews; `
+    + `${result.summary.classroom_trial_templates} classroom-trial template; `
+    + `${result.summary.completed_classroom_trials} completed classroom trials; `
     + `teacher status ${result.summary.teacher_status}; `
     + `safety status ${result.summary.safety_status}; `
     + `classroom trial ${result.summary.classroom_trial}; 0 validation errors.\n`,

@@ -545,11 +545,16 @@ export function validateTeacherWorkPlanReusableArtifactRepository(repository) {
   const expectedFingerprint = computeTeacherWorkPlanArtifactFingerprint(artifact.materials ?? []);
   if (artifact.content_fingerprint?.value !== expectedFingerprint) diagnostics.push(diagnostic(file, '/content_fingerprint/value', 'aggregate content fingerprint is stale'));
 
-  const expectedHumanReview = {
+const expectedHumanReview = {
     registry_path: REVIEW_REGISTRY_PATH,
     teacher_review: { status: 'pending', completed_record_path: null },
     local_safety_review: { status: 'pending', completed_record_path: null },
-    classroom_trial: { status: 'not_tested', completed_record_path: null },
+    classroom_trial: {
+      workflow_created: true,
+      template_path: `${PILOT_ROOT}/reviews/classroom-trial-template.yaml`,
+      status: 'not_tested',
+      completed_record_path: null,
+    },
     reviewed_content_fingerprint: null,
   };
   validateExact(diagnostics, file, '/human_review', artifact.human_review, expectedHumanReview, 'human review must link the exact pending registry without completed evidence');
@@ -559,6 +564,7 @@ export function validateTeacherWorkPlanReusableArtifactRepository(repository) {
     validateExact(diagnostics, REVIEW_REGISTRY_PATH, '/artifact_id', reviewRegistry.artifact_id, artifact.artifact_id, 'review registry must reference the reusable artifact');
     validateExact(diagnostics, REVIEW_REGISTRY_PATH, '/artifact_index_path', reviewRegistry.artifact_index_path, INDEX_PATH, 'review registry must reference the exact artifact index');
     validateExact(diagnostics, REVIEW_REGISTRY_PATH, '/content_fingerprint', reviewRegistry.content_fingerprint, artifact.content_fingerprint?.value, 'review registry must pin the current material fingerprint');
+    validateExact(diagnostics, REVIEW_REGISTRY_PATH, '/classroom_trial/template_path', reviewRegistry.classroom_trial?.template_path, `${PILOT_ROOT}/reviews/classroom-trial-template.yaml`, 'review registry must link the exact classroom-trial template');
     if (reviewRegistry.teacher_review?.status !== 'pending'
       || reviewRegistry.local_safety_review?.status !== 'pending'
       || reviewRegistry.classroom_trial?.status !== 'not_tested'
@@ -567,6 +573,7 @@ export function validateTeacherWorkPlanReusableArtifactRepository(repository) {
       || (reviewRegistry.classroom_trial?.completed_record_paths ?? []).length !== 0) {
       diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/', 'review registry must remain pending with no completed human evidence or classroom trial'));
     }
+    if (reviewRegistry.boundaries?.classroom_trial_workflow_created !== true) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/boundaries/classroom_trial_workflow_created', 'classroom-trial workflow must be registered without implying evidence'));
     for (const flag of ['review_complete', 'local_safety_review_complete', 'classroom_trial_complete', 'classroom_ready', 'publication_ready', 'customer_released', 'effectiveness_claimed']) {
       if (reviewRegistry.boundaries?.[flag] !== false) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, `/boundaries/${flag}`, `${flag} cannot be promoted`));
     }

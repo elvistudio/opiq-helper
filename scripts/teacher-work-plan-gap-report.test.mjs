@@ -139,6 +139,12 @@ test('semantic review and one internal-draft reusable implementation are exact',
       publication_ready: false,
       effectiveness_claimed: false,
     },
+    classroom_trial_workflow_created: true,
+    classroom_trial_template_path: 'teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/classroom-trial-template.yaml',
+    completed_classroom_trial_record_count: 0,
+    classroom_trial_status: 'not_tested',
+    classroom_ready: false,
+    effectiveness_claimed: false,
     canonical_gap_status_unchanged: true,
     source_gap_resolution_claimed: false,
   });
@@ -429,6 +435,10 @@ test('completeness and implementation boundaries cannot be promoted or erased', 
     (candidate) => { candidate.reusable_artifact_implementation.human_review.teacher_review_status = 'approved'; },
     (candidate) => { candidate.reusable_artifact_implementation.human_review.classroom_ready = true; },
     (candidate) => { candidate.reusable_artifact_implementation.human_review.review_decision_recorded = true; },
+    (candidate) => { candidate.reusable_artifact_implementation.completed_classroom_trial_record_count = 1; },
+    (candidate) => { candidate.reusable_artifact_implementation.classroom_trial_status = 'successful'; },
+    (candidate) => { candidate.reusable_artifact_implementation.classroom_ready = true; },
+    (candidate) => { candidate.reusable_artifact_implementation.effectiveness_claimed = true; },
   ]) assertInvalid(mutate, /must be equal to constant|differs/u);
 });
 
@@ -474,6 +484,22 @@ test('builder refuses an invalid reusable artifact before generating implementat
       ]]),
     }),
     /reusable artifact validation failed|resolution/u,
+  );
+});
+
+test('builder refuses an invalid classroom-trial workflow before generating tracking', async () => {
+  const templatePath = 'teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/classroom-trial-template.yaml';
+  const templateText = await fs.readFile(path.join(repositoryRoot, templatePath), 'utf8');
+  await assert.rejects(
+    buildTeacherWorkPlanGapReport({
+      rootDir: repositoryRoot,
+      repository: crosswalkRepository,
+      reusableArtifactOverrides: new Map([[
+        templatePath,
+        templateText.replace('status: draft', 'status: conducted'),
+      ]]),
+    }),
+    /classroom-trial workflow validation failed|template lifecycle/u,
   );
 });
 

@@ -4,7 +4,7 @@
 
 This generated audit records the completed semantic review of the 17 missing or ambiguous source-backed gaps in the four registered supplementary teacher-plan crosswalks. The review defines 16 work packages: 13 are semantically authorable and 3 remain blocked by explicit teacher decisions.
 
-Semantic review remains complete. One selected P0 package now has internal-draft materials and a fail-closed human-review workflow; teacher review and local safety review remain pending, no review decision is recorded, and no canonical source gap is resolved.
+Semantic review remains complete. One selected P0 package now has internal-draft materials plus fail-closed human-review and classroom-trial workflows; teacher review and local safety review remain pending, classroom trial remains not tested, no review decision is recorded, and no canonical source gap is resolved.
 
 ## 2. Why semantic review precedes authoring
 
@@ -69,6 +69,8 @@ Blocked packages propose only a `teacher_decision_record`; they do not propose w
 
 The pilot review registry is [`teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/review-registry.yaml`](../../teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/review-registry.yaml). It pins fingerprint `894cc83f54c158485f6d6ba699d8a1298c3e57056e315281b79d69e84f366613`, contains zero completed teacher or safety records, keeps both reviews pending, and leaves classroom trial `not_tested`.
 
+The classroom-trial template is [`teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/classroom-trial-template.yaml`](../../teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/classroom-trial-template.yaml). Its workflow exists, but no trial has been conducted or registered; classroom readiness and effectiveness claims remain false.
+
 ## 6. Grouping decisions
 
 The only multi-gap package is `grade-6-science-soil-organisms`, combining `grade-6-science-lesson-008` and `grade-6-science-lesson-009`. They are consecutive records in the same Grade 6 science route and `muld` block: lesson 8 requires a field-observation practical, while lesson 9 requires a soil-organism content bridge and presentation support. All other priority gaps remain single source-backed packages.
@@ -107,7 +109,7 @@ The production lesson schema and validators require a verified official curricul
 
 ## 11. What remains pending
 
-- One P0 package has internal-draft reusable materials and a review workflow, but no completed review record or decision; teacher review and local safety review remain pending.
+- One P0 package has internal-draft reusable materials, a review workflow and a classroom-trial workflow, but no completed review or trial record; teacher review and local safety review remain pending and classroom trial remains `not_tested`.
 - Twelve semantically ready packages remain not started.
 - The reusable-artifact backlog is not complete.
 - Three packages require teacher decisions before authoring.

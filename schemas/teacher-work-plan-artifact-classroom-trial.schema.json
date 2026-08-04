@@ -1,0 +1,592 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://elvistudio.github.io/opiq-helper/schemas/teacher-work-plan-artifact-classroom-trial.schema.json",
+  "title": "Teacher work-plan reusable-artifact classroom trial",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "template",
+    "trial_identity",
+    "artifact_identity",
+    "prerequisites",
+    "privacy",
+    "lifecycle",
+    "classroom_context",
+    "part_observations",
+    "aggregate_observations",
+    "findings",
+    "decision",
+    "boundaries"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "artifact_type": { "const": "teacher_work_plan_artifact_classroom_trial" },
+    "template": { "type": "boolean" },
+    "trial_identity": { "$ref": "#/$defs/trialIdentity" },
+    "artifact_identity": { "$ref": "#/$defs/artifactIdentity" },
+    "prerequisites": { "$ref": "#/$defs/prerequisites" },
+    "privacy": { "$ref": "#/$defs/privacy" },
+    "lifecycle": { "$ref": "#/$defs/lifecycle" },
+    "classroom_context": { "$ref": "#/$defs/classroomContext" },
+    "part_observations": { "$ref": "#/$defs/partObservations" },
+    "aggregate_observations": { "$ref": "#/$defs/aggregateObservations" },
+    "findings": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/finding" }
+    },
+    "decision": { "$ref": "#/$defs/decision" },
+    "boundaries": { "$ref": "#/$defs/boundaries" }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "template": { "const": true } },
+        "required": ["template"]
+      },
+      "then": {
+        "properties": {
+          "trial_identity": {
+            "properties": {
+              "trial_id": { "const": null },
+              "facilitator_reference": { "const": null },
+              "anonymized_group_reference": { "const": null },
+              "trial_date": { "const": null },
+              "analysis_date": { "const": null }
+            }
+          },
+          "prerequisites": {
+            "properties": {
+              "teacher_review_required": { "const": true },
+              "teacher_review_record_path": { "const": null },
+              "teacher_review_status": { "const": "pending" },
+              "local_safety_review_required": { "const": true },
+              "local_safety_review_record_path": { "const": null },
+              "local_safety_review_status": { "const": "pending" },
+              "current_fingerprint_matches": { "const": false },
+              "prerequisites_satisfied": { "const": false }
+            }
+          },
+          "privacy": {
+            "properties": {
+              "aggregate_observations_only": { "const": false },
+              "no_learner_names_or_identifiers": { "const": false },
+              "manual_privacy_review_complete": { "const": false },
+              "free_text_privacy_review_complete": { "const": false },
+              "recordings_collected": { "const": false },
+              "identifiable_media_collected": { "const": false }
+            }
+          },
+          "lifecycle": {
+            "properties": {
+              "status": { "const": "draft" },
+              "supersedes": { "maxItems": 0 }
+            }
+          },
+          "classroom_context": {
+            "properties": {
+              "group_size": { "const": null },
+              "adult_supervision_count": { "const": null },
+              "delivery_site_category": { "const": null },
+              "named_context_reference": { "const": null },
+              "accessibility_adjustments": { "const": null },
+              "weather_or_indoor_fallback_used": { "const": null },
+              "local_safety_context_matches": { "const": null }
+            }
+          },
+          "part_observations": {
+            "items": {
+              "properties": {
+                "actual_duration_minutes": { "const": null },
+                "dimensions": {
+                  "items": {
+                    "properties": {
+                      "status": { "const": "not_observed" },
+                      "notes": { "const": null },
+                      "finding_ids": { "maxItems": 0 }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "aggregate_observations": {
+            "properties": {
+              "learners_started": { "const": null },
+              "learners_completed": { "const": null },
+              "safety_incident_count": { "const": null },
+              "stop_condition_triggered": { "const": null },
+              "indoor_fallback_used": { "const": null },
+              "material_reprint_or_repair_needed": { "const": null },
+              "group_completion_status": { "const": null },
+              "general_notes": { "const": null }
+            }
+          },
+          "findings": { "maxItems": 0 },
+          "decision": {
+            "properties": {
+              "status": { "const": "pending" },
+              "rationale": { "const": null },
+              "open_blocking_findings": { "maxItems": 0 },
+              "open_major_findings": { "maxItems": 0 },
+              "required_changes_complete": { "const": false },
+              "reviewed_fingerprint_matches": { "const": false },
+              "safe_to_repeat": { "const": false }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "nullableString": {
+      "oneOf": [
+        { "$ref": "#/$defs/nonEmptyString" },
+        { "type": "null" }
+      ]
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "nullableSlug": {
+      "oneOf": [
+        { "$ref": "#/$defs/slug" },
+        { "type": "null" }
+      ]
+    },
+    "areaId": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$"
+    },
+    "dateOrNull": {
+      "oneOf": [
+        { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+        { "type": "null" }
+      ]
+    },
+    "repositoryPath": {
+      "type": "string",
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.{1,2}(?:/|$))(?!.*\\\\)(?!.*//)[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*$"
+    },
+    "nullableRepositoryPath": {
+      "oneOf": [
+        { "$ref": "#/$defs/repositoryPath" },
+        { "type": "null" }
+      ]
+    },
+    "trialIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "trial_id",
+        "facilitator_reference",
+        "anonymized_group_reference",
+        "trial_date",
+        "analysis_date"
+      ],
+      "properties": {
+        "trial_id": { "$ref": "#/$defs/nullableSlug" },
+        "facilitator_reference": { "$ref": "#/$defs/nullableSlug" },
+        "anonymized_group_reference": { "$ref": "#/$defs/nullableSlug" },
+        "trial_date": { "$ref": "#/$defs/dateOrNull" },
+        "analysis_date": { "$ref": "#/$defs/dateOrNull" }
+      }
+    },
+    "artifactIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_id",
+        "artifact_index_path",
+        "package_id",
+        "route",
+        "grade",
+        "subject",
+        "subject_et",
+        "content_fingerprint"
+      ],
+      "properties": {
+        "artifact_id": { "const": "grade-6-science-soil-organisms" },
+        "artifact_index_path": {
+          "const": "teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml"
+        },
+        "package_id": { "const": "grade-6-science-soil-organisms" },
+        "route": { "const": "grade-6-science" },
+        "grade": { "const": 6 },
+        "subject": { "const": "science" },
+        "subject_et": { "const": "loodusõpetus" },
+        "content_fingerprint": {
+          "const": "894cc83f54c158485f6d6ba699d8a1298c3e57056e315281b79d69e84f366613"
+        }
+      }
+    },
+    "prerequisites": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "teacher_review_required",
+        "teacher_review_record_path",
+        "teacher_review_status",
+        "local_safety_review_required",
+        "local_safety_review_record_path",
+        "local_safety_review_status",
+        "current_fingerprint_matches",
+        "prerequisites_satisfied"
+      ],
+      "properties": {
+        "teacher_review_required": { "const": true },
+        "teacher_review_record_path": { "$ref": "#/$defs/nullableRepositoryPath" },
+        "teacher_review_status": {
+          "enum": ["pending", "approved", "approved_with_nonblocking_changes"]
+        },
+        "local_safety_review_required": { "const": true },
+        "local_safety_review_record_path": { "$ref": "#/$defs/nullableRepositoryPath" },
+        "local_safety_review_status": {
+          "enum": ["pending", "approved_for_named_context", "approved_with_conditions"]
+        },
+        "current_fingerprint_matches": { "type": "boolean" },
+        "prerequisites_satisfied": { "type": "boolean" }
+      }
+    },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "aggregate_observations_only",
+        "no_learner_names_or_identifiers",
+        "manual_privacy_review_complete",
+        "free_text_privacy_review_complete",
+        "recordings_collected",
+        "identifiable_media_collected"
+      ],
+      "properties": {
+        "aggregate_observations_only": { "type": "boolean" },
+        "no_learner_names_or_identifiers": { "type": "boolean" },
+        "manual_privacy_review_complete": { "type": "boolean" },
+        "free_text_privacy_review_complete": { "type": "boolean" },
+        "recordings_collected": { "type": "boolean" },
+        "identifiable_media_collected": { "type": "boolean" }
+      }
+    },
+    "lifecycle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "supersedes"],
+      "properties": {
+        "status": { "enum": ["draft", "conducted", "analysed", "superseded"] },
+        "supersedes": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        }
+      }
+    },
+    "classroomContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "delivery_scope",
+        "lesson_parts",
+        "planned_duration_minutes",
+        "group_size",
+        "adult_supervision_count",
+        "delivery_site_category",
+        "named_context_reference",
+        "accessibility_adjustments",
+        "weather_or_indoor_fallback_used",
+        "local_safety_context_matches"
+      ],
+      "properties": {
+        "delivery_scope": { "const": "classroom" },
+        "lesson_parts": {
+          "type": "array",
+          "prefixItems": [
+            { "const": "part-1" },
+            { "const": "part-2" }
+          ],
+          "items": false,
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "planned_duration_minutes": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["part-1", "part-2"],
+          "properties": {
+            "part-1": { "const": 45 },
+            "part-2": { "const": 45 }
+          }
+        },
+        "group_size": {
+          "oneOf": [{ "type": "integer", "minimum": 1 }, { "type": "null" }]
+        },
+        "adult_supervision_count": {
+          "oneOf": [{ "type": "integer", "minimum": 1 }, { "type": "null" }]
+        },
+        "delivery_site_category": {
+          "oneOf": [
+            { "enum": ["outdoor_field", "indoor_fallback", "mixed"] },
+            { "type": "null" }
+          ]
+        },
+        "named_context_reference": { "$ref": "#/$defs/nullableSlug" },
+        "accessibility_adjustments": { "$ref": "#/$defs/nullableString" },
+        "weather_or_indoor_fallback_used": {
+          "oneOf": [{ "type": "boolean" }, { "type": "null" }]
+        },
+        "local_safety_context_matches": {
+          "oneOf": [{ "type": "boolean" }, { "type": "null" }]
+        }
+      }
+    },
+    "observationDimension": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dimension_id", "status", "notes", "finding_ids"],
+      "properties": {
+        "dimension_id": { "$ref": "#/$defs/areaId" },
+        "status": { "enum": ["not_observed", "met", "partly_met", "not_met"] },
+        "notes": { "$ref": "#/$defs/nullableString" },
+        "finding_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        }
+      }
+    },
+    "part1Dimensions": {
+      "type": "array",
+      "minItems": 10,
+      "maxItems": 10,
+      "prefixItems": [
+        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "timing" } } }] },
+        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "setup_and_transitions" } } }] },
+        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "instruction_comprehension" } } }] },
+        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "practical_safety" } } }] },
+        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "equal_area_and_time_adherence" } } }] },
+        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "observation_and_data_recording" } } }] },
+        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "material_usability" } } }] },
+        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "accessibility_and_participation" } } }] },
+        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "ethical_return_and_restoration" } } }] },
+        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "method_naturalness" } } }] }
+      ],
+      "items": false
+    },
+    "part2Dimensions": {
+      "type": "array",
+      "minItems": 11,
+      "maxItems": 11,
+      "prefixItems": [
+        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "timing" } } }] },
+        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "setup_and_transitions" } } }] },
+        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "instruction_comprehension" } } }] },
+        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "group_synthesis" } } }] },
+        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "russian_subject_explanation" } } }] },
+        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "estonian_language_support" } } }] },
+        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "assessment_and_feedback" } } }] },
+        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "material_usability" } } }] },
+        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "accessibility_and_participation" } } }] },
+        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "immediate_recall_and_transfer" } } }] },
+        { "allOf": [{ "$ref": "#/$defs/observationDimension" }, { "properties": { "dimension_id": { "const": "method_naturalness" } } }] }
+      ],
+      "items": false
+    },
+    "partObservationBase": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "part_id",
+        "source_gap_id",
+        "title_et",
+        "planned_duration_minutes",
+        "actual_duration_minutes",
+        "dimensions"
+      ],
+      "properties": {
+        "part_id": { "enum": ["part-1", "part-2"] },
+        "source_gap_id": {
+          "enum": ["grade-6-science-lesson-008", "grade-6-science-lesson-009"]
+        },
+        "title_et": { "$ref": "#/$defs/nonEmptyString" },
+        "planned_duration_minutes": { "const": 45 },
+        "actual_duration_minutes": {
+          "oneOf": [{ "type": "integer", "minimum": 1 }, { "type": "null" }]
+        },
+        "dimensions": { "type": "array" }
+      }
+    },
+    "partObservations": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "prefixItems": [
+        {
+          "allOf": [
+            { "$ref": "#/$defs/partObservationBase" },
+            {
+              "properties": {
+                "part_id": { "const": "part-1" },
+                "source_gap_id": { "const": "grade-6-science-lesson-008" },
+                "title_et": { "const": "Mullaorganismide välivaatlus" },
+                "dimensions": { "$ref": "#/$defs/part1Dimensions" }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            { "$ref": "#/$defs/partObservationBase" },
+            {
+              "properties": {
+                "part_id": { "const": "part-2" },
+                "source_gap_id": { "const": "grade-6-science-lesson-009" },
+                "title_et": { "const": "Mullaorganismid" },
+                "dimensions": { "$ref": "#/$defs/part2Dimensions" }
+              }
+            }
+          ]
+        }
+      ],
+      "items": false
+    },
+    "aggregateObservations": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "learners_started",
+        "learners_completed",
+        "safety_incident_count",
+        "stop_condition_triggered",
+        "indoor_fallback_used",
+        "material_reprint_or_repair_needed",
+        "group_completion_status",
+        "general_notes"
+      ],
+      "properties": {
+        "learners_started": {
+          "oneOf": [{ "type": "integer", "minimum": 1 }, { "type": "null" }]
+        },
+        "learners_completed": {
+          "oneOf": [{ "type": "integer", "minimum": 0 }, { "type": "null" }]
+        },
+        "safety_incident_count": {
+          "oneOf": [{ "type": "integer", "minimum": 0 }, { "type": "null" }]
+        },
+        "stop_condition_triggered": {
+          "oneOf": [{ "type": "boolean" }, { "type": "null" }]
+        },
+        "indoor_fallback_used": {
+          "oneOf": [{ "type": "boolean" }, { "type": "null" }]
+        },
+        "material_reprint_or_repair_needed": {
+          "oneOf": [{ "type": "boolean" }, { "type": "null" }]
+        },
+        "group_completion_status": {
+          "oneOf": [
+            { "enum": ["all_completed", "partly_completed", "not_completed"] },
+            { "type": "null" }
+          ]
+        },
+        "general_notes": { "$ref": "#/$defs/nullableString" }
+      }
+    },
+    "finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "finding_id",
+        "severity",
+        "area",
+        "description",
+        "required_change",
+        "affected_paths",
+        "status",
+        "resolution_notes"
+      ],
+      "properties": {
+        "finding_id": { "$ref": "#/$defs/slug" },
+        "severity": { "enum": ["observation", "minor", "major", "blocking"] },
+        "area": { "$ref": "#/$defs/areaId" },
+        "description": { "$ref": "#/$defs/nonEmptyString" },
+        "required_change": { "$ref": "#/$defs/nullableString" },
+        "affected_paths": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/repositoryPath" }
+        },
+        "status": { "enum": ["open", "resolved", "accepted_risk"] },
+        "resolution_notes": { "$ref": "#/$defs/nullableString" }
+      }
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "rationale",
+        "open_blocking_findings",
+        "open_major_findings",
+        "required_changes_complete",
+        "reviewed_fingerprint_matches",
+        "safe_to_repeat"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "pending",
+            "successful",
+            "successful_with_notes",
+            "repeat_trial_required",
+            "unsuccessful"
+          ]
+        },
+        "rationale": { "$ref": "#/$defs/nullableString" },
+        "open_blocking_findings": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "open_major_findings": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "required_changes_complete": { "type": "boolean" },
+        "reviewed_fingerprint_matches": { "type": "boolean" },
+        "safe_to_repeat": { "type": "boolean" }
+      }
+    },
+    "boundaries": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "canonical_opiq_gap_status_unchanged",
+        "source_gap_resolution_claimed",
+        "official_curriculum_complete",
+        "annual_architecture_created",
+        "default_course_selection_complete",
+        "live_catalogue_complete",
+        "publication_ready",
+        "effectiveness_claimed"
+      ],
+      "properties": {
+        "canonical_opiq_gap_status_unchanged": { "const": true },
+        "source_gap_resolution_claimed": { "const": false },
+        "official_curriculum_complete": { "const": false },
+        "annual_architecture_created": { "const": false },
+        "default_course_selection_complete": { "const": false },
+        "live_catalogue_complete": { "const": false },
+        "publication_ready": { "const": false },
+        "effectiveness_claimed": { "const": false }
+      }
+    }
+  }
+}

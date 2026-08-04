@@ -217,6 +217,10 @@
         "completed_human_review_record_count",
         "teacher_review_pending_count",
         "local_safety_review_pending_count",
+        "classroom_trial_workflow_count",
+        "classroom_trial_template_count",
+        "completed_classroom_trial_record_count",
+        "classroom_trial_not_tested_count",
         "source_gap_resolution_claimed"
       ],
       "properties": {
@@ -233,6 +237,10 @@
         "completed_human_review_record_count": { "const": 0 },
         "teacher_review_pending_count": { "const": 1 },
         "local_safety_review_pending_count": { "const": 1 },
+        "classroom_trial_workflow_count": { "const": 1 },
+        "classroom_trial_template_count": { "const": 1 },
+        "completed_classroom_trial_record_count": { "const": 0 },
+        "classroom_trial_not_tested_count": { "const": 1 },
         "source_gap_resolution_claimed": { "const": false }
       }
     },
@@ -455,6 +463,7 @@
         "delivered_capabilities",
         "supported_gap_ids",
         "human_review",
+        "classroom_trial",
         "source_gap_resolution_claimed"
       ],
       "properties": {
@@ -479,6 +488,7 @@
           }
         },
         "human_review": { "$ref": "#/$defs/humanReviewTracking" },
+        "classroom_trial": { "$ref": "#/$defs/classroomTrialTracking" },
         "source_gap_resolution_claimed": { "const": false }
       }
     },
@@ -513,6 +523,28 @@
         "review_decision_recorded": { "const": false },
         "classroom_ready": { "const": false },
         "publication_ready": { "const": false },
+        "effectiveness_claimed": { "const": false }
+      }
+    },
+    "classroomTrialTracking": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "workflow_created",
+        "template_path",
+        "completed_record_count",
+        "status",
+        "classroom_ready",
+        "effectiveness_claimed"
+      ],
+      "properties": {
+        "workflow_created": { "const": true },
+        "template_path": {
+          "const": "teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/classroom-trial-template.yaml"
+        },
+        "completed_record_count": { "const": 0 },
+        "status": { "const": "not_tested" },
+        "classroom_ready": { "const": false },
         "effectiveness_claimed": { "const": false }
       }
     },

@@ -118,7 +118,9 @@ One package, `grade-6-science-soil-organisms`, now has an internal draft with 7 
 
 A fail-closed human-review workflow now exists at [`teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/review-registry.yaml`](../../teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/review-registry.yaml) and pins fingerprint `894cc83f54c158485f6d6ba699d8a1298c3e57056e315281b79d69e84f366613`. It contains zero completed teacher or local-safety review records and no review decision.
 
-This independently authored support does not change either canonical Opiq gap from `missing`. Teacher review and local safety review remain pending, classroom trial is not tested, classroom/publication readiness remains false, and no source-gap resolution is claimed.
+A classroom-trial workflow and template now exist at [`teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/classroom-trial-template.yaml`](../../teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/classroom-trial-template.yaml), but no trial has been conducted and zero analysed trial records are registered. Prerequisite reviews remain pending, trial status is `not_tested`, and classroom readiness and effectiveness claims remain false.
+
+This independently authored support does not change either canonical Opiq gap from `missing`. Teacher review and local safety review remain pending, classroom/publication readiness remains false, and no source-gap resolution is claimed.
 
 ## 11. Complete gap registry grouped by route
 
@@ -333,4 +335,4 @@ This independently authored support does not change either canonical Opiq gap fr
 - Gap-index completeness applies only to the four registered supplementary crosswalks.
 - Official curriculum completeness and exact-grade official allocation are not verified.
 - No annual architecture, default-course selection, or live-catalogue verification is created here.
-- Semantic work-package review is complete; one internal-draft reusable artifact and its pending human-review workflow exist, but no completed review decision exists and the reusable-artifact backlog remains incomplete.
+- Semantic work-package review is complete; one internal-draft reusable artifact plus pending review and classroom-trial workflows exist, but no completed review or trial decision exists and the reusable-artifact backlog remains incomplete.

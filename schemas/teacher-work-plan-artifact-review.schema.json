@@ -331,20 +331,32 @@
         "classroom_trial": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["completed_record_paths", "status"],
+          "required": ["template_path", "completed_record_paths", "status"],
           "properties": {
+            "template_path": {
+              "const": "teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/classroom-trial-template.yaml"
+            },
             "completed_record_paths": {
               "type": "array",
-              "maxItems": 0,
+              "uniqueItems": true,
               "items": { "$ref": "#/$defs/repositoryPath" }
             },
-            "status": { "const": "not_tested" }
+            "status": {
+              "enum": [
+                "not_tested",
+                "successful",
+                "successful_with_notes",
+                "repeat_trial_required",
+                "unsuccessful"
+              ]
+            }
           }
         },
         "boundaries": {
           "type": "object",
           "additionalProperties": false,
           "required": [
+            "classroom_trial_workflow_created",
             "review_complete",
             "local_safety_review_complete",
             "classroom_trial_complete",
@@ -354,10 +366,11 @@
             "effectiveness_claimed"
           ],
           "properties": {
+            "classroom_trial_workflow_created": { "const": true },
             "review_complete": { "type": "boolean" },
             "local_safety_review_complete": { "type": "boolean" },
-            "classroom_trial_complete": { "const": false },
-            "classroom_ready": { "const": false },
+            "classroom_trial_complete": { "type": "boolean" },
+            "classroom_ready": { "type": "boolean" },
             "publication_ready": { "const": false },
             "customer_released": { "const": false },
             "effectiveness_claimed": { "const": false }

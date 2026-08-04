@@ -20,6 +20,11 @@ import {
   loadTeacherWorkPlanReusableArtifactRepository,
   validateTeacherWorkPlanReusableArtifactRepository,
 } from './teacher-work-plan-reusable-artifacts.mjs';
+import {
+  formatTeacherWorkPlanArtifactClassroomTrialDiagnostic,
+  loadTeacherWorkPlanArtifactClassroomTrialRepository,
+  validateTeacherWorkPlanArtifactClassroomTrialRepository,
+} from './teacher-work-plan-artifact-classroom-trials.mjs';
 
 export const GAP_REPORT_JSON_PATH =
   'evaluations/teacher-work-plans/grades-5-7-gap-report.json';
@@ -96,6 +101,12 @@ const REUSABLE_ARTIFACT_IMPLEMENTATION = Object.freeze({
     publication_ready: false,
     effectiveness_claimed: false,
   },
+  classroom_trial_workflow_created: true,
+  classroom_trial_template_path: 'teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/classroom-trial-template.yaml',
+  completed_classroom_trial_record_count: 0,
+  classroom_trial_status: 'not_tested',
+  classroom_ready: false,
+  effectiveness_claimed: false,
   canonical_gap_status_unchanged: true,
   source_gap_resolution_claimed: false,
 });
@@ -548,6 +559,18 @@ export async function buildTeacherWorkPlanGapReport({
       ...reusableValidation.diagnostics.map(formatTeacherWorkPlanReusableArtifactDiagnostic),
     ].join('\n'));
   }
+  const classroomTrialRepository = await loadTeacherWorkPlanArtifactClassroomTrialRepository({
+    rootDir,
+    reusableRepository,
+    fileOverrides: reusableArtifactOverrides,
+  });
+  const classroomTrialValidation = validateTeacherWorkPlanArtifactClassroomTrialRepository(classroomTrialRepository);
+  if (classroomTrialValidation.diagnostics.length > 0) {
+    throw new Error([
+      'teacher work-plan classroom-trial workflow validation failed before gap report generation',
+      ...classroomTrialValidation.diagnostics.map(formatTeacherWorkPlanArtifactClassroomTrialDiagnostic),
+    ].join('\n'));
+  }
   return attachReusableArtifactImplementation(reviewedReport);
 }
 
@@ -666,7 +689,9 @@ export function renderTeacherWorkPlanGapReportMarkdown(report) {
     '',
     `A fail-closed human-review workflow now exists at [\`${report.reusable_artifact_implementation.human_review.registry_path}\`](../../${report.reusable_artifact_implementation.human_review.registry_path}) and pins fingerprint \`${report.reusable_artifact_implementation.human_review.content_fingerprint}\`. It contains zero completed teacher or local-safety review records and no review decision.`,
     '',
-    'This independently authored support does not change either canonical Opiq gap from `missing`. Teacher review and local safety review remain pending, classroom trial is not tested, classroom/publication readiness remains false, and no source-gap resolution is claimed.',
+    `A classroom-trial workflow and template now exist at [\`${report.reusable_artifact_implementation.classroom_trial_template_path}\`](../../${report.reusable_artifact_implementation.classroom_trial_template_path}), but no trial has been conducted and zero analysed trial records are registered. Prerequisite reviews remain pending, trial status is \`not_tested\`, and classroom readiness and effectiveness claims remain false.`,
+    '',
+    'This independently authored support does not change either canonical Opiq gap from `missing`. Teacher review and local safety review remain pending, classroom/publication readiness remains false, and no source-gap resolution is claimed.',
     '',
     '## 11. Complete gap registry grouped by route',
     '',
@@ -687,7 +712,7 @@ export function renderTeacherWorkPlanGapReportMarkdown(report) {
     '- Gap-index completeness applies only to the four registered supplementary crosswalks.',
     '- Official curriculum completeness and exact-grade official allocation are not verified.',
     '- No annual architecture, default-course selection, or live-catalogue verification is created here.',
-    '- Semantic work-package review is complete; one internal-draft reusable artifact and its pending human-review workflow exist, but no completed review decision exists and the reusable-artifact backlog remains incomplete.',
+    '- Semantic work-package review is complete; one internal-draft reusable artifact plus pending review and classroom-trial workflows exist, but no completed review or trial decision exists and the reusable-artifact backlog remains incomplete.',
   );
   return `${lines.join('\n')}\n`;
 }
