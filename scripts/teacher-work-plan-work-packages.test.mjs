@@ -157,12 +157,17 @@ test('selected Grade 6 soil-organisms pilot has exact root and seven deliverable
   assert.equal(selected[0].package_id, teacherWorkPlanWorkPackageContracts.selectedPilotPackageId);
   assert.equal(selected[0].planned_root_path, teacherWorkPlanWorkPackageContracts.selectedPilotRoot);
   assert.deepEqual(selected[0].proposed_deliverables, teacherWorkPlanWorkPackageContracts.selectedPilotDeliverables);
+  assert.deepEqual(selected[0].implementation, teacherWorkPlanWorkPackageContracts.pilotImplementation);
+  assert.deepEqual(artifact.implementation_summary, teacherWorkPlanWorkPackageContracts.implementationSummary);
+  assert.equal(artifact.work_packages.filter(({ implementation }) => implementation !== undefined).length, 1);
 });
 
-test('review claims no resolution, teaching artifacts, official completeness or live catalogue', () => {
+test('review records one internal draft without resolution, backlog completion or official claims', () => {
   assert.equal(artifact.work_packages.every(({ resolution_claimed }) => resolution_claimed === false), true);
-  assert.equal(artifact.scope.reusable_teaching_artifacts_created, false);
-  assert.equal(artifact.completeness.reusable_teaching_artifacts_created, false);
+  assert.equal(artifact.scope.reusable_teaching_artifacts_created, true);
+  assert.equal(artifact.completeness.reusable_teaching_artifacts_created, true);
+  assert.equal(artifact.completeness.reusable_artifact_backlog_complete, false);
+  assert.equal(artifact.implementation_summary.source_gap_resolution_claimed, false);
   assert.equal(artifact.completeness.official_curriculum_complete, false);
   assert.equal(artifact.completeness.live_catalogue_complete, false);
 });
@@ -240,7 +245,10 @@ test('pilot, planned root and completion-boundary mutation fail closed', () => {
   assertInvalid((candidate) => { candidate.work_packages[4].selected_as_first_pilot = false; }, /selected/u);
   assertInvalid((candidate) => { candidate.work_packages[4].planned_root_path = 'lesson-plans/grade-6-science/soil-organisms'; }, /planned root|pattern/u);
   assertInvalid((candidate) => { candidate.work_packages[4].resolution_claimed = true; }, /resolution/u);
-  assertInvalid((candidate) => { candidate.completeness.reusable_teaching_artifacts_created = true; }, /must be equal to constant|artifacts/u);
+  assertInvalid((candidate) => { candidate.completeness.reusable_teaching_artifacts_created = false; }, /must be equal to constant|artifact/u);
+  assertInvalid((candidate) => { candidate.implementation_summary.implemented_internal_draft_count = 2; }, /implementation summary|must be equal/u);
+  assertInvalid((candidate) => { delete candidate.work_packages[4].implementation; }, /implementation/u);
+  assertInvalid((candidate) => { candidate.work_packages[5].implementation = structuredClone(candidate.work_packages[4].implementation); }, /only the selected pilot/u);
   assertInvalid((candidate) => { candidate.completeness.official_curriculum_complete = true; }, /must be equal to constant|curriculum/u);
   assertInvalid((candidate) => { candidate.completeness.live_catalogue_complete = true; }, /must be equal to constant|catalogue/u);
 });

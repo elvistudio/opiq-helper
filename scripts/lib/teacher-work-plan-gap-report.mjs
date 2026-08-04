@@ -15,6 +15,11 @@ import {
   loadTeacherWorkPlanWorkPackages,
   validateTeacherWorkPlanWorkPackages,
 } from './teacher-work-plan-work-packages.mjs';
+import {
+  formatTeacherWorkPlanReusableArtifactDiagnostic,
+  loadTeacherWorkPlanReusableArtifactRepository,
+  validateTeacherWorkPlanReusableArtifactRepository,
+} from './teacher-work-plan-reusable-artifacts.mjs';
 
 export const GAP_REPORT_JSON_PATH =
   'evaluations/teacher-work-plans/grades-5-7-gap-report.json';
@@ -69,6 +74,17 @@ const SAMPLE_TOPIC_ABSENCES = Object.freeze([
   Object.freeze({ source_id: 'grade-6-science', topic_id: 'settlement-ecosystem' }),
   Object.freeze({ source_id: 'grade-6-science', topic_id: 'bog-ecosystem' }),
 ]);
+
+const REUSABLE_ARTIFACT_IMPLEMENTATION = Object.freeze({
+  implemented_package_count: 1,
+  implemented_source_gap_count: 2,
+  delivered_capability_count: 7,
+  package_id: 'grade-6-science-soil-organisms',
+  artifact_index_path: 'teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml',
+  implementation_status: 'internal_draft_pending_teacher_review',
+  canonical_gap_status_unchanged: true,
+  source_gap_resolution_claimed: false,
+});
 
 function compareBytewise(left, right) {
   return Buffer.from(String(left)).compare(Buffer.from(String(right)));
@@ -346,6 +362,17 @@ function attachWorkPackageReview(report) {
   };
 }
 
+function attachReusableArtifactImplementation(report) {
+  return {
+    ...report,
+    reusable_artifact_implementation: structuredClone(REUSABLE_ARTIFACT_IMPLEMENTATION),
+    boundaries: {
+      ...report.boundaries,
+      reusable_teaching_artifacts_created: true,
+    },
+  };
+}
+
 function buildReportFromValidatedRepository(repository, { includeWorkPackageReview = true } = {}) {
   const bySourceId = new Map(repository.artifacts.map((entry) => [entry.contract.sourceId, entry]));
   const orderedRepositories = ROUTE_ORDER.map((sourceId) => bySourceId.get(sourceId));
@@ -471,6 +498,8 @@ export async function buildTeacherWorkPlanGapReport({
   rootDir = process.cwd(),
   repository = null,
   workPackageArtifactText = null,
+  reusableArtifactOverrides = new Map(),
+  reusableMaterialOverrides = new Map(),
 } = {}) {
   const loaded = await validatedRepository({ rootDir, repository });
   const baseReport = buildReportFromValidatedRepository(loaded, { includeWorkPackageReview: false });
@@ -490,7 +519,22 @@ export async function buildTeacherWorkPlanGapReport({
       ...workPackageValidation.diagnostics.map(formatTeacherWorkPlanWorkPackageDiagnostic),
     ].join('\n'));
   }
-  return attachWorkPackageReview(baseReport);
+  const reviewedReport = attachWorkPackageReview(baseReport);
+  const reusableRepository = await loadTeacherWorkPlanReusableArtifactRepository({
+    rootDir,
+    gapReport: reviewedReport,
+    workPackages: workPackages.artifact,
+    artifactOverrides: reusableArtifactOverrides,
+    materialOverrides: reusableMaterialOverrides,
+  });
+  const reusableValidation = validateTeacherWorkPlanReusableArtifactRepository(reusableRepository);
+  if (reusableValidation.diagnostics.length > 0) {
+    throw new Error([
+      'teacher work-plan reusable artifact validation failed before gap report generation',
+      ...reusableValidation.diagnostics.map(formatTeacherWorkPlanReusableArtifactDiagnostic),
+    ].join('\n'));
+  }
+  return attachReusableArtifactImplementation(reviewedReport);
 }
 
 export function serializeTeacherWorkPlanGapReport(report) {
@@ -512,7 +556,7 @@ export function renderTeacherWorkPlanGapReportMarkdown(report) {
     '',
     '## 1. Status and scope',
     '',
-    'This generated report indexes source-backed gaps in four supplementary, noncanonical teacher work-plan crosswalks. It does not create teaching materials or establish official curriculum completeness, annual allocation, default-course eligibility, or live-catalogue completeness.',
+    'This generated report indexes source-backed gaps in four supplementary, noncanonical teacher work-plan crosswalks. One independently authored internal-draft pilot now supports two gaps, but canonical coverage remains unchanged. The report does not establish official curriculum completeness, annual allocation, default-course eligibility, or live-catalogue completeness.',
     '',
     '## 2. Source crosswalks',
     '',
@@ -602,7 +646,11 @@ export function renderTeacherWorkPlanGapReportMarkdown(report) {
     '',
     `Machine-readable review: [\`${report.work_package_review.path}\`](../../${report.work_package_review.path}). Generated audit: [\`docs/audits/grades-5-7-priority-work-packages.md\`](grades-5-7-priority-work-packages.md).`,
     '',
-    'The review does not create reusable teaching artifacts and does not resolve any gap.',
+    '### Reusable artifact implementation',
+    '',
+    `One package, \`${report.reusable_artifact_implementation.package_id}\`, now has an internal draft with ${report.reusable_artifact_implementation.delivered_capability_count} material capabilities supporting ${report.reusable_artifact_implementation.implemented_source_gap_count} source gaps. Index: [\`${report.reusable_artifact_implementation.artifact_index_path}\`](../../${report.reusable_artifact_implementation.artifact_index_path}).`,
+    '',
+    'This independently authored support does not change either canonical Opiq gap from `missing`. Teacher review and local safety review remain pending, classroom trial is not tested, and no source-gap resolution is claimed.',
     '',
     '## 11. Complete gap registry grouped by route',
     '',
@@ -622,8 +670,8 @@ export function renderTeacherWorkPlanGapReportMarkdown(report) {
     '- All 262 registered source records are accounted for, and all 193 non-matched mappings are indexed once.',
     '- Gap-index completeness applies only to the four registered supplementary crosswalks.',
     '- Official curriculum completeness and exact-grade official allocation are not verified.',
-    '- No annual architecture, reusable teaching artifact, default-course selection, or live-catalogue verification is created here.',
-    '- Semantic work-package review is complete; reusable teaching artifacts and the reusable-artifact backlog remain incomplete.',
+    '- No annual architecture, default-course selection, or live-catalogue verification is created here.',
+    '- Semantic work-package review is complete; one internal-draft reusable artifact exists, but the reusable-artifact backlog remains incomplete.',
   );
   return `${lines.join('\n')}\n`;
 }
@@ -682,7 +730,7 @@ export function validateTeacherWorkPlanGapReport(report, {
   if (JSON.stringify(absenceKeys) !== JSON.stringify(SAMPLE_TOPIC_ABSENCES)) diagnostics.push(diagnostic('/sample_topic_absences', 'expected the exact five sample-only topic absences'));
   if (repository) {
     try {
-      const expected = buildReportFromValidatedRepository(repository);
+      const expected = attachReusableArtifactImplementation(buildReportFromValidatedRepository(repository));
       if (serializeTeacherWorkPlanGapReport(report) !== serializeTeacherWorkPlanGapReport(expected)) {
         diagnostics.push(diagnostic('/', 'report differs from validated crosswalk-derived model or deterministic property order'));
       }

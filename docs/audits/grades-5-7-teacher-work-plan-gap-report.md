@@ -2,7 +2,7 @@
 
 ## 1. Status and scope
 
-This generated report indexes source-backed gaps in four supplementary, noncanonical teacher work-plan crosswalks. It does not create teaching materials or establish official curriculum completeness, annual allocation, default-course eligibility, or live-catalogue completeness.
+This generated report indexes source-backed gaps in four supplementary, noncanonical teacher work-plan crosswalks. One independently authored internal-draft pilot now supports two gaps, but canonical coverage remains unchanged. The report does not establish official curriculum completeness, annual allocation, default-course eligibility, or live-catalogue completeness.
 
 ## 2. Source crosswalks
 
@@ -112,7 +112,11 @@ Selected first pilot: `grade-6-science-soil-organisms`.
 
 Machine-readable review: [`evaluations/teacher-work-plans/grades-5-7-priority-work-packages.yaml`](../../evaluations/teacher-work-plans/grades-5-7-priority-work-packages.yaml). Generated audit: [`docs/audits/grades-5-7-priority-work-packages.md`](grades-5-7-priority-work-packages.md).
 
-The review does not create reusable teaching artifacts and does not resolve any gap.
+### Reusable artifact implementation
+
+One package, `grade-6-science-soil-organisms`, now has an internal draft with 7 material capabilities supporting 2 source gaps. Index: [`teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml`](../../teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml).
+
+This independently authored support does not change either canonical Opiq gap from `missing`. Teacher review and local safety review remain pending, classroom trial is not tested, and no source-gap resolution is claimed.
 
 ## 11. Complete gap registry grouped by route
 
@@ -326,5 +330,5 @@ The review does not create reusable teaching artifacts and does not resolve any 
 - All 262 registered source records are accounted for, and all 193 non-matched mappings are indexed once.
 - Gap-index completeness applies only to the four registered supplementary crosswalks.
 - Official curriculum completeness and exact-grade official allocation are not verified.
-- No annual architecture, reusable teaching artifact, default-course selection, or live-catalogue verification is created here.
-- Semantic work-package review is complete; reusable teaching artifacts and the reusable-artifact backlog remain incomplete.
+- No annual architecture, default-course selection, or live-catalogue verification is created here.
+- Semantic work-package review is complete; one internal-draft reusable artifact exists, but the reusable-artifact backlog remains incomplete.

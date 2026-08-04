@@ -9240,7 +9240,7 @@
     "exact_grade_official_allocation_verified": false,
     "live_opiq_catalogue_complete": false,
     "default_course_selection_complete": false,
-    "reusable_teaching_artifacts_created": false,
+    "reusable_teaching_artifacts_created": true,
     "semantic_work_package_review_complete": true,
     "notes": [
       "The source plans are supplementary and noncanonical.",
@@ -9268,5 +9268,15 @@
     "multi_gap_package_count": 1,
     "selected_pilot_package_id": "grade-6-science-soil-organisms",
     "semantic_work_package_review_complete": true
+  },
+  "reusable_artifact_implementation": {
+    "implemented_package_count": 1,
+    "implemented_source_gap_count": 2,
+    "delivered_capability_count": 7,
+    "package_id": "grade-6-science-soil-organisms",
+    "artifact_index_path": "teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml",
+    "implementation_status": "internal_draft_pending_teacher_review",
+    "canonical_gap_status_unchanged": true,
+    "source_gap_resolution_claimed": false
   }
 }

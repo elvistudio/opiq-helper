@@ -51,6 +51,10 @@ const TEACHER_WORK_PLAN_MAP_EXACT = new Set([
   'scripts/lib/teacher-work-plan-work-packages.mjs',
   'scripts/generate-teacher-work-plan-work-packages.mjs',
   'scripts/teacher-work-plan-work-packages.test.mjs',
+  'schemas/teacher-work-plan-reusable-artifact.schema.json',
+  'scripts/lib/teacher-work-plan-reusable-artifacts.mjs',
+  'scripts/check-teacher-work-plan-reusable-artifacts.mjs',
+  'scripts/teacher-work-plan-reusable-artifacts.test.mjs',
   'evaluations/teacher-work-plans/grade-5-science-extraction.json',
   'project-files/outputs/opiq_5klass_loodusopetus.md',
   'project-files/outputs/opiq_5klass_loodusopetus_qa.json',
@@ -102,6 +106,7 @@ const GRADE_SCOPED_CONTENT_ROOTS = new Set([
   'lesson-plans',
   'project-files',
   'teacher-packs',
+  'teacher-work-plan-artifacts',
 ]);
 
 function compareBytewise(left, right) {
@@ -136,6 +141,7 @@ function shouldRunTeacherWorkPlans(paths) {
 function shouldRunTeacherWorkPlanMaps(paths) {
   return paths.some((repositoryPath) => (
     TEACHER_WORK_PLAN_MAP_EXACT.has(repositoryPath)
+    || repositoryPath.startsWith('teacher-work-plan-artifacts/')
     || /^curriculum-maps\/grade-[0-9]+-[a-z0-9-]+\/teacher-work-plan-crosswalk\.ya?ml$/u.test(repositoryPath)
     || /^scripts\/[^/]*teacher-work-plan-curriculum-map[^/]*$/u.test(repositoryPath)
   ));

@@ -2,9 +2,9 @@
 
 ## 1. Status and scope
 
-This generated audit records the completed semantic review of the 17 missing or ambiguous source-backed gaps in the four registered supplementary teacher-plan crosswalks. The review defines 16 proposed work packages: 13 are ready for a later authoring PR and 3 remain blocked by explicit teacher decisions.
+This generated audit records the completed semantic review of the 17 missing or ambiguous source-backed gaps in the four registered supplementary teacher-plan crosswalks. The review defines 16 work packages: 13 are semantically authorable and 3 remain blocked by explicit teacher decisions.
 
-No teaching artifact is created and no source gap is resolved by this review.
+Semantic review remains complete. One selected P0 package now has internal-draft materials pending teacher and local safety review; no canonical source gap is resolved.
 
 ## 2. Why semantic review precedes authoring
 
@@ -57,7 +57,9 @@ Grade 7 geography has no missing or ambiguous priority gap and therefore has no 
 
 ## 5. Ready versus blocked accounting
 
-- Ready for later authoring: 13.
+- Semantically ready packages: 13.
+- Implemented as an internal draft: 1.
+- Ready packages not started: 12.
 - Blocked by teacher review: 3.
 - `grade-5-science-year-start-workflow`: Which local class workflow, learner grouping and portfolio conventions should be used?
 - `grade-6-science-unassigned-lesson-105`: Which topic or local annual-course purpose, if any, should be assigned to lesson 105?
@@ -73,9 +75,9 @@ The only multi-gap package is `grade-6-science-soil-organisms`, combining `grade
 
 Selected package: `grade-6-science-soil-organisms`.
 
-Planned root for the next PR: `teacher-work-plan-artifacts/grade-6-science/soil-organisms`.
+Implemented root: `teacher-work-plan-artifacts/grade-6-science/soil-organisms`.
 
-The pilot covers two consecutive missing gaps and combines a practical protocol with a content bridge. Exact-route Grade 6 soil records provide soil context but do not supply direct page-level evidence for soil organisms. The supplementary source requires field observation, documentation, group work, information synthesis and presentation. The registered Grade 6 language profile is A2; future oral support will be independently authored rather than represented as Opiq oral-page evidence.
+The internal draft covers two consecutive missing gaps and combines a practical protocol with a content bridge. Exact-route Grade 6 soil records provide soil context but do not supply direct page-level evidence for soil organisms. The supplementary source requires field observation, documentation, group work, information synthesis and presentation. The registered Grade 6 language profile is A2; oral support is independently authored rather than represented as Opiq oral-page evidence.
 
 ## 8. Proposed deliverables for the pilot
 
@@ -87,11 +89,11 @@ The pilot covers two consecutive missing gaps and combines a practical protocol 
 - `assessment_rubric`
 - `oral_support`
 
-These are proposals for a separate next PR. None of the seven files or capabilities exists as a result of this review.
+All seven capabilities now exist in the internal-draft artifact at `teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml`. Their existence supplies independently authored support but does not change either canonical Opiq gap from `missing`.
 
 ## 9. Existing lesson/teacher-pack architecture boundary
 
-The production lesson schema and validators require a verified official curriculum map and a registered course map. The current Grade 6 and Grade 7 crosswalk routes have neither verified official curriculum maps nor annual architectures. The next pilot therefore requires a separate lightweight teacher-work-plan reusable-artifact contract. That decision does not bypass or weaken the existing lesson-plan or teacher-pack validators.
+The production lesson schema and validators require a verified official curriculum map and a registered course map. The current Grade 6 and Grade 7 crosswalk routes have neither verified official curriculum maps nor annual architectures. The pilot therefore uses a separate lightweight teacher-work-plan reusable-artifact contract. That decision does not bypass or weaken the existing lesson-plan or teacher-pack validators.
 
 ## 10. Route and programme boundaries
 
@@ -103,8 +105,8 @@ The production lesson schema and validators require a verified official curricul
 
 ## 11. What remains pending
 
-- Reusable teaching artifacts have not been created.
+- One P0 package has internal-draft reusable materials; teacher review and local safety review remain pending.
+- Twelve semantically ready packages remain not started.
 - The reusable-artifact backlog is not complete.
 - Three packages require teacher decisions before authoring.
-- The lightweight reusable-artifact contract and the selected pilot content belong to a separate next PR.
-- Phase 5 remains incomplete; no gap is marked resolved.
+- Phase 5 has started but remains incomplete; no canonical source gap is marked resolved.
