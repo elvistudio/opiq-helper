@@ -13,6 +13,7 @@
     "semantic_grouping_policy",
     "architecture_decision",
     "summary",
+    "implementation_summary",
     "work_packages",
     "completeness"
   ],
@@ -25,6 +26,7 @@
     "semantic_grouping_policy": { "$ref": "#/$defs/groupingPolicy" },
     "architecture_decision": { "$ref": "#/$defs/architectureDecision" },
     "summary": { "$ref": "#/$defs/summary" },
+    "implementation_summary": { "$ref": "#/$defs/implementationSummary" },
     "work_packages": {
       "type": "array",
       "minItems": 16,
@@ -127,7 +129,7 @@
         "matched_gaps_included": { "const": false },
         "live_catalogue_checked": { "const": false },
         "official_curriculum_completeness_claimed": { "const": false },
-        "reusable_teaching_artifacts_created": { "const": false }
+        "reusable_teaching_artifacts_created": { "const": true }
       }
     },
     "groupingPolicy": {
@@ -198,6 +200,32 @@
         "selected_pilot_package_id": {
           "const": "grade-6-science-soil-organisms"
         }
+      }
+    },
+    "implementationSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "implemented_internal_draft_count",
+        "implemented_source_gap_count",
+        "delivered_capability_count",
+        "not_started_ready_package_count",
+        "blocked_teacher_review_count",
+        "implemented_package_id",
+        "artifact_index_path",
+        "source_gap_resolution_claimed"
+      ],
+      "properties": {
+        "implemented_internal_draft_count": { "const": 1 },
+        "implemented_source_gap_count": { "const": 2 },
+        "delivered_capability_count": { "const": 7 },
+        "not_started_ready_package_count": { "const": 12 },
+        "blocked_teacher_review_count": { "const": 3 },
+        "implemented_package_id": { "const": "grade-6-science-soil-organisms" },
+        "artifact_index_path": {
+          "const": "teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml"
+        },
+        "source_gap_resolution_claimed": { "const": false }
       }
     },
     "lessonSpan": {
@@ -376,7 +404,8 @@
           "items": { "$ref": "#/$defs/nonEmptyString" }
         },
         "resolution_claimed": { "const": false },
-        "selected_as_first_pilot": { "type": "boolean" }
+        "selected_as_first_pilot": { "type": "boolean" },
+        "implementation": { "$ref": "#/$defs/implementation" }
       },
       "allOf": [
         {
@@ -409,6 +438,40 @@
         }
       ]
     },
+    "implementation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "artifact_index_path",
+        "delivered_capabilities",
+        "supported_gap_ids",
+        "source_gap_resolution_claimed"
+      ],
+      "properties": {
+        "status": { "const": "internal_draft_pending_teacher_review" },
+        "artifact_index_path": {
+          "const": "teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml"
+        },
+        "delivered_capabilities": {
+          "type": "array",
+          "minItems": 7,
+          "maxItems": 7,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/capability" }
+        },
+        "supported_gap_ids": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "enum": ["grade-6-science-lesson-008", "grade-6-science-lesson-009"]
+          }
+        },
+        "source_gap_resolution_claimed": { "const": false }
+      }
+    },
     "completeness": {
       "type": "object",
       "additionalProperties": false,
@@ -425,7 +488,7 @@
         "all_missing_and_ambiguous_gaps_classified": { "const": true },
         "every_priority_gap_assigned_once": { "const": true },
         "semantic_work_package_review_complete": { "const": true },
-        "reusable_teaching_artifacts_created": { "const": false },
+        "reusable_teaching_artifacts_created": { "const": true },
         "reusable_artifact_backlog_complete": { "const": false },
         "official_curriculum_complete": { "const": false },
         "live_catalogue_complete": { "const": false }

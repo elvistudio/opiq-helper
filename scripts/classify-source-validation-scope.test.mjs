@@ -138,6 +138,12 @@ test('teacher work-plan curriculum-map dependencies select the focused map job',
     'scripts/lib/teacher-work-plan-work-packages.mjs',
     'scripts/generate-teacher-work-plan-work-packages.mjs',
     'scripts/teacher-work-plan-work-packages.test.mjs',
+    'schemas/teacher-work-plan-reusable-artifact.schema.json',
+    'scripts/lib/teacher-work-plan-reusable-artifacts.mjs',
+    'scripts/check-teacher-work-plan-reusable-artifacts.mjs',
+    'scripts/teacher-work-plan-reusable-artifacts.test.mjs',
+    'teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml',
+    'teacher-work-plan-artifacts/grade-6-science/soil-organisms/student-worksheet.md',
     'schemas/teacher-work-plan-curriculum-map.schema.json',
     'scripts/lib/teacher-work-plan-curriculum-maps.mjs',
     'scripts/check-teacher-work-plan-curriculum-maps.mjs',
@@ -156,6 +162,15 @@ test('teacher work-plan curriculum-map dependencies select the focused map job',
   ]) {
     assert.equal(classifyChangedPaths([repositoryPath]).run_teacher_work_plan_maps, true);
   }
+});
+
+test('teacher work-plan reusable materials trigger full Grade 5+ validation and map checks', () => {
+  const result = classifyChangedPaths([
+    'teacher-work-plan-artifacts/grade-6-science/soil-organisms/oral-support.md',
+  ]);
+  assert.equal(result.mode, 'full');
+  assert.ok(result.reason_codes.includes('grade_5_plus_content'));
+  assert.equal(result.run_teacher_work_plan_maps, true);
 });
 
 test('unrelated changes do not select the teacher work-plan job', () => {

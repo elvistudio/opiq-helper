@@ -1,0 +1,302 @@
+schema_version: "1.0"
+artifact_type: teacher_work_plan_reusable_artifact
+artifact_id: grade-6-science-soil-organisms
+package_id: grade-6-science-soil-organisms
+implementation_status: internal_draft_pending_teacher_review
+identity:
+  grade: 6
+  subject: science
+  subject_et: loodusõpetus
+  title_ru: "Почвенные организмы: наблюдение и объяснение"
+  title_et: "Mullaorganismid: vaatlus ja selgitamine"
+  instruction_language: ru
+  subject_support_language: et
+canonical_route:
+  source_id: grade-6-science
+  md_path: project-files/outputs/opiq_6klass_loodusopetus.md
+  source_archive: project-files/inputs/final-zips/opiq_6klass_elutingimused_soos_v2.zip
+  qa_path: project-files/outputs/opiq_6klass_loodusopetus_qa.json
+  record_count: 436
+  coverage_status: available_not_curriculum_verified
+source_work_package:
+  review_id: grades-5-7-priority-work-packages
+  review_path: evaluations/teacher-work-plans/grades-5-7-priority-work-packages.yaml
+  package_id: grade-6-science-soil-organisms
+  authoring_status: ready_for_authoring
+  priority_tier: p0
+  selected_as_first_pilot: true
+  planned_root_path: teacher-work-plan-artifacts/grade-6-science/soil-organisms
+  proposed_deliverables:
+    - teacher_guide
+    - practical_protocol
+    - observation_table
+    - student_worksheet
+    - answer_key
+    - assessment_rubric
+    - oral_support
+source_gaps:
+  - gap_id: grade-6-science-lesson-008
+    mapping_id: lesson-008
+    source_record_kind: lesson_range
+    source_block_id: muld
+    lesson_span: { lesson_start: 8, lesson_end: 8 }
+    source_pages: [3, 4]
+    source_topic_et: Mullaorganismide välivaatlus
+    normalized_mapping_topic_et: Mullaorganismide välivaatlus
+    coverage_status: missing
+    bridge_type: independently_authored_practical_required
+    topic_inventory_refs: [soil-formation-and-properties]
+  - gap_id: grade-6-science-lesson-009
+    mapping_id: lesson-009
+    source_record_kind: lesson_range
+    source_block_id: muld
+    lesson_span: { lesson_start: 9, lesson_end: 9 }
+    source_pages: [4]
+    source_topic_et: Mullaorganismid
+    normalized_mapping_topic_et: Mullaorganismid
+    coverage_status: missing
+    bridge_type: independently_authored_bridge_required
+    topic_inventory_refs: [soil-formation-and-properties]
+teacher_plan_source:
+  extraction_path: evaluations/teacher-work-plans/grade-6-science-extraction.json
+  source_pdf_path: project-files/inputs/originals/teacher-work-plans/Loodusopetuse-tookava-naidis-6-klassile.pdf
+  original_filename: Loodusõpetuse-töökava-näidis-6.-klassile.pdf
+  source_sha256: 2b63ada1c2821e63a8aadda0bf93246499c2f8430cd305592a82a709a0160762
+  source_page_count: 31
+  relevant_source_pages: [3, 4]
+  provenance_kind: supplementary_teacher_work_plan
+  canonical: false
+learner_language_profile:
+  profile_id: grade-6-science-a2-default
+  profile_path: lesson-plans/language-profiles.yaml
+  learner_language_level: A2
+  expected_supported_estonian_output_sentences: { minimum: 3, maximum: 5 }
+content_boundary:
+  opiq_required: false
+  customer_or_learner_can_complete_without_opiq: true
+  external_sources_used: false
+  live_catalogue_checked: false
+  pupil_facing_science_provenance: independently_authored
+  teacher_plan_contribution:
+    - topic_scope
+    - activity_type
+    - source_pages
+    - lesson_relationship
+  teacher_plan_does_not_supply:
+    - textbook_prose
+    - complete_practical_protocol
+    - observation_table
+    - assessment_rubric
+    - oral_language_support
+  direct_opiq_soil_organism_evidence_available: false
+opiq_context_records:
+  - inventory_bucket: selected_records
+    topic_inventory_ref: soil-formation-and-properties
+    record_id: soil-ru-core
+    canonical_url: https://www.opiq.ee/kit/269/chapter/15287
+    canonical_source_id: grade-6-science
+    book_id: 5k_loodusõpetus_koolibri_rus
+    title: Состав почвы
+    language: ru
+    programme_type: unknown
+    programme_type_evidence_status: ambiguous
+    default_course_eligibility: unverified
+    instructional_roles: [core_explanation_ru, practice_ru]
+    relationship_to_pilot: soil_context_only_not_soil_organism_evidence
+    required_for_learner_completion: false
+  - inventory_bucket: selected_records
+    topic_inventory_ref: soil-formation-and-properties
+    record_id: soil-et-formation
+    canonical_url: https://www.opiq.ee/kit/580/chapter/32151
+    canonical_source_id: grade-6-science
+    book_id: 5k_loodusõpetus_koolibri_2025_est
+    title: Muldade teke ja areng
+    language: et
+    programme_type: unknown
+    programme_type_evidence_status: ambiguous
+    default_course_eligibility: unverified
+    instructional_roles: [core_source_et, terminology_et, bilingual_visual]
+    relationship_to_pilot: soil_context_only_not_soil_organism_evidence
+    required_for_learner_completion: false
+  - inventory_bucket: selected_records
+    topic_inventory_ref: soil-formation-and-properties
+    record_id: soil-et-pit
+    canonical_url: https://www.opiq.ee/kit/580/chapter/32155
+    canonical_source_id: grade-6-science
+    book_id: 5k_loodusõpetus_koolibri_2025_est
+    title: Mullakaeve
+    language: et
+    programme_type: unknown
+    programme_type_evidence_status: ambiguous
+    default_course_eligibility: unverified
+    instructional_roles: [practice_et, experiment, fieldwork, data_interpretation]
+    relationship_to_pilot: soil_context_only_not_soil_organism_protocol
+    required_for_learner_completion: false
+  - inventory_bucket: alternative_records
+    topic_inventory_ref: soil-formation-and-properties
+    record_id: soil-ru-pit
+    canonical_url: https://www.opiq.ee/kit/269/chapter/15292
+    canonical_source_id: grade-6-science
+    book_id: 5k_loodusõpetus_koolibri_rus
+    title: Почвенный разрез
+    language: ru
+    programme_type: unknown
+    programme_type_evidence_status: ambiguous
+    default_course_eligibility: unverified
+    instructional_roles: [practice_ru, data_interpretation]
+    relationship_to_pilot: soil_context_only_not_soil_organism_protocol
+    required_for_learner_completion: false
+lesson_sequence:
+  - part_id: part-1
+    source_gap_id: grade-6-science-lesson-008
+    title_ru: Полевое наблюдение почвенных организмов
+    title_et: Mullaorganismide välivaatlus
+    duration_minutes: 45
+    primary_outputs:
+      - practical_protocol_completed_safely
+      - observation_table
+      - short_evidence_based_comparison
+  - part_id: part-2
+    source_gap_id: grade-6-science-lesson-009
+    title_ru: Почвенные организмы и их роль
+    title_et: Mullaorganismid ja nende roll
+    duration_minutes: 45
+    primary_outputs:
+      - group_synthesis
+      - russian_subject_explanation
+      - short_supported_estonian_presentation
+      - worksheet_and_assessment_evidence
+language_support:
+  provenance: independently_authored_language_support
+  represented_as_opiq_oral_evidence: false
+  productive_terms:
+    - { et: muld, ru: почва }
+    - { et: mullaorganism, ru: почвенный организм }
+    - { et: vaatlus, ru: наблюдение }
+    - { et: elupaik, ru: место обитания }
+    - { et: niiskus, ru: влажность }
+    - { et: lagundaja, ru: разрушитель органических остатков / редуцент }
+  sentence_frames:
+    - Me uurisime ___ ja ___.
+    - Leidsime ___ mullaorganismi.
+    - Kõige rohkem oli ___.
+    - Niiskemas kohas oli ___.
+    - Mullaorganismid aitavad orgaanilist ainet lagundada.
+  full_russian_model_answer_required: true
+safety_and_ethics:
+  local_teacher_risk_assessment_required: true
+  universal_safety_claimed: false
+  protected_area_permission_is_teacher_responsibility: true
+  safeguards:
+    - no_unsafe_or_restricted_area
+    - no_hazardous_object_handling
+    - no_tasting_or_face_touching
+    - locally_appropriate_tools_or_gloves
+    - minimal_disturbance
+    - no_deep_digging
+    - organisms_and_substrate_returned_promptly
+    - hand_washing
+    - stop_for_dangerous_weather_or_terrain
+    - allergy_and_accessibility_review
+  scientific_boundaries:
+    - visible_surface_or_leaf_litter_organisms_only
+    - species_identification_not_required
+    - microorganisms_not_counted_without_suitable_tools
+    - equal_area_and_equal_time
+    - local_counts_not_population_or_biodiversity_estimates
+    - one_observation_does_not_prove_causation
+    - observation_distinguished_from_interpretation
+  indoor_fallback_available: true
+materials:
+  - material_id: soil-organisms-teacher-guide
+    capability: teacher_guide
+    title: Руководство учителя по двум занятиям
+    artifact_path: teacher-work-plan-artifacts/grade-6-science/soil-organisms/teacher-guide.md
+    audience: teacher
+    languages: [ru, et]
+    printable: true
+    provenance: independently_authored
+    sha256: 2a0d26671a051d33cd6b78cdf1eb46eb1a991020c71f05ace7c8610ca32a37a3
+  - material_id: soil-organisms-practical-protocol
+    capability: practical_protocol
+    title: Протокол маловоздействующего полевого наблюдения
+    artifact_path: teacher-work-plan-artifacts/grade-6-science/soil-organisms/practical-protocol.md
+    audience: teacher
+    languages: [ru]
+    printable: true
+    provenance: independently_authored
+    sha256: 42c89a0d91f30e63936d1903065322eeb1616edb40c9234895ca157980970c9b
+  - material_id: soil-organisms-observation-table
+    capability: observation_table
+    title: Таблица наблюдения двух микроместообитаний
+    artifact_path: teacher-work-plan-artifacts/grade-6-science/soil-organisms/observation-table.md
+    audience: student
+    languages: [ru]
+    printable: true
+    provenance: independently_authored
+    answer_key_path: teacher-work-plan-artifacts/grade-6-science/soil-organisms/answer-key.md
+    sha256: ed73c07de474825e36048fff87c89037afd0fe76477e1b65ae35477b8c4cacbb
+  - material_id: soil-organisms-student-worksheet
+    capability: student_worksheet
+    title: Рабочий лист наблюдения, объяснения и презентации
+    artifact_path: teacher-work-plan-artifacts/grade-6-science/soil-organisms/student-worksheet.md
+    audience: student
+    languages: [ru, et]
+    printable: true
+    provenance: independently_authored
+    answer_key_path: teacher-work-plan-artifacts/grade-6-science/soil-organisms/answer-key.md
+    sha256: 41b2c0809d25fe8b8266c238a8bcef471a704c5bc010748c6680edde81943273
+  - material_id: soil-organisms-answer-key
+    capability: answer_key
+    title: Ключ и критерии приемлемых ответов
+    artifact_path: teacher-work-plan-artifacts/grade-6-science/soil-organisms/answer-key.md
+    audience: teacher
+    languages: [ru, et]
+    printable: true
+    provenance: independently_authored
+    sha256: 158666725916c2d5be35d201c482ca3f9752a43f7018d8dff6dcf4874abf9a16
+  - material_id: soil-organisms-assessment-rubric
+    capability: assessment_rubric
+    title: Рубрика предметного, исследовательского и языкового свидетельства
+    artifact_path: teacher-work-plan-artifacts/grade-6-science/soil-organisms/assessment-rubric.md
+    audience: teacher
+    languages: [ru, et]
+    printable: true
+    provenance: independently_authored
+    sha256: 7416aba84f4dee39fe08d9dd6c729ae093d514727e0d5e69db7d3b5963350d04
+  - material_id: soil-organisms-oral-support
+    capability: oral_support
+    title: Поддержка короткого сообщения по-эстонски
+    artifact_path: teacher-work-plan-artifacts/grade-6-science/soil-organisms/oral-support.md
+    audience: shared
+    languages: [ru, et]
+    printable: true
+    provenance: independently_authored_language_support
+    sha256: 252145bbc1c17e4885782e5070e5227860f44f12a361add9544e54b5c42012f0
+content_fingerprint:
+  algorithm: sha256
+  value: 894cc83f54c158485f6d6ba699d8a1298c3e57056e315281b79d69e84f366613
+  index_included: false
+readiness:
+  schema_complete: true
+  content_complete_for_internal_review: true
+  materials_resolved: true
+  print_ready: true
+  teacher_review: { status: pending }
+  local_safety_review: { required: true, status: pending }
+  classroom_trial: { status: not_tested }
+  classroom_ready: false
+  publication_ready: false
+  customer_released: false
+  effectiveness_claimed: false
+source_gap_support:
+  independently_authored_support_created: true
+  supported_gap_ids:
+    - grade-6-science-lesson-008
+    - grade-6-science-lesson-009
+  canonical_opiq_gap_status_unchanged: true
+  source_gap_resolution_claimed: false
+  official_curriculum_complete: false
+  annual_architecture_created: false
+  default_course_selection_complete: false
+  live_catalogue_complete: false

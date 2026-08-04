@@ -105,7 +105,7 @@ test('production report validates and uses four exact input routes in order', ()
   assert.deepEqual(report.route_summaries.map(({ source_id }) => source_id), Object.keys(expectedCrosswalks));
 });
 
-test('semantic work-package review summary is exact while reusable artifacts remain absent', () => {
+test('semantic review and one internal-draft reusable implementation are exact', () => {
   assert.deepEqual(report.work_package_review, {
     review_id: 'grades-5-7-priority-work-packages',
     path: 'evaluations/teacher-work-plans/grades-5-7-priority-work-packages.yaml',
@@ -118,7 +118,17 @@ test('semantic work-package review summary is exact while reusable artifacts rem
     semantic_work_package_review_complete: true,
   });
   assert.equal(report.boundaries.semantic_work_package_review_complete, true);
-  assert.equal(report.boundaries.reusable_teaching_artifacts_created, false);
+  assert.deepEqual(report.reusable_artifact_implementation, {
+    implemented_package_count: 1,
+    implemented_source_gap_count: 2,
+    delivered_capability_count: 7,
+    package_id: 'grade-6-science-soil-organisms',
+    artifact_index_path: 'teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml',
+    implementation_status: 'internal_draft_pending_teacher_review',
+    canonical_gap_status_unchanged: true,
+    source_gap_resolution_claimed: false,
+  });
+  assert.equal(report.boundaries.reusable_teaching_artifacts_created, true);
   assert.equal(report.completeness.reusable_artifact_backlog_complete, false);
 });
 
@@ -390,15 +400,18 @@ test('oral and programme evidence cannot be fabricated or promoted', () => {
   }, /differs/u);
 });
 
-test('completeness, live catalogue and reusable artifacts cannot be promoted', () => {
+test('completeness and implementation boundaries cannot be promoted or erased', () => {
   for (const mutate of [
     (candidate) => { candidate.boundaries.official_curriculum_complete = true; },
     (candidate) => { candidate.boundaries.live_opiq_catalogue_complete = true; },
     (candidate) => { candidate.boundaries.default_course_selection_complete = true; },
-    (candidate) => { candidate.boundaries.reusable_teaching_artifacts_created = true; },
+    (candidate) => { candidate.boundaries.reusable_teaching_artifacts_created = false; },
     (candidate) => { candidate.completeness.official_curriculum_complete = true; },
     (candidate) => { candidate.completeness.reusable_artifact_backlog_complete = true; },
     (candidate) => { candidate.boundaries.semantic_work_package_review_complete = false; },
+    (candidate) => { candidate.reusable_artifact_implementation.source_gap_resolution_claimed = true; },
+    (candidate) => { candidate.reusable_artifact_implementation.canonical_gap_status_unchanged = false; },
+    (candidate) => { candidate.reusable_artifact_implementation.implemented_package_count = 2; },
   ]) assertInvalid(mutate, /must be equal to constant|differs/u);
 });
 
@@ -428,6 +441,22 @@ test('builder refuses stale or invalid semantic work-package review YAML', async
       ),
     }),
     /semantic review failed|source gap snapshot/u,
+  );
+});
+
+test('builder refuses an invalid reusable artifact before generating implementation tracking', async () => {
+  const indexPath = 'teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml';
+  const indexText = await fs.readFile(path.join(repositoryRoot, indexPath), 'utf8');
+  await assert.rejects(
+    buildTeacherWorkPlanGapReport({
+      rootDir: repositoryRoot,
+      repository: crosswalkRepository,
+      reusableArtifactOverrides: new Map([[
+        indexPath,
+        indexText.replace('source_gap_resolution_claimed: false', 'source_gap_resolution_claimed: true'),
+      ]]),
+    }),
+    /reusable artifact validation failed|resolution/u,
   );
 });
 

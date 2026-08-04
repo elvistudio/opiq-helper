@@ -2,6 +2,7 @@
   "private": true,
   "scripts": {
     "check:teacher-work-plan-gap-report": "node scripts/generate-teacher-work-plan-gap-report.mjs --check",
+    "check:teacher-work-plan-artifacts": "node scripts/check-teacher-work-plan-reusable-artifacts.mjs",
     "check:teacher-work-plan-work-packages": "node scripts/generate-teacher-work-plan-work-packages.mjs --check",
     "check:teacher-work-plan-maps": "node scripts/check-teacher-work-plan-curriculum-maps.mjs",
     "check:teacher-work-plans": "node scripts/check-teacher-work-plan-extractions.mjs",
@@ -101,6 +102,7 @@
     "test:synthesis": "node --test scripts/topic-synthesis.test.mjs",
     "test:topics": "node --test scripts/known-topic-regressions.test.mjs",
     "test:teacher-work-plan-gap-report": "node --test scripts/teacher-work-plan-gap-report.test.mjs",
+    "test:teacher-work-plan-artifacts": "node --test scripts/teacher-work-plan-reusable-artifacts.test.mjs",
     "test:teacher-work-plan-work-packages": "node --test scripts/teacher-work-plan-work-packages.test.mjs",
     "test:teacher-work-plan-maps": "node --test scripts/teacher-work-plan-curriculum-maps.test.mjs",
     "test:teacher-work-plans": "node --test scripts/teacher-work-plan-extractions.test.mjs",

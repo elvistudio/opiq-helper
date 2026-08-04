@@ -68,6 +68,7 @@ const BLOCKED_PACKAGE_IDS = Object.freeze([
 
 const SELECTED_PILOT_PACKAGE_ID = 'grade-6-science-soil-organisms';
 const SELECTED_PILOT_ROOT = 'teacher-work-plan-artifacts/grade-6-science/soil-organisms';
+const SELECTED_PILOT_INDEX = `${SELECTED_PILOT_ROOT}/artifact-index.yaml`;
 const SELECTED_PILOT_DELIVERABLES = Object.freeze([
   'teacher_guide',
   'practical_protocol',
@@ -77,6 +78,25 @@ const SELECTED_PILOT_DELIVERABLES = Object.freeze([
   'assessment_rubric',
   'oral_support',
 ]);
+
+const IMPLEMENTATION_SUMMARY = Object.freeze({
+  implemented_internal_draft_count: 1,
+  implemented_source_gap_count: 2,
+  delivered_capability_count: 7,
+  not_started_ready_package_count: 12,
+  blocked_teacher_review_count: 3,
+  implemented_package_id: SELECTED_PILOT_PACKAGE_ID,
+  artifact_index_path: SELECTED_PILOT_INDEX,
+  source_gap_resolution_claimed: false,
+});
+
+const PILOT_IMPLEMENTATION = Object.freeze({
+  status: 'internal_draft_pending_teacher_review',
+  artifact_index_path: SELECTED_PILOT_INDEX,
+  delivered_capabilities: SELECTED_PILOT_DELIVERABLES,
+  supported_gap_ids: ['grade-6-science-lesson-008', 'grade-6-science-lesson-009'],
+  source_gap_resolution_claimed: false,
+});
 
 const FORBIDDEN_PLANNED_PATH_PREFIXES = Object.freeze([
   'lesson-plans/',
@@ -409,6 +429,9 @@ export function validateTeacherWorkPlanWorkPackages(artifact, {
     if (selected) {
       if (workPackage.planned_root_path !== SELECTED_PILOT_ROOT) diagnostics.push(diagnostic(`${field}/planned_root_path`, `selected pilot root must be ${SELECTED_PILOT_ROOT}`));
       addExactDiagnostic(diagnostics, `${field}/proposed_deliverables`, deliverables, SELECTED_PILOT_DELIVERABLES, 'selected pilot deliverables must match the exact seven-item contract');
+      addExactDiagnostic(diagnostics, `${field}/implementation`, workPackage.implementation, PILOT_IMPLEMENTATION, 'selected pilot implementation must link the exact internal-draft artifact and two source gaps');
+    } else if (workPackage.implementation !== undefined) {
+      diagnostics.push(diagnostic(`${field}/implementation`, 'only the selected pilot may have a production implementation entry'));
     }
     if (workPackage.resolution_claimed !== false) diagnostics.push(diagnostic(`${field}/resolution_claimed`, 'work-package review cannot claim gap resolution'));
   }
@@ -438,6 +461,16 @@ export function validateTeacherWorkPlanWorkPackages(artifact, {
     },
     'production summary must remain 17 gaps, 16 packages, 13 ready, 3 blocked and one pilot',
   );
+  addExactDiagnostic(
+    diagnostics,
+    '/implementation_summary',
+    artifact?.implementation_summary,
+    IMPLEMENTATION_SUMMARY,
+    'implementation summary must record exactly one internal draft, two supported gaps and seven capabilities',
+  );
+  if (artifact?.scope?.reusable_teaching_artifacts_created !== true) diagnostics.push(diagnostic('/scope/reusable_teaching_artifacts_created', 'one internal-draft reusable artifact now exists'));
+  if (artifact?.completeness?.reusable_teaching_artifacts_created !== true) diagnostics.push(diagnostic('/completeness/reusable_teaching_artifacts_created', 'one internal-draft reusable artifact now exists'));
+  if (artifact?.completeness?.reusable_artifact_backlog_complete !== false) diagnostics.push(diagnostic('/completeness/reusable_artifact_backlog_complete', 'reusable artifact backlog remains incomplete'));
   diagnostics.sort((left, right) => compareBytewise(`${left.field}\0${left.reason}`, `${right.field}\0${right.reason}`));
   return {
     diagnostics,
@@ -513,9 +546,9 @@ export function renderTeacherWorkPlanWorkPackagesMarkdown(artifact) {
     '',
     '## 1. Status and scope',
     '',
-    'This generated audit records the completed semantic review of the 17 missing or ambiguous source-backed gaps in the four registered supplementary teacher-plan crosswalks. The review defines 16 proposed work packages: 13 are ready for a later authoring PR and 3 remain blocked by explicit teacher decisions.',
+    'This generated audit records the completed semantic review of the 17 missing or ambiguous source-backed gaps in the four registered supplementary teacher-plan crosswalks. The review defines 16 work packages: 13 are semantically authorable and 3 remain blocked by explicit teacher decisions.',
     '',
-    'No teaching artifact is created and no source gap is resolved by this review.',
+    'Semantic review remains complete. One selected P0 package now has internal-draft materials pending teacher and local safety review; no canonical source gap is resolved.',
     '',
     '## 2. Why semantic review precedes authoring',
     '',
@@ -537,7 +570,9 @@ export function renderTeacherWorkPlanWorkPackagesMarkdown(artifact) {
     '',
     '## 5. Ready versus blocked accounting',
     '',
-    `- Ready for later authoring: ${ready.length}.`,
+    `- Semantically ready packages: ${ready.length}.`,
+    `- Implemented as an internal draft: ${artifact.implementation_summary.implemented_internal_draft_count}.`,
+    `- Ready packages not started: ${artifact.implementation_summary.not_started_ready_package_count}.`,
     `- Blocked by teacher review: ${blocked.length}.`,
     ...blocked.map((entry) => `- \`${entry.package_id}\`: ${markdownCell(entry.blocking_questions.join(' '))}`),
     '',
@@ -551,19 +586,19 @@ export function renderTeacherWorkPlanWorkPackagesMarkdown(artifact) {
     '',
     `Selected package: \`${pilot.package_id}\`.`,
     '',
-    `Planned root for the next PR: \`${pilot.planned_root_path}\`.`,
+    `Implemented root: \`${pilot.planned_root_path}\`.`,
     '',
-    'The pilot covers two consecutive missing gaps and combines a practical protocol with a content bridge. Exact-route Grade 6 soil records provide soil context but do not supply direct page-level evidence for soil organisms. The supplementary source requires field observation, documentation, group work, information synthesis and presentation. The registered Grade 6 language profile is A2; future oral support will be independently authored rather than represented as Opiq oral-page evidence.',
+    'The internal draft covers two consecutive missing gaps and combines a practical protocol with a content bridge. Exact-route Grade 6 soil records provide soil context but do not supply direct page-level evidence for soil organisms. The supplementary source requires field observation, documentation, group work, information synthesis and presentation. The registered Grade 6 language profile is A2; oral support is independently authored rather than represented as Opiq oral-page evidence.',
     '',
     '## 8. Proposed deliverables for the pilot',
     '',
     ...pilot.proposed_deliverables.map((deliverable) => `- \`${deliverable}\``),
     '',
-    'These are proposals for a separate next PR. None of the seven files or capabilities exists as a result of this review.',
+    `All seven capabilities now exist in the internal-draft artifact at \`${pilot.implementation.artifact_index_path}\`. Their existence supplies independently authored support but does not change either canonical Opiq gap from \`missing\`.`,
     '',
     '## 9. Existing lesson/teacher-pack architecture boundary',
     '',
-    'The production lesson schema and validators require a verified official curriculum map and a registered course map. The current Grade 6 and Grade 7 crosswalk routes have neither verified official curriculum maps nor annual architectures. The next pilot therefore requires a separate lightweight teacher-work-plan reusable-artifact contract. That decision does not bypass or weaken the existing lesson-plan or teacher-pack validators.',
+    'The production lesson schema and validators require a verified official curriculum map and a registered course map. The current Grade 6 and Grade 7 crosswalk routes have neither verified official curriculum maps nor annual architectures. The pilot therefore uses a separate lightweight teacher-work-plan reusable-artifact contract. That decision does not bypass or weaken the existing lesson-plan or teacher-pack validators.',
     '',
     '## 10. Route and programme boundaries',
     '',
@@ -575,11 +610,11 @@ export function renderTeacherWorkPlanWorkPackagesMarkdown(artifact) {
     '',
     '## 11. What remains pending',
     '',
-    '- Reusable teaching artifacts have not been created.',
+    '- One P0 package has internal-draft reusable materials; teacher review and local safety review remain pending.',
+    '- Twelve semantically ready packages remain not started.',
     '- The reusable-artifact backlog is not complete.',
     '- Three packages require teacher decisions before authoring.',
-    '- The lightweight reusable-artifact contract and the selected pilot content belong to a separate next PR.',
-    '- Phase 5 remains incomplete; no gap is marked resolved.',
+    '- Phase 5 has started but remains incomplete; no canonical source gap is marked resolved.',
   ];
   return `${lines.join('\n')}\n`;
 }
@@ -596,4 +631,7 @@ export const teacherWorkPlanWorkPackageContracts = Object.freeze({
   selectedPilotPackageId: SELECTED_PILOT_PACKAGE_ID,
   selectedPilotRoot: SELECTED_PILOT_ROOT,
   selectedPilotDeliverables: SELECTED_PILOT_DELIVERABLES,
+  selectedPilotIndex: SELECTED_PILOT_INDEX,
+  implementationSummary: IMPLEMENTATION_SUMMARY,
+  pilotImplementation: PILOT_IMPLEMENTATION,
 });
