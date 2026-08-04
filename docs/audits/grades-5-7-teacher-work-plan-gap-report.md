@@ -116,7 +116,9 @@ Machine-readable review: [`evaluations/teacher-work-plans/grades-5-7-priority-wo
 
 One package, `grade-6-science-soil-organisms`, now has an internal draft with 7 material capabilities supporting 2 source gaps. Index: [`teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml`](../../teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml).
 
-This independently authored support does not change either canonical Opiq gap from `missing`. Teacher review and local safety review remain pending, classroom trial is not tested, and no source-gap resolution is claimed.
+A fail-closed human-review workflow now exists at [`teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/review-registry.yaml`](../../teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/review-registry.yaml) and pins fingerprint `894cc83f54c158485f6d6ba699d8a1298c3e57056e315281b79d69e84f366613`. It contains zero completed teacher or local-safety review records and no review decision.
+
+This independently authored support does not change either canonical Opiq gap from `missing`. Teacher review and local safety review remain pending, classroom trial is not tested, classroom/publication readiness remains false, and no source-gap resolution is claimed.
 
 ## 11. Complete gap registry grouped by route
 
@@ -331,4 +333,4 @@ This independently authored support does not change either canonical Opiq gap fr
 - Gap-index completeness applies only to the four registered supplementary crosswalks.
 - Official curriculum completeness and exact-grade official allocation are not verified.
 - No annual architecture, default-course selection, or live-catalogue verification is created here.
-- Semantic work-package review is complete; one internal-draft reusable artifact exists, but the reusable-artifact backlog remains incomplete.
+- Semantic work-package review is complete; one internal-draft reusable artifact and its pending human-review workflow exist, but no completed review decision exists and the reusable-artifact backlog remains incomplete.

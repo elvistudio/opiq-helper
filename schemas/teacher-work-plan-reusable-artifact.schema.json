@@ -23,6 +23,7 @@
     "safety_and_ethics",
     "materials",
     "content_fingerprint",
+    "human_review",
     "readiness",
     "source_gap_support"
   ],
@@ -65,6 +66,7 @@
       "items": { "$ref": "#/$defs/material" }
     },
     "content_fingerprint": { "$ref": "#/$defs/fingerprint" },
+    "human_review": { "$ref": "#/$defs/humanReview" },
     "readiness": { "$ref": "#/$defs/readiness" },
     "source_gap_support": { "$ref": "#/$defs/sourceGapSupport" }
   },
@@ -345,6 +347,43 @@
         "algorithm": { "const": "sha256" },
         "value": { "$ref": "#/$defs/sha256" },
         "index_included": { "const": false }
+      }
+    },
+    "humanReviewChannel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "completed_record_path"],
+      "properties": {
+        "status": { "const": "pending" },
+        "completed_record_path": { "const": null }
+      }
+    },
+    "humanReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "registry_path",
+        "teacher_review",
+        "local_safety_review",
+        "classroom_trial",
+        "reviewed_content_fingerprint"
+      ],
+      "properties": {
+        "registry_path": {
+          "const": "teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/review-registry.yaml"
+        },
+        "teacher_review": { "$ref": "#/$defs/humanReviewChannel" },
+        "local_safety_review": { "$ref": "#/$defs/humanReviewChannel" },
+        "classroom_trial": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "completed_record_path"],
+          "properties": {
+            "status": { "const": "not_tested" },
+            "completed_record_path": { "const": null }
+          }
+        },
+        "reviewed_content_fingerprint": { "const": null }
       }
     },
     "statusOnly": {

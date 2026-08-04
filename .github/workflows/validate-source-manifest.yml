@@ -633,6 +633,12 @@ jobs:
       - name: Check teacher work-plan reusable artifacts
         run: npm run check:teacher-work-plan-artifacts
 
+      - name: Test teacher work-plan artifact reviews
+        run: npm run test:teacher-work-plan-artifact-reviews
+
+      - name: Check teacher work-plan artifact reviews
+        run: npm run check:teacher-work-plan-artifact-reviews
+
       - name: Test teacher work-plan gap report
         run: npm run test:teacher-work-plan-gap-report
 

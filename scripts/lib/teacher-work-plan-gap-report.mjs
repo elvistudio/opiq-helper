@@ -82,6 +82,20 @@ const REUSABLE_ARTIFACT_IMPLEMENTATION = Object.freeze({
   package_id: 'grade-6-science-soil-organisms',
   artifact_index_path: 'teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml',
   implementation_status: 'internal_draft_pending_teacher_review',
+  human_review: {
+    registry_path: 'teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/review-registry.yaml',
+    workflow_created: true,
+    content_fingerprint: '894cc83f54c158485f6d6ba699d8a1298c3e57056e315281b79d69e84f366613',
+    teacher_review_status: 'pending',
+    local_safety_review_status: 'pending',
+    completed_teacher_review_count: 0,
+    completed_safety_review_count: 0,
+    classroom_trial_status: 'not_tested',
+    review_decision_recorded: false,
+    classroom_ready: false,
+    publication_ready: false,
+    effectiveness_claimed: false,
+  },
   canonical_gap_status_unchanged: true,
   source_gap_resolution_claimed: false,
 });
@@ -650,7 +664,9 @@ export function renderTeacherWorkPlanGapReportMarkdown(report) {
     '',
     `One package, \`${report.reusable_artifact_implementation.package_id}\`, now has an internal draft with ${report.reusable_artifact_implementation.delivered_capability_count} material capabilities supporting ${report.reusable_artifact_implementation.implemented_source_gap_count} source gaps. Index: [\`${report.reusable_artifact_implementation.artifact_index_path}\`](../../${report.reusable_artifact_implementation.artifact_index_path}).`,
     '',
-    'This independently authored support does not change either canonical Opiq gap from `missing`. Teacher review and local safety review remain pending, classroom trial is not tested, and no source-gap resolution is claimed.',
+    `A fail-closed human-review workflow now exists at [\`${report.reusable_artifact_implementation.human_review.registry_path}\`](../../${report.reusable_artifact_implementation.human_review.registry_path}) and pins fingerprint \`${report.reusable_artifact_implementation.human_review.content_fingerprint}\`. It contains zero completed teacher or local-safety review records and no review decision.`,
+    '',
+    'This independently authored support does not change either canonical Opiq gap from `missing`. Teacher review and local safety review remain pending, classroom trial is not tested, classroom/publication readiness remains false, and no source-gap resolution is claimed.',
     '',
     '## 11. Complete gap registry grouped by route',
     '',
@@ -671,7 +687,7 @@ export function renderTeacherWorkPlanGapReportMarkdown(report) {
     '- Gap-index completeness applies only to the four registered supplementary crosswalks.',
     '- Official curriculum completeness and exact-grade official allocation are not verified.',
     '- No annual architecture, default-course selection, or live-catalogue verification is created here.',
-    '- Semantic work-package review is complete; one internal-draft reusable artifact exists, but the reusable-artifact backlog remains incomplete.',
+    '- Semantic work-package review is complete; one internal-draft reusable artifact and its pending human-review workflow exist, but no completed review decision exists and the reusable-artifact backlog remains incomplete.',
   );
   return `${lines.join('\n')}\n`;
 }

@@ -1,0 +1,25 @@
+schema_version: "1.0"
+artifact_type: teacher_work_plan_artifact_review_registry
+registry_id: grade-6-science-soil-organisms-review-registry
+artifact_id: grade-6-science-soil-organisms
+artifact_index_path: teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml
+content_fingerprint: 894cc83f54c158485f6d6ba699d8a1298c3e57056e315281b79d69e84f366613
+teacher_review:
+  template_path: teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/teacher-review-template.yaml
+  completed_record_paths: []
+  status: pending
+local_safety_review:
+  template_path: teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/local-safety-review-template.yaml
+  completed_record_paths: []
+  status: pending
+classroom_trial:
+  completed_record_paths: []
+  status: not_tested
+boundaries:
+  review_complete: false
+  local_safety_review_complete: false
+  classroom_trial_complete: false
+  classroom_ready: false
+  publication_ready: false
+  customer_released: false
+  effectiveness_claimed: false
