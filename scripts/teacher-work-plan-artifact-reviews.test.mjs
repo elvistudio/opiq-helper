@@ -14,6 +14,8 @@ const INDEX_PATH = `${PILOT_ROOT}/artifact-index.yaml`;
 const TEACHER_TEMPLATE_PATH = `${SOIL_ORGANISMS_REVIEW_ROOT}/teacher-review-template.yaml`;
 const SAFETY_TEMPLATE_PATH = `${SOIL_ORGANISMS_REVIEW_ROOT}/local-safety-review-template.yaml`;
 const GUIDE_PATH = `${SOIL_ORGANISMS_REVIEW_ROOT}/review-guide.md`;
+const TRIAL_GUIDE_PATH = `${SOIL_ORGANISMS_REVIEW_ROOT}/classroom-trial-guide.md`;
+const TRIAL_TEMPLATE_PATH = `${SOIL_ORGANISMS_REVIEW_ROOT}/classroom-trial-template.yaml`;
 const FINGERPRINT = '894cc83f54c158485f6d6ba699d8a1298c3e57056e315281b79d69e84f366613';
 const MATERIAL_HASHES = [
   '2a0d26671a051d33cd6b78cdf1eb46eb1a991020c71f05ace7c8610ca32a37a3',
@@ -140,6 +142,8 @@ function completedSafetyReview(repository) {
     planned_activity_date: '2026-08-10',
     group_size: 12,
     adult_supervision_count: 2,
+    delivery_site_category: 'mixed',
+    indoor_fallback_permitted: true,
     weather_limitations: 'No thunder, ice, flooding, or high wind',
     accessibility_adjustments: 'Level indoor fallback is available',
     permission_requirements: 'Synthetic site owner confirmation required',
@@ -181,12 +185,16 @@ test('production review packet is exact, pending, and contains no completed huma
     local_safety_review_templates: 1,
     completed_teacher_reviews: 0,
     completed_safety_reviews: 0,
+    classroom_trial_templates: 1,
+    completed_classroom_trials: 0,
     teacher_status: 'pending',
     safety_status: 'pending',
     classroom_trial: 'not_tested',
     fingerprint: FINGERPRINT,
   });
   assert.deepEqual(baseline.reviewDirectoryFiles, [
+    TRIAL_GUIDE_PATH,
+    TRIAL_TEMPLATE_PATH,
     GUIDE_PATH,
     SAFETY_TEMPLATE_PATH,
     REVIEW_REGISTRY_PATH,
@@ -216,7 +224,12 @@ test('reusable artifact dependency, hashes, and fingerprint remain exact', () =>
     registry_path: REVIEW_REGISTRY_PATH,
     teacher_review: { status: 'pending', completed_record_path: null },
     local_safety_review: { status: 'pending', completed_record_path: null },
-    classroom_trial: { status: 'not_tested', completed_record_path: null },
+    classroom_trial: {
+      workflow_created: true,
+      template_path: TRIAL_TEMPLATE_PATH,
+      status: 'not_tested',
+      completed_record_path: null,
+    },
     reviewed_content_fingerprint: null,
   });
   assert.equal(artifact.readiness.classroom_ready, false);
@@ -252,7 +265,7 @@ const productionMutations = [
   ['teacher status promoted', (repo) => { repo.registry.data.teacher_review.status = 'approved'; }, /derived|review completion/u],
   ['safety status promoted', (repo) => { repo.registry.data.local_safety_review.status = 'approved_for_named_context'; }, /derived|safety completion/u],
   ['classroom trial promoted', (repo) => { repo.registry.data.classroom_trial.status = 'tested'; }, /not_tested|constant/u],
-  ['classroom readiness promoted', (repo) => { repo.registry.data.boundaries.classroom_ready = true; }, /cannot be promoted|constant/u],
+  ['classroom readiness promoted', (repo) => { repo.registry.data.boundaries.classroom_ready = true; }, /positive analysed trial|cannot be inferred/u],
   ['publication promoted', (repo) => { repo.registry.data.boundaries.publication_ready = true; }, /cannot be promoted|constant/u],
   ['effectiveness promoted', (repo) => { repo.registry.data.boundaries.effectiveness_claimed = true; }, /cannot be promoted|constant/u],
   ['unknown field', (repo) => { repo.teacherTemplate.data.unexpected = true; }, /unknown field/u],

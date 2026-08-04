@@ -47,7 +47,8 @@ verify provenance, route, readiness, and content-boundary claims.
 1. Copy `local-safety-review-template.yaml`; do not modify the template.
 2. Record a real reviewer identity and date.
 3. Name the school or organization, exact observation site, planned activity
-   date, group size, supervision, weather limits, accessibility adjustments,
+   date, group size, supervision, delivery-site category, whether indoor
+   fallback is permitted, weather limits, accessibility adjustments,
    permissions, and emergency contact process.
 4. Review every safety scope item for that named context.
 5. Record explicit conditions for `approved_with_conditions`.
@@ -93,10 +94,11 @@ major or blocking finding.
 
 ## 10. Classroom-trial boundary
 
-This packet does not create a classroom-trial record. Classroom trial remains
-`not_tested`; classroom readiness remains false. A later trial must use a
-separate human-evidence contract and must not be inferred from review, pull
-request approval, or merge state.
+The classroom-trial workflow and template are documented in
+`classroom-trial-guide.md`. They do not create a classroom-trial record and are
+not evidence. Classroom trial remains `not_tested`; classroom readiness remains
+false. A future trial must meet the separate trial contract and must not be
+inferred from review, pull-request approval, or merge state.
 
 ## 11. Prohibited claims
 

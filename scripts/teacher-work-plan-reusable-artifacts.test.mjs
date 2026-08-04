@@ -171,7 +171,12 @@ test('production Grade 6 soil-organisms reusable artifact is exact and internall
     registry_path: `${PILOT_ROOT}/reviews/review-registry.yaml`,
     teacher_review: { status: 'pending', completed_record_path: null },
     local_safety_review: { status: 'pending', completed_record_path: null },
-    classroom_trial: { status: 'not_tested', completed_record_path: null },
+    classroom_trial: {
+      workflow_created: true,
+      template_path: `${PILOT_ROOT}/reviews/classroom-trial-template.yaml`,
+      status: 'not_tested',
+      completed_record_path: null,
+    },
     reviewed_content_fingerprint: null,
   });
   assert.equal(baseline.reviewRegistry.data.content_fingerprint, data.content_fingerprint.value);

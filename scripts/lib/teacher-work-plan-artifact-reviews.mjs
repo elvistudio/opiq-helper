@@ -20,10 +20,14 @@ const ARTIFACT_INDEX_PATH = `${PILOT_ROOT}/artifact-index.yaml`;
 const REVIEW_GUIDE_PATH = `${SOIL_ORGANISMS_REVIEW_ROOT}/review-guide.md`;
 const TEACHER_TEMPLATE_PATH = `${SOIL_ORGANISMS_REVIEW_ROOT}/teacher-review-template.yaml`;
 const SAFETY_TEMPLATE_PATH = `${SOIL_ORGANISMS_REVIEW_ROOT}/local-safety-review-template.yaml`;
+const CLASSROOM_TRIAL_GUIDE_PATH = `${SOIL_ORGANISMS_REVIEW_ROOT}/classroom-trial-guide.md`;
+const CLASSROOM_TRIAL_TEMPLATE_PATH = `${SOIL_ORGANISMS_REVIEW_ROOT}/classroom-trial-template.yaml`;
 const ARTIFACT_ID = 'grade-6-science-soil-organisms';
 const FINGERPRINT = '894cc83f54c158485f6d6ba699d8a1298c3e57056e315281b79d69e84f366613';
 
 const BASE_REVIEW_FILES = Object.freeze([
+  CLASSROOM_TRIAL_GUIDE_PATH,
+  CLASSROOM_TRIAL_TEMPLATE_PATH,
   REVIEW_GUIDE_PATH,
   SAFETY_TEMPLATE_PATH,
   REVIEW_REGISTRY_PATH,
@@ -201,6 +205,7 @@ export async function loadTeacherWorkPlanArtifactReviewRepository({
   const registry = await readYaml(root, REVIEW_REGISTRY_PATH, fileOverrides, loadDiagnostics);
   const teacherTemplatePath = registry?.data?.teacher_review?.template_path ?? TEACHER_TEMPLATE_PATH;
   const safetyTemplatePath = registry?.data?.local_safety_review?.template_path ?? SAFETY_TEMPLATE_PATH;
+  const trialTemplatePath = registry?.data?.classroom_trial?.template_path ?? CLASSROOM_TRIAL_TEMPLATE_PATH;
   const [schema, teacherTemplate, safetyTemplate, guideText, files, resolvedReusableRepository] = await Promise.all([
     fs.readFile(safeRepositoryPath(root, ARTIFACT_REVIEW_SCHEMA_PATH), 'utf8').then(JSON.parse),
     readYaml(root, teacherTemplatePath, fileOverrides, loadDiagnostics),
@@ -212,9 +217,10 @@ export async function loadTeacherWorkPlanArtifactReviewRepository({
     reviewDirectoryFiles ?? walkFiles(root, SOIL_ORGANISMS_REVIEW_ROOT),
     reusableRepository ?? loadTeacherWorkPlanReusableArtifactRepository({ rootDir: root }),
   ]);
-  const [completedTeacherReviews, completedSafetyReviews] = await Promise.all([
+  const [completedTeacherReviews, completedSafetyReviews, completedClassroomTrials] = await Promise.all([
     readCompletedRecords(root, registry?.data?.teacher_review?.completed_record_paths, fileOverrides, loadDiagnostics),
     readCompletedRecords(root, registry?.data?.local_safety_review?.completed_record_paths, fileOverrides, loadDiagnostics),
+    readCompletedRecords(root, registry?.data?.classroom_trial?.completed_record_paths, fileOverrides, loadDiagnostics),
   ]);
   return {
     rootDir: root,
@@ -224,6 +230,8 @@ export async function loadTeacherWorkPlanArtifactReviewRepository({
     safetyTemplate,
     completedTeacherReviews,
     completedSafetyReviews,
+    completedClassroomTrials,
+    trialTemplatePath,
     guideText,
     reviewDirectoryFiles: [...files].sort(compareBytewise),
     reusableRepository: resolvedReusableRepository,
@@ -349,14 +357,112 @@ function validateCompletedRecord(diagnostics, entry, { safety = false } = {}) {
   validateFindingsAndDecision(diagnostics, entry, { safety });
 }
 
-function expectedRegistryState(registry, completedTeacherReviews, completedSafetyReviews) {
+export function resolveTeacherWorkPlanClassroomTrialLifecycle(completedClassroomTrials = []) {
+  const diagnostics = [];
+  const orderedEntries = [...completedClassroomTrials].sort((left, right) => compareBytewise(
+    `${left.data?.trial_identity?.trial_id ?? ''}\0${left.file}`,
+    `${right.data?.trial_identity?.trial_id ?? ''}\0${right.file}`,
+  ));
+  const byId = new Map();
+  for (const entry of orderedEntries) {
+    const id = entry.data?.trial_identity?.trial_id;
+    if (!id) continue;
+    if (byId.has(id)) {
+      diagnostics.push(diagnostic(entry.file, '/trial_identity/trial_id', `duplicate classroom-trial ID ${id}`));
+      continue;
+    }
+    byId.set(id, entry);
+  }
+
+  const successors = new Map([...byId.keys()].map((id) => [id, []]));
+  for (const [id, entry] of byId) {
+    for (const target of entry.data?.lifecycle?.supersedes ?? []) {
+      if (target === id) {
+        diagnostics.push(diagnostic(entry.file, '/lifecycle/supersedes', 'trial cannot supersede itself'));
+      } else if (!byId.has(target)) {
+        diagnostics.push(diagnostic(entry.file, '/lifecycle/supersedes', `unknown superseded trial ${target}`));
+      } else {
+        successors.get(target).push(id);
+      }
+    }
+  }
+  for (const [target, successorIds] of successors) {
+    successorIds.sort(compareBytewise);
+    if (successorIds.length > 1) {
+      diagnostics.push(diagnostic(
+        REVIEW_REGISTRY_PATH,
+        '/classroom_trial/completed_record_paths',
+        `trial ${target} has multiple successors: ${successorIds.join(', ')}`,
+      ));
+    }
+  }
+
+  const visiting = new Set();
+  const visited = new Set();
+  let cycleFound = false;
+  function visit(id) {
+    if (visiting.has(id)) return true;
+    if (visited.has(id) || !byId.has(id)) return false;
+    visiting.add(id);
+    const targets = [...(byId.get(id).data?.lifecycle?.supersedes ?? [])].sort(compareBytewise);
+    const cycle = targets.some(visit);
+    visiting.delete(id);
+    visited.add(id);
+    return cycle;
+  }
+  for (const id of [...byId.keys()].sort(compareBytewise)) {
+    if (visit(id)) cycleFound = true;
+  }
+  if (cycleFound) {
+    diagnostics.push(diagnostic(
+      REVIEW_REGISTRY_PATH,
+      '/classroom_trial/completed_record_paths',
+      'trial supersession graph contains a cycle',
+    ));
+  }
+
+  const structuralFailure = diagnostics.length > 0;
+  const activeEntries = structuralFailure
+    ? []
+    : [...byId.entries()]
+      .filter(([id, entry]) => entry.data?.lifecycle?.status === 'analysed' && successors.get(id).length === 0)
+      .map(([, entry]) => entry)
+      .sort((left, right) => compareBytewise(left.data.trial_identity.trial_id, right.data.trial_identity.trial_id));
+  if (!structuralFailure && byId.size > 0 && activeEntries.length === 0) {
+    diagnostics.push(diagnostic(
+      REVIEW_REGISTRY_PATH,
+      '/classroom_trial/completed_record_paths',
+      'registered classroom-trial graph has no active analysed terminal',
+    ));
+  }
+  if (!structuralFailure && activeEntries.length > 1) {
+    diagnostics.push(diagnostic(
+      REVIEW_REGISTRY_PATH,
+      '/classroom_trial/completed_record_paths',
+      `registered classroom-trial graph has multiple unrelated active analysed terminals: ${activeEntries.map(({ data }) => data.trial_identity.trial_id).join(', ')}`,
+    ));
+  }
+
+  return {
+    diagnostics,
+    activeEntry: diagnostics.length === 0 && activeEntries.length === 1 ? activeEntries[0] : null,
+    activeEntries,
+  };
+}
+
+function expectedRegistryState(registry, completedTeacherReviews, completedSafetyReviews, lifecycle) {
   const lastTeacher = completedTeacherReviews.at(-1)?.data;
   const lastSafety = completedSafetyReviews.at(-1)?.data;
+  const activeTrial = lifecycle.activeEntry?.data;
+  const trialStatus = activeTrial?.decision?.status ?? 'not_tested';
   return {
     teacherStatus: lastTeacher?.decision?.status ?? 'pending',
     safetyStatus: lastSafety?.decision?.status ?? 'pending',
     reviewComplete: completedTeacherReviews.length > 0,
     safetyComplete: completedSafetyReviews.length > 0,
+    trialStatus,
+    trialComplete: Boolean(activeTrial),
+    classroomReady: ['successful', 'successful_with_notes'].includes(trialStatus),
   };
 }
 
@@ -399,11 +505,14 @@ export function validateTeacherWorkPlanArtifactReviewRepository(repository, {
     if (registry.content_fingerprint !== FINGERPRINT) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/content_fingerprint', 'review registry fingerprint is stale'));
     if (registry.teacher_review?.template_path !== TEACHER_TEMPLATE_PATH) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/teacher_review/template_path', 'wrong teacher-review template path'));
     if (registry.local_safety_review?.template_path !== SAFETY_TEMPLATE_PATH) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/local_safety_review/template_path', 'wrong local-safety-review template path'));
+    if (registry.classroom_trial?.template_path !== CLASSROOM_TRIAL_TEMPLATE_PATH) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/classroom_trial/template_path', 'wrong classroom-trial template path'));
     for (const repositoryPath of [
       registry.teacher_review?.template_path,
       registry.local_safety_review?.template_path,
+      registry.classroom_trial?.template_path,
       ...(registry.teacher_review?.completed_record_paths ?? []),
       ...(registry.local_safety_review?.completed_record_paths ?? []),
+      ...(registry.classroom_trial?.completed_record_paths ?? []),
     ]) {
       if (!insideReviewRoot(repositoryPath)) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/', 'all review paths must remain inside the exact review root'));
     }
@@ -419,19 +528,26 @@ export function validateTeacherWorkPlanArtifactReviewRepository(repository, {
 
   const registeredTeacherPaths = registry?.teacher_review?.completed_record_paths ?? [];
   const registeredSafetyPaths = registry?.local_safety_review?.completed_record_paths ?? [];
+  const registeredTrialPaths = registry?.classroom_trial?.completed_record_paths ?? [];
   validateExact(diagnostics, REVIEW_REGISTRY_PATH, '/teacher_review/completed_record_paths', repository.completedTeacherReviews.map(({ file }) => file), registeredTeacherPaths, 'every completed teacher review must be loaded exactly once');
   validateExact(diagnostics, REVIEW_REGISTRY_PATH, '/local_safety_review/completed_record_paths', repository.completedSafetyReviews.map(({ file }) => file), registeredSafetyPaths, 'every completed safety review must be loaded exactly once');
-  if (!allowCompletedRecords && (registeredTeacherPaths.length > 0 || registeredSafetyPaths.length > 0)) {
+  validateExact(diagnostics, REVIEW_REGISTRY_PATH, '/classroom_trial/completed_record_paths', repository.completedClassroomTrials.map(({ file }) => file), registeredTrialPaths, 'every completed classroom trial must be loaded exactly once');
+  if (!allowCompletedRecords && (registeredTeacherPaths.length > 0 || registeredSafetyPaths.length > 0 || registeredTrialPaths.length > 0)) {
     diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/', 'production review registry must contain no completed review records before real human evidence is supplied'));
   }
 
-  const state = expectedRegistryState(registry, repository.completedTeacherReviews, repository.completedSafetyReviews);
+  const lifecycle = resolveTeacherWorkPlanClassroomTrialLifecycle(repository.completedClassroomTrials);
+  diagnostics.push(...lifecycle.diagnostics);
+  const state = expectedRegistryState(registry, repository.completedTeacherReviews, repository.completedSafetyReviews, lifecycle);
   if (registry?.teacher_review?.status !== state.teacherStatus) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/teacher_review/status', 'teacher status must be derived from registered human evidence, not PR or merge state'));
   if (registry?.local_safety_review?.status !== state.safetyStatus) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/local_safety_review/status', 'safety status must be derived from registered local evidence'));
   if (registry?.boundaries?.review_complete !== state.reviewComplete) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/boundaries/review_complete', 'review completion must reflect registered completed teacher records'));
   if (registry?.boundaries?.local_safety_review_complete !== state.safetyComplete) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/boundaries/local_safety_review_complete', 'local safety completion must reflect registered completed safety records'));
-  if (registry?.classroom_trial?.status !== 'not_tested' || (registry?.classroom_trial?.completed_record_paths ?? []).length !== 0) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/classroom_trial', 'classroom trial must remain not_tested with no record'));
-  for (const flag of ['classroom_trial_complete', 'classroom_ready', 'publication_ready', 'customer_released', 'effectiveness_claimed']) {
+  if (registry?.classroom_trial?.status !== state.trialStatus) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/classroom_trial/status', 'classroom-trial status must be derived from registered analysed evidence, not PR or merge state'));
+  if (registry?.boundaries?.classroom_trial_workflow_created !== true) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/boundaries/classroom_trial_workflow_created', 'classroom-trial workflow must be explicitly registered'));
+  if (registry?.boundaries?.classroom_trial_complete !== state.trialComplete) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/boundaries/classroom_trial_complete', 'classroom-trial completion must reflect a registered analysed record'));
+  if (registry?.boundaries?.classroom_ready !== state.classroomReady) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/boundaries/classroom_ready', 'classroom readiness must follow a positive analysed trial and cannot be inferred from PR state'));
+  for (const flag of ['publication_ready', 'customer_released', 'effectiveness_claimed']) {
     if (registry?.boundaries?.[flag] !== false) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, `/boundaries/${flag}`, `${flag} cannot be promoted by review workflow creation`));
   }
 
@@ -457,6 +573,7 @@ export function validateTeacherWorkPlanArtifactReviewRepository(repository, {
     ...BASE_REVIEW_FILES,
     ...registeredTeacherPaths,
     ...registeredSafetyPaths,
+    ...registeredTrialPaths,
   ].sort(compareBytewise);
   validateExact(diagnostics, SOIL_ORGANISMS_REVIEW_ROOT, '/', repository.reviewDirectoryFiles, expectedFiles, 'review directory contains a missing or extra file');
 
@@ -467,7 +584,12 @@ export function validateTeacherWorkPlanArtifactReviewRepository(repository, {
       registry_path: REVIEW_REGISTRY_PATH,
       teacher_review: { status: 'pending', completed_record_path: null },
       local_safety_review: { status: 'pending', completed_record_path: null },
-      classroom_trial: { status: 'not_tested', completed_record_path: null },
+      classroom_trial: {
+        workflow_created: true,
+        template_path: CLASSROOM_TRIAL_TEMPLATE_PATH,
+        status: 'not_tested',
+        completed_record_path: null,
+      },
       reviewed_content_fingerprint: null,
     }, 'artifact index must link the pending review registry without claiming completed evidence');
   }
@@ -481,6 +603,8 @@ export function validateTeacherWorkPlanArtifactReviewRepository(repository, {
       local_safety_review_templates: repository.safetyTemplate ? 1 : 0,
       completed_teacher_reviews: repository.completedTeacherReviews.length,
       completed_safety_reviews: repository.completedSafetyReviews.length,
+      classroom_trial_templates: registry?.classroom_trial?.template_path ? 1 : 0,
+      completed_classroom_trials: repository.completedClassroomTrials.length,
       teacher_status: registry?.teacher_review?.status ?? null,
       safety_status: registry?.local_safety_review?.status ?? null,
       classroom_trial: registry?.classroom_trial?.status ?? null,

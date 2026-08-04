@@ -377,8 +377,12 @@
         "classroom_trial": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["status", "completed_record_path"],
+          "required": ["workflow_created", "template_path", "status", "completed_record_path"],
           "properties": {
+            "workflow_created": { "const": true },
+            "template_path": {
+              "const": "teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/classroom-trial-template.yaml"
+            },
             "status": { "const": "not_tested" },
             "completed_record_path": { "const": null }
           }
