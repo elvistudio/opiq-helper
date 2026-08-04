@@ -447,6 +447,8 @@
         "planned_activity_date",
         "group_size",
         "adult_supervision_count",
+        "delivery_site_category",
+        "indoor_fallback_permitted",
         "weather_limitations",
         "accessibility_adjustments",
         "permission_requirements",
@@ -458,6 +460,15 @@
         "planned_activity_date": { "$ref": "#/$defs/dateOrNull" },
         "group_size": { "oneOf": [{ "type": "integer", "minimum": 1 }, { "type": "null" }] },
         "adult_supervision_count": { "oneOf": [{ "type": "integer", "minimum": 1 }, { "type": "null" }] },
+        "delivery_site_category": {
+          "oneOf": [
+            { "enum": ["outdoor_field", "indoor_fallback", "mixed"] },
+            { "type": "null" }
+          ]
+        },
+        "indoor_fallback_permitted": {
+          "oneOf": [{ "type": "boolean" }, { "type": "null" }]
+        },
         "weather_limitations": { "$ref": "#/$defs/nullableString" },
         "accessibility_adjustments": { "$ref": "#/$defs/nullableString" },
         "permission_requirements": { "$ref": "#/$defs/nullableString" },
@@ -536,6 +547,8 @@
                   "planned_activity_date": { "const": null },
                   "group_size": { "const": null },
                   "adult_supervision_count": { "const": null },
+                  "delivery_site_category": { "const": null },
+                  "indoor_fallback_permitted": { "const": null },
                   "weather_limitations": { "const": null },
                   "accessibility_adjustments": { "const": null },
                   "permission_requirements": { "const": null },

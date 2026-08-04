@@ -6,7 +6,7 @@ This packet defines how a future classroom trial of `grade-6-science-soil-organi
 
 ## 2. Prerequisite teacher and safety reviews
 
-A trial must not begin until the registry contains a current completed teacher review with a decision of `approved` or `approved_with_nonblocking_changes` and a current completed local-safety review with a decision of `approved_for_named_context` or `approved_with_conditions`. Both records must bind to the current material fingerprint. Safety approval applies only to its named site, participants, supervision and conditions; it does not authorize another context.
+A trial must not begin until the registry contains a current completed teacher review with a decision of `approved` or `approved_with_nonblocking_changes` and a current completed local-safety review with a decision of `approved_for_named_context` or `approved_with_conditions`. Both records must bind to the current material fingerprint. Safety approval applies only to its named date, site, maximum group size, minimum adult supervision, delivery category, accessibility setup, weather or indoor-fallback allowance and explicit conditions; it does not authorize another context.
 
 ## 3. Exact artifact and fingerprint
 
@@ -23,7 +23,7 @@ Record only aggregate classroom observations. Do not commit learner or facilitat
 
 ## 5. Preparing the trial
 
-Copy the template to a new record path inside this review directory only after prerequisites exist. Replace template nulls with aggregate context, opaque references and dates. Confirm that the named safety context matches the planned location, supervision, access needs, weather or indoor fallback, and local stop conditions. Do not set `template: false` merely to reserve an identifier.
+Copy the template to a new record path inside this review directory only after prerequisites exist. Replace template nulls with aggregate context, opaque references and dates. Copy the registered safety context into the immutable `safety_context_snapshot`; record the actual school, site, group size, adult supervision, accessibility setup and fallback use separately. The validator, not an author-supplied boolean, compares the trial date and context with the registered safety record. Every `approved_with_conditions` condition must appear in `safety_condition_confirmations` and be explicitly confirmed. Do not set `template: false` merely to reserve an identifier.
 
 ## 6. Part 1 observation procedure
 
@@ -39,7 +39,7 @@ Compare the planned 45 minutes with actual aggregate timing for each part. Note 
 
 ## 9. Safety, stop conditions and incidents
 
-Apply the named local-safety record throughout the trial. Count incidents and record whether a stop condition was triggered without describing identifiable people. Stop when local conditions require it. Teacher approval does not replace local safety approval, and local safety approval does not complete a classroom trial.
+Apply the named local-safety record throughout the trial. The trial group may not exceed the approved group size, adult supervision may not fall below the approved minimum, and the approved site and accessibility setup must be preserved exactly. Indoor fallback may be recorded only when the safety review explicitly permits it. Count incidents and record whether a stop condition was triggered without describing identifiable people. Stop when local conditions require it. Teacher approval does not replace local safety approval, and local safety approval does not complete a classroom trial.
 
 ## 10. Findings and required changes
 
@@ -51,11 +51,11 @@ Only an `analysed` record may have a decision other than `pending`. `successful`
 
 ## 12. Fingerprint invalidation
 
-Before analysis and registration, recompute the current artifact fingerprint and verify it against the record, teacher review and safety review. If a material changes, preserve the old record as historical evidence and conduct a new current-fingerprint review and trial. Never rewrite a registered completed record to follow a new fingerprint.
+Before analysis and registration, recompute the current artifact fingerprint and verify it against the record, teacher review and safety review. If a material changes, preserve the old record as historical evidence and conduct a new current-fingerprint review and trial. Never rewrite a registered completed record to follow a new fingerprint or rewrite its `analysed` lifecycle status merely because a successor exists.
 
 ## 13. Registration of an analysed record
 
-Create a completed record under this review root, set `template: false`, finish all required observations and privacy attestations, and validate it locally. Register only an immutable `analysed` record in `review-registry.yaml`; a `draft` or `conducted` record cannot be registered as completed. Supersession references must point to known records and must not form cycles.
+Create a completed record under this review root, set `template: false`, finish all required observations and privacy attestations, and validate it locally. Register only an immutable `analysed` record in `review-registry.yaml`; a `draft` or `conducted` record cannot be registered as completed. A newer record names historical predecessors in `lifecycle.supersedes`. The validator derives the single active record as the analysed terminal with no inbound successor; registry path order is irrelevant. Self-links, unknown targets, cycles, multiple successors for one record and multiple unrelated active terminals are invalid. A historical positive decision cannot support readiness after a terminal negative successor.
 
 ## 14. Readiness truth table
 

@@ -357,12 +357,103 @@ function validateCompletedRecord(diagnostics, entry, { safety = false } = {}) {
   validateFindingsAndDecision(diagnostics, entry, { safety });
 }
 
-function expectedRegistryState(registry, completedTeacherReviews, completedSafetyReviews, completedClassroomTrials) {
+export function resolveTeacherWorkPlanClassroomTrialLifecycle(completedClassroomTrials = []) {
+  const diagnostics = [];
+  const orderedEntries = [...completedClassroomTrials].sort((left, right) => compareBytewise(
+    `${left.data?.trial_identity?.trial_id ?? ''}\0${left.file}`,
+    `${right.data?.trial_identity?.trial_id ?? ''}\0${right.file}`,
+  ));
+  const byId = new Map();
+  for (const entry of orderedEntries) {
+    const id = entry.data?.trial_identity?.trial_id;
+    if (!id) continue;
+    if (byId.has(id)) {
+      diagnostics.push(diagnostic(entry.file, '/trial_identity/trial_id', `duplicate classroom-trial ID ${id}`));
+      continue;
+    }
+    byId.set(id, entry);
+  }
+
+  const successors = new Map([...byId.keys()].map((id) => [id, []]));
+  for (const [id, entry] of byId) {
+    for (const target of entry.data?.lifecycle?.supersedes ?? []) {
+      if (target === id) {
+        diagnostics.push(diagnostic(entry.file, '/lifecycle/supersedes', 'trial cannot supersede itself'));
+      } else if (!byId.has(target)) {
+        diagnostics.push(diagnostic(entry.file, '/lifecycle/supersedes', `unknown superseded trial ${target}`));
+      } else {
+        successors.get(target).push(id);
+      }
+    }
+  }
+  for (const [target, successorIds] of successors) {
+    successorIds.sort(compareBytewise);
+    if (successorIds.length > 1) {
+      diagnostics.push(diagnostic(
+        REVIEW_REGISTRY_PATH,
+        '/classroom_trial/completed_record_paths',
+        `trial ${target} has multiple successors: ${successorIds.join(', ')}`,
+      ));
+    }
+  }
+
+  const visiting = new Set();
+  const visited = new Set();
+  let cycleFound = false;
+  function visit(id) {
+    if (visiting.has(id)) return true;
+    if (visited.has(id) || !byId.has(id)) return false;
+    visiting.add(id);
+    const targets = [...(byId.get(id).data?.lifecycle?.supersedes ?? [])].sort(compareBytewise);
+    const cycle = targets.some(visit);
+    visiting.delete(id);
+    visited.add(id);
+    return cycle;
+  }
+  for (const id of [...byId.keys()].sort(compareBytewise)) {
+    if (visit(id)) cycleFound = true;
+  }
+  if (cycleFound) {
+    diagnostics.push(diagnostic(
+      REVIEW_REGISTRY_PATH,
+      '/classroom_trial/completed_record_paths',
+      'trial supersession graph contains a cycle',
+    ));
+  }
+
+  const structuralFailure = diagnostics.length > 0;
+  const activeEntries = structuralFailure
+    ? []
+    : [...byId.entries()]
+      .filter(([id, entry]) => entry.data?.lifecycle?.status === 'analysed' && successors.get(id).length === 0)
+      .map(([, entry]) => entry)
+      .sort((left, right) => compareBytewise(left.data.trial_identity.trial_id, right.data.trial_identity.trial_id));
+  if (!structuralFailure && byId.size > 0 && activeEntries.length === 0) {
+    diagnostics.push(diagnostic(
+      REVIEW_REGISTRY_PATH,
+      '/classroom_trial/completed_record_paths',
+      'registered classroom-trial graph has no active analysed terminal',
+    ));
+  }
+  if (!structuralFailure && activeEntries.length > 1) {
+    diagnostics.push(diagnostic(
+      REVIEW_REGISTRY_PATH,
+      '/classroom_trial/completed_record_paths',
+      `registered classroom-trial graph has multiple unrelated active analysed terminals: ${activeEntries.map(({ data }) => data.trial_identity.trial_id).join(', ')}`,
+    ));
+  }
+
+  return {
+    diagnostics,
+    activeEntry: diagnostics.length === 0 && activeEntries.length === 1 ? activeEntries[0] : null,
+    activeEntries,
+  };
+}
+
+function expectedRegistryState(registry, completedTeacherReviews, completedSafetyReviews, lifecycle) {
   const lastTeacher = completedTeacherReviews.at(-1)?.data;
   const lastSafety = completedSafetyReviews.at(-1)?.data;
-  const activeTrial = [...completedClassroomTrials]
-    .reverse()
-    .find(({ data }) => data.lifecycle?.status === 'analysed')?.data;
+  const activeTrial = lifecycle.activeEntry?.data;
   const trialStatus = activeTrial?.decision?.status ?? 'not_tested';
   return {
     teacherStatus: lastTeacher?.decision?.status ?? 'pending',
@@ -445,7 +536,9 @@ export function validateTeacherWorkPlanArtifactReviewRepository(repository, {
     diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/', 'production review registry must contain no completed review records before real human evidence is supplied'));
   }
 
-  const state = expectedRegistryState(registry, repository.completedTeacherReviews, repository.completedSafetyReviews, repository.completedClassroomTrials);
+  const lifecycle = resolveTeacherWorkPlanClassroomTrialLifecycle(repository.completedClassroomTrials);
+  diagnostics.push(...lifecycle.diagnostics);
+  const state = expectedRegistryState(registry, repository.completedTeacherReviews, repository.completedSafetyReviews, lifecycle);
   if (registry?.teacher_review?.status !== state.teacherStatus) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/teacher_review/status', 'teacher status must be derived from registered human evidence, not PR or merge state'));
   if (registry?.local_safety_review?.status !== state.safetyStatus) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/local_safety_review/status', 'safety status must be derived from registered local evidence'));
   if (registry?.boundaries?.review_complete !== state.reviewComplete) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/boundaries/review_complete', 'review completion must reflect registered completed teacher records'));

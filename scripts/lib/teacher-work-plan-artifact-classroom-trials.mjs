@@ -11,6 +11,7 @@ import {
 import {
   loadTeacherWorkPlanArtifactReviewRepository,
   REVIEW_REGISTRY_PATH,
+  resolveTeacherWorkPlanClassroomTrialLifecycle,
   validateTeacherWorkPlanArtifactReviewRepository,
 } from './teacher-work-plan-artifact-reviews.mjs';
 
@@ -284,6 +285,7 @@ function validatePrivacyText(diagnostics, entry) {
     decision: entry.data.decision,
   })) {
     for (const { name, pattern } of sensitivePatterns) {
+      if (name === 'phone number' && /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/u.test(text)) continue;
       if (pattern.test(text)) diagnostics.push(diagnostic(entry.file, pointer, `learner-identifiable or private data is forbidden: ${name}`));
     }
   }
@@ -324,6 +326,93 @@ function validateFindings(diagnostics, entry) {
   };
 }
 
+function expectedSafetyContextSnapshot(safety) {
+  if (!safety) return null;
+  const context = safety.local_context ?? {};
+  return {
+    review_id: safety.review_identity?.review_id ?? null,
+    school_or_organization: context.school_or_organization ?? null,
+    site_description: context.site_description ?? null,
+    planned_activity_date: context.planned_activity_date ?? null,
+    approved_group_size: context.group_size ?? null,
+    approved_adult_supervision_count: context.adult_supervision_count ?? null,
+    approved_delivery_site_category: context.delivery_site_category ?? null,
+    approved_indoor_fallback_permitted: context.indoor_fallback_permitted ?? null,
+    approved_weather_limitations: context.weather_limitations ?? null,
+    approved_accessibility_adjustments: context.accessibility_adjustments ?? null,
+    approved_permission_requirements: context.permission_requirements ?? null,
+    approved_emergency_contact_process: context.emergency_contact_process ?? null,
+    approved_conditions: [...(safety.decision?.conditions ?? [])],
+  };
+}
+
+function validateSafetyContext(diagnostics, entry, safety) {
+  const data = entry.data;
+  const context = data.classroom_context ?? {};
+  if (!safety) return false;
+  const approved = safety.local_context ?? {};
+  const expectedSnapshot = expectedSafetyContextSnapshot(safety);
+  const diagnosticCount = diagnostics.length;
+
+  validateExact(
+    diagnostics,
+    entry.file,
+    '/classroom_context/safety_context_snapshot',
+    context.safety_context_snapshot,
+    expectedSnapshot,
+    'trial must preserve an immutable exact snapshot of the registered local-safety context and conditions',
+  );
+  if (context.named_context_reference !== safety.review_identity?.review_id) {
+    diagnostics.push(diagnostic(entry.file, '/classroom_context/named_context_reference', 'named trial context must match the registered local-safety review ID'));
+  }
+  if (data.trial_identity?.trial_date !== approved.planned_activity_date) {
+    diagnostics.push(diagnostic(entry.file, '/trial_identity/trial_date', 'trial date must equal the approved local-safety activity date'));
+  }
+  if (!Number.isInteger(context.group_size)) {
+    diagnostics.push(diagnostic(entry.file, '/classroom_context/group_size', 'analysed trial requires an aggregate group size'));
+  } else if (context.group_size > approved.group_size) {
+    diagnostics.push(diagnostic(entry.file, '/classroom_context/group_size', 'trial group size cannot exceed the approved local-safety group size'));
+  }
+  if (!Number.isInteger(context.adult_supervision_count)) {
+    diagnostics.push(diagnostic(entry.file, '/classroom_context/adult_supervision_count', 'analysed trial requires an aggregate adult supervision count'));
+  } else if (context.adult_supervision_count < approved.adult_supervision_count) {
+    diagnostics.push(diagnostic(entry.file, '/classroom_context/adult_supervision_count', 'trial adult supervision cannot be lower than the approved local-safety minimum'));
+  }
+  for (const [field, reason] of [
+    ['school_or_organization', 'trial school or organization must equal the approved named safety context'],
+    ['site_description', 'trial site must equal the approved named safety site'],
+    ['delivery_site_category', 'trial delivery site category must equal the approved safety context'],
+    ['accessibility_adjustments', 'trial accessibility adjustments must exactly preserve the approved setup'],
+  ]) {
+    if (context[field] !== approved[field]) diagnostics.push(diagnostic(entry.file, `/classroom_context/${field}`, reason));
+  }
+  if (context.weather_or_indoor_fallback_used === true && approved.indoor_fallback_permitted !== true) {
+    diagnostics.push(diagnostic(entry.file, '/classroom_context/weather_or_indoor_fallback_used', 'indoor fallback or weather adaptation was not permitted by the local-safety review'));
+  }
+  if (data.aggregate_observations?.indoor_fallback_used !== context.weather_or_indoor_fallback_used) {
+    diagnostics.push(diagnostic(entry.file, '/aggregate_observations/indoor_fallback_used', 'aggregate fallback use must equal the recorded classroom safety context'));
+  }
+  const conditions = [...new Set([
+    approved.weather_limitations,
+    ...(safety.decision?.conditions ?? []),
+  ].filter(Boolean))];
+  const confirmations = context.safety_condition_confirmations ?? [];
+  validateExact(
+    diagnostics,
+    entry.file,
+    '/classroom_context/safety_condition_confirmations/condition',
+    confirmations.map(({ condition }) => condition),
+    conditions,
+    'trial must explicitly acknowledge every local-safety approval condition in source order',
+  );
+  for (const [index, confirmation] of confirmations.entries()) {
+    if (confirmation.confirmed !== true) {
+      diagnostics.push(diagnostic(entry.file, `/classroom_context/safety_condition_confirmations/${index}/confirmed`, 'every local-safety approval condition must be explicitly confirmed for the trial'));
+    }
+  }
+  return diagnostics.length === diagnosticCount;
+}
+
 function validatePrerequisites(diagnostics, entry, reviewRepository) {
   const data = entry.data;
   const teacher = reviewRepository.completedTeacherReviews.find(({ file }) => file === data.prerequisites?.teacher_review_record_path)?.data;
@@ -332,21 +421,18 @@ function validatePrerequisites(diagnostics, entry, reviewRepository) {
   const safetyApproved = ['approved_for_named_context', 'approved_with_conditions'].includes(safety?.decision?.status);
   const teacherCurrent = teacher?.artifact_identity?.content_fingerprint === FINGERPRINT && teacher?.decision?.reviewed_fingerprint_matches === true;
   const safetyCurrent = safety?.artifact_identity?.content_fingerprint === FINGERPRINT && safety?.decision?.reviewed_fingerprint_matches === true;
-  const namedContextMatches = Boolean(
-    safety?.review_identity?.review_id
-    && data.classroom_context?.named_context_reference === safety.review_identity.review_id
-    && data.classroom_context?.local_safety_context_matches === true,
-  );
+  const currentFingerprintMatches = teacherCurrent && safetyCurrent && data.artifact_identity?.content_fingerprint === FINGERPRINT;
+  const safetyContextMatches = validateSafetyContext(diagnostics, entry, safety);
   if (!teacher) diagnostics.push(diagnostic(entry.file, '/prerequisites/teacher_review_record_path', 'trial requires a registered completed teacher-review record'));
   if (!teacherApproved) diagnostics.push(diagnostic(entry.file, '/prerequisites/teacher_review_status', 'teacher review must be approved or approved_with_nonblocking_changes'));
   if (!safety) diagnostics.push(diagnostic(entry.file, '/prerequisites/local_safety_review_record_path', 'trial requires a registered completed local-safety-review record'));
   if (!safetyApproved) diagnostics.push(diagnostic(entry.file, '/prerequisites/local_safety_review_status', 'local safety review must be approved for the named context or approved with conditions'));
-  if (!teacherCurrent || !safetyCurrent || data.artifact_identity?.content_fingerprint !== FINGERPRINT) diagnostics.push(diagnostic(entry.file, '/prerequisites/current_fingerprint_matches', 'teacher, safety and trial evidence must match the current material fingerprint'));
-  if (!namedContextMatches) diagnostics.push(diagnostic(entry.file, '/classroom_context/named_context_reference', 'named trial context must match the registered local-safety review'));
-  const satisfied = teacherApproved && safetyApproved && teacherCurrent && safetyCurrent && namedContextMatches;
+  if (!currentFingerprintMatches) diagnostics.push(diagnostic(entry.file, '/prerequisites/current_fingerprint_matches', 'teacher, safety and trial evidence must match the current material fingerprint'));
+  const satisfied = teacherApproved && safetyApproved && currentFingerprintMatches && safetyContextMatches;
   if (data.prerequisites?.teacher_review_status !== teacher?.decision?.status) diagnostics.push(diagnostic(entry.file, '/prerequisites/teacher_review_status', 'teacher-review status must match the registered prerequisite record'));
   if (data.prerequisites?.local_safety_review_status !== safety?.decision?.status) diagnostics.push(diagnostic(entry.file, '/prerequisites/local_safety_review_status', 'safety-review status must match the registered prerequisite record'));
-  if (data.prerequisites?.current_fingerprint_matches !== satisfied || data.prerequisites?.prerequisites_satisfied !== satisfied) diagnostics.push(diagnostic(entry.file, '/prerequisites', 'prerequisite booleans must be derived from current approved review evidence and matching named context'));
+  if (data.prerequisites?.current_fingerprint_matches !== currentFingerprintMatches) diagnostics.push(diagnostic(entry.file, '/prerequisites/current_fingerprint_matches', 'fingerprint match must be derived independently from the current teacher, safety and trial evidence'));
+  if (data.prerequisites?.prerequisites_satisfied !== satisfied) diagnostics.push(diagnostic(entry.file, '/prerequisites/prerequisites_satisfied', 'prerequisite satisfaction must be derived from approved reviews, current fingerprints and exact safety-context comparison'));
   return satisfied;
 }
 
@@ -359,7 +445,7 @@ function validateCompletedTrial(diagnostics, entry, reviewRepository) {
   validateExact(diagnostics, entry.file, '/artifact_identity', data.artifact_identity, EXACT_IDENTITY, 'trial must match the exact pilot identity and current fingerprint');
   validateParts(diagnostics, entry);
   validatePrivacyText(diagnostics, entry);
-  if (!['analysed', 'superseded'].includes(data.lifecycle?.status)) diagnostics.push(diagnostic(entry.file, '/lifecycle/status', 'draft or conducted records cannot be registered as completed'));
+  if (data.lifecycle?.status !== 'analysed') diagnostics.push(diagnostic(entry.file, '/lifecycle/status', 'registered completed records must remain immutable analysed records; historical state is derived from inbound supersession links'));
   if (data.decision?.status === 'pending') diagnostics.push(diagnostic(entry.file, '/decision/status', 'registered completed trial decision cannot remain pending'));
   const prerequisiteSatisfied = validatePrerequisites(diagnostics, entry, reviewRepository);
   const privacyComplete = data.privacy?.aggregate_observations_only === true
@@ -396,31 +482,6 @@ function validateCompletedTrial(diagnostics, entry, reviewRepository) {
   if (data.boundaries?.effectiveness_claimed !== false || data.boundaries?.publication_ready !== false || data.boundaries?.source_gap_resolution_claimed !== false || data.boundaries?.canonical_opiq_gap_status_unchanged !== true) diagnostics.push(diagnostic(entry.file, '/boundaries', 'trial cannot promote effectiveness, publication, gap resolution or canonical Opiq coverage'));
 }
 
-function validateLifecycleGraph(diagnostics, entries) {
-  const ids = new Map(entries.map((entry) => [entry.data.trial_identity?.trial_id, entry]));
-  for (const entry of entries) {
-    const id = entry.data.trial_identity?.trial_id;
-    for (const target of entry.data.lifecycle?.supersedes ?? []) {
-      if (target === id) diagnostics.push(diagnostic(entry.file, '/lifecycle/supersedes', 'trial cannot supersede itself'));
-      else if (!ids.has(target)) diagnostics.push(diagnostic(entry.file, '/lifecycle/supersedes', `unknown superseded trial ${target}`));
-    }
-  }
-  const visiting = new Set();
-  const visited = new Set();
-  function visit(id) {
-    if (visiting.has(id)) return true;
-    if (visited.has(id) || !ids.has(id)) return false;
-    visiting.add(id);
-    const cycle = (ids.get(id).data.lifecycle?.supersedes ?? []).some(visit);
-    visiting.delete(id);
-    visited.add(id);
-    return cycle;
-  }
-  for (const id of ids.keys()) {
-    if (id && visit(id)) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/classroom_trial/completed_record_paths', 'trial supersession graph contains a cycle'));
-  }
-}
-
 export function validateTeacherWorkPlanArtifactClassroomTrialRepository(repository, {
   allowCompletedRecords = false,
 } = {}) {
@@ -449,9 +510,8 @@ export function validateTeacherWorkPlanArtifactClassroomTrialRepository(reposito
   validateExact(diagnostics, REVIEW_REGISTRY_PATH, '/classroom_trial/completed_record_paths', repository.completedTrials.map(({ file }) => file), registeredPaths, 'every registered classroom-trial record must load exactly once');
   if (!allowCompletedRecords && registeredPaths.length !== 0) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/classroom_trial/completed_record_paths', 'production registry must contain no completed classroom-trial record without actual evidence'));
   for (const entry of repository.completedTrials) validateCompletedTrial(diagnostics, entry, repository.reviewRepository);
-  validateLifecycleGraph(diagnostics, repository.completedTrials);
-
-  const active = [...repository.completedTrials].reverse().find(({ data }) => data.lifecycle?.status === 'analysed')?.data;
+  const lifecycle = resolveTeacherWorkPlanClassroomTrialLifecycle(repository.completedTrials);
+  const active = lifecycle.activeEntry?.data;
   const expectedStatus = active?.decision?.status ?? 'not_tested';
   if (registry?.classroom_trial?.status !== expectedStatus) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/classroom_trial/status', 'classroom-trial status must be derived from the active analysed record'));
   if (registry?.boundaries?.classroom_trial_complete !== Boolean(active)) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/boundaries/classroom_trial_complete', 'classroom-trial completion must reflect a registered analysed record'));

@@ -46,10 +46,26 @@ classroom_context:
   group_size: null
   adult_supervision_count: null
   delivery_site_category: null
+  school_or_organization: null
+  site_description: null
   named_context_reference: null
   accessibility_adjustments: null
   weather_or_indoor_fallback_used: null
-  local_safety_context_matches: null
+  safety_context_snapshot:
+    review_id: null
+    school_or_organization: null
+    site_description: null
+    planned_activity_date: null
+    approved_group_size: null
+    approved_adult_supervision_count: null
+    approved_delivery_site_category: null
+    approved_indoor_fallback_permitted: null
+    approved_weather_limitations: null
+    approved_accessibility_adjustments: null
+    approved_permission_requirements: null
+    approved_emergency_contact_process: null
+    approved_conditions: []
+  safety_condition_confirmations: []
 part_observations:
   - part_id: part-1
     source_gap_id: grade-6-science-lesson-008

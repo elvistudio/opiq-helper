@@ -143,6 +143,8 @@ function makeCompletedReview(template, { safety = false } = {}) {
       planned_activity_date: '2026-08-10',
       group_size: 12,
       adult_supervision_count: 2,
+      delivery_site_category: 'mixed',
+      indoor_fallback_permitted: true,
       weather_limitations: 'Use indoor fallback in unsafe conditions',
       accessibility_adjustments: 'Level indoor fallback available',
       permission_requirements: 'Synthetic site confirmation required',
@@ -168,6 +170,25 @@ function makeCompletedReview(template, { safety = false } = {}) {
     };
   }
   return data;
+}
+
+function safetySnapshot(safety) {
+  const context = safety.local_context;
+  return {
+    review_id: safety.review_identity.review_id,
+    school_or_organization: context.school_or_organization,
+    site_description: context.site_description,
+    planned_activity_date: context.planned_activity_date,
+    approved_group_size: context.group_size,
+    approved_adult_supervision_count: context.adult_supervision_count,
+    approved_delivery_site_category: context.delivery_site_category,
+    approved_indoor_fallback_permitted: context.indoor_fallback_permitted,
+    approved_weather_limitations: context.weather_limitations,
+    approved_accessibility_adjustments: context.accessibility_adjustments,
+    approved_permission_requirements: context.permission_requirements,
+    approved_emergency_contact_process: context.emergency_contact_process,
+    approved_conditions: [...safety.decision.conditions],
+  };
 }
 
 function prepareValidTrial(repository, decisionStatus = 'successful') {
@@ -219,10 +240,17 @@ function prepareValidTrial(repository, decisionStatus = 'successful') {
     group_size: 12,
     adult_supervision_count: 2,
     delivery_site_category: 'mixed',
+    school_or_organization: 'Synthetic Test Organization',
+    site_description: 'Synthetic enclosed teaching site',
     named_context_reference: 'synthetic-safety-context',
-    accessibility_adjustments: 'Aggregate classroom adjustment was available.',
+    accessibility_adjustments: 'Level indoor fallback available',
     weather_or_indoor_fallback_used: false,
-    local_safety_context_matches: true,
+    safety_context_snapshot: safetySnapshot(safety.data),
+    safety_condition_confirmations: [{
+      condition: 'Use indoor fallback in unsafe conditions',
+      confirmed: true,
+      notes: 'Synthetic aggregate confirmation of the approved weather limitation.',
+    }],
   };
   for (const part of data.part_observations) {
     part.actual_duration_minutes = 45;
@@ -278,6 +306,55 @@ function prepareValidTrial(repository, decisionStatus = 'successful') {
   repository.reviewRepository.reviewDirectoryFiles.sort();
   repository.reusableRepository.reviewRegistry.data = structuredClone(registry);
   return trial;
+}
+
+function syncRegisteredTrials(repository, entries, expectedStatus) {
+  repository.completedTrials = entries;
+  repository.reviewRepository.completedClassroomTrials = entries;
+  const registry = repository.reviewRepository.registry.data;
+  registry.classroom_trial.completed_record_paths = entries.map(({ file }) => file);
+  registry.classroom_trial.status = expectedStatus;
+  registry.boundaries.classroom_trial_complete = expectedStatus !== 'not_tested';
+  registry.boundaries.classroom_ready = ['successful', 'successful_with_notes'].includes(expectedStatus);
+  for (const { file } of entries) {
+    if (!repository.reviewRepository.reviewDirectoryFiles.includes(file)) repository.reviewRepository.reviewDirectoryFiles.push(file);
+  }
+  repository.reviewRepository.reviewDirectoryFiles.sort();
+  repository.reusableRepository.reviewRegistry.data = structuredClone(registry);
+}
+
+function appendSuccessorTrial(repository, predecessor, {
+  trialId = 'synthetic-classroom-trial-successor',
+  decisionStatus = 'successful',
+  supersedes = [predecessor.data.trial_identity.trial_id],
+} = {}) {
+  const data = structuredClone(predecessor.data);
+  data.trial_identity.trial_id = trialId;
+  data.trial_identity.analysis_date = '2026-08-12';
+  data.lifecycle = { status: 'analysed', supersedes: [...supersedes] };
+  data.findings = [];
+  for (const part of data.part_observations) {
+    for (const dimension of part.dimensions) {
+      dimension.status = 'met';
+      dimension.finding_ids = [];
+    }
+  }
+  data.decision = {
+    status: decisionStatus,
+    rationale: decisionStatus === 'repeat_trial_required'
+      ? 'Synthetic successor requires another trial.'
+      : 'Synthetic successor analysed decision.',
+    open_blocking_findings: [],
+    open_major_findings: [],
+    required_changes_complete: decisionStatus !== 'repeat_trial_required',
+    reviewed_fingerprint_matches: true,
+    safe_to_repeat: decisionStatus !== 'repeat_trial_required',
+  };
+  if (decisionStatus === 'repeat_trial_required') data.part_observations[0].dimensions[0].status = 'not_met';
+  const entry = { file: `${REVIEW_ROOT}/${trialId}.yaml`, text: '', data };
+  const entries = [...repository.completedTrials, entry];
+  syncRegisteredTrials(repository, entries, decisionStatus);
+  return entry;
 }
 
 test.before(async () => {
@@ -356,6 +433,101 @@ for (const decisionStatus of ['successful', 'successful_with_notes', 'repeat_tri
   });
 }
 
+test('registry path order does not change the active trial or readiness result', () => {
+  const forward = cloneRepository();
+  const first = prepareValidTrial(forward);
+  const second = appendSuccessorTrial(forward, first);
+  const forwardResult = validateTeacherWorkPlanArtifactClassroomTrialRepository(forward, { allowCompletedRecords: true });
+  assert.deepEqual(forwardResult.diagnostics, [], reasons(forwardResult));
+
+  const reversed = cloneRepository();
+  const reversedFirst = prepareValidTrial(reversed);
+  const reversedSecond = appendSuccessorTrial(reversed, reversedFirst);
+  syncRegisteredTrials(reversed, [reversedSecond, reversedFirst], 'successful');
+  const reversedResult = validateTeacherWorkPlanArtifactClassroomTrialRepository(reversed, { allowCompletedRecords: true });
+  assert.deepEqual(reversedResult.diagnostics, [], reasons(reversedResult));
+  assert.deepEqual(reversedResult.summary, forwardResult.summary);
+  assert.equal(second.data.lifecycle.supersedes[0], first.data.trial_identity.trial_id);
+});
+
+test('valid A <- B supersession selects B regardless of registry order', () => {
+  const repository = cloneRepository();
+  const historical = prepareValidTrial(repository);
+  const active = appendSuccessorTrial(repository, historical, { decisionStatus: 'repeat_trial_required' });
+  syncRegisteredTrials(repository, [active, historical], 'repeat_trial_required');
+  const result = validateTeacherWorkPlanArtifactClassroomTrialRepository(repository, { allowCompletedRecords: true });
+  assert.deepEqual(result.diagnostics, [], reasons(result));
+  assert.equal(result.summary.classroom_trial_status, 'repeat_trial_required');
+  assert.equal(repository.reviewRepository.registry.data.boundaries.classroom_ready, false);
+  assert.equal(historical.data.lifecycle.status, 'analysed');
+});
+
+test('rejects two unrelated active analysed trials and keeps readiness false', () => {
+  const repository = cloneRepository();
+  const first = prepareValidTrial(repository);
+  const second = appendSuccessorTrial(repository, first, { supersedes: [] });
+  syncRegisteredTrials(repository, [first, second], 'not_tested');
+  expectInvalid(repository, /multiple unrelated active analysed terminals/u, { allowCompletedRecords: true });
+  assert.equal(repository.reviewRepository.registry.data.boundaries.classroom_ready, false);
+});
+
+test('rejects a classroom-trial supersession cycle', () => {
+  const repository = cloneRepository();
+  const first = prepareValidTrial(repository);
+  const second = appendSuccessorTrial(repository, first);
+  first.data.lifecycle.supersedes = [second.data.trial_identity.trial_id];
+  syncRegisteredTrials(repository, [first, second], 'not_tested');
+  expectInvalid(repository, /supersession graph contains a cycle/u, { allowCompletedRecords: true });
+});
+
+test('rejects multiple successors for one historical record', () => {
+  const repository = cloneRepository();
+  const historical = prepareValidTrial(repository);
+  const second = appendSuccessorTrial(repository, historical, { trialId: 'synthetic-successor-b' });
+  const third = structuredClone(second);
+  third.file = `${REVIEW_ROOT}/synthetic-successor-c.yaml`;
+  third.data.trial_identity.trial_id = 'synthetic-successor-c';
+  syncRegisteredTrials(repository, [historical, second, third], 'not_tested');
+  expectInvalid(repository, /multiple successors/u, { allowCompletedRecords: true });
+});
+
+test('rejects duplicate classroom-trial IDs', () => {
+  const repository = cloneRepository();
+  const first = prepareValidTrial(repository);
+  const second = appendSuccessorTrial(repository, first);
+  second.data.trial_identity.trial_id = first.data.trial_identity.trial_id;
+  syncRegisteredTrials(repository, [first, second], 'not_tested');
+  expectInvalid(repository, /duplicate classroom-trial ID/u, { allowCompletedRecords: true });
+});
+
+test('rejects a classroom trial that supersedes itself', () => {
+  const repository = cloneRepository();
+  const trial = prepareValidTrial(repository);
+  trial.data.lifecycle.supersedes = [trial.data.trial_identity.trial_id];
+  syncRegisteredTrials(repository, [trial], 'not_tested');
+  expectInvalid(repository, /cannot supersede itself/u, { allowCompletedRecords: true });
+});
+
+test('rejects an unknown classroom-trial supersession target', () => {
+  const repository = cloneRepository();
+  const trial = prepareValidTrial(repository);
+  trial.data.lifecycle.supersedes = ['unknown-trial'];
+  syncRegisteredTrials(repository, [trial], 'not_tested');
+  expectInvalid(repository, /unknown superseded trial/u, { allowCompletedRecords: true });
+});
+
+test('historical positive trial cannot support readiness after an active negative successor', () => {
+  const repository = cloneRepository();
+  const historicalPositive = prepareValidTrial(repository);
+  const activeNegative = appendSuccessorTrial(repository, historicalPositive, { decisionStatus: 'repeat_trial_required' });
+  const result = validateTeacherWorkPlanArtifactClassroomTrialRepository(repository, { allowCompletedRecords: true });
+  assert.deepEqual(result.diagnostics, [], reasons(result));
+  assert.equal(historicalPositive.data.decision.status, 'successful');
+  assert.equal(activeNegative.data.decision.status, 'repeat_trial_required');
+  assert.equal(result.summary.classroom_trial_status, 'repeat_trial_required');
+  assert.equal(repository.reviewRepository.registry.data.boundaries.classroom_ready, false);
+});
+
 const templateMutations = [
   ['wrong artifact ID', (repo) => { repo.trialTemplate.data.artifact_identity.artifact_id = 'wrong-artifact'; }, /artifact_id|identity|constant/u],
   ['wrong route', (repo) => { repo.trialTemplate.data.artifact_identity.route = 'grade-7-science'; }, /route|identity|constant/u],
@@ -403,6 +575,42 @@ const completedMutations = [
   ['trial without safety approval', (repo, trial) => { trial.data.prerequisites.local_safety_review_status = 'pending'; }, /local safety|safety-review|prerequisite/u],
   ['stale prerequisite fingerprint', (repo) => { repo.reviewRepository.completedTeacherReviews[0].data.artifact_identity.content_fingerprint = '0'.repeat(64); }, /fingerprint/u],
   ['local safety context mismatch', (repo, trial) => { trial.data.classroom_context.named_context_reference = 'different-context'; }, /named trial context/u],
+  ['trial date differs from safety approval', (repo, trial) => { trial.data.trial_identity.trial_date = '2026-08-11'; }, /trial date.*approved local-safety activity date/u],
+  ['trial group is larger than safety approval', (repo, trial) => { trial.data.classroom_context.group_size = 13; }, /group size cannot exceed/u],
+  ['trial has fewer adults than safety approval', (repo, trial) => { trial.data.classroom_context.adult_supervision_count = 1; }, /adult supervision cannot be lower/u],
+  ['trial uses a different site', (repo, trial) => { trial.data.classroom_context.site_description = 'Different synthetic site'; }, /trial site must equal/u],
+  ['trial accessibility setup is weaker or incompatible', (repo, trial) => { trial.data.classroom_context.accessibility_adjustments = 'No level fallback available'; }, /accessibility adjustments must exactly preserve/u],
+  ['trial uses indoor fallback when safety did not permit it', (repo, trial) => {
+    const safety = repo.reviewRepository.completedSafetyReviews[0].data;
+    safety.local_context.indoor_fallback_permitted = false;
+    trial.data.classroom_context.safety_context_snapshot = safetySnapshot(safety);
+    trial.data.classroom_context.weather_or_indoor_fallback_used = true;
+    trial.data.aggregate_observations.indoor_fallback_used = true;
+  }, /fallback.*not permitted/u],
+  ['approved weather limitation is not explicitly confirmed', (repo, trial) => {
+    trial.data.classroom_context.safety_condition_confirmations[0].confirmed = false;
+  }, /condition must be explicitly confirmed/u],
+  ['conditional safety approval condition is not confirmed', (repo, trial) => {
+    const safety = repo.reviewRepository.completedSafetyReviews[0].data;
+    safety.decision.status = 'approved_with_conditions';
+    safety.decision.conditions = ['Keep the named access gate closed.'];
+    repo.reviewRepository.registry.data.local_safety_review.status = 'approved_with_conditions';
+    trial.data.prerequisites.local_safety_review_status = 'approved_with_conditions';
+    trial.data.classroom_context.safety_context_snapshot = safetySnapshot(safety);
+    trial.data.classroom_context.safety_condition_confirmations = [
+      {
+        condition: 'Use indoor fallback in unsafe conditions',
+        confirmed: true,
+        notes: 'Synthetic aggregate confirmation of the approved weather limitation.',
+      },
+      {
+        condition: 'Keep the named access gate closed.',
+        confirmed: false,
+        notes: null,
+      },
+    ];
+  }, /condition must be explicitly confirmed/u],
+  ['local-safety snapshot drift', (repo, trial) => { trial.data.classroom_context.safety_context_snapshot.approved_group_size = 30; }, /immutable exact snapshot/u],
   ['incomplete privacy attestation', (repo, trial) => { trial.data.privacy.manual_privacy_review_complete = false; }, /privacy/u],
   ['learner email in text', (repo, trial) => { trial.data.aggregate_observations.general_notes = 'Learner email: pupil@example.test'; }, /learner-identifiable|email/u],
   ['recording reference', (repo, trial) => { trial.data.aggregate_observations.general_notes = 'A video recording was retained.'; }, /private data|recording/u],

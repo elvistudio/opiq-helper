@@ -47,7 +47,8 @@ verify provenance, route, readiness, and content-boundary claims.
 1. Copy `local-safety-review-template.yaml`; do not modify the template.
 2. Record a real reviewer identity and date.
 3. Name the school or organization, exact observation site, planned activity
-   date, group size, supervision, weather limits, accessibility adjustments,
+   date, group size, supervision, delivery-site category, whether indoor
+   fallback is permitted, weather limits, accessibility adjustments,
    permissions, and emergency contact process.
 4. Review every safety scope item for that named context.
 5. Record explicit conditions for `approved_with_conditions`.

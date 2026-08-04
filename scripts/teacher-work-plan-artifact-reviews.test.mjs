@@ -142,6 +142,8 @@ function completedSafetyReview(repository) {
     planned_activity_date: '2026-08-10',
     group_size: 12,
     adult_supervision_count: 2,
+    delivery_site_category: 'mixed',
+    indoor_fallback_permitted: true,
     weather_limitations: 'No thunder, ice, flooding, or high wind',
     accessibility_adjustments: 'Level indoor fallback is available',
     permission_requirements: 'Synthetic site owner confirmation required',

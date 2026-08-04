@@ -89,10 +89,29 @@
               "group_size": { "const": null },
               "adult_supervision_count": { "const": null },
               "delivery_site_category": { "const": null },
+              "school_or_organization": { "const": null },
+              "site_description": { "const": null },
               "named_context_reference": { "const": null },
               "accessibility_adjustments": { "const": null },
               "weather_or_indoor_fallback_used": { "const": null },
-              "local_safety_context_matches": { "const": null }
+              "safety_context_snapshot": {
+                "properties": {
+                  "review_id": { "const": null },
+                  "school_or_organization": { "const": null },
+                  "site_description": { "const": null },
+                  "planned_activity_date": { "const": null },
+                  "approved_group_size": { "const": null },
+                  "approved_adult_supervision_count": { "const": null },
+                  "approved_delivery_site_category": { "const": null },
+                  "approved_indoor_fallback_permitted": { "const": null },
+                  "approved_weather_limitations": { "const": null },
+                  "approved_accessibility_adjustments": { "const": null },
+                  "approved_permission_requirements": { "const": null },
+                  "approved_emergency_contact_process": { "const": null },
+                  "approved_conditions": { "maxItems": 0 }
+                }
+              },
+              "safety_condition_confirmations": { "maxItems": 0 }
             }
           },
           "part_observations": {
@@ -280,7 +299,7 @@
       "additionalProperties": false,
       "required": ["status", "supersedes"],
       "properties": {
-        "status": { "enum": ["draft", "conducted", "analysed", "superseded"] },
+        "status": { "enum": ["draft", "conducted", "analysed"] },
         "supersedes": {
           "type": "array",
           "uniqueItems": true,
@@ -298,10 +317,13 @@
         "group_size",
         "adult_supervision_count",
         "delivery_site_category",
+        "school_or_organization",
+        "site_description",
         "named_context_reference",
         "accessibility_adjustments",
         "weather_or_indoor_fallback_used",
-        "local_safety_context_matches"
+        "safety_context_snapshot",
+        "safety_condition_confirmations"
       ],
       "properties": {
         "delivery_scope": { "const": "classroom" },
@@ -336,14 +358,77 @@
             { "type": "null" }
           ]
         },
+        "school_or_organization": { "$ref": "#/$defs/nullableString" },
+        "site_description": { "$ref": "#/$defs/nullableString" },
         "named_context_reference": { "$ref": "#/$defs/nullableSlug" },
         "accessibility_adjustments": { "$ref": "#/$defs/nullableString" },
         "weather_or_indoor_fallback_used": {
           "oneOf": [{ "type": "boolean" }, { "type": "null" }]
         },
-        "local_safety_context_matches": {
-          "oneOf": [{ "type": "boolean" }, { "type": "null" }]
+        "safety_context_snapshot": { "$ref": "#/$defs/safetyContextSnapshot" },
+        "safety_condition_confirmations": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/safetyConditionConfirmation" }
         }
+      }
+    },
+    "safetyContextSnapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "review_id",
+        "school_or_organization",
+        "site_description",
+        "planned_activity_date",
+        "approved_group_size",
+        "approved_adult_supervision_count",
+        "approved_delivery_site_category",
+        "approved_indoor_fallback_permitted",
+        "approved_weather_limitations",
+        "approved_accessibility_adjustments",
+        "approved_permission_requirements",
+        "approved_emergency_contact_process",
+        "approved_conditions"
+      ],
+      "properties": {
+        "review_id": { "$ref": "#/$defs/nullableSlug" },
+        "school_or_organization": { "$ref": "#/$defs/nullableString" },
+        "site_description": { "$ref": "#/$defs/nullableString" },
+        "planned_activity_date": { "$ref": "#/$defs/dateOrNull" },
+        "approved_group_size": {
+          "oneOf": [{ "type": "integer", "minimum": 1 }, { "type": "null" }]
+        },
+        "approved_adult_supervision_count": {
+          "oneOf": [{ "type": "integer", "minimum": 1 }, { "type": "null" }]
+        },
+        "approved_delivery_site_category": {
+          "oneOf": [
+            { "enum": ["outdoor_field", "indoor_fallback", "mixed"] },
+            { "type": "null" }
+          ]
+        },
+        "approved_indoor_fallback_permitted": {
+          "oneOf": [{ "type": "boolean" }, { "type": "null" }]
+        },
+        "approved_weather_limitations": { "$ref": "#/$defs/nullableString" },
+        "approved_accessibility_adjustments": { "$ref": "#/$defs/nullableString" },
+        "approved_permission_requirements": { "$ref": "#/$defs/nullableString" },
+        "approved_emergency_contact_process": { "$ref": "#/$defs/nullableString" },
+        "approved_conditions": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/nonEmptyString" }
+        }
+      }
+    },
+    "safetyConditionConfirmation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["condition", "confirmed", "notes"],
+      "properties": {
+        "condition": { "$ref": "#/$defs/nonEmptyString" },
+        "confirmed": { "type": "boolean" },
+        "notes": { "$ref": "#/$defs/nullableString" }
       }
     },
     "observationDimension": {
