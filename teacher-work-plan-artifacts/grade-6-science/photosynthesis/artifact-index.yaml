@@ -1,0 +1,232 @@
+schema_version: "1.0"
+artifact_type: teacher_work_plan_reusable_artifact
+artifact_id: grade-6-science-photosynthesis
+package_id: grade-6-science-photosynthesis
+implementation_status: internal_draft_pending_teacher_review
+identity:
+  grade: 6
+  subject: science
+  subject_et: loodusõpetus
+  title_ru: "Фотосинтез: влияние света на выделение газа водным растением"
+  title_et: "Fotosüntees: valguse mõju veetaime gaasieraldusele"
+  instruction_language: ru
+  subject_support_language: et
+canonical_route:
+  source_id: grade-6-science
+  md_path: project-files/outputs/opiq_6klass_loodusopetus.md
+  source_archive: project-files/inputs/final-zips/opiq_6klass_elutingimused_soos_v2.zip
+  qa_path: project-files/outputs/opiq_6klass_loodusopetus_qa.json
+  record_count: 436
+  coverage_status: available_not_curriculum_verified
+source_work_package:
+  review_id: grades-5-7-priority-work-packages
+  review_path: evaluations/teacher-work-plans/grades-5-7-priority-work-packages.yaml
+  package_id: grade-6-science-photosynthesis
+  authoring_status: ready_for_authoring
+  priority_tier: p1
+  selected_as_first_pilot: false
+  planned_root_path: teacher-work-plan-artifacts/grade-6-science/photosynthesis
+  proposed_deliverables:
+    - practical_protocol
+    - observation_table
+    - student_worksheet
+    - answer_key
+    - assessment_rubric
+source_gaps:
+  - gap_id: grade-6-science-lesson-016
+    mapping_id: lesson-016
+    source_record_kind: lesson_range
+    source_block_id: aed-ja-pold-elukeskkonnana
+    lesson_span: { lesson_start: 16, lesson_end: 16 }
+    source_pages: [6]
+    source_topic_et: Fotosüntees
+    normalized_mapping_topic_et: Fotosüntees
+    coverage_status: missing
+    bridge_type: independently_authored_practical_required
+    topic_inventory_refs: [garden-and-field-ecosystems]
+teacher_plan_source:
+  extraction_path: evaluations/teacher-work-plans/grade-6-science-extraction.json
+  source_pdf_path: project-files/inputs/originals/teacher-work-plans/Loodusopetuse-tookava-naidis-6-klassile.pdf
+  original_filename: Loodusõpetuse-töökava-näidis-6.-klassile.pdf
+  source_sha256: 2b63ada1c2821e63a8aadda0bf93246499c2f8430cd305592a82a709a0160762
+  source_page_count: 31
+  relevant_source_pages: [6]
+  provenance_kind: supplementary_teacher_work_plan
+  canonical: false
+learner_language_profile:
+  profile_id: grade-6-science-a2-default
+  profile_path: lesson-plans/language-profiles.yaml
+  learner_language_level: A2
+  expected_supported_estonian_output_sentences: { minimum: 3, maximum: 4 }
+content_boundary:
+  opiq_required: false
+  customer_or_learner_can_complete_without_opiq: true
+  external_sources_used: false
+  live_catalogue_checked: false
+  pupil_facing_science_provenance: independently_authored
+  teacher_plan_contribution:
+    - topic_scope
+    - practical_orientation
+    - source_page
+    - lesson_relationship
+  teacher_plan_does_not_supply:
+    - direct_page_level_photosynthesis_evidence
+    - complete_practical_protocol
+    - measurements_and_safety_controls
+    - observation_table
+    - answer_key
+    - assessment_rubric
+    - bilingual_language_support
+  direct_opiq_photosynthesis_evidence_available: false
+opiq_context_records: []
+lesson_sequence:
+  - part_id: part-1
+    source_gap_id: grade-6-science-lesson-016
+    title_ru: Свет и выделение газа водным растением
+    title_et: Valgus ja gaasi eraldumine veetaimel
+    duration_minutes: 45
+    primary_outputs:
+      - hypothesis
+      - independent_dependent_and_controlled_variables
+      - completed_observation_table
+      - calculated_mean_visible_bubble_count
+      - evidence_based_russian_conclusion
+      - limitations_statement
+      - three_to_four_supported_estonian_sentences
+language_support:
+  provenance: independently_authored_language_support
+  represented_as_opiq_oral_evidence: false
+  productive_terms:
+    - { et: fotosüntees, ru: фотосинтез }
+    - { et: valgus, ru: свет }
+    - { et: süsinikdioksiid, ru: углекислый газ }
+    - { et: vesi, ru: вода }
+    - { et: hapnik, ru: кислород }
+    - { et: gaasimull, ru: пузырёк газа }
+  sentence_frames:
+    - Fotosüntees vajab valgust, vett ja süsinikdioksiidi.
+    - Ereda valguse käes nägime rohkem / vähem gaasimulle.
+    - Gaasimullide arv on ainult kaudne näitaja.
+    - Katset tuleb korrata.
+  full_russian_model_answer_required: true
+safety_and_ethics:
+  fieldwork_applicable: false
+  local_risk_assessment_applicable: true
+  protected_area_permission_applicable: false
+  indoor_fallback_applicable: false
+  local_teacher_risk_assessment_required: true
+  universal_safety_claimed: false
+  protected_area_permission_is_teacher_responsibility: false
+  safeguards:
+    - cool_led_only
+    - lamp_and_connections_kept_dry
+    - electrical_connections_outside_spill_tray
+    - dry_hands_for_lamp_controls
+    - plastic_containers_default
+    - no_tasting_and_avoid_eye_contact
+    - spills_wiped_immediately
+    - teacher_handles_damaged_equipment_and_cutting
+    - no_wild_aquatic_plant_collection
+    - aquarium_plants_never_released_to_natural_waters
+    - hand_washing
+    - named_classroom_local_risk_review
+  scientific_boundaries:
+    - visible_bubbles_are_indirect_gas_release_indicator
+    - bubble_count_is_not_oxygen_volume
+    - bubbles_may_not_contain_only_oxygen
+    - bubble_count_is_not_exact_photosynthesis_rate
+    - one_classroom_comparison_is_not_universal_causation
+    - temperature_shoot_condition_dissolved_gases_bicarbonate_counting_and_acclimation_may_influence_results
+    - glucose_production_not_measured
+    - plant_health_biomass_and_long_term_growth_not_established
+    - repeats_and_improved_measurements_required
+    - no_universally_correct_fixed_bubble_count
+  indoor_fallback_available: false
+materials:
+  - material_id: photosynthesis-practical-protocol
+    capability: practical_protocol
+    title: Протокол сравнения выделения видимых пузырьков при двух уровнях света
+    artifact_path: teacher-work-plan-artifacts/grade-6-science/photosynthesis/practical-protocol.md
+    audience: teacher
+    languages: [ru, et]
+    printable: true
+    provenance: independently_authored
+    sha256: 46cc3a4e994c4aee22f870bcc72d434e595c25af5ab091a507772c11a933005a
+  - material_id: photosynthesis-observation-table
+    capability: observation_table
+    title: Таблица двухраундового наблюдения и расчётов
+    artifact_path: teacher-work-plan-artifacts/grade-6-science/photosynthesis/observation-table.md
+    audience: student
+    languages: [ru]
+    printable: true
+    provenance: independently_authored
+    answer_key_path: teacher-work-plan-artifacts/grade-6-science/photosynthesis/answer-key.md
+    sha256: 0b2524c4fbea58e25ec6b7964fd99217826613ad77d20af1b60f84fea8dc3832
+  - material_id: photosynthesis-student-worksheet
+    capability: student_worksheet
+    title: Рабочий лист переменных, расчётов и ограниченного вывода
+    artifact_path: teacher-work-plan-artifacts/grade-6-science/photosynthesis/student-worksheet.md
+    audience: student
+    languages: [ru, et]
+    printable: true
+    provenance: independently_authored
+    answer_key_path: teacher-work-plan-artifacts/grade-6-science/photosynthesis/answer-key.md
+    sha256: 9d0222d98be417ffb9df8ce76e79234f9a240555a78942b62771a98c217da48d
+  - material_id: photosynthesis-answer-key
+    capability: answer_key
+    title: Ключ с модельными ответами и синтетическим fallback-набором
+    artifact_path: teacher-work-plan-artifacts/grade-6-science/photosynthesis/answer-key.md
+    audience: teacher
+    languages: [ru, et]
+    printable: true
+    provenance: independently_authored
+    sha256: 240ca98450270780ae8a9853baaa08b7e9dd85733108d81df21e0e49b379e3a9
+  - material_id: photosynthesis-assessment-rubric
+    capability: assessment_rubric
+    title: Рубрика научного исследования и отдельной языковой поддержки
+    artifact_path: teacher-work-plan-artifacts/grade-6-science/photosynthesis/assessment-rubric.md
+    audience: teacher
+    languages: [ru, et]
+    printable: true
+    provenance: independently_authored
+    sha256: 02fe424cbf3be7a1bbcef6c3160b187127977cbe9b98b9cf5dfe684c079e7d5c
+content_fingerprint:
+  algorithm: sha256
+  value: 8df9cff3e19c325ba92f931f72c79cf2828a9b03a36fcf80ea19aff430d7db45
+  index_included: false
+human_review:
+  registry_path: teacher-work-plan-artifacts/grade-6-science/photosynthesis/reviews/review-registry.yaml
+  teacher_review:
+    status: pending
+    completed_record_path: null
+  local_safety_review:
+    status: pending
+    completed_record_path: null
+  classroom_trial:
+    workflow_created: true
+    template_path: teacher-work-plan-artifacts/grade-6-science/photosynthesis/reviews/classroom-trial-template.yaml
+    status: not_tested
+    completed_record_path: null
+  reviewed_content_fingerprint: null
+readiness:
+  schema_complete: true
+  content_complete_for_internal_review: true
+  materials_resolved: true
+  print_ready: true
+  teacher_review: { status: pending }
+  local_safety_review: { required: true, status: pending }
+  classroom_trial: { status: not_tested }
+  classroom_ready: false
+  publication_ready: false
+  customer_released: false
+  effectiveness_claimed: false
+source_gap_support:
+  independently_authored_support_created: true
+  supported_gap_ids:
+    - grade-6-science-lesson-016
+  canonical_opiq_gap_status_unchanged: true
+  source_gap_resolution_claimed: false
+  official_curriculum_complete: false
+  annual_architecture_created: false
+  default_course_selection_complete: false
+  live_catalogue_complete: false

@@ -391,6 +391,7 @@ async function buildFixture() {
   await writeYaml(SYNTHETIC_INDEX, syntheticArtifact);
 
   const registry = await readYaml('teacher-work-plan-artifacts/artifact-registry.yaml');
+  registry.artifacts = registry.artifacts.filter(({ artifact_id }) => artifact_id === SOIL_ID);
   registry.artifacts.push({
     artifact_id: SYNTHETIC_ID,
     package_id: SYNTHETIC_ID,

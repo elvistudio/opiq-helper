@@ -308,6 +308,7 @@
       "required": ["local_teacher_risk_assessment_required", "universal_safety_claimed", "protected_area_permission_is_teacher_responsibility", "safeguards", "scientific_boundaries", "indoor_fallback_available"],
       "properties": {
         "fieldwork_applicable": { "type": "boolean" },
+        "local_risk_assessment_applicable": { "type": "boolean" },
         "protected_area_permission_applicable": { "type": "boolean" },
         "indoor_fallback_applicable": { "type": "boolean" },
         "local_teacher_risk_assessment_required": { "type": "boolean" },
@@ -320,8 +321,8 @@
       "allOf": [
         {
           "if": {
-            "required": ["fieldwork_applicable"],
-            "properties": { "fieldwork_applicable": { "const": false } }
+            "required": ["local_risk_assessment_applicable"],
+            "properties": { "local_risk_assessment_applicable": { "const": false } }
           },
           "then": {
             "properties": { "local_teacher_risk_assessment_required": { "const": false } }

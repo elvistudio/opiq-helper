@@ -345,7 +345,7 @@
         },
         "delivery_site_category": {
           "oneOf": [
-            { "enum": ["outdoor_field", "indoor_fallback", "mixed"] },
+            { "enum": ["outdoor_field", "indoor_fallback", "indoor_classroom", "mixed"] },
             { "type": "null" }
           ]
         },
@@ -394,7 +394,7 @@
         },
         "approved_delivery_site_category": {
           "oneOf": [
-            { "enum": ["outdoor_field", "indoor_fallback", "mixed"] },
+            { "enum": ["outdoor_field", "indoor_fallback", "indoor_classroom", "mixed"] },
             { "type": "null" }
           ]
         },

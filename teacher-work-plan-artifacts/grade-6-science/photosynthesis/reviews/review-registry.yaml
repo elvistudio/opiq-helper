@@ -1,0 +1,27 @@
+schema_version: "1.0"
+artifact_type: teacher_work_plan_artifact_review_registry
+registry_id: grade-6-science-photosynthesis-review-registry
+artifact_id: grade-6-science-photosynthesis
+artifact_index_path: teacher-work-plan-artifacts/grade-6-science/photosynthesis/artifact-index.yaml
+content_fingerprint: 8df9cff3e19c325ba92f931f72c79cf2828a9b03a36fcf80ea19aff430d7db45
+teacher_review:
+  template_path: teacher-work-plan-artifacts/grade-6-science/photosynthesis/reviews/teacher-review-template.yaml
+  completed_record_paths: []
+  status: pending
+local_safety_review:
+  template_path: teacher-work-plan-artifacts/grade-6-science/photosynthesis/reviews/local-safety-review-template.yaml
+  completed_record_paths: []
+  status: pending
+classroom_trial:
+  template_path: teacher-work-plan-artifacts/grade-6-science/photosynthesis/reviews/classroom-trial-template.yaml
+  completed_record_paths: []
+  status: not_tested
+boundaries:
+  classroom_trial_workflow_created: true
+  review_complete: false
+  local_safety_review_complete: false
+  classroom_trial_complete: false
+  classroom_ready: false
+  publication_ready: false
+  customer_released: false
+  effectiveness_claimed: false

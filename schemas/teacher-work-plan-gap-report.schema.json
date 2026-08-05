@@ -587,36 +587,84 @@
         "implemented_package_count",
         "implemented_source_gap_count",
         "delivered_capability_count",
-        "package_id",
-        "artifact_index_path",
-        "implementation_status",
-        "human_review",
-        "classroom_trial_workflow_created",
-        "classroom_trial_template_path",
+        "human_review_workflow_count",
+        "teacher_review_pending_count",
+        "local_safety_review_pending_count",
+        "completed_human_review_record_count",
+        "classroom_trial_workflow_count",
         "completed_classroom_trial_record_count",
-        "classroom_trial_status",
-        "classroom_ready",
-        "effectiveness_claimed",
+        "classroom_trial_not_tested_count",
+        "artifacts",
         "canonical_gap_status_unchanged",
         "source_gap_resolution_claimed"
       ],
       "properties": {
-        "implemented_package_count": { "const": 1 },
-        "implemented_source_gap_count": { "const": 2 },
-        "delivered_capability_count": { "const": 7 },
-        "package_id": { "const": "grade-6-science-soil-organisms" },
-        "artifact_index_path": {
-          "const": "teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml"
+        "implemented_package_count": { "const": 2 },
+        "implemented_source_gap_count": { "const": 3 },
+        "delivered_capability_count": { "const": 12 },
+        "human_review_workflow_count": { "const": 2 },
+        "teacher_review_pending_count": { "const": 2 },
+        "local_safety_review_pending_count": { "const": 2 },
+        "completed_human_review_record_count": { "const": 0 },
+        "classroom_trial_workflow_count": { "const": 2 },
+        "completed_classroom_trial_record_count": { "const": 0 },
+        "classroom_trial_not_tested_count": { "const": 2 },
+        "artifacts": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "prefixItems": [
+            {
+              "allOf": [
+                { "$ref": "#/$defs/reusableArtifactTracking" },
+                { "type": "object", "properties": { "package_id": { "const": "grade-6-science-soil-organisms" } } }
+              ]
+            },
+            {
+              "allOf": [
+                { "$ref": "#/$defs/reusableArtifactTracking" },
+                { "type": "object", "properties": { "package_id": { "const": "grade-6-science-photosynthesis" } } }
+              ]
+            }
+          ],
+          "items": false
         },
+        "canonical_gap_status_unchanged": { "const": true },
+        "source_gap_resolution_claimed": { "const": false }
+      }
+    },
+    "reusableArtifactTracking": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "package_id", "artifact_index_path", "implementation_status",
+        "supported_gap_ids", "delivered_capability_count", "opiq_context_record_count",
+        "human_review", "classroom_trial_workflow_created", "classroom_trial_template_path",
+        "completed_classroom_trial_record_count", "classroom_trial_status",
+        "classroom_ready", "publication_ready", "customer_released",
+        "effectiveness_claimed", "canonical_gap_status_unchanged",
+        "source_gap_resolution_claimed"
+      ],
+      "properties": {
+        "package_id": { "$ref": "#/$defs/slug" },
+        "artifact_index_path": { "$ref": "#/$defs/repositoryPath" },
         "implementation_status": { "const": "internal_draft_pending_teacher_review" },
+        "supported_gap_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "delivered_capability_count": { "type": "integer", "minimum": 1 },
+        "opiq_context_record_count": { "type": "integer", "minimum": 0 },
         "human_review": { "$ref": "#/$defs/humanReviewTracking" },
         "classroom_trial_workflow_created": { "const": true },
-        "classroom_trial_template_path": {
-          "const": "teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/classroom-trial-template.yaml"
-        },
+        "classroom_trial_template_path": { "$ref": "#/$defs/repositoryPath" },
         "completed_classroom_trial_record_count": { "const": 0 },
         "classroom_trial_status": { "const": "not_tested" },
         "classroom_ready": { "const": false },
+        "publication_ready": { "const": false },
+        "customer_released": { "const": false },
         "effectiveness_claimed": { "const": false },
         "canonical_gap_status_unchanged": { "const": true },
         "source_gap_resolution_claimed": { "const": false }
@@ -636,16 +684,16 @@
         "source_gap_resolution_claimed"
       ],
       "properties": {
-        "selected_next_package_id": { "const": "grade-6-science-photosynthesis" },
+        "selected_next_package_id": { "const": "grade-6-science-garden-field-food-products" },
         "selected_next_package_status": { "const": "selected_not_started" },
         "selected_next_gap_ids": {
           "type": "array",
-          "prefixItems": [{ "const": "grade-6-science-lesson-016" }],
+          "prefixItems": [{ "const": "grade-6-science-lesson-022" }],
           "items": false,
           "minItems": 1,
           "maxItems": 1
         },
-        "selected_next_planned_root": { "const": "teacher-work-plan-artifacts/grade-6-science/photosynthesis" },
+        "selected_next_planned_root": { "const": "teacher-work-plan-artifacts/grade-6-science/garden-field-food-products" },
         "selected_next_material_count": { "const": 0 },
         "selected_next_review_workflow_created": { "const": false },
         "selected_next_trial_workflow_created": { "const": false },
@@ -671,11 +719,11 @@
       ],
       "properties": {
         "registry_path": {
-          "const": "teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/review-registry.yaml"
+          "$ref": "#/$defs/repositoryPath"
         },
         "workflow_created": { "const": true },
         "content_fingerprint": {
-          "const": "894cc83f54c158485f6d6ba699d8a1298c3e57056e315281b79d69e84f366613"
+          "$ref": "#/$defs/sha256"
         },
         "teacher_review_status": { "const": "pending" },
         "local_safety_review_status": { "const": "pending" },

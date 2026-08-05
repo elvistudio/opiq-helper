@@ -89,7 +89,7 @@ test('ready, blocked and multi-gap accounting is exact', () => {
     blocked_teacher_review_count: 3,
     multi_gap_package_count: 1,
     selected_pilot_package_id: 'grade-6-science-soil-organisms',
-    next_authoring_package_id: 'grade-6-science-photosynthesis',
+    next_authoring_package_id: 'grade-6-science-garden-field-food-products',
   });
   assert.deepEqual(artifact.authoring_queue, teacherWorkPlanWorkPackageContracts.authoringQueue);
   assert.deepEqual(
@@ -175,21 +175,34 @@ test('selected Grade 6 soil-organisms pilot has exact root and seven deliverable
     classroom_ready: false,
     effectiveness_claimed: false,
   });
-  assert.equal(artifact.work_packages.filter(({ implementation }) => implementation !== undefined).length, 1);
+  const photosynthesis = packageById('grade-6-science-photosynthesis');
+  assert.equal(photosynthesis.implementation.status, 'internal_draft_pending_teacher_review');
+  assert.equal(photosynthesis.implementation.human_review.content_fingerprint, '8df9cff3e19c325ba92f931f72c79cf2828a9b03a36fcf80ea19aff430d7db45');
+  assert.deepEqual(photosynthesis.implementation.supported_gap_ids, ['grade-6-science-lesson-016']);
+  assert.equal(photosynthesis.implementation.human_review.teacher_review_status, 'pending');
+  assert.equal(photosynthesis.implementation.human_review.local_safety_review_status, 'pending');
+  assert.equal(photosynthesis.implementation.classroom_trial.status, 'not_tested');
+  assert.equal(artifact.work_packages.filter(({ implementation }) => implementation !== undefined).length, 2);
 });
 
-test('review records one internal draft without resolution, backlog completion or official claims', () => {
+test('review records two internal drafts without resolution, backlog completion or official claims', () => {
   assert.equal(artifact.work_packages.every(({ resolution_claimed }) => resolution_claimed === false), true);
   assert.equal(artifact.scope.reusable_teaching_artifacts_created, true);
   assert.equal(artifact.completeness.reusable_teaching_artifacts_created, true);
   assert.equal(artifact.completeness.reusable_artifact_backlog_complete, false);
   assert.equal(artifact.implementation_summary.source_gap_resolution_claimed, false);
-  assert.equal(artifact.implementation_summary.human_review_workflow_count, 1);
+  assert.equal(artifact.implementation_summary.implemented_internal_draft_count, 2);
+  assert.equal(artifact.implementation_summary.implemented_source_gap_count, 3);
+  assert.equal(artifact.implementation_summary.delivered_capability_count, 12);
+  assert.equal(artifact.implementation_summary.not_started_ready_package_count, 11);
+  assert.equal(artifact.implementation_summary.human_review_workflow_count, 2);
   assert.equal(artifact.implementation_summary.completed_human_review_record_count, 0);
-  assert.equal(artifact.implementation_summary.classroom_trial_workflow_count, 1);
-  assert.equal(artifact.implementation_summary.classroom_trial_template_count, 1);
+  assert.equal(artifact.implementation_summary.teacher_review_pending_count, 2);
+  assert.equal(artifact.implementation_summary.local_safety_review_pending_count, 2);
+  assert.equal(artifact.implementation_summary.classroom_trial_workflow_count, 2);
+  assert.equal(artifact.implementation_summary.classroom_trial_template_count, 2);
   assert.equal(artifact.implementation_summary.completed_classroom_trial_record_count, 0);
-  assert.equal(artifact.implementation_summary.classroom_trial_not_tested_count, 1);
+  assert.equal(artifact.implementation_summary.classroom_trial_not_tested_count, 2);
   assert.equal(artifact.completeness.official_curriculum_complete, false);
   assert.equal(artifact.completeness.live_catalogue_complete, false);
 });
@@ -268,9 +281,9 @@ test('pilot, planned root and completion-boundary mutation fail closed', () => {
   assertInvalid((candidate) => { candidate.work_packages[4].planned_root_path = 'lesson-plans/grade-6-science/soil-organisms'; }, /planned root|pattern/u);
   assertInvalid((candidate) => { candidate.work_packages[4].resolution_claimed = true; }, /resolution/u);
   assertInvalid((candidate) => { candidate.completeness.reusable_teaching_artifacts_created = false; }, /must be equal to constant|artifact/u);
-  assertInvalid((candidate) => { candidate.implementation_summary.implemented_internal_draft_count = 2; }, /implementation summary|must be equal/u);
+  assertInvalid((candidate) => { candidate.implementation_summary.implemented_internal_draft_count = 1; }, /implementation summary|must be equal/u);
   assertInvalid((candidate) => { delete candidate.work_packages[4].implementation; }, /implementation/u);
-  assertInvalid((candidate) => { candidate.work_packages[5].implementation = structuredClone(candidate.work_packages[4].implementation); }, /only the selected pilot/u);
+  assertInvalid((candidate) => { candidate.work_packages[6].implementation = structuredClone(candidate.work_packages[4].implementation); }, /implemented package must link|implementation/u);
   assertInvalid((candidate) => { candidate.completeness.official_curriculum_complete = true; }, /must be equal to constant|curriculum/u);
   assertInvalid((candidate) => { candidate.completeness.live_catalogue_complete = true; }, /must be equal to constant|catalogue/u);
 });

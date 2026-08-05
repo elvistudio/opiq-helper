@@ -4,7 +4,7 @@
 
 This generated audit records the completed semantic review of the 17 missing or ambiguous source-backed gaps in the four registered supplementary teacher-plan crosswalks. The review defines 16 work packages: 13 are semantically authorable and 3 remain blocked by explicit teacher decisions.
 
-Semantic review remains complete. One selected P0 package now has internal-draft materials plus fail-closed human-review and classroom-trial workflows; teacher review and local safety review remain pending, classroom trial remains not tested, no review decision is recorded, and no canonical source gap is resolved.
+Semantic review remains complete. Two route-local packages now have internal-draft materials plus fail-closed human-review and classroom-trial workflows; every teacher review and local safety review remains pending, every classroom trial remains not tested, no review decision is recorded, and no canonical source gap is resolved.
 
 ## 2. Why semantic review precedes authoring
 
@@ -58,8 +58,8 @@ Grade 7 geography has no missing or ambiguous priority gap and therefore has no 
 ## 5. Ready versus blocked accounting
 
 - Semantically ready packages: 13.
-- Implemented as an internal draft: 1.
-- Ready packages not started: 12.
+- Implemented as an internal draft: 2.
+- Ready packages not started: 11.
 - Blocked by teacher review: 3.
 - `grade-5-science-year-start-workflow`: Which local class workflow, learner grouping and portfolio conventions should be used?
 - `grade-6-science-unassigned-lesson-105`: Which topic or local annual-course purpose, if any, should be assigned to lesson 105?
@@ -67,9 +67,10 @@ Grade 7 geography has no missing or ambiguous priority gap and therefore has no 
 
 Blocked packages propose only a `teacher_decision_record`; they do not propose worksheets, practical protocols or gap resolution.
 
-The pilot review registry is [`teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/review-registry.yaml`](../../teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/review-registry.yaml). It pins fingerprint `894cc83f54c158485f6d6ba699d8a1298c3e57056e315281b79d69e84f366613`, contains zero completed teacher or safety records, keeps both reviews pending, and leaves classroom trial `not_tested`.
-
-The classroom-trial template is [`teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/classroom-trial-template.yaml`](../../teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/classroom-trial-template.yaml). Its workflow exists, but no trial has been conducted or registered; classroom readiness and effectiveness claims remain false.
+- `grade-6-science-soil-organisms`: review registry [`teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/review-registry.yaml`](../../teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/review-registry.yaml), fingerprint `894cc83f54c158485f6d6ba699d8a1298c3e57056e315281b79d69e84f366613`; teacher and safety reviews pending, completed records 0, classroom trial `not_tested`.
+  Trial template: [`teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/classroom-trial-template.yaml`](../../teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/classroom-trial-template.yaml); no trial has been conducted or registered, and classroom readiness and effectiveness claims remain false.
+- `grade-6-science-photosynthesis`: review registry [`teacher-work-plan-artifacts/grade-6-science/photosynthesis/reviews/review-registry.yaml`](../../teacher-work-plan-artifacts/grade-6-science/photosynthesis/reviews/review-registry.yaml), fingerprint `8df9cff3e19c325ba92f931f72c79cf2828a9b03a36fcf80ea19aff430d7db45`; teacher and safety reviews pending, completed records 0, classroom trial `not_tested`.
+  Trial template: [`teacher-work-plan-artifacts/grade-6-science/photosynthesis/reviews/classroom-trial-template.yaml`](../../teacher-work-plan-artifacts/grade-6-science/photosynthesis/reviews/classroom-trial-template.yaml); no trial has been conducted or registered, and classroom readiness and effectiveness claims remain false.
 
 ## 6. Grouping decisions
 
@@ -95,7 +96,9 @@ The internal draft covers two consecutive missing gaps and combines a practical 
 
 All seven capabilities now exist in the internal-draft artifact at `teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml`. Their existence supplies independently authored support but does not change either canonical Opiq gap from `missing`.
 
-The next selected package is `grade-6-science-photosynthesis` for `grade-6-science-lesson-016`. Its planned root is `teacher-work-plan-artifacts/grade-6-science/photosynthesis`; status is `selected_not_started`. No photosynthesis material, artifact index, human-review workflow or classroom-trial workflow exists, and its canonical source gap remains `missing`.
+The second internal draft is `grade-6-science-photosynthesis` at `teacher-work-plan-artifacts/grade-6-science/photosynthesis/artifact-index.yaml`. Its five independently authored capabilities support `grade-6-science-lesson-016`, but the canonical gap remains `missing`; zero Opiq context records are claimed, both reviews remain pending and classroom trial remains `not_tested`.
+
+The next selected package is `grade-6-science-garden-field-food-products` for `grade-6-science-lesson-022`. Its planned root is `teacher-work-plan-artifacts/grade-6-science/garden-field-food-products`; status is `selected_not_started`. No garden-field-food-products material, artifact index, human-review workflow or classroom-trial workflow exists, and its canonical source gap remains `missing`.
 
 ## 9. Existing lesson/teacher-pack architecture boundary
 
@@ -111,8 +114,8 @@ The production lesson schema and validators require a verified official curricul
 
 ## 11. What remains pending
 
-- One P0 package has internal-draft reusable materials, a review workflow and a classroom-trial workflow, but no completed review or trial record; teacher review and local safety review remain pending and classroom trial remains `not_tested`.
-- Twelve semantically ready packages remain not started.
+- Two packages have internal-draft reusable materials and workflows, but no completed review or trial record; all teacher and local safety reviews remain pending and both classroom trials remain `not_tested`.
+- Eleven semantically ready packages remain not started.
 - The reusable-artifact backlog is not complete.
 - Three packages require teacher decisions before authoring.
 - Phase 5 has started but remains incomplete; no canonical source gap is marked resolved.

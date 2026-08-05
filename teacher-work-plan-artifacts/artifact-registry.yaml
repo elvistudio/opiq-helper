@@ -24,15 +24,25 @@ artifacts:
     content_fingerprint: 894cc83f54c158485f6d6ba699d8a1298c3e57056e315281b79d69e84f366613
     review_registry_path: teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/review-registry.yaml
     classroom_trial_template_path: teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/classroom-trial-template.yaml
+  - artifact_id: grade-6-science-photosynthesis
+    package_id: grade-6-science-photosynthesis
+    route: grade-6-science
+    root_path: teacher-work-plan-artifacts/grade-6-science/photosynthesis
+    index_path: teacher-work-plan-artifacts/grade-6-science/photosynthesis/artifact-index.yaml
+    validation_profile_id: grade-6-science-photosynthesis-v1
+    lifecycle_status: internal_draft
+    content_fingerprint: 8df9cff3e19c325ba92f931f72c79cf2828a9b03a36fcf80ea19aff430d7db45
+    review_registry_path: teacher-work-plan-artifacts/grade-6-science/photosynthesis/reviews/review-registry.yaml
+    classroom_trial_template_path: teacher-work-plan-artifacts/grade-6-science/photosynthesis/reviews/classroom-trial-template.yaml
 authoring_queue:
-  next_package_id: grade-6-science-photosynthesis
+  next_package_id: grade-6-science-garden-field-food-products
   status: selected_not_started
-  selection_order: 2
-  planned_root_path: teacher-work-plan-artifacts/grade-6-science/photosynthesis
+  selection_order: 3
+  planned_root_path: teacher-work-plan-artifacts/grade-6-science/garden-field-food-products
   selection_reason: >-
-    This is the next route-local P1 package after the soil-organisms pilot. It is
-    one bounded missing Grade 6 science practical gap with no blocking question
-    and five declared reusable-artifact capabilities.
+    This is the next route-local ready Grade 6 science package after the
+    photosynthesis internal draft. It is one bounded missing practical gap with
+    no blocking question and four declared reusable-artifact capabilities.
   materials_created: false
   artifact_index_created: false
   human_review_workflow_created: false

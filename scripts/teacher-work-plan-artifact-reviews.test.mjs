@@ -108,7 +108,7 @@ function expectInvalid(repository, pattern, options) {
 }
 
 function synchronizeReusableRegistry(repository) {
-  repository.reusableRepository.artifactContexts[0].dependencies.reviewRegistry.data = structuredClone(repository.registry.data);
+  repository.artifactContext.dependencies.reviewRegistry.data = structuredClone(repository.registry.data);
 }
 
 function completedTeacherReview(repository) {
@@ -192,7 +192,10 @@ function completedSafetyReview(repository) {
 }
 
 test.before(async () => {
-  baseline = await loadTeacherWorkPlanArtifactReviewRepository({ rootDir: process.cwd() });
+  baseline = await loadTeacherWorkPlanArtifactReviewRepository({
+    rootDir: process.cwd(),
+    artifactId: PROFILE.artifactId,
+  });
 });
 
 test('production review packet is exact, pending, and contains no completed human evidence', () => {
@@ -372,6 +375,7 @@ for (const [name, pathName, transform] of [
     const original = await fs.readFile(pathName, 'utf8');
     const repository = await loadTeacherWorkPlanArtifactReviewRepository({
       rootDir: process.cwd(),
+      artifactId: PROFILE.artifactId,
       fileOverrides: new Map([[pathName, transform(original)]]),
     });
     expectInvalid(repository, /YAML|duplicate|alias|anchor|tab|missing/iu);

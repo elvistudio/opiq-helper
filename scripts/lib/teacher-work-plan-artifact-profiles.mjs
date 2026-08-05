@@ -183,6 +183,7 @@ const soilOrganismsProfile = deepFreeze({
   ],
   safetyApplicability: {
     fieldworkApplicable: true,
+    localRiskAssessmentApplicable: true,
     protectedAreaPermissionApplicable: true,
     indoorFallbackApplicable: true,
     requiresApplicabilityDeclaration: false,
@@ -309,8 +310,243 @@ const soilOrganismsProfile = deepFreeze({
   },
 });
 
+const photosynthesisRootPath = 'teacher-work-plan-artifacts/grade-6-science/photosynthesis';
+const photosynthesisReviewRoot = `${photosynthesisRootPath}/reviews`;
+
+const photosynthesisProfile = deepFreeze({
+  profileId: 'grade-6-science-photosynthesis-v1',
+  artifactId: 'grade-6-science-photosynthesis',
+  packageId: 'grade-6-science-photosynthesis',
+  route: 'grade-6-science',
+  rootPath: photosynthesisRootPath,
+  indexPath: `${photosynthesisRootPath}/artifact-index.yaml`,
+  fingerprint: '8df9cff3e19c325ba92f931f72c79cf2828a9b03a36fcf80ea19aff430d7db45',
+  identity: {
+    grade: 6,
+    subject: 'science',
+    subjectEt: 'loodusõpetus',
+  },
+  expectedRootEntries: [
+    'answer-key.md',
+    'artifact-index.yaml',
+    'assessment-rubric.md',
+    'observation-table.md',
+    'practical-protocol.md',
+    'reviews',
+    'student-worksheet.md',
+  ],
+  capabilities: [
+    'practical_protocol',
+    'observation_table',
+    'student_worksheet',
+    'answer_key',
+    'assessment_rubric',
+  ],
+  materialPaths: [
+    `${photosynthesisRootPath}/practical-protocol.md`,
+    `${photosynthesisRootPath}/observation-table.md`,
+    `${photosynthesisRootPath}/student-worksheet.md`,
+    `${photosynthesisRootPath}/answer-key.md`,
+    `${photosynthesisRootPath}/assessment-rubric.md`,
+  ],
+  answerKeyLinks: {
+    observation_table: `${photosynthesisRootPath}/answer-key.md`,
+    student_worksheet: `${photosynthesisRootPath}/answer-key.md`,
+  },
+  studentFacingPaths: [
+    `${photosynthesisRootPath}/observation-table.md`,
+    `${photosynthesisRootPath}/student-worksheet.md`,
+  ],
+  urlAllowedPaths: [],
+  internalLeakPatterns: [
+    'gap_id',
+    'mapping_id',
+    'programme_type',
+    'source_gap',
+    'curriculum-maps/',
+    'evaluations/',
+    'project-files/',
+    'teacher-work-plan-crosswalk',
+  ],
+  sourceGaps: [
+    {
+      gap_id: 'grade-6-science-lesson-016',
+      mapping_id: 'lesson-016',
+      source_record_kind: 'lesson_range',
+      source_block_id: 'aed-ja-pold-elukeskkonnana',
+      lesson_span: { lesson_start: 16, lesson_end: 16 },
+      source_pages: [6],
+      source_topic_et: 'Fotosüntees',
+      normalized_mapping_topic_et: 'Fotosüntees',
+      coverage_status: 'missing',
+      bridge_type: 'independently_authored_practical_required',
+      topic_inventory_refs: ['garden-and-field-ecosystems'],
+    },
+  ],
+  teacherPlanRelevantPages: [6],
+  contextRecords: [],
+  languageProfile: {
+    profileId: 'grade-6-science-a2-default',
+    grade: 6,
+    subject: 'science',
+    learnerLanguageLevel: 'A2',
+  },
+  productiveTerms: [
+    { et: 'fotosüntees', ru: 'фотосинтез' },
+    { et: 'valgus', ru: 'свет' },
+    { et: 'süsinikdioksiid', ru: 'углекислый газ' },
+    { et: 'vesi', ru: 'вода' },
+    { et: 'hapnik', ru: 'кислород' },
+    { et: 'gaasimull', ru: 'пузырёк газа' },
+  ],
+  safetyApplicability: {
+    fieldworkApplicable: false,
+    localRiskAssessmentApplicable: true,
+    protectedAreaPermissionApplicable: false,
+    indoorFallbackApplicable: false,
+    requiresApplicabilityDeclaration: true,
+    expectedRules: {
+      local_teacher_risk_assessment_required: true,
+      universal_safety_claimed: false,
+      protected_area_permission_is_teacher_responsibility: false,
+      indoor_fallback_available: false,
+    },
+  },
+  materialContentRules: [
+    {
+      path: `${photosynthesisRootPath}/practical-protocol.md`,
+      description: 'protocol is missing a required method, crossover, safety, fallback, or limitation guard',
+      requiredStrings: [
+        '1,0 г/л', '200 мл', '8 ± 1 см', '20 см', '5 минут акклиматизации',
+        'трёх отдельных интервалов по 1 минуте', 'Поменяйте побеги условиями',
+        'не более 2 °C', 'Не придумывайте наблюдения', 'холодная LED-лампа',
+        'соединения находятся вне поддона', 'никогда не выпускают в природные водоёмы',
+        'Дикорастущие водные растения не собирают', 'косвенный показатель',
+        'не является точным измерением скорости фотосинтеза',
+        'не измеряет объём кислорода напрямую',
+      ],
+    },
+    {
+      path: `${photosynthesisRootPath}/observation-table.md`,
+      description: 'observation table is missing setup, crossover, calculation, quality, or scientific-boundary fields',
+      requiredStrings: [
+        'Код группы, без имён учеников', 'Раунд 2: после обмена условиями',
+        'среднее = сумма подсчётов / число равных интервалов', 'Разница температуры не больше 2 °C',
+        'Наблюдения не придуманы', 'косвенный показатель', 'не измеряет глюкозу',
+      ],
+    },
+    {
+      path: `${photosynthesisRootPath}/student-worksheet.md`,
+      description: 'student worksheet is missing variables, safety, calculation, language, or limitation guards',
+      requiredStrings: [
+        'Независимая переменная', 'Зависимая переменная', 'контролируемых условий',
+        'среднее = сумма подсчётов / число равных интервалов', 'x̄ = Σx / n',
+        'Аквариумные растения не собраны в природе', 'не будут выпущены в природный водоём',
+        'Fotosüntees vajab valgust, vett ja süsinikdioksiidi.',
+        'Gaasimullide arv on ainult kaudne näitaja.',
+      ],
+    },
+    {
+      path: `${photosynthesisRootPath}/answer-key.md`,
+      description: 'answer key is missing the full model, exact fallback calculations, language answer, or correction boundary',
+      requiredStrings: [
+        'Полный модельный ответ по-русски',
+        '(8 + 9 + 10 + 9 + 8 + 10) / 6 = 9.0 bubbles/min',
+        '(2 + 3 + 2 + 3 + 2 + 3) / 6 = 2.5 bubbles/min',
+        '9.0 - 2.5 = 6.5 bubbles/min', 'не измеряет объём кислорода напрямую',
+        'Fotosüntees vajab valgust, vett ja süsinikdioksiidi.',
+        'Нельзя исправлять честный ноль',
+      ],
+    },
+    {
+      path: `${photosynthesisRootPath}/assessment-rubric.md`,
+      description: 'rubric is missing safety gate, science/language separation, method criteria, or scientific boundaries',
+      requiredStrings: [
+        'Safety gate', 'Гипотеза и переменные', 'Контролируемая процедура',
+        'Качество наблюдений', 'Расчёты', 'Вывод по свидетельствам',
+        'Ограничения и надёжность', 'Полное объяснение по-русски',
+        'Эстонская языковая поддержка — отдельно',
+        'слабый эстонский не уменьшает научный балл',
+        'выпуск аквариумного растения в природу', 'придуманные данные',
+      ],
+    },
+  ],
+  review: {
+    rootPath: photosynthesisReviewRoot,
+    registryPath: `${photosynthesisReviewRoot}/review-registry.yaml`,
+    guidePath: `${photosynthesisReviewRoot}/review-guide.md`,
+    teacherTemplatePath: `${photosynthesisReviewRoot}/teacher-review-template.yaml`,
+    safetyTemplatePath: `${photosynthesisReviewRoot}/local-safety-review-template.yaml`,
+    trialGuidePath: `${photosynthesisReviewRoot}/classroom-trial-guide.md`,
+    trialTemplatePath: `${photosynthesisReviewRoot}/classroom-trial-template.yaml`,
+    teacherScope: [
+      'scientific_accuracy', 'age_appropriateness', 'instructional_clarity',
+      'practical_feasibility', 'measurement_validity', 'assessment_alignment',
+      'russian_explanation_quality', 'estonian_language_support',
+      'accessibility_and_differentiation', 'source_and_readiness_boundaries',
+    ],
+    safetyScope: [
+      'named_classroom_context', 'electrical_equipment_and_spill_separation',
+      'lamp_temperature_and_distance', 'container_stability_and_breakage',
+      'plant_material_and_allergy_risks', 'bicarbonate_solution_handling',
+      'hygiene_and_cleanup', 'accessibility_and_participation',
+      'supervision_and_stop_signals', 'emergency_or_incident_procedure',
+      'aquarium_plant_disposal_and_non_release',
+    ],
+    guideHeadings: [
+      '## 1. Purpose and boundaries', '## 2. Exact artifact and fingerprint',
+      '## 3. Files under review', '## 4. Teacher-review procedure',
+      '## 5. Local-safety-review procedure', '## 6. Finding severity definitions',
+      '## 7. Approval rules', '## 8. Fingerprint invalidation',
+      '## 9. Required-change workflow', '## 10. Classroom-trial boundary',
+      '## 11. Prohibited claims', '## 12. How to create a completed record',
+    ],
+    guideBoundaryStatements: [
+      'Templates are not human evidence.', 'neither teacher approval nor safety approval',
+      'Any material-byte change', 'limited to one named school',
+      'No learner names or identifiers', 'no canonical source gap is resolved',
+    ],
+  },
+  classroomTrial: {
+    parts: [
+      {
+        part_id: 'part-1',
+        source_gap_id: 'grade-6-science-lesson-016',
+        title_et: 'Fotosüntees',
+        planned_duration_minutes: 45,
+        dimensions: [
+          'timing', 'setup_and_transitions', 'instruction_comprehension',
+          'practical_safety', 'variable_control', 'crossover_execution',
+          'observation_and_data_recording', 'calculation_accuracy',
+          'evidence_vs_interpretation', 'material_usability',
+          'accessibility_and_participation', 'cleanup_and_non_release',
+          'immediate_recall_and_transfer', 'method_naturalness',
+        ],
+      },
+    ],
+    guideHeadings: [
+      '## 1. Purpose and non-evidence boundary',
+      '## 2. Prerequisite teacher and safety reviews',
+      '## 3. Exact artifact and fingerprint', '## 4. Privacy and aggregate evidence',
+      '## 5. Preparing the trial', '## 6. Part 1 observation procedure',
+      '## 7. Part 2 observation procedure', '## 8. Timing and transition evidence',
+      '## 9. Safety, stop conditions and incidents', '## 10. Findings and required changes',
+      '## 11. Trial decisions', '## 12. Fingerprint invalidation',
+      '## 13. Registration of an analysed record', '## 14. Readiness truth table',
+      '## 15. Prohibited claims',
+    ],
+    guideBoundaryStatements: [
+      'No trial is conducted in this pull request.',
+      'Creating or merging the template is not evidence',
+      'Before a trial starts', 'no learner or facilitator names',
+      'The source gap remains missing.', 'does not establish comparative effectiveness',
+    ],
+  },
+});
+
 export const TEACHER_WORK_PLAN_ARTIFACT_PROFILES = deepFreeze({
   [soilOrganismsProfile.profileId]: soilOrganismsProfile,
+  [photosynthesisProfile.profileId]: photosynthesisProfile,
 });
 
 export function getTeacherWorkPlanArtifactProfile(profileId) {

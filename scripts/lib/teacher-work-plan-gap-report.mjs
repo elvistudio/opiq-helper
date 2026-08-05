@@ -80,41 +80,11 @@ const SAMPLE_TOPIC_ABSENCES = Object.freeze([
   Object.freeze({ source_id: 'grade-6-science', topic_id: 'bog-ecosystem' }),
 ]);
 
-const REUSABLE_ARTIFACT_IMPLEMENTATION = Object.freeze({
-  implemented_package_count: 1,
-  implemented_source_gap_count: 2,
-  delivered_capability_count: 7,
-  package_id: 'grade-6-science-soil-organisms',
-  artifact_index_path: 'teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml',
-  implementation_status: 'internal_draft_pending_teacher_review',
-  human_review: {
-    registry_path: 'teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/review-registry.yaml',
-    workflow_created: true,
-    content_fingerprint: '894cc83f54c158485f6d6ba699d8a1298c3e57056e315281b79d69e84f366613',
-    teacher_review_status: 'pending',
-    local_safety_review_status: 'pending',
-    completed_teacher_review_count: 0,
-    completed_safety_review_count: 0,
-    classroom_trial_status: 'not_tested',
-    review_decision_recorded: false,
-    classroom_ready: false,
-    publication_ready: false,
-    effectiveness_claimed: false,
-  },
-  classroom_trial_workflow_created: true,
-  classroom_trial_template_path: 'teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/classroom-trial-template.yaml',
-  completed_classroom_trial_record_count: 0,
-  classroom_trial_status: 'not_tested',
-  classroom_ready: false,
-  effectiveness_claimed: false,
-  canonical_gap_status_unchanged: true,
-  source_gap_resolution_claimed: false,
-});
 const AUTHORING_QUEUE_SUMMARY = Object.freeze({
-  selected_next_package_id: 'grade-6-science-photosynthesis',
+  selected_next_package_id: 'grade-6-science-garden-field-food-products',
   selected_next_package_status: 'selected_not_started',
-  selected_next_gap_ids: ['grade-6-science-lesson-016'],
-  selected_next_planned_root: 'teacher-work-plan-artifacts/grade-6-science/photosynthesis',
+  selected_next_gap_ids: ['grade-6-science-lesson-022'],
+  selected_next_planned_root: 'teacher-work-plan-artifacts/grade-6-science/garden-field-food-products',
   selected_next_material_count: 0,
   selected_next_review_workflow_created: false,
   selected_next_trial_workflow_created: false,
@@ -399,6 +369,7 @@ function attachWorkPackageReview(report) {
 
 function attachReusableArtifactImplementation(report, reusableRepository = null) {
   let authoringQueue = AUTHORING_QUEUE_SUMMARY;
+  let reusableImplementation = null;
   if (reusableRepository) {
     const queue = reusableRepository.registryRepository.registry.data.authoring_queue;
     const workPackage = reusableRepository.workPackageRepository.artifact.work_packages
@@ -413,10 +384,64 @@ function attachReusableArtifactImplementation(report, reusableRepository = null)
       selected_next_trial_workflow_created: queue.classroom_trial_workflow_created,
       source_gap_resolution_claimed: queue.source_gap_resolution_claimed,
     };
+    const artifacts = reusableRepository.artifactContexts.map((context) => {
+      const artifact = context.indexEntry.data;
+      const reviewRegistry = context.dependencies.reviewRegistry.data;
+      return {
+        package_id: artifact.package_id,
+        artifact_index_path: context.registryEntry.index_path,
+        implementation_status: artifact.implementation_status,
+        supported_gap_ids: artifact.source_gap_support.supported_gap_ids,
+        delivered_capability_count: artifact.materials.length,
+        opiq_context_record_count: artifact.opiq_context_records.length,
+        human_review: {
+          registry_path: context.registryEntry.review_registry_path,
+          workflow_created: true,
+          content_fingerprint: artifact.content_fingerprint.value,
+          teacher_review_status: reviewRegistry.teacher_review.status,
+          local_safety_review_status: reviewRegistry.local_safety_review.status,
+          completed_teacher_review_count: reviewRegistry.teacher_review.completed_record_paths.length,
+          completed_safety_review_count: reviewRegistry.local_safety_review.completed_record_paths.length,
+          classroom_trial_status: reviewRegistry.classroom_trial.status,
+          review_decision_recorded: false,
+          classroom_ready: false,
+          publication_ready: false,
+          effectiveness_claimed: false,
+        },
+        classroom_trial_workflow_created: true,
+        classroom_trial_template_path: context.registryEntry.classroom_trial_template_path,
+        completed_classroom_trial_record_count: reviewRegistry.classroom_trial.completed_record_paths.length,
+        classroom_trial_status: reviewRegistry.classroom_trial.status,
+        classroom_ready: artifact.readiness.classroom_ready,
+        publication_ready: artifact.readiness.publication_ready,
+        customer_released: artifact.readiness.customer_released,
+        effectiveness_claimed: artifact.readiness.effectiveness_claimed,
+        canonical_gap_status_unchanged: artifact.source_gap_support.canonical_opiq_gap_status_unchanged,
+        source_gap_resolution_claimed: artifact.source_gap_support.source_gap_resolution_claimed,
+      };
+    });
+    reusableImplementation = {
+      implemented_package_count: artifacts.length,
+      implemented_source_gap_count: artifacts.reduce((total, artifact) => total + artifact.supported_gap_ids.length, 0),
+      delivered_capability_count: artifacts.reduce((total, artifact) => total + artifact.delivered_capability_count, 0),
+      human_review_workflow_count: artifacts.length,
+      teacher_review_pending_count: artifacts.filter(({ human_review }) => human_review.teacher_review_status === 'pending').length,
+      local_safety_review_pending_count: artifacts.filter(({ human_review }) => human_review.local_safety_review_status === 'pending').length,
+      completed_human_review_record_count: artifacts.reduce((total, artifact) => total
+        + artifact.human_review.completed_teacher_review_count
+        + artifact.human_review.completed_safety_review_count, 0),
+      classroom_trial_workflow_count: artifacts.filter(({ classroom_trial_workflow_created }) => classroom_trial_workflow_created).length,
+      completed_classroom_trial_record_count: artifacts.reduce((total, artifact) => total + artifact.completed_classroom_trial_record_count, 0),
+      classroom_trial_not_tested_count: artifacts.filter(({ classroom_trial_status }) => classroom_trial_status === 'not_tested').length,
+      artifacts,
+      canonical_gap_status_unchanged: artifacts.every(({ canonical_gap_status_unchanged }) => canonical_gap_status_unchanged),
+      source_gap_resolution_claimed: artifacts.some(({ source_gap_resolution_claimed }) => source_gap_resolution_claimed),
+    };
   }
+  if (!reusableImplementation) throw new Error('validated reusable artifact repository is required');
   return {
     ...report,
-    reusable_artifact_implementation: structuredClone(REUSABLE_ARTIFACT_IMPLEMENTATION),
+    reusable_artifact_implementation: reusableImplementation,
     authoring_queue: structuredClone(authoringQueue),
     boundaries: {
       ...report.boundaries,
@@ -615,12 +640,13 @@ function compactCount(counts) {
 
 export function renderTeacherWorkPlanGapReportMarkdown(report) {
   const aggregate = report.aggregate_summary;
+  const implementation = report.reusable_artifact_implementation;
   const lines = [
     '# Grades 5-7 teacher work-plan gap report',
     '',
     '## 1. Status and scope',
     '',
-    'This generated report indexes source-backed gaps in four supplementary, noncanonical teacher work-plan crosswalks. One independently authored internal-draft pilot now supports two gaps, but canonical coverage remains unchanged. The report does not establish official curriculum completeness, annual allocation, default-course eligibility, or live-catalogue completeness.',
+    `This generated report indexes source-backed gaps in four supplementary, noncanonical teacher work-plan crosswalks. ${implementation.implemented_package_count} independently authored internal-draft artifacts now support ${implementation.implemented_source_gap_count} gaps, but canonical coverage remains unchanged. The report does not establish official curriculum completeness, annual allocation, default-course eligibility, or live-catalogue completeness.`,
     '',
     '## 2. Source crosswalks',
     '',
@@ -712,15 +738,17 @@ export function renderTeacherWorkPlanGapReportMarkdown(report) {
     '',
     '### Reusable artifact implementation',
     '',
-    `One package, \`${report.reusable_artifact_implementation.package_id}\`, now has an internal draft with ${report.reusable_artifact_implementation.delivered_capability_count} material capabilities supporting ${report.reusable_artifact_implementation.implemented_source_gap_count} source gaps. Index: [\`${report.reusable_artifact_implementation.artifact_index_path}\`](../../${report.reusable_artifact_implementation.artifact_index_path}).`,
+    `${implementation.implemented_package_count} packages now have internal drafts with ${implementation.delivered_capability_count} material capabilities supporting ${implementation.implemented_source_gap_count} source gaps.`,
     '',
-    `A fail-closed human-review workflow now exists at [\`${report.reusable_artifact_implementation.human_review.registry_path}\`](../../${report.reusable_artifact_implementation.human_review.registry_path}) and pins fingerprint \`${report.reusable_artifact_implementation.human_review.content_fingerprint}\`. It contains zero completed teacher or local-safety review records and no review decision.`,
+    ...implementation.artifacts.flatMap((artifact) => [
+      `- \`${artifact.package_id}\`: [index](../../${artifact.artifact_index_path}); ${artifact.delivered_capability_count} materials, ${artifact.supported_gap_ids.length} supported source gaps, ${artifact.opiq_context_record_count} optional Opiq context records; fingerprint \`${artifact.human_review.content_fingerprint}\`. Teacher review and local safety review are \`pending\`; classroom trial is \`not_tested\`; completed review and trial records are zero.`,
+    ]),
     '',
-    `A classroom-trial workflow and template now exist at [\`${report.reusable_artifact_implementation.classroom_trial_template_path}\`](../../${report.reusable_artifact_implementation.classroom_trial_template_path}), but no trial has been conducted and zero analysed trial records are registered. Prerequisite reviews remain pending, trial status is \`not_tested\`, and classroom readiness and effectiveness claims remain false.`,
+    'Both artifacts remain internal drafts. Their fail-closed human-review and classroom-trial workflows create no teacher approval, safety approval, classroom readiness, publication, customer release or effectiveness evidence.',
     '',
     `Next authoring selection: \`${report.authoring_queue.selected_next_package_id}\` for \`${report.authoring_queue.selected_next_gap_ids.join(', ')}\`, status \`${report.authoring_queue.selected_next_package_status}\`, planned root \`${report.authoring_queue.selected_next_planned_root}\`. No materials, artifact index, human-review workflow or classroom-trial workflow has been created for it, and no source-gap resolution is claimed.`,
     '',
-    'This independently authored support does not change either canonical Opiq gap from `missing`. Teacher review and local safety review remain pending, classroom/publication readiness remains false, and no source-gap resolution is claimed.',
+    'This independently authored support does not change the three supported canonical Opiq gaps from `missing`. Teacher review and local safety review remain pending, classroom/publication readiness remains false, and no source-gap resolution is claimed.',
     '',
     '## 11. Complete gap registry grouped by route',
     '',
@@ -741,7 +769,7 @@ export function renderTeacherWorkPlanGapReportMarkdown(report) {
     '- Gap-index completeness applies only to the four registered supplementary crosswalks.',
     '- Official curriculum completeness and exact-grade official allocation are not verified.',
     '- No annual architecture, default-course selection, or live-catalogue verification is created here.',
-    '- Semantic work-package review is complete; one internal-draft reusable artifact plus pending review and classroom-trial workflows exist, but no completed review or trial decision exists and the reusable-artifact backlog remains incomplete.',
+    '- Semantic work-package review is complete; two internal-draft reusable artifacts plus pending review and classroom-trial workflows exist, but no completed review or trial decision exists and the reusable-artifact backlog remains incomplete.',
   );
   return `${lines.join('\n')}\n`;
 }
@@ -800,7 +828,16 @@ export function validateTeacherWorkPlanGapReport(report, {
   if (JSON.stringify(absenceKeys) !== JSON.stringify(SAMPLE_TOPIC_ABSENCES)) diagnostics.push(diagnostic('/sample_topic_absences', 'expected the exact five sample-only topic absences'));
   if (repository) {
     try {
-      const expected = attachReusableArtifactImplementation(buildReportFromValidatedRepository(repository));
+      const expectedBase = attachWorkPackageReview(buildReportFromValidatedRepository(repository));
+      const expected = {
+        ...expectedBase,
+        reusable_artifact_implementation: structuredClone(report.reusable_artifact_implementation),
+        authoring_queue: structuredClone(report.authoring_queue),
+        boundaries: {
+          ...expectedBase.boundaries,
+          reusable_teaching_artifacts_created: true,
+        },
+      };
       if (serializeTeacherWorkPlanGapReport(report) !== serializeTeacherWorkPlanGapReport(expected)) {
         diagnostics.push(diagnostic('/', 'report differs from validated crosswalk-derived model or deterministic property order'));
       }
