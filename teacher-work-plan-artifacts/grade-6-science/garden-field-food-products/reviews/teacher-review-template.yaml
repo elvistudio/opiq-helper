@@ -1,0 +1,39 @@
+schema_version: "1.0"
+artifact_type: teacher_work_plan_artifact_teacher_review
+template: true
+review_identity:
+  review_id: null
+  reviewer_id: null
+  reviewer_name: null
+  reviewer_role: null
+  organization: null
+  review_date: null
+artifact_identity:
+  artifact_id: grade-6-science-garden-field-food-products
+  artifact_index_path: teacher-work-plan-artifacts/grade-6-science/garden-field-food-products/artifact-index.yaml
+  content_fingerprint: 999eb50584622bb35dd017a34d7b83536c4face4ebaccd98d12d7768518280ad
+  package_id: grade-6-science-garden-field-food-products
+  route: grade-6-science
+  grade: 6
+  subject: science
+  subject_et: loodusõpetus
+review_scope:
+  - { area: scientific_accuracy, status: not_reviewed, notes: null, finding_ids: [] }
+  - { area: age_appropriateness, status: not_reviewed, notes: null, finding_ids: [] }
+  - { area: instructional_clarity, status: not_reviewed, notes: null, finding_ids: [] }
+  - { area: practical_feasibility, status: not_reviewed, notes: null, finding_ids: [] }
+  - { area: classification_validity, status: not_reviewed, notes: null, finding_ids: [] }
+  - { area: calculation_and_data_handling, status: not_reviewed, notes: null, finding_ids: [] }
+  - { area: assessment_alignment, status: not_reviewed, notes: null, finding_ids: [] }
+  - { area: russian_explanation_quality, status: not_reviewed, notes: null, finding_ids: [] }
+  - { area: estonian_language_support, status: not_reviewed, notes: null, finding_ids: [] }
+  - { area: accessibility_and_differentiation, status: not_reviewed, notes: null, finding_ids: [] }
+  - { area: source_and_readiness_boundaries, status: not_reviewed, notes: null, finding_ids: [] }
+findings: []
+decision:
+  status: pending
+  rationale: null
+  open_blocking_findings: []
+  open_major_findings: []
+  required_changes_complete: false
+  reviewed_fingerprint_matches: false

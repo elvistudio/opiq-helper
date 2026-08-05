@@ -1,0 +1,224 @@
+schema_version: "1.0"
+artifact_type: teacher_work_plan_reusable_artifact
+artifact_id: grade-6-science-garden-field-food-products
+package_id: grade-6-science-garden-field-food-products
+implementation_status: internal_draft_pending_teacher_review
+identity:
+  grade: 6
+  subject: science
+  subject_et: loodusõpetus
+  title_ru: "Продукты сада и поля: от растения к пищевому продукту"
+  title_et: "Põllu- ja aiasaadused: taimest toiduaineni"
+  instruction_language: ru
+  subject_support_language: et
+canonical_route:
+  source_id: grade-6-science
+  md_path: project-files/outputs/opiq_6klass_loodusopetus.md
+  source_archive: project-files/inputs/final-zips/opiq_6klass_elutingimused_soos_v2.zip
+  qa_path: project-files/outputs/opiq_6klass_loodusopetus_qa.json
+  record_count: 436
+  coverage_status: available_not_curriculum_verified
+source_work_package:
+  review_id: grades-5-7-priority-work-packages
+  review_path: evaluations/teacher-work-plans/grades-5-7-priority-work-packages.yaml
+  package_id: grade-6-science-garden-field-food-products
+  authoring_status: ready_for_authoring
+  priority_tier: p1
+  selected_as_first_pilot: false
+  planned_root_path: teacher-work-plan-artifacts/grade-6-science/garden-field-food-products
+  proposed_deliverables:
+    - practical_protocol
+    - observation_table
+    - student_worksheet
+    - answer_key
+source_gaps:
+  - gap_id: grade-6-science-lesson-022
+    mapping_id: lesson-022
+    source_record_kind: lesson_range
+    source_block_id: aed-ja-pold-elukeskkonnana
+    lesson_span: { lesson_start: 22, lesson_end: 22 }
+    source_pages: [8]
+    source_topic_et: Põlluja aiasaadused kui toiduained
+    normalized_mapping_topic_et: Põlluja aiasaadused kui toiduained
+    coverage_status: missing
+    bridge_type: independently_authored_practical_required
+    topic_inventory_refs: [garden-and-field-ecosystems]
+teacher_plan_source:
+  extraction_path: evaluations/teacher-work-plans/grade-6-science-extraction.json
+  source_pdf_path: project-files/inputs/originals/teacher-work-plans/Loodusopetuse-tookava-naidis-6-klassile.pdf
+  original_filename: Loodusõpetuse-töökava-näidis-6.-klassile.pdf
+  source_sha256: 2b63ada1c2821e63a8aadda0bf93246499c2f8430cd305592a82a709a0160762
+  source_page_count: 31
+  relevant_source_pages: [8]
+  provenance_kind: supplementary_teacher_work_plan
+  canonical: false
+learner_language_profile:
+  profile_id: grade-6-science-a2-default
+  profile_path: lesson-plans/language-profiles.yaml
+  learner_language_level: A2
+  expected_supported_estonian_output_sentences: { minimum: 3, maximum: 4 }
+content_boundary:
+  opiq_required: false
+  customer_or_learner_can_complete_without_opiq: true
+  external_sources_used: false
+  live_catalogue_checked: false
+  pupil_facing_science_provenance: independently_authored
+  teacher_plan_contribution:
+    - topic_scope
+    - practical_orientation
+    - source_page
+    - lesson_relationship
+  teacher_plan_does_not_supply:
+    - direct_page_level_garden_field_food_products_evidence
+    - complete_practical_protocol
+    - sample_source_cards
+    - safety_controls
+    - observation_table
+    - answer_key
+    - bilingual_language_support
+  direct_opiq_garden_field_food_products_evidence_available: false
+opiq_context_records: []
+lesson_sequence:
+  - part_id: part-1
+    source_gap_id: grade-6-science-lesson-022
+    title_ru: Исследование растительных пищевых продуктов
+    title_et: Taimsete toiduainete uurimine
+    duration_minutes: 45
+    primary_outputs:
+      - research_question
+      - teacher_curated_sample_evidence_table
+      - eaten_plant_part_identification
+      - product_transformation_description
+      - frequency_or_percentage_calculation
+      - evidence_based_russian_conclusion
+      - uncertainty_and_limitations_statement
+      - three_to_four_supported_estonian_sentences
+language_support:
+  provenance: independently_authored_language_support
+  represented_as_opiq_oral_evidence: false
+  productive_terms:
+    - { et: aiasaadus, ru: продукт сада или огорода }
+    - { et: põllusaadus, ru: продукт поля }
+    - { et: toiduaine, ru: пищевой продукт }
+    - { et: taimeosa, ru: часть растения }
+    - { et: töötlemine, ru: обработка }
+    - { et: koostisosa, ru: ингредиент }
+  sentence_frames:
+    - See toiduaine on valmistatud taimest.
+    - "Me sööme selle taime osa: ______."
+    - Toode on terve / lõigatud / kuivatatud / jahvatatud.
+    - Meie valim on väike ja järeldus on piiratud.
+  full_russian_model_answer_required: true
+safety_and_ethics:
+  fieldwork_applicable: false
+  local_risk_assessment_applicable: true
+  protected_area_permission_applicable: false
+  indoor_fallback_applicable: false
+  local_teacher_risk_assessment_required: true
+  universal_safety_claimed: false
+  protected_area_permission_is_teacher_responsibility: false
+  safeguards:
+    - no_tasting_or_consumption
+    - teacher_checks_allergy_and_cross_contact
+    - processed_products_remain_sealed_when_possible
+    - teacher_only_package_opening_and_cutting
+    - learners_do_not_handle_blades
+    - clean_tables_and_hands
+    - classroom_samples_not_returned_to_food_service
+    - damaged_or_leaking_packages_excluded
+    - samples_separate_from_personal_belongings
+    - no_medical_or_allergy_safe_claim
+    - local_school_disposal_rules
+    - stop_for_reaction_spill_sharp_object_or_damaged_package
+    - named_indoor_classroom_local_risk_review
+  scientific_boundaries:
+    - garden_field_classification_depends_on_local_cultivation_practice
+    - origin_not_always_inferable_from_product
+    - teacher_source_card_controls_classroom_classification
+    - small_teacher_selected_sample_not_representative
+    - form_and_ingredient_count_do_not_determine_health_quality_safety_or_sustainability
+    - country_label_does_not_identify_exact_farm_or_method_without_explicit_evidence
+    - processing_can_reduce_visual_recognizability
+    - no_medical_dietary_or_allergy_conclusions
+    - unknown_and_uncertain_records_are_valid
+    - no_universally_correct_classification_without_exact_source_card
+  indoor_fallback_available: false
+materials:
+  - material_id: garden-field-food-products-practical-protocol
+    capability: practical_protocol
+    title: Протокол сравнения продуктов от растения до обработанной формы
+    artifact_path: teacher-work-plan-artifacts/grade-6-science/garden-field-food-products/practical-protocol.md
+    audience: teacher
+    languages: [ru, et]
+    printable: true
+    provenance: independently_authored
+    sha256: 54677a6768c372c10c06ba7075c0359a1467eb55ee3476973ecfc1d4009d9858
+  - material_id: garden-field-food-products-observation-table
+    capability: observation_table
+    title: Таблица образцов, частей растения, форм и процентов
+    artifact_path: teacher-work-plan-artifacts/grade-6-science/garden-field-food-products/observation-table.md
+    audience: student
+    languages: [ru]
+    printable: true
+    provenance: independently_authored
+    answer_key_path: teacher-work-plan-artifacts/grade-6-science/garden-field-food-products/answer-key.md
+    sha256: 13710c58c30eede15f793cd1c0ffc32a34ad84e11fd3f34f1c92556c65ae2606
+  - material_id: garden-field-food-products-student-worksheet
+    capability: student_worksheet
+    title: Рабочий лист наблюдения, классификации и ограниченного вывода
+    artifact_path: teacher-work-plan-artifacts/grade-6-science/garden-field-food-products/student-worksheet.md
+    audience: student
+    languages: [ru, et]
+    printable: true
+    provenance: independently_authored
+    answer_key_path: teacher-work-plan-artifacts/grade-6-science/garden-field-food-products/answer-key.md
+    sha256: 200cea52f26628c42b5bdfc81f94a3e234e3df0b9b821ccf71fca18926a0dff3
+  - material_id: garden-field-food-products-answer-key
+    capability: answer_key
+    title: Ключ с классификацией, расчётом и синтетическим набором
+    artifact_path: teacher-work-plan-artifacts/grade-6-science/garden-field-food-products/answer-key.md
+    audience: teacher
+    languages: [ru, et]
+    printable: true
+    provenance: independently_authored
+    sha256: b41579b0ad50e975c20848d48aab87ac5d9b9d8c41f05d3d7f6bf37889820924
+content_fingerprint:
+  algorithm: sha256
+  value: 999eb50584622bb35dd017a34d7b83536c4face4ebaccd98d12d7768518280ad
+  index_included: false
+human_review:
+  registry_path: teacher-work-plan-artifacts/grade-6-science/garden-field-food-products/reviews/review-registry.yaml
+  teacher_review:
+    status: pending
+    completed_record_path: null
+  local_safety_review:
+    status: pending
+    completed_record_path: null
+  classroom_trial:
+    workflow_created: true
+    template_path: teacher-work-plan-artifacts/grade-6-science/garden-field-food-products/reviews/classroom-trial-template.yaml
+    status: not_tested
+    completed_record_path: null
+  reviewed_content_fingerprint: null
+readiness:
+  schema_complete: true
+  content_complete_for_internal_review: true
+  materials_resolved: true
+  print_ready: true
+  teacher_review: { status: pending }
+  local_safety_review: { required: true, status: pending }
+  classroom_trial: { status: not_tested }
+  classroom_ready: false
+  publication_ready: false
+  customer_released: false
+  effectiveness_claimed: false
+source_gap_support:
+  independently_authored_support_created: true
+  supported_gap_ids:
+    - grade-6-science-lesson-022
+  canonical_opiq_gap_status_unchanged: true
+  source_gap_resolution_claimed: false
+  official_curriculum_complete: false
+  annual_architecture_created: false
+  default_course_selection_complete: false
+  live_catalogue_complete: false

@@ -599,20 +599,20 @@
         "source_gap_resolution_claimed"
       ],
       "properties": {
-        "implemented_package_count": { "const": 2 },
-        "implemented_source_gap_count": { "const": 3 },
-        "delivered_capability_count": { "const": 12 },
-        "human_review_workflow_count": { "const": 2 },
-        "teacher_review_pending_count": { "const": 2 },
-        "local_safety_review_pending_count": { "const": 2 },
+        "implemented_package_count": { "const": 3 },
+        "implemented_source_gap_count": { "const": 4 },
+        "delivered_capability_count": { "const": 16 },
+        "human_review_workflow_count": { "const": 3 },
+        "teacher_review_pending_count": { "const": 3 },
+        "local_safety_review_pending_count": { "const": 3 },
         "completed_human_review_record_count": { "const": 0 },
-        "classroom_trial_workflow_count": { "const": 2 },
+        "classroom_trial_workflow_count": { "const": 3 },
         "completed_classroom_trial_record_count": { "const": 0 },
-        "classroom_trial_not_tested_count": { "const": 2 },
+        "classroom_trial_not_tested_count": { "const": 3 },
         "artifacts": {
           "type": "array",
-          "minItems": 2,
-          "maxItems": 2,
+          "minItems": 3,
+          "maxItems": 3,
           "prefixItems": [
             {
               "allOf": [
@@ -624,6 +624,12 @@
               "allOf": [
                 { "$ref": "#/$defs/reusableArtifactTracking" },
                 { "type": "object", "properties": { "package_id": { "const": "grade-6-science-photosynthesis" } } }
+              ]
+            },
+            {
+              "allOf": [
+                { "$ref": "#/$defs/reusableArtifactTracking" },
+                { "type": "object", "properties": { "package_id": { "const": "grade-6-science-garden-field-food-products" } } }
               ]
             }
           ],
@@ -684,16 +690,16 @@
         "source_gap_resolution_claimed"
       ],
       "properties": {
-        "selected_next_package_id": { "const": "grade-6-science-garden-field-food-products" },
+        "selected_next_package_id": { "const": "grade-6-science-wood-processing" },
         "selected_next_package_status": { "const": "selected_not_started" },
         "selected_next_gap_ids": {
           "type": "array",
-          "prefixItems": [{ "const": "grade-6-science-lesson-022" }],
+          "prefixItems": [{ "const": "grade-6-science-lesson-038" }],
           "items": false,
           "minItems": 1,
           "maxItems": 1
         },
-        "selected_next_planned_root": { "const": "teacher-work-plan-artifacts/grade-6-science/garden-field-food-products" },
+        "selected_next_planned_root": { "const": "teacher-work-plan-artifacts/grade-6-science/wood-processing" },
         "selected_next_material_count": { "const": 0 },
         "selected_next_review_workflow_created": { "const": false },
         "selected_next_trial_workflow_created": { "const": false },

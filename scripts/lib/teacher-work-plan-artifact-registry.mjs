@@ -25,8 +25,8 @@ const EXACT_ROUTES = Object.freeze([
   'grade-7-geography',
   'grade-7-science',
 ]);
-const NEXT_PACKAGE_ID = 'grade-6-science-garden-field-food-products';
-const NEXT_PACKAGE_ROOT = 'teacher-work-plan-artifacts/grade-6-science/garden-field-food-products';
+const NEXT_PACKAGE_ID = 'grade-6-science-wood-processing';
+const NEXT_PACKAGE_ROOT = 'teacher-work-plan-artifacts/grade-6-science/wood-processing';
 
 function compareBytewise(left, right) {
   return Buffer.from(String(left)).compare(Buffer.from(String(right)));
