@@ -81,6 +81,31 @@ const SELECTED_PILOT_DELIVERABLES = Object.freeze([
   'assessment_rubric',
   'oral_support',
 ]);
+const NEXT_AUTHORING_PACKAGE_ID = 'grade-6-science-photosynthesis';
+const NEXT_AUTHORING_ROOT = 'teacher-work-plan-artifacts/grade-6-science/photosynthesis';
+const NEXT_AUTHORING_CAPABILITIES = Object.freeze([
+  'practical_protocol',
+  'observation_table',
+  'student_worksheet',
+  'answer_key',
+  'assessment_rubric',
+]);
+const AUTHORING_QUEUE = Object.freeze({
+  package_id: NEXT_AUTHORING_PACKAGE_ID,
+  route: 'grade-6-science',
+  priority_tier: 'p1',
+  authoring_status: 'ready_for_authoring',
+  package_kind: 'single_gap',
+  source_gap_ids: ['grade-6-science-lesson-016'],
+  planned_root_path: NEXT_AUTHORING_ROOT,
+  proposed_capabilities: NEXT_AUTHORING_CAPABILITIES,
+  status: 'selected_not_started',
+  materials_created: false,
+  artifact_index_created: false,
+  human_review_workflow_created: false,
+  classroom_trial_workflow_created: false,
+  source_gap_resolution_claimed: false,
+});
 
 const IMPLEMENTATION_SUMMARY = Object.freeze({
   implemented_internal_draft_count: 1,
@@ -98,6 +123,8 @@ const IMPLEMENTATION_SUMMARY = Object.freeze({
   classroom_trial_template_count: 1,
   completed_classroom_trial_record_count: 0,
   classroom_trial_not_tested_count: 1,
+  next_selected_package_id: NEXT_AUTHORING_PACKAGE_ID,
+  next_selected_package_status: 'selected_not_started',
   source_gap_resolution_claimed: false,
 });
 
@@ -241,6 +268,7 @@ function expectedPackageSummary(packages) {
     blocked_teacher_review_count: packages.filter(({ authoring_status }) => authoring_status === 'blocked_teacher_review').length,
     multi_gap_package_count: packages.filter(({ source_gap_refs }) => (source_gap_refs ?? []).length > 1).length,
     selected_pilot_package_id: packages.find(({ selected_as_first_pilot }) => selected_as_first_pilot)?.package_id ?? null,
+    next_authoring_package_id: NEXT_AUTHORING_PACKAGE_ID,
   };
 }
 
@@ -490,6 +518,7 @@ export function validateTeacherWorkPlanWorkPackages(artifact, {
       blocked_teacher_review_count: 3,
       multi_gap_package_count: 1,
       selected_pilot_package_id: SELECTED_PILOT_PACKAGE_ID,
+      next_authoring_package_id: NEXT_AUTHORING_PACKAGE_ID,
     },
     'production summary must remain 17 gaps, 16 packages, 13 ready, 3 blocked and one pilot',
   );
@@ -500,6 +529,25 @@ export function validateTeacherWorkPlanWorkPackages(artifact, {
     IMPLEMENTATION_SUMMARY,
     'implementation summary must record exactly one internal draft, two supported gaps and seven capabilities',
   );
+  addExactDiagnostic(
+    diagnostics,
+    '/authoring_queue',
+    artifact?.authoring_queue,
+    AUTHORING_QUEUE,
+    'authoring queue must select the exact not-started photosynthesis package and preserve its five declared capabilities',
+  );
+  const nextPackage = packages.find(({ package_id }) => package_id === NEXT_AUTHORING_PACKAGE_ID);
+  if (!nextPackage
+    || nextPackage.authoring_status !== 'ready_for_authoring'
+    || nextPackage.priority_tier !== 'p1'
+    || nextPackage.package_kind !== 'single_gap'
+    || nextPackage.planned_root_path !== NEXT_AUTHORING_ROOT
+    || (nextPackage.blocking_questions ?? []).length !== 0
+    || nextPackage.implementation !== undefined
+    || !exactJson(nextPackage.source_gap_refs?.map(({ gap_id }) => gap_id), AUTHORING_QUEUE.source_gap_ids)
+    || !exactJson(nextPackage.proposed_deliverables, NEXT_AUTHORING_CAPABILITIES)) {
+    diagnostics.push(diagnostic('/authoring_queue', 'selected next package must remain an unimplemented, unblocked P1 photosynthesis package with its exact source gap and capabilities'));
+  }
   if (artifact?.scope?.reusable_teaching_artifacts_created !== true) diagnostics.push(diagnostic('/scope/reusable_teaching_artifacts_created', 'one internal-draft reusable artifact now exists'));
   if (artifact?.completeness?.reusable_teaching_artifacts_created !== true) diagnostics.push(diagnostic('/completeness/reusable_teaching_artifacts_created', 'one internal-draft reusable artifact now exists'));
   if (artifact?.completeness?.reusable_artifact_backlog_complete !== false) diagnostics.push(diagnostic('/completeness/reusable_artifact_backlog_complete', 'reusable artifact backlog remains incomplete'));
@@ -632,6 +680,8 @@ export function renderTeacherWorkPlanWorkPackagesMarkdown(artifact) {
     '',
     `All seven capabilities now exist in the internal-draft artifact at \`${pilot.implementation.artifact_index_path}\`. Their existence supplies independently authored support but does not change either canonical Opiq gap from \`missing\`.`,
     '',
+    `The next selected package is \`${artifact.authoring_queue.package_id}\` for \`${artifact.authoring_queue.source_gap_ids[0]}\`. Its planned root is \`${artifact.authoring_queue.planned_root_path}\`; status is \`${artifact.authoring_queue.status}\`. No photosynthesis material, artifact index, human-review workflow or classroom-trial workflow exists, and its canonical source gap remains \`missing\`.`,
+    '',
     '## 9. Existing lesson/teacher-pack architecture boundary',
     '',
     'The production lesson schema and validators require a verified official curriculum map and a registered course map. The current Grade 6 and Grade 7 crosswalk routes have neither verified official curriculum maps nor annual architectures. The pilot therefore uses a separate lightweight teacher-work-plan reusable-artifact contract. That decision does not bypass or weaken the existing lesson-plan or teacher-pack validators.',
@@ -670,4 +720,6 @@ export const teacherWorkPlanWorkPackageContracts = Object.freeze({
   selectedPilotIndex: SELECTED_PILOT_INDEX,
   implementationSummary: IMPLEMENTATION_SUMMARY,
   pilotImplementation: PILOT_IMPLEMENTATION,
+  nextAuthoringPackageId: NEXT_AUTHORING_PACKAGE_ID,
+  authoringQueue: AUTHORING_QUEUE,
 });

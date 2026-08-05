@@ -4,12 +4,12 @@ import process from 'node:process';
 
 import {
   formatTeacherWorkPlanArtifactReviewDiagnostic,
-  loadTeacherWorkPlanArtifactReviewRepository,
-  validateTeacherWorkPlanArtifactReviewRepository,
+  loadTeacherWorkPlanArtifactReviewRepositories,
+  validateTeacherWorkPlanArtifactReviewRepositories,
 } from './lib/teacher-work-plan-artifact-reviews.mjs';
 
-const repository = await loadTeacherWorkPlanArtifactReviewRepository({ rootDir: process.cwd() });
-const result = validateTeacherWorkPlanArtifactReviewRepository(repository);
+const repository = await loadTeacherWorkPlanArtifactReviewRepositories({ rootDir: process.cwd() });
+const result = validateTeacherWorkPlanArtifactReviewRepositories(repository);
 
 for (const problem of result.diagnostics) {
   process.stderr.write(`${formatTeacherWorkPlanArtifactReviewDiagnostic(problem)}\n`);
@@ -25,8 +25,8 @@ else {
     + `${result.summary.completed_safety_reviews} completed safety reviews; `
     + `${result.summary.classroom_trial_templates} classroom-trial template; `
     + `${result.summary.completed_classroom_trials} completed classroom trials; `
-    + `teacher status ${result.summary.teacher_status}; `
-    + `safety status ${result.summary.safety_status}; `
-    + `classroom trial ${result.summary.classroom_trial}; 0 validation errors.\n`,
+    + `${Object.entries(result.summary.artifacts).map(([artifactId, state]) => (
+      `${artifactId}: teacher ${state.teacher_status}, safety ${state.safety_status}, trial ${state.classroom_trial}`
+    )).join('; ')}; 0 validation errors.\n`,
   );
 }

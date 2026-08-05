@@ -3,13 +3,15 @@ import fs from 'node:fs/promises';
 import test from 'node:test';
 
 import {
-  REVIEW_REGISTRY_PATH,
-  SOIL_ORGANISMS_REVIEW_ROOT,
   loadTeacherWorkPlanArtifactReviewRepository,
   validateTeacherWorkPlanArtifactReviewRepository,
 } from './lib/teacher-work-plan-artifact-reviews.mjs';
+import { getTeacherWorkPlanArtifactProfile } from './lib/teacher-work-plan-artifact-profiles.mjs';
 
-const PILOT_ROOT = 'teacher-work-plan-artifacts/grade-6-science/soil-organisms';
+const PROFILE = getTeacherWorkPlanArtifactProfile('grade-6-science-soil-organisms-v1');
+const PILOT_ROOT = PROFILE.rootPath;
+const SOIL_ORGANISMS_REVIEW_ROOT = PROFILE.review.rootPath;
+const REVIEW_REGISTRY_PATH = PROFILE.review.registryPath;
 const INDEX_PATH = `${PILOT_ROOT}/artifact-index.yaml`;
 const TEACHER_TEMPLATE_PATH = `${SOIL_ORGANISMS_REVIEW_ROOT}/teacher-review-template.yaml`;
 const SAFETY_TEMPLATE_PATH = `${SOIL_ORGANISMS_REVIEW_ROOT}/local-safety-review-template.yaml`;
@@ -34,16 +36,37 @@ function cloneEntry(entry) {
 }
 
 function cloneReusable(repository) {
+  const artifacts = repository.artifacts.map((entry) => ({
+    ...entry,
+    data: structuredClone(entry.data),
+    materialBytes: new Map([...entry.materialBytes].map(([key, value]) => [
+      key,
+      value === null ? null : Buffer.from(value),
+    ])),
+  }));
+  const artifactByFile = new Map(artifacts.map((entry) => [entry.file, entry]));
+  const artifactContexts = repository.artifactContexts.map((context) => ({
+    ...context,
+    registryEntry: structuredClone(context.registryEntry),
+    route: structuredClone(context.route),
+    indexEntry: artifactByFile.get(context.indexEntry.file),
+    dependencies: context.dependencies && {
+      ...context.dependencies,
+      paths: structuredClone(context.dependencies.paths),
+      topicInventory: structuredClone(context.dependencies.topicInventory),
+      bookInventory: structuredClone(context.dependencies.bookInventory),
+      crosswalk: structuredClone(context.dependencies.crosswalk),
+      extraction: structuredClone(context.dependencies.extraction),
+      qa: structuredClone(context.dependencies.qa),
+      rootDirectoryFiles: [...context.dependencies.rootDirectoryFiles],
+      reviewRegistry: cloneEntry(context.dependencies.reviewRegistry),
+    },
+  }));
   return {
     ...repository,
-    artifacts: repository.artifacts.map((entry) => ({
-      ...entry,
-      data: structuredClone(entry.data),
-      materialBytes: new Map([...entry.materialBytes].map(([key, value]) => [
-        key,
-        value === null ? null : Buffer.from(value),
-      ])),
-    })),
+    artifacts,
+    artifactContexts,
+    artifactById: new Map(artifactContexts.map((context) => [context.registryEntry.artifact_id, context])),
     loadDiagnostics: structuredClone(repository.loadDiagnostics),
     schema: structuredClone(repository.schema),
     gapReport: structuredClone(repository.gapReport),
@@ -52,18 +75,13 @@ function cloneReusable(repository) {
       artifact: structuredClone(repository.workPackageRepository.artifact),
       schema: structuredClone(repository.workPackageRepository.schema),
     },
-    topicInventory: structuredClone(repository.topicInventory),
-    bookInventory: structuredClone(repository.bookInventory),
-    crosswalk: structuredClone(repository.crosswalk),
     manifest: structuredClone(repository.manifest),
-    extraction: structuredClone(repository.extraction),
     languageProfiles: structuredClone(repository.languageProfiles),
-    reviewRegistry: cloneEntry(repository.reviewRegistry),
-    pilotDirectoryFiles: [...repository.pilotDirectoryFiles],
   };
 }
 
 function cloneRepository() {
+  const reusableRepository = cloneReusable(baseline.reusableRepository);
   return {
     ...baseline,
     schema: structuredClone(baseline.schema),
@@ -73,7 +91,8 @@ function cloneRepository() {
     completedTeacherReviews: baseline.completedTeacherReviews.map(cloneEntry),
     completedSafetyReviews: baseline.completedSafetyReviews.map(cloneEntry),
     reviewDirectoryFiles: [...baseline.reviewDirectoryFiles],
-    reusableRepository: cloneReusable(baseline.reusableRepository),
+    reusableRepository,
+    artifactContext: reusableRepository.artifactById.get(baseline.artifactId),
     loadDiagnostics: structuredClone(baseline.loadDiagnostics),
   };
 }
@@ -89,7 +108,7 @@ function expectInvalid(repository, pattern, options) {
 }
 
 function synchronizeReusableRegistry(repository) {
-  repository.reusableRepository.reviewRegistry.data = structuredClone(repository.registry.data);
+  repository.reusableRepository.artifactContexts[0].dependencies.reviewRegistry.data = structuredClone(repository.registry.data);
 }
 
 function completedTeacherReview(repository) {
@@ -255,7 +274,7 @@ test('in-memory completed teacher and named-context safety records satisfy futur
 const productionMutations = [
   ['wrong fingerprint', (repo) => { repo.registry.data.content_fingerprint = '0'.repeat(64); }, /fingerprint/u],
   ['wrong artifact ID', (repo) => { repo.registry.data.artifact_id = 'other-artifact'; }, /artifact ID|constant/u],
-  ['wrong route', (repo) => { repo.teacherTemplate.data.artifact_identity.route = 'grade-7-science'; }, /pilot identity|constant/u],
+  ['wrong route', (repo) => { repo.teacherTemplate.data.artifact_identity.route = 'grade-7-science'; }, /registered artifact identity/u],
   ['missing guide', (repo) => { repo.guideText = null; }, /guide is missing/u],
   ['extra file', (repo) => { repo.reviewDirectoryFiles.push(`${SOIL_ORGANISMS_REVIEW_ROOT}/extra.yaml`); }, /missing or extra file/u],
   ['missing teacher template', (repo) => { repo.teacherTemplate = null; }, /teacher-review template|missing or extra/u],
@@ -282,7 +301,7 @@ for (const [name, mutate, pattern] of productionMutations) {
 const completedTeacherMutations = [
   ['completed record without reviewer', (entry) => { entry.data.review_identity.reviewer_id = null; }, /reviewer identity/u],
   ['completed record without date', (entry) => { entry.data.review_identity.review_date = null; }, /identity and date/u],
-  ['completed record with stale fingerprint', (entry) => { entry.data.artifact_identity.content_fingerprint = '0'.repeat(64); }, /current pilot fingerprint|constant/u],
+  ['completed record with stale fingerprint', (entry) => { entry.data.artifact_identity.content_fingerprint = '0'.repeat(64); }, /registered artifact fingerprint/u],
   ['incomplete scope', (entry) => { entry.data.review_scope[0].status = 'not_reviewed'; }, /review every required scope/u],
   ['open blocking finding with approval', (entry) => {
     entry.data.findings.push({
@@ -317,7 +336,7 @@ const completedTeacherMutations = [
       affected_paths: ['docs/outside.md'], status: 'accepted_risk', resolution_notes: null,
     });
     entry.data.review_scope[9].finding_ids = ['synthetic-path'];
-  }, /pilot root/u],
+  }, /registered artifact root/u],
 ];
 
 for (const [name, mutate, pattern] of completedTeacherMutations) {

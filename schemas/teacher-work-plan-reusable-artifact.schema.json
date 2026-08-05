@@ -30,16 +30,15 @@
   "properties": {
     "schema_version": { "const": "1.0" },
     "artifact_type": { "const": "teacher_work_plan_reusable_artifact" },
-    "artifact_id": { "const": "grade-6-science-soil-organisms" },
-    "package_id": { "const": "grade-6-science-soil-organisms" },
-    "implementation_status": { "const": "internal_draft_pending_teacher_review" },
+    "artifact_id": { "$ref": "#/$defs/slug" },
+    "package_id": { "$ref": "#/$defs/slug" },
+    "implementation_status": { "enum": ["internal_draft_pending_teacher_review", "reviewed_internal", "classroom_tested"] },
     "identity": { "$ref": "#/$defs/identity" },
     "canonical_route": { "$ref": "#/$defs/canonicalRoute" },
     "source_work_package": { "$ref": "#/$defs/sourceWorkPackage" },
     "source_gaps": {
       "type": "array",
-      "minItems": 2,
-      "maxItems": 2,
+      "minItems": 1,
       "items": { "$ref": "#/$defs/sourceGap" }
     },
     "teacher_plan_source": { "$ref": "#/$defs/teacherPlanSource" },
@@ -47,22 +46,18 @@
     "content_boundary": { "$ref": "#/$defs/contentBoundary" },
     "opiq_context_records": {
       "type": "array",
-      "minItems": 4,
-      "maxItems": 4,
       "items": { "$ref": "#/$defs/opiqContext" }
     },
     "lesson_sequence": {
       "type": "array",
-      "minItems": 2,
-      "maxItems": 2,
+      "minItems": 1,
       "items": { "$ref": "#/$defs/lessonPart" }
     },
     "language_support": { "$ref": "#/$defs/languageSupport" },
     "safety_and_ethics": { "$ref": "#/$defs/safetyEthics" },
     "materials": {
       "type": "array",
-      "minItems": 7,
-      "maxItems": 7,
+      "minItems": 1,
       "items": { "$ref": "#/$defs/material" }
     },
     "content_fingerprint": { "$ref": "#/$defs/fingerprint" },
@@ -93,11 +88,11 @@
       "additionalProperties": false,
       "required": ["grade", "subject", "subject_et", "title_ru", "title_et", "instruction_language", "subject_support_language"],
       "properties": {
-        "grade": { "const": 6 },
-        "subject": { "const": "science" },
-        "subject_et": { "const": "loodusõpetus" },
-        "title_ru": { "const": "Почвенные организмы: наблюдение и объяснение" },
-        "title_et": { "const": "Mullaorganismid: vaatlus ja selgitamine" },
+        "grade": { "type": "integer", "minimum": 5, "maximum": 7 },
+        "subject": { "enum": ["science", "geography"] },
+        "subject_et": { "enum": ["loodusõpetus", "geograafia"] },
+        "title_ru": { "$ref": "#/$defs/nonEmptyString" },
+        "title_et": { "$ref": "#/$defs/nonEmptyString" },
         "instruction_language": { "const": "ru" },
         "subject_support_language": { "const": "et" }
       }
@@ -107,16 +102,16 @@
       "additionalProperties": false,
       "required": ["source_id", "md_path", "source_archive", "qa_path", "record_count", "coverage_status"],
       "properties": {
-        "source_id": { "const": "grade-6-science" },
-        "md_path": { "const": "project-files/outputs/opiq_6klass_loodusopetus.md" },
-        "source_archive": { "const": "project-files/inputs/final-zips/opiq_6klass_elutingimused_soos_v2.zip" },
-        "qa_path": { "const": "project-files/outputs/opiq_6klass_loodusopetus_qa.json" },
-        "record_count": { "const": 436 },
+        "source_id": { "enum": ["grade-5-science", "grade-6-science", "grade-7-geography", "grade-7-science"] },
+        "md_path": { "$ref": "#/$defs/repositoryPath" },
+        "source_archive": { "$ref": "#/$defs/repositoryPath" },
+        "qa_path": { "$ref": "#/$defs/repositoryPath" },
+        "record_count": { "type": "integer", "minimum": 1 },
         "coverage_status": { "const": "available_not_curriculum_verified" }
       }
     },
     "capability": {
-      "enum": ["teacher_guide", "practical_protocol", "observation_table", "student_worksheet", "answer_key", "assessment_rubric", "oral_support"]
+      "enum": ["teacher_guide", "author_created_bridge", "practical_protocol", "observation_table", "student_worksheet", "answer_key", "assessment_rubric", "oral_support", "teacher_decision_record"]
     },
     "sourceWorkPackage": {
       "type": "object",
@@ -125,15 +120,14 @@
       "properties": {
         "review_id": { "const": "grades-5-7-priority-work-packages" },
         "review_path": { "const": "evaluations/teacher-work-plans/grades-5-7-priority-work-packages.yaml" },
-        "package_id": { "const": "grade-6-science-soil-organisms" },
+        "package_id": { "$ref": "#/$defs/slug" },
         "authoring_status": { "const": "ready_for_authoring" },
-        "priority_tier": { "const": "p0" },
-        "selected_as_first_pilot": { "const": true },
-        "planned_root_path": { "const": "teacher-work-plan-artifacts/grade-6-science/soil-organisms" },
+        "priority_tier": { "enum": ["p0", "p1", "p2"] },
+        "selected_as_first_pilot": { "type": "boolean" },
+        "planned_root_path": { "$ref": "#/$defs/repositoryPath" },
         "proposed_deliverables": {
           "type": "array",
-          "minItems": 7,
-          "maxItems": 7,
+          "minItems": 1,
           "uniqueItems": true,
           "items": { "$ref": "#/$defs/capability" }
         }
@@ -153,10 +147,10 @@
       "additionalProperties": false,
       "required": ["gap_id", "mapping_id", "source_record_kind", "source_block_id", "lesson_span", "source_pages", "source_topic_et", "normalized_mapping_topic_et", "coverage_status", "bridge_type", "topic_inventory_refs"],
       "properties": {
-        "gap_id": { "enum": ["grade-6-science-lesson-008", "grade-6-science-lesson-009"] },
-        "mapping_id": { "enum": ["lesson-008", "lesson-009"] },
+        "gap_id": { "$ref": "#/$defs/slug" },
+        "mapping_id": { "$ref": "#/$defs/slug" },
         "source_record_kind": { "const": "lesson_range" },
-        "source_block_id": { "const": "muld" },
+        "source_block_id": { "$ref": "#/$defs/slug" },
         "lesson_span": { "$ref": "#/$defs/lessonSpan" },
         "source_pages": {
           "type": "array",
@@ -166,13 +160,13 @@
         },
         "source_topic_et": { "$ref": "#/$defs/nonEmptyString" },
         "normalized_mapping_topic_et": { "$ref": "#/$defs/nonEmptyString" },
-        "coverage_status": { "const": "missing" },
-        "bridge_type": { "enum": ["independently_authored_practical_required", "independently_authored_bridge_required"] },
+        "coverage_status": { "enum": ["missing", "ambiguous"] },
+        "bridge_type": { "enum": ["independently_authored_practical_required", "independently_authored_bridge_required", "independently_authored_assessment_required", "teacher_review_required"] },
         "topic_inventory_refs": {
           "type": "array",
           "minItems": 1,
-          "maxItems": 1,
-          "items": { "const": "soil-formation-and-properties" }
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
         }
       }
     },
@@ -181,17 +175,16 @@
       "additionalProperties": false,
       "required": ["extraction_path", "source_pdf_path", "original_filename", "source_sha256", "source_page_count", "relevant_source_pages", "provenance_kind", "canonical"],
       "properties": {
-        "extraction_path": { "const": "evaluations/teacher-work-plans/grade-6-science-extraction.json" },
-        "source_pdf_path": { "const": "project-files/inputs/originals/teacher-work-plans/Loodusopetuse-tookava-naidis-6-klassile.pdf" },
-        "original_filename": { "const": "Loodusõpetuse-töökava-näidis-6.-klassile.pdf" },
-        "source_sha256": { "const": "2b63ada1c2821e63a8aadda0bf93246499c2f8430cd305592a82a709a0160762" },
-        "source_page_count": { "const": 31 },
+        "extraction_path": { "$ref": "#/$defs/repositoryPath" },
+        "source_pdf_path": { "$ref": "#/$defs/repositoryPath" },
+        "original_filename": { "$ref": "#/$defs/nonEmptyString" },
+        "source_sha256": { "$ref": "#/$defs/sha256" },
+        "source_page_count": { "type": "integer", "minimum": 1 },
         "relevant_source_pages": {
           "type": "array",
-          "minItems": 2,
-          "maxItems": 2,
+          "minItems": 1,
           "uniqueItems": true,
-          "items": { "enum": [3, 4] }
+          "items": { "type": "integer", "minimum": 1 }
         },
         "provenance_kind": { "const": "supplementary_teacher_work_plan" },
         "canonical": { "const": false }
@@ -202,16 +195,16 @@
       "additionalProperties": false,
       "required": ["profile_id", "profile_path", "learner_language_level", "expected_supported_estonian_output_sentences"],
       "properties": {
-        "profile_id": { "const": "grade-6-science-a2-default" },
+        "profile_id": { "$ref": "#/$defs/slug" },
         "profile_path": { "const": "lesson-plans/language-profiles.yaml" },
-        "learner_language_level": { "const": "A2" },
+        "learner_language_level": { "enum": ["A1", "A1-A2", "A2", "B1", "B2", "C1", "C2"] },
         "expected_supported_estonian_output_sentences": {
           "type": "object",
           "additionalProperties": false,
           "required": ["minimum", "maximum"],
           "properties": {
-            "minimum": { "const": 3 },
-            "maximum": { "const": 5 }
+            "minimum": { "type": "integer", "minimum": 0 },
+            "maximum": { "type": "integer", "minimum": 1 }
           }
         }
       }
@@ -225,7 +218,10 @@
     "contentBoundary": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["opiq_required", "customer_or_learner_can_complete_without_opiq", "external_sources_used", "live_catalogue_checked", "pupil_facing_science_provenance", "teacher_plan_contribution", "teacher_plan_does_not_supply", "direct_opiq_soil_organism_evidence_available"],
+      "patternProperties": {
+        "^direct_opiq_[a-z0-9_]+_evidence_available$": { "const": false }
+      },
+      "required": ["opiq_required", "customer_or_learner_can_complete_without_opiq", "external_sources_used", "live_catalogue_checked", "pupil_facing_science_provenance", "teacher_plan_contribution", "teacher_plan_does_not_supply"],
       "properties": {
         "opiq_required": { "const": false },
         "customer_or_learner_can_complete_without_opiq": { "const": true },
@@ -233,8 +229,7 @@
         "live_catalogue_checked": { "const": false },
         "pupil_facing_science_provenance": { "const": "independently_authored" },
         "teacher_plan_contribution": { "$ref": "#/$defs/stringList" },
-        "teacher_plan_does_not_supply": { "$ref": "#/$defs/stringList" },
-        "direct_opiq_soil_organism_evidence_available": { "const": false }
+        "teacher_plan_does_not_supply": { "$ref": "#/$defs/stringList" }
       }
     },
     "opiqContext": {
@@ -243,18 +238,24 @@
       "required": ["inventory_bucket", "topic_inventory_ref", "record_id", "canonical_url", "canonical_source_id", "book_id", "title", "language", "programme_type", "programme_type_evidence_status", "default_course_eligibility", "instructional_roles", "relationship_to_pilot", "required_for_learner_completion"],
       "properties": {
         "inventory_bucket": { "enum": ["selected_records", "alternative_records"] },
-        "topic_inventory_ref": { "const": "soil-formation-and-properties" },
+        "topic_inventory_ref": { "$ref": "#/$defs/slug" },
         "record_id": { "$ref": "#/$defs/slug" },
         "canonical_url": { "type": "string", "pattern": "^https://www\\.opiq\\.ee/kit/[0-9]+/chapter/[0-9]+$" },
-        "canonical_source_id": { "const": "grade-6-science" },
+        "canonical_source_id": { "enum": ["grade-5-science", "grade-6-science", "grade-7-geography", "grade-7-science"] },
         "book_id": { "$ref": "#/$defs/nonEmptyString" },
         "title": { "$ref": "#/$defs/nonEmptyString" },
         "language": { "enum": ["et", "ru"] },
-        "programme_type": { "const": "unknown" },
-        "programme_type_evidence_status": { "const": "ambiguous" },
-        "default_course_eligibility": { "const": "unverified" },
+        "programme_type": {
+          "enum": ["ordinary", "supplementary", "teacher_support", "simplified_curriculum", "unknown"]
+        },
+        "programme_type_evidence_status": {
+          "enum": ["verified", "partial", "ambiguous"]
+        },
+        "default_course_eligibility": {
+          "enum": ["eligible", "ineligible", "unverified"]
+        },
         "instructional_roles": { "$ref": "#/$defs/stringList" },
-        "relationship_to_pilot": { "enum": ["soil_context_only_not_soil_organism_evidence", "soil_context_only_not_soil_organism_protocol"] },
+        "relationship_to_pilot": { "$ref": "#/$defs/nonEmptyString" },
         "required_for_learner_completion": { "const": false }
       }
     },
@@ -263,11 +264,11 @@
       "additionalProperties": false,
       "required": ["part_id", "source_gap_id", "title_ru", "title_et", "duration_minutes", "primary_outputs"],
       "properties": {
-        "part_id": { "enum": ["part-1", "part-2"] },
-        "source_gap_id": { "enum": ["grade-6-science-lesson-008", "grade-6-science-lesson-009"] },
+        "part_id": { "$ref": "#/$defs/slug" },
+        "source_gap_id": { "$ref": "#/$defs/slug" },
         "title_ru": { "$ref": "#/$defs/nonEmptyString" },
         "title_et": { "$ref": "#/$defs/nonEmptyString" },
-        "duration_minutes": { "const": 45 },
+        "duration_minutes": { "type": "integer", "minimum": 1 },
         "primary_outputs": { "$ref": "#/$defs/stringList" }
       }
     },
@@ -289,14 +290,12 @@
         "represented_as_opiq_oral_evidence": { "const": false },
         "productive_terms": {
           "type": "array",
-          "minItems": 6,
-          "maxItems": 6,
+          "minItems": 1,
           "items": { "$ref": "#/$defs/term" }
         },
         "sentence_frames": {
           "type": "array",
-          "minItems": 5,
-          "maxItems": 5,
+          "minItems": 1,
           "uniqueItems": true,
           "items": { "$ref": "#/$defs/nonEmptyString" }
         },
@@ -308,13 +307,45 @@
       "additionalProperties": false,
       "required": ["local_teacher_risk_assessment_required", "universal_safety_claimed", "protected_area_permission_is_teacher_responsibility", "safeguards", "scientific_boundaries", "indoor_fallback_available"],
       "properties": {
-        "local_teacher_risk_assessment_required": { "const": true },
+        "fieldwork_applicable": { "type": "boolean" },
+        "protected_area_permission_applicable": { "type": "boolean" },
+        "indoor_fallback_applicable": { "type": "boolean" },
+        "local_teacher_risk_assessment_required": { "type": "boolean" },
         "universal_safety_claimed": { "const": false },
-        "protected_area_permission_is_teacher_responsibility": { "const": true },
+        "protected_area_permission_is_teacher_responsibility": { "type": "boolean" },
         "safeguards": { "$ref": "#/$defs/stringList" },
         "scientific_boundaries": { "$ref": "#/$defs/stringList" },
-        "indoor_fallback_available": { "const": true }
-      }
+        "indoor_fallback_available": { "type": "boolean" }
+      },
+      "allOf": [
+        {
+          "if": {
+            "required": ["fieldwork_applicable"],
+            "properties": { "fieldwork_applicable": { "const": false } }
+          },
+          "then": {
+            "properties": { "local_teacher_risk_assessment_required": { "const": false } }
+          }
+        },
+        {
+          "if": {
+            "required": ["protected_area_permission_applicable"],
+            "properties": { "protected_area_permission_applicable": { "const": false } }
+          },
+          "then": {
+            "properties": { "protected_area_permission_is_teacher_responsibility": { "const": false } }
+          }
+        },
+        {
+          "if": {
+            "required": ["indoor_fallback_applicable"],
+            "properties": { "indoor_fallback_applicable": { "const": false } }
+          },
+          "then": {
+            "properties": { "indoor_fallback_available": { "const": false } }
+          }
+        }
+      ]
     },
     "material": {
       "type": "object",
@@ -369,9 +400,7 @@
         "reviewed_content_fingerprint"
       ],
       "properties": {
-        "registry_path": {
-          "const": "teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/review-registry.yaml"
-        },
+        "registry_path": { "$ref": "#/$defs/repositoryPath" },
         "teacher_review": { "$ref": "#/$defs/humanReviewChannel" },
         "local_safety_review": { "$ref": "#/$defs/humanReviewChannel" },
         "classroom_trial": {
@@ -380,9 +409,7 @@
           "required": ["workflow_created", "template_path", "status", "completed_record_path"],
           "properties": {
             "workflow_created": { "const": true },
-            "template_path": {
-              "const": "teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/classroom-trial-template.yaml"
-            },
+            "template_path": { "$ref": "#/$defs/repositoryPath" },
             "status": { "const": "not_tested" },
             "completed_record_path": { "const": null }
           }
@@ -440,10 +467,9 @@
         "independently_authored_support_created": { "const": true },
         "supported_gap_ids": {
           "type": "array",
-          "minItems": 2,
-          "maxItems": 2,
+          "minItems": 1,
           "uniqueItems": true,
-          "items": { "enum": ["grade-6-science-lesson-008", "grade-6-science-lesson-009"] }
+          "items": { "$ref": "#/$defs/slug" }
         },
         "canonical_opiq_gap_status_unchanged": { "const": true },
         "source_gap_resolution_claimed": { "const": false },

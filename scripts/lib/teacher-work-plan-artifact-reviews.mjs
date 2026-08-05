@@ -11,83 +11,33 @@ import {
 
 export const ARTIFACT_REVIEW_SCHEMA_PATH =
   'schemas/teacher-work-plan-artifact-review.schema.json';
-export const SOIL_ORGANISMS_REVIEW_ROOT =
-  'teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews';
-export const REVIEW_REGISTRY_PATH = `${SOIL_ORGANISMS_REVIEW_ROOT}/review-registry.yaml`;
 
-const PILOT_ROOT = 'teacher-work-plan-artifacts/grade-6-science/soil-organisms';
-const ARTIFACT_INDEX_PATH = `${PILOT_ROOT}/artifact-index.yaml`;
-const REVIEW_GUIDE_PATH = `${SOIL_ORGANISMS_REVIEW_ROOT}/review-guide.md`;
-const TEACHER_TEMPLATE_PATH = `${SOIL_ORGANISMS_REVIEW_ROOT}/teacher-review-template.yaml`;
-const SAFETY_TEMPLATE_PATH = `${SOIL_ORGANISMS_REVIEW_ROOT}/local-safety-review-template.yaml`;
-const CLASSROOM_TRIAL_GUIDE_PATH = `${SOIL_ORGANISMS_REVIEW_ROOT}/classroom-trial-guide.md`;
-const CLASSROOM_TRIAL_TEMPLATE_PATH = `${SOIL_ORGANISMS_REVIEW_ROOT}/classroom-trial-template.yaml`;
-const ARTIFACT_ID = 'grade-6-science-soil-organisms';
-const FINGERPRINT = '894cc83f54c158485f6d6ba699d8a1298c3e57056e315281b79d69e84f366613';
+function pathsForProfile(profile) {
+  return {
+    reviewRoot: profile.review.rootPath,
+    registryPath: profile.review.registryPath,
+    guidePath: profile.review.guidePath,
+    teacherTemplatePath: profile.review.teacherTemplatePath,
+    safetyTemplatePath: profile.review.safetyTemplatePath,
+    trialGuidePath: profile.review.trialGuidePath,
+    trialTemplatePath: profile.review.trialTemplatePath,
+    artifactRoot: profile.rootPath,
+    indexPath: profile.indexPath,
+  };
+}
 
-const BASE_REVIEW_FILES = Object.freeze([
-  CLASSROOM_TRIAL_GUIDE_PATH,
-  CLASSROOM_TRIAL_TEMPLATE_PATH,
-  REVIEW_GUIDE_PATH,
-  SAFETY_TEMPLATE_PATH,
-  REVIEW_REGISTRY_PATH,
-  TEACHER_TEMPLATE_PATH,
-].sort(compareBytewise));
-
-const TEACHER_SCOPE = Object.freeze([
-  'scientific_accuracy',
-  'age_appropriateness',
-  'instructional_clarity',
-  'practical_feasibility',
-  'assessment_alignment',
-  'russian_explanation_quality',
-  'estonian_language_support',
-  'accessibility_and_differentiation',
-  'source_and_provenance_boundaries',
-  'readiness_claims',
-]);
-
-const SAFETY_SCOPE = Object.freeze([
-  'school_or_site_context',
-  'exact_observation_locations',
-  'weather_and_terrain',
-  'restricted_or_protected_area_permissions',
-  'hazardous_objects_and_waste',
-  'organisms_and_allergy_risks',
-  'tools_and_gloves',
-  'hygiene_and_handwashing',
-  'accessibility_and_participation',
-  'supervision_and_stop_signals',
-  'indoor_fallback',
-  'emergency_or_incident_procedure',
-  'restoration_and_ethical_return',
-]);
-
-const GUIDE_HEADINGS = Object.freeze([
-  '## 1. Purpose and boundaries',
-  '## 2. Exact artifact and fingerprint',
-  '## 3. Files under review',
-  '## 4. Teacher-review procedure',
-  '## 5. Local-safety-review procedure',
-  '## 6. Finding severity definitions',
-  '## 7. Approval rules',
-  '## 8. Fingerprint invalidation',
-  '## 9. Required-change workflow',
-  '## 10. Classroom-trial boundary',
-  '## 11. Prohibited claims',
-  '## 12. How to create a completed record',
-]);
-
-const ARTIFACT_IDENTITY = Object.freeze({
-  artifact_id: ARTIFACT_ID,
-  artifact_index_path: ARTIFACT_INDEX_PATH,
-  content_fingerprint: FINGERPRINT,
-  package_id: ARTIFACT_ID,
-  route: 'grade-6-science',
-  grade: 6,
-  subject: 'science',
-  subject_et: 'loodusõpetus',
-});
+function artifactIdentity(profile) {
+  return {
+    artifact_id: profile.artifactId,
+    artifact_index_path: profile.indexPath,
+    content_fingerprint: profile.fingerprint,
+    package_id: profile.packageId,
+    route: profile.route,
+    grade: profile.identity.grade,
+    subject: profile.identity.subject,
+    subject_et: profile.identity.subjectEt,
+  };
+}
 
 function compareBytewise(left, right) {
   return Buffer.from(String(left)).compare(Buffer.from(String(right)));
@@ -123,13 +73,12 @@ function safeRepositoryPath(rootDir, repositoryPath) {
   return resolved;
 }
 
-function insideReviewRoot(repositoryPath) {
-  return repositoryPath === SOIL_ORGANISMS_REVIEW_ROOT
-    || repositoryPath.startsWith(`${SOIL_ORGANISMS_REVIEW_ROOT}/`);
+function insideReviewRoot(repositoryPath, reviewRoot) {
+  return repositoryPath === reviewRoot || repositoryPath.startsWith(`${reviewRoot}/`);
 }
 
-function insidePilotRoot(repositoryPath) {
-  return repositoryPath.startsWith(`${PILOT_ROOT}/`);
+function insideArtifactRoot(repositoryPath, artifactRoot) {
+  return repositoryPath.startsWith(`${artifactRoot}/`);
 }
 
 function parseStrictYaml(text, file) {
@@ -181,10 +130,10 @@ async function readYaml(rootDir, repositoryPath, overrides, loadDiagnostics) {
   }
 }
 
-async function readCompletedRecords(rootDir, paths, overrides, loadDiagnostics) {
+async function readCompletedRecords(rootDir, paths, reviewRoot, overrides, loadDiagnostics) {
   const records = [];
   for (const repositoryPath of paths ?? []) {
-    if (!insideReviewRoot(repositoryPath)) {
+    if (!insideReviewRoot(repositoryPath, reviewRoot)) {
       loadDiagnostics.push(diagnostic(repositoryPath, '/', 'completed review path must remain inside the review root'));
       continue;
     }
@@ -196,31 +145,47 @@ async function readCompletedRecords(rootDir, paths, overrides, loadDiagnostics) 
 
 export async function loadTeacherWorkPlanArtifactReviewRepository({
   rootDir = process.cwd(),
+  artifactId = null,
   fileOverrides = new Map(),
   reusableRepository = null,
   reviewDirectoryFiles = null,
 } = {}) {
   const root = path.resolve(rootDir);
   const loadDiagnostics = [];
-  const registry = await readYaml(root, REVIEW_REGISTRY_PATH, fileOverrides, loadDiagnostics);
-  const teacherTemplatePath = registry?.data?.teacher_review?.template_path ?? TEACHER_TEMPLATE_PATH;
-  const safetyTemplatePath = registry?.data?.local_safety_review?.template_path ?? SAFETY_TEMPLATE_PATH;
-  const trialTemplatePath = registry?.data?.classroom_trial?.template_path ?? CLASSROOM_TRIAL_TEMPLATE_PATH;
-  const [schema, teacherTemplate, safetyTemplate, guideText, files, resolvedReusableRepository] = await Promise.all([
+  const resolvedReusableRepository = reusableRepository
+    ?? await loadTeacherWorkPlanReusableArtifactRepository({ rootDir: root, artifactOverrides: fileOverrides });
+  const availableIds = [...resolvedReusableRepository.artifactById.keys()].sort(compareBytewise);
+  const resolvedArtifactId = artifactId ?? (availableIds.length === 1 ? availableIds[0] : null);
+  const artifactContext = resolvedArtifactId
+    ? resolvedReusableRepository.artifactById.get(resolvedArtifactId)
+    : null;
+  if (!artifactContext) loadDiagnostics.push(diagnostic(
+    ARTIFACT_REVIEW_SCHEMA_PATH,
+    '/',
+    resolvedArtifactId ? `unknown registered artifact ${resolvedArtifactId}` : 'artifactId is required when multiple reusable artifacts are registered',
+  ));
+  const profile = artifactContext?.profile;
+  const paths = profile ? pathsForProfile(profile) : null;
+  const registry = paths
+    ? await readYaml(root, paths.registryPath, fileOverrides, loadDiagnostics)
+    : null;
+  const teacherTemplatePath = registry?.data?.teacher_review?.template_path ?? paths?.teacherTemplatePath;
+  const safetyTemplatePath = registry?.data?.local_safety_review?.template_path ?? paths?.safetyTemplatePath;
+  const trialTemplatePath = registry?.data?.classroom_trial?.template_path ?? paths?.trialTemplatePath;
+  const [schema, teacherTemplate, safetyTemplate, guideText, files] = await Promise.all([
     fs.readFile(safeRepositoryPath(root, ARTIFACT_REVIEW_SCHEMA_PATH), 'utf8').then(JSON.parse),
-    readYaml(root, teacherTemplatePath, fileOverrides, loadDiagnostics),
-    readYaml(root, safetyTemplatePath, fileOverrides, loadDiagnostics),
-    fs.readFile(safeRepositoryPath(root, REVIEW_GUIDE_PATH), 'utf8').catch((error) => {
+    teacherTemplatePath ? readYaml(root, teacherTemplatePath, fileOverrides, loadDiagnostics) : Promise.resolve(null),
+    safetyTemplatePath ? readYaml(root, safetyTemplatePath, fileOverrides, loadDiagnostics) : Promise.resolve(null),
+    paths ? fs.readFile(safeRepositoryPath(root, paths.guidePath), 'utf8').catch((error) => {
       if (error.code === 'ENOENT') return null;
       throw error;
-    }),
-    reviewDirectoryFiles ?? walkFiles(root, SOIL_ORGANISMS_REVIEW_ROOT),
-    reusableRepository ?? loadTeacherWorkPlanReusableArtifactRepository({ rootDir: root }),
+    }) : Promise.resolve(null),
+    reviewDirectoryFiles ?? (paths ? walkFiles(root, paths.reviewRoot) : Promise.resolve([])),
   ]);
   const [completedTeacherReviews, completedSafetyReviews, completedClassroomTrials] = await Promise.all([
-    readCompletedRecords(root, registry?.data?.teacher_review?.completed_record_paths, fileOverrides, loadDiagnostics),
-    readCompletedRecords(root, registry?.data?.local_safety_review?.completed_record_paths, fileOverrides, loadDiagnostics),
-    readCompletedRecords(root, registry?.data?.classroom_trial?.completed_record_paths, fileOverrides, loadDiagnostics),
+    readCompletedRecords(root, registry?.data?.teacher_review?.completed_record_paths, paths?.reviewRoot ?? '', fileOverrides, loadDiagnostics),
+    readCompletedRecords(root, registry?.data?.local_safety_review?.completed_record_paths, paths?.reviewRoot ?? '', fileOverrides, loadDiagnostics),
+    readCompletedRecords(root, registry?.data?.classroom_trial?.completed_record_paths, paths?.reviewRoot ?? '', fileOverrides, loadDiagnostics),
   ]);
   return {
     rootDir: root,
@@ -235,8 +200,35 @@ export async function loadTeacherWorkPlanArtifactReviewRepository({
     guideText,
     reviewDirectoryFiles: [...files].sort(compareBytewise),
     reusableRepository: resolvedReusableRepository,
+    artifactId: resolvedArtifactId,
+    artifactContext,
+    profile,
+    paths,
     loadDiagnostics,
   };
+}
+
+export async function loadTeacherWorkPlanArtifactReviewRepositories({
+  rootDir = process.cwd(),
+  fileOverrides = new Map(),
+  reusableRepository = null,
+  artifactIds = null,
+} = {}) {
+  const resolvedReusableRepository = reusableRepository
+    ?? await loadTeacherWorkPlanReusableArtifactRepository({ rootDir, artifactOverrides: fileOverrides });
+  const registeredIds = artifactIds ?? [...resolvedReusableRepository.artifactById.keys()];
+  const repositories = [];
+  for (const artifactId of [...registeredIds].sort(compareBytewise)) {
+    const context = resolvedReusableRepository.artifactById.get(artifactId);
+    if (!context?.registryEntry?.review_registry_path) continue;
+    repositories.push(await loadTeacherWorkPlanArtifactReviewRepository({
+      rootDir,
+      artifactId,
+      fileOverrides,
+      reusableRepository: resolvedReusableRepository,
+    }));
+  }
+  return { rootDir: path.resolve(rootDir), reusableRepository: resolvedReusableRepository, repositories };
 }
 
 function validateSchema(diagnostics, validate, entry) {
@@ -252,7 +244,7 @@ function validateExact(diagnostics, file, field, actual, expected, reason) {
   if (!exactJson(actual, expected)) diagnostics.push(diagnostic(file, field, reason));
 }
 
-function validateTemplate(diagnostics, entry, expectedType, expectedScope) {
+function validateTemplate(diagnostics, entry, expectedType, expectedScope, expectedIdentity) {
   if (!entry) return;
   const data = entry.data;
   if (data.artifact_type !== expectedType) {
@@ -262,7 +254,7 @@ function validateTemplate(diagnostics, entry, expectedType, expectedScope) {
   for (const [field, value] of Object.entries(data.review_identity ?? {})) {
     if (value !== null) diagnostics.push(diagnostic(entry.file, `/review_identity/${field}`, 'reviewer identity must not be invented in a template'));
   }
-  validateExact(diagnostics, entry.file, '/artifact_identity', data.artifact_identity, ARTIFACT_IDENTITY, 'template must pin the exact pilot identity and current fingerprint');
+  validateExact(diagnostics, entry.file, '/artifact_identity', data.artifact_identity, expectedIdentity, 'template must pin the registered artifact identity and current fingerprint');
   validateExact(diagnostics, entry.file, '/review_scope/area', (data.review_scope ?? []).map(({ area }) => area), expectedScope, 'review scope must contain the exact required areas in order');
   for (const [index, item] of (data.review_scope ?? []).entries()) {
     if (item.status !== 'not_reviewed' || item.notes !== null || (item.finding_ids ?? []).length !== 0) {
@@ -280,7 +272,7 @@ function validateTemplate(diagnostics, entry, expectedType, expectedScope) {
   }
 }
 
-function validateFindingsAndDecision(diagnostics, entry, { safety = false } = {}) {
+function validateFindingsAndDecision(diagnostics, entry, { safety = false, artifactRoot } = {}) {
   const data = entry.data;
   const findingIds = (data.findings ?? []).map(({ finding_id }) => finding_id);
   if (new Set(findingIds).size !== findingIds.length) {
@@ -294,7 +286,7 @@ function validateFindingsAndDecision(diagnostics, entry, { safety = false } = {}
   }
   for (const [index, finding] of (data.findings ?? []).entries()) {
     for (const affectedPath of finding.affected_paths ?? []) {
-      if (!insidePilotRoot(affectedPath)) diagnostics.push(diagnostic(entry.file, `/findings/${index}/affected_paths`, 'affected paths must remain inside the pilot root'));
+      if (!insideArtifactRoot(affectedPath, artifactRoot)) diagnostics.push(diagnostic(entry.file, `/findings/${index}/affected_paths`, 'affected paths must remain inside the registered artifact root'));
     }
     if (finding.status === 'resolved' && !finding.resolution_notes) {
       diagnostics.push(diagnostic(entry.file, `/findings/${index}/resolution_notes`, 'resolved finding requires resolution notes'));
@@ -325,7 +317,7 @@ function validateFindingsAndDecision(diagnostics, entry, { safety = false } = {}
   }
 }
 
-function validateCompletedRecord(diagnostics, entry, { safety = false } = {}) {
+function validateCompletedRecord(diagnostics, entry, { safety = false, expectedIdentity, artifactRoot } = {}) {
   if (!entry) return;
   const data = entry.data;
   if (data.template !== false) diagnostics.push(diagnostic(entry.file, '/template', 'completed record must set template: false'));
@@ -334,7 +326,7 @@ function validateCompletedRecord(diagnostics, entry, { safety = false } = {}) {
       diagnostics.push(diagnostic(entry.file, `/review_identity/${field}`, 'completed record requires actual reviewer identity and date'));
     }
   }
-  validateExact(diagnostics, entry.file, '/artifact_identity', data.artifact_identity, ARTIFACT_IDENTITY, 'completed review must match the current pilot fingerprint and identity');
+  validateExact(diagnostics, entry.file, '/artifact_identity', data.artifact_identity, expectedIdentity, 'completed review must match the registered artifact fingerprint and identity');
   if (data.decision?.reviewed_fingerprint_matches !== true) diagnostics.push(diagnostic(entry.file, '/decision/reviewed_fingerprint_matches', 'completed review must confirm the current fingerprint'));
   if (data.decision?.status === 'pending') diagnostics.push(diagnostic(entry.file, '/decision/status', 'completed review decision cannot remain pending'));
   for (const [index, scope] of (data.review_scope ?? []).entries()) {
@@ -354,10 +346,12 @@ function validateCompletedRecord(diagnostics, entry, { safety = false } = {}) {
       diagnostics.push(diagnostic(entry.file, '/safety_boundaries', 'local safety approval must remain context-specific and cannot imply universal safety, permission or readiness'));
     }
   }
-  validateFindingsAndDecision(diagnostics, entry, { safety });
+  validateFindingsAndDecision(diagnostics, entry, { safety, artifactRoot });
 }
 
-export function resolveTeacherWorkPlanClassroomTrialLifecycle(completedClassroomTrials = []) {
+export function resolveTeacherWorkPlanClassroomTrialLifecycle(completedClassroomTrials = [], {
+  registryPath = 'teacher-work-plan-artifacts/artifact-registry.yaml',
+} = {}) {
   const diagnostics = [];
   const orderedEntries = [...completedClassroomTrials].sort((left, right) => compareBytewise(
     `${left.data?.trial_identity?.trial_id ?? ''}\0${left.file}`,
@@ -390,7 +384,7 @@ export function resolveTeacherWorkPlanClassroomTrialLifecycle(completedClassroom
     successorIds.sort(compareBytewise);
     if (successorIds.length > 1) {
       diagnostics.push(diagnostic(
-        REVIEW_REGISTRY_PATH,
+        registryPath,
         '/classroom_trial/completed_record_paths',
         `trial ${target} has multiple successors: ${successorIds.join(', ')}`,
       ));
@@ -415,7 +409,7 @@ export function resolveTeacherWorkPlanClassroomTrialLifecycle(completedClassroom
   }
   if (cycleFound) {
     diagnostics.push(diagnostic(
-      REVIEW_REGISTRY_PATH,
+      registryPath,
       '/classroom_trial/completed_record_paths',
       'trial supersession graph contains a cycle',
     ));
@@ -430,14 +424,14 @@ export function resolveTeacherWorkPlanClassroomTrialLifecycle(completedClassroom
       .sort((left, right) => compareBytewise(left.data.trial_identity.trial_id, right.data.trial_identity.trial_id));
   if (!structuralFailure && byId.size > 0 && activeEntries.length === 0) {
     diagnostics.push(diagnostic(
-      REVIEW_REGISTRY_PATH,
+      registryPath,
       '/classroom_trial/completed_record_paths',
       'registered classroom-trial graph has no active analysed terminal',
     ));
   }
   if (!structuralFailure && activeEntries.length > 1) {
     diagnostics.push(diagnostic(
-      REVIEW_REGISTRY_PATH,
+      registryPath,
       '/classroom_trial/completed_record_paths',
       `registered classroom-trial graph has multiple unrelated active analysed terminals: ${activeEntries.map(({ data }) => data.trial_identity.trial_id).join(', ')}`,
     ));
@@ -470,11 +464,32 @@ export function validateTeacherWorkPlanArtifactReviewRepository(repository, {
   allowCompletedRecords = false,
 } = {}) {
   const diagnostics = [...(repository.loadDiagnostics ?? [])];
+  const { profile, paths, artifactContext } = repository;
+  if (!profile || !paths || !artifactContext) {
+    diagnostics.sort((a, b) => compareBytewise(`${a.file}\0${a.field}\0${a.reason}`, `${b.file}\0${b.field}\0${b.reason}`));
+    return {
+      diagnostics,
+      summary: {
+        review_registries: 0,
+        teacher_review_templates: 0,
+        local_safety_review_templates: 0,
+        completed_teacher_reviews: 0,
+        completed_safety_reviews: 0,
+        classroom_trial_templates: 0,
+        completed_classroom_trials: 0,
+        teacher_status: null,
+        safety_status: null,
+        classroom_trial: null,
+        fingerprint: null,
+      },
+    };
+  }
+  const expectedIdentity = artifactIdentity(profile);
   const reusableValidation = validateTeacherWorkPlanReusableArtifactRepository(repository.reusableRepository);
   for (const problem of reusableValidation.diagnostics) {
     if (allowCompletedRecords && (
-      problem.file === REVIEW_REGISTRY_PATH
-      || (problem.file === ARTIFACT_INDEX_PATH && problem.field === '/human_review')
+      problem.file === paths.registryPath
+      || (problem.file === paths.indexPath && problem.field === '/human_review')
     )) continue;
     diagnostics.push(diagnostic(problem.file, problem.field, `reusable-artifact dependency: ${problem.reason}`));
   }
@@ -495,17 +510,17 @@ export function validateTeacherWorkPlanArtifactReviewRepository(repository, {
   ]) validateSchema(diagnostics, validate, entry);
 
   const registry = repository.registry?.data;
-  if (!registry) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/', 'exact review registry is missing'));
+  if (!registry) diagnostics.push(diagnostic(paths.registryPath, '/', 'registered review registry is missing'));
   else {
-    if (!allowCompletedRecords && !exactJson(registry, repository.reusableRepository.reviewRegistry?.data)) {
-      diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/', 'review registry differs from the registry validated by the reusable artifact dependency'));
+    if (!allowCompletedRecords && !exactJson(registry, artifactContext.dependencies?.reviewRegistry?.data)) {
+      diagnostics.push(diagnostic(paths.registryPath, '/', 'review registry differs from the registry validated by the reusable artifact dependency'));
     }
-    if (registry.artifact_id !== ARTIFACT_ID) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/artifact_id', 'wrong artifact ID'));
-    if (registry.artifact_index_path !== ARTIFACT_INDEX_PATH) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/artifact_index_path', 'wrong artifact index path'));
-    if (registry.content_fingerprint !== FINGERPRINT) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/content_fingerprint', 'review registry fingerprint is stale'));
-    if (registry.teacher_review?.template_path !== TEACHER_TEMPLATE_PATH) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/teacher_review/template_path', 'wrong teacher-review template path'));
-    if (registry.local_safety_review?.template_path !== SAFETY_TEMPLATE_PATH) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/local_safety_review/template_path', 'wrong local-safety-review template path'));
-    if (registry.classroom_trial?.template_path !== CLASSROOM_TRIAL_TEMPLATE_PATH) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/classroom_trial/template_path', 'wrong classroom-trial template path'));
+    if (registry.artifact_id !== profile.artifactId) diagnostics.push(diagnostic(paths.registryPath, '/artifact_id', 'wrong artifact ID'));
+    if (registry.artifact_index_path !== paths.indexPath) diagnostics.push(diagnostic(paths.registryPath, '/artifact_index_path', 'wrong artifact index path'));
+    if (registry.content_fingerprint !== profile.fingerprint) diagnostics.push(diagnostic(paths.registryPath, '/content_fingerprint', 'review registry fingerprint is stale'));
+    if (registry.teacher_review?.template_path !== paths.teacherTemplatePath) diagnostics.push(diagnostic(paths.registryPath, '/teacher_review/template_path', 'wrong teacher-review template path'));
+    if (registry.local_safety_review?.template_path !== paths.safetyTemplatePath) diagnostics.push(diagnostic(paths.registryPath, '/local_safety_review/template_path', 'wrong local-safety-review template path'));
+    if (registry.classroom_trial?.template_path !== paths.trialTemplatePath) diagnostics.push(diagnostic(paths.registryPath, '/classroom_trial/template_path', 'wrong classroom-trial template path'));
     for (const repositoryPath of [
       registry.teacher_review?.template_path,
       registry.local_safety_review?.template_path,
@@ -514,79 +529,80 @@ export function validateTeacherWorkPlanArtifactReviewRepository(repository, {
       ...(registry.local_safety_review?.completed_record_paths ?? []),
       ...(registry.classroom_trial?.completed_record_paths ?? []),
     ]) {
-      if (!insideReviewRoot(repositoryPath)) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/', 'all review paths must remain inside the exact review root'));
+      if (!insideReviewRoot(repositoryPath, paths.reviewRoot)) diagnostics.push(diagnostic(paths.registryPath, '/', 'all review paths must remain inside the registered review root'));
     }
   }
 
-  validateTemplate(diagnostics, repository.teacherTemplate, 'teacher_work_plan_artifact_teacher_review', TEACHER_SCOPE);
-  validateTemplate(diagnostics, repository.safetyTemplate, 'teacher_work_plan_artifact_local_safety_review', SAFETY_SCOPE);
-  if (!repository.teacherTemplate) diagnostics.push(diagnostic(TEACHER_TEMPLATE_PATH, '/', 'teacher-review template is missing'));
-  if (!repository.safetyTemplate) diagnostics.push(diagnostic(SAFETY_TEMPLATE_PATH, '/', 'local-safety-review template is missing'));
-  if ((repository.safetyTemplate?.data?.decision?.conditions ?? []).length !== 0) diagnostics.push(diagnostic(SAFETY_TEMPLATE_PATH, '/decision/conditions', 'safety template cannot contain approval conditions'));
-  for (const entry of repository.completedTeacherReviews) validateCompletedRecord(diagnostics, entry);
-  for (const entry of repository.completedSafetyReviews) validateCompletedRecord(diagnostics, entry, { safety: true });
+  validateTemplate(diagnostics, repository.teacherTemplate, 'teacher_work_plan_artifact_teacher_review', profile.review.teacherScope, expectedIdentity);
+  validateTemplate(diagnostics, repository.safetyTemplate, 'teacher_work_plan_artifact_local_safety_review', profile.review.safetyScope, expectedIdentity);
+  if (!repository.teacherTemplate) diagnostics.push(diagnostic(paths.teacherTemplatePath, '/', 'teacher-review template is missing'));
+  if (!repository.safetyTemplate) diagnostics.push(diagnostic(paths.safetyTemplatePath, '/', 'local-safety-review template is missing'));
+  if ((repository.safetyTemplate?.data?.decision?.conditions ?? []).length !== 0) diagnostics.push(diagnostic(paths.safetyTemplatePath, '/decision/conditions', 'safety template cannot contain approval conditions'));
+  for (const entry of repository.completedTeacherReviews) validateCompletedRecord(diagnostics, entry, { expectedIdentity, artifactRoot: paths.artifactRoot });
+  for (const entry of repository.completedSafetyReviews) validateCompletedRecord(diagnostics, entry, { safety: true, expectedIdentity, artifactRoot: paths.artifactRoot });
 
   const registeredTeacherPaths = registry?.teacher_review?.completed_record_paths ?? [];
   const registeredSafetyPaths = registry?.local_safety_review?.completed_record_paths ?? [];
   const registeredTrialPaths = registry?.classroom_trial?.completed_record_paths ?? [];
-  validateExact(diagnostics, REVIEW_REGISTRY_PATH, '/teacher_review/completed_record_paths', repository.completedTeacherReviews.map(({ file }) => file), registeredTeacherPaths, 'every completed teacher review must be loaded exactly once');
-  validateExact(diagnostics, REVIEW_REGISTRY_PATH, '/local_safety_review/completed_record_paths', repository.completedSafetyReviews.map(({ file }) => file), registeredSafetyPaths, 'every completed safety review must be loaded exactly once');
-  validateExact(diagnostics, REVIEW_REGISTRY_PATH, '/classroom_trial/completed_record_paths', repository.completedClassroomTrials.map(({ file }) => file), registeredTrialPaths, 'every completed classroom trial must be loaded exactly once');
+  validateExact(diagnostics, paths.registryPath, '/teacher_review/completed_record_paths', repository.completedTeacherReviews.map(({ file }) => file), registeredTeacherPaths, 'every completed teacher review must be loaded exactly once');
+  validateExact(diagnostics, paths.registryPath, '/local_safety_review/completed_record_paths', repository.completedSafetyReviews.map(({ file }) => file), registeredSafetyPaths, 'every completed safety review must be loaded exactly once');
+  validateExact(diagnostics, paths.registryPath, '/classroom_trial/completed_record_paths', repository.completedClassroomTrials.map(({ file }) => file), registeredTrialPaths, 'every completed classroom trial must be loaded exactly once');
   if (!allowCompletedRecords && (registeredTeacherPaths.length > 0 || registeredSafetyPaths.length > 0 || registeredTrialPaths.length > 0)) {
-    diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/', 'production review registry must contain no completed review records before real human evidence is supplied'));
+    diagnostics.push(diagnostic(paths.registryPath, '/', 'production review registry must contain no completed review records before real human evidence is supplied'));
   }
 
-  const lifecycle = resolveTeacherWorkPlanClassroomTrialLifecycle(repository.completedClassroomTrials);
+  const lifecycle = resolveTeacherWorkPlanClassroomTrialLifecycle(repository.completedClassroomTrials, { registryPath: paths.registryPath });
   diagnostics.push(...lifecycle.diagnostics);
   const state = expectedRegistryState(registry, repository.completedTeacherReviews, repository.completedSafetyReviews, lifecycle);
-  if (registry?.teacher_review?.status !== state.teacherStatus) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/teacher_review/status', 'teacher status must be derived from registered human evidence, not PR or merge state'));
-  if (registry?.local_safety_review?.status !== state.safetyStatus) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/local_safety_review/status', 'safety status must be derived from registered local evidence'));
-  if (registry?.boundaries?.review_complete !== state.reviewComplete) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/boundaries/review_complete', 'review completion must reflect registered completed teacher records'));
-  if (registry?.boundaries?.local_safety_review_complete !== state.safetyComplete) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/boundaries/local_safety_review_complete', 'local safety completion must reflect registered completed safety records'));
-  if (registry?.classroom_trial?.status !== state.trialStatus) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/classroom_trial/status', 'classroom-trial status must be derived from registered analysed evidence, not PR or merge state'));
-  if (registry?.boundaries?.classroom_trial_workflow_created !== true) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/boundaries/classroom_trial_workflow_created', 'classroom-trial workflow must be explicitly registered'));
-  if (registry?.boundaries?.classroom_trial_complete !== state.trialComplete) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/boundaries/classroom_trial_complete', 'classroom-trial completion must reflect a registered analysed record'));
-  if (registry?.boundaries?.classroom_ready !== state.classroomReady) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, '/boundaries/classroom_ready', 'classroom readiness must follow a positive analysed trial and cannot be inferred from PR state'));
+  if (registry?.teacher_review?.status !== state.teacherStatus) diagnostics.push(diagnostic(paths.registryPath, '/teacher_review/status', 'teacher status must be derived from registered human evidence, not PR or merge state'));
+  if (registry?.local_safety_review?.status !== state.safetyStatus) diagnostics.push(diagnostic(paths.registryPath, '/local_safety_review/status', 'safety status must be derived from registered local evidence'));
+  if (registry?.boundaries?.review_complete !== state.reviewComplete) diagnostics.push(diagnostic(paths.registryPath, '/boundaries/review_complete', 'review completion must reflect registered completed teacher records'));
+  if (registry?.boundaries?.local_safety_review_complete !== state.safetyComplete) diagnostics.push(diagnostic(paths.registryPath, '/boundaries/local_safety_review_complete', 'local safety completion must reflect registered completed safety records'));
+  if (registry?.classroom_trial?.status !== state.trialStatus) diagnostics.push(diagnostic(paths.registryPath, '/classroom_trial/status', 'classroom-trial status must be derived from registered analysed evidence, not PR or merge state'));
+  if (registry?.boundaries?.classroom_trial_workflow_created !== true) diagnostics.push(diagnostic(paths.registryPath, '/boundaries/classroom_trial_workflow_created', 'classroom-trial workflow must be explicitly registered'));
+  if (registry?.boundaries?.classroom_trial_complete !== state.trialComplete) diagnostics.push(diagnostic(paths.registryPath, '/boundaries/classroom_trial_complete', 'classroom-trial completion must reflect a registered analysed record'));
+  if (registry?.boundaries?.classroom_ready !== state.classroomReady) diagnostics.push(diagnostic(paths.registryPath, '/boundaries/classroom_ready', 'classroom readiness must follow a positive analysed trial and cannot be inferred from PR state'));
   for (const flag of ['publication_ready', 'customer_released', 'effectiveness_claimed']) {
-    if (registry?.boundaries?.[flag] !== false) diagnostics.push(diagnostic(REVIEW_REGISTRY_PATH, `/boundaries/${flag}`, `${flag} cannot be promoted by review workflow creation`));
+    if (registry?.boundaries?.[flag] !== false) diagnostics.push(diagnostic(paths.registryPath, `/boundaries/${flag}`, `${flag} cannot be promoted by review workflow creation`));
   }
 
-  if (repository.guideText === null) diagnostics.push(diagnostic(REVIEW_GUIDE_PATH, '/', 'review guide is missing'));
+  if (repository.guideText === null) diagnostics.push(diagnostic(paths.guidePath, '/', 'review guide is missing'));
   else {
-    if (!repository.guideText.endsWith('\n')) diagnostics.push(diagnostic(REVIEW_GUIDE_PATH, '/', 'review guide must end with a newline'));
-    for (const heading of GUIDE_HEADINGS) {
-      if (!repository.guideText.includes(heading)) diagnostics.push(diagnostic(REVIEW_GUIDE_PATH, '/', `review guide is missing ${heading}`));
+    if (!repository.guideText.endsWith('\n')) diagnostics.push(diagnostic(paths.guidePath, '/', 'review guide must end with a newline'));
+    for (const heading of profile.review.guideHeadings) {
+      if (!repository.guideText.includes(heading)) diagnostics.push(diagnostic(paths.guidePath, '/', `review guide is missing ${heading}`));
     }
-    for (const statement of [
-      'A template is not human evidence.',
-      'does not approve the pilot',
-      'Any byte change',
-      'Local safety approval is limited to the named context.',
-      'Classroom trial remains',
-      'Never use PR authorship',
-    ]) {
-      if (!repository.guideText.includes(statement)) diagnostics.push(diagnostic(REVIEW_GUIDE_PATH, '/', `review guide is missing boundary statement: ${statement}`));
+    for (const statement of profile.review.guideBoundaryStatements) {
+      if (!repository.guideText.includes(statement)) diagnostics.push(diagnostic(paths.guidePath, '/', `review guide is missing boundary statement: ${statement}`));
     }
   }
 
+  const baseReviewFiles = [
+    paths.trialGuidePath,
+    paths.trialTemplatePath,
+    paths.guidePath,
+    paths.safetyTemplatePath,
+    paths.registryPath,
+    paths.teacherTemplatePath,
+  ];
   const expectedFiles = [
-    ...BASE_REVIEW_FILES,
+    ...baseReviewFiles,
     ...registeredTeacherPaths,
     ...registeredSafetyPaths,
     ...registeredTrialPaths,
   ].sort(compareBytewise);
-  validateExact(diagnostics, SOIL_ORGANISMS_REVIEW_ROOT, '/', repository.reviewDirectoryFiles, expectedFiles, 'review directory contains a missing or extra file');
+  validateExact(diagnostics, paths.reviewRoot, '/', repository.reviewDirectoryFiles, expectedFiles, 'review directory contains a missing or extra file');
 
-  const artifact = repository.reusableRepository.artifacts?.[0]?.data;
-  if (artifact?.content_fingerprint?.value !== FINGERPRINT) diagnostics.push(diagnostic(ARTIFACT_INDEX_PATH, '/content_fingerprint/value', 'review workflow must pin the unchanged material fingerprint'));
+  const artifact = artifactContext.indexEntry?.data;
+  if (artifact?.content_fingerprint?.value !== profile.fingerprint) diagnostics.push(diagnostic(paths.indexPath, '/content_fingerprint/value', 'review workflow must pin the registered material fingerprint'));
   if (!allowCompletedRecords) {
-    validateExact(diagnostics, ARTIFACT_INDEX_PATH, '/human_review', artifact?.human_review, {
-      registry_path: REVIEW_REGISTRY_PATH,
+    validateExact(diagnostics, paths.indexPath, '/human_review', artifact?.human_review, {
+      registry_path: paths.registryPath,
       teacher_review: { status: 'pending', completed_record_path: null },
       local_safety_review: { status: 'pending', completed_record_path: null },
       classroom_trial: {
         workflow_created: true,
-        template_path: CLASSROOM_TRIAL_TEMPLATE_PATH,
+        template_path: paths.trialTemplatePath,
         status: 'not_tested',
         completed_record_path: null,
       },
@@ -609,6 +625,35 @@ export function validateTeacherWorkPlanArtifactReviewRepository(repository, {
       safety_status: registry?.local_safety_review?.status ?? null,
       classroom_trial: registry?.classroom_trial?.status ?? null,
       fingerprint: registry?.content_fingerprint ?? null,
+    },
+  };
+}
+
+export function validateTeacherWorkPlanArtifactReviewRepositories(repository, options = {}) {
+  const results = repository.repositories.map((entry) => (
+    validateTeacherWorkPlanArtifactReviewRepository(entry, options)
+  ));
+  const diagnostics = results.flatMap(({ diagnostics }) => diagnostics)
+    .sort((a, b) => compareBytewise(`${a.file}\0${a.field}\0${a.reason}`, `${b.file}\0${b.field}\0${b.reason}`));
+  return {
+    diagnostics,
+    summary: {
+      review_registries: results.reduce((sum, result) => sum + result.summary.review_registries, 0),
+      teacher_review_templates: results.reduce((sum, result) => sum + result.summary.teacher_review_templates, 0),
+      local_safety_review_templates: results.reduce((sum, result) => sum + result.summary.local_safety_review_templates, 0),
+      completed_teacher_reviews: results.reduce((sum, result) => sum + result.summary.completed_teacher_reviews, 0),
+      completed_safety_reviews: results.reduce((sum, result) => sum + result.summary.completed_safety_reviews, 0),
+      classroom_trial_templates: results.reduce((sum, result) => sum + result.summary.classroom_trial_templates, 0),
+      completed_classroom_trials: results.reduce((sum, result) => sum + result.summary.completed_classroom_trials, 0),
+      artifacts: Object.fromEntries(repository.repositories.map((entry, index) => [
+        entry.artifactId,
+        {
+          teacher_status: results[index].summary.teacher_status,
+          safety_status: results[index].summary.safety_status,
+          classroom_trial: results[index].summary.classroom_trial,
+          fingerprint: results[index].summary.fingerprint,
+        },
+      ])),
     },
   };
 }

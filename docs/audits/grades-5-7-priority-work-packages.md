@@ -95,6 +95,8 @@ The internal draft covers two consecutive missing gaps and combines a practical 
 
 All seven capabilities now exist in the internal-draft artifact at `teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml`. Their existence supplies independently authored support but does not change either canonical Opiq gap from `missing`.
 
+The next selected package is `grade-6-science-photosynthesis` for `grade-6-science-lesson-016`. Its planned root is `teacher-work-plan-artifacts/grade-6-science/photosynthesis`; status is `selected_not_started`. No photosynthesis material, artifact index, human-review workflow or classroom-trial workflow exists, and its canonical source gap remains `missing`.
+
 ## 9. Existing lesson/teacher-pack architecture boundary
 
 The production lesson schema and validators require a verified official curriculum map and a registered course map. The current Grade 6 and Grade 7 crosswalk routes have neither verified official curriculum maps nor annual architectures. The pilot therefore uses a separate lightweight teacher-work-plan reusable-artifact contract. That decision does not bypass or weaken the existing lesson-plan or teacher-pack validators.

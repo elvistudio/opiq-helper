@@ -3,15 +3,17 @@ import fs from 'node:fs/promises';
 import test from 'node:test';
 
 import {
-  CLASSROOM_TRIAL_TEMPLATE_PATH,
   loadTeacherWorkPlanArtifactClassroomTrialRepository,
   validateTeacherWorkPlanArtifactClassroomTrialRepository,
 } from './lib/teacher-work-plan-artifact-classroom-trials.mjs';
+import { getTeacherWorkPlanArtifactProfile } from './lib/teacher-work-plan-artifact-profiles.mjs';
 
-const PILOT_ROOT = 'teacher-work-plan-artifacts/grade-6-science/soil-organisms';
+const PROFILE = getTeacherWorkPlanArtifactProfile('grade-6-science-soil-organisms-v1');
+const PILOT_ROOT = PROFILE.rootPath;
 const REVIEW_ROOT = `${PILOT_ROOT}/reviews`;
 const GUIDE_PATH = `${REVIEW_ROOT}/classroom-trial-guide.md`;
 const REGISTRY_PATH = `${REVIEW_ROOT}/review-registry.yaml`;
+const CLASSROOM_TRIAL_TEMPLATE_PATH = PROFILE.review.trialTemplatePath;
 const FINGERPRINT = '894cc83f54c158485f6d6ba699d8a1298c3e57056e315281b79d69e84f366613';
 const MATERIAL_HASHES = [
   '2a0d26671a051d33cd6b78cdf1eb46eb1a991020c71f05ace7c8610ca32a37a3',
@@ -55,13 +57,34 @@ function cloneEntry(entry) {
 }
 
 function cloneReusable(repository) {
+  const artifacts = repository.artifacts.map((entry) => ({
+    ...entry,
+    data: structuredClone(entry.data),
+    materialBytes: new Map([...entry.materialBytes].map(([key, value]) => [key, value === null ? null : Buffer.from(value)])),
+  }));
+  const artifactByFile = new Map(artifacts.map((entry) => [entry.file, entry]));
+  const artifactContexts = repository.artifactContexts.map((context) => ({
+    ...context,
+    registryEntry: structuredClone(context.registryEntry),
+    route: structuredClone(context.route),
+    indexEntry: artifactByFile.get(context.indexEntry.file),
+    dependencies: context.dependencies && {
+      ...context.dependencies,
+      paths: structuredClone(context.dependencies.paths),
+      topicInventory: structuredClone(context.dependencies.topicInventory),
+      bookInventory: structuredClone(context.dependencies.bookInventory),
+      crosswalk: structuredClone(context.dependencies.crosswalk),
+      extraction: structuredClone(context.dependencies.extraction),
+      qa: structuredClone(context.dependencies.qa),
+      rootDirectoryFiles: [...context.dependencies.rootDirectoryFiles],
+      reviewRegistry: cloneEntry(context.dependencies.reviewRegistry),
+    },
+  }));
   return {
     ...repository,
-    artifacts: repository.artifacts.map((entry) => ({
-      ...entry,
-      data: structuredClone(entry.data),
-      materialBytes: new Map([...entry.materialBytes].map(([key, value]) => [key, value === null ? null : Buffer.from(value)])),
-    })),
+    artifacts,
+    artifactContexts,
+    artifactById: new Map(artifactContexts.map((context) => [context.registryEntry.artifact_id, context])),
     loadDiagnostics: structuredClone(repository.loadDiagnostics),
     schema: structuredClone(repository.schema),
     gapReport: structuredClone(repository.gapReport),
@@ -70,14 +93,8 @@ function cloneReusable(repository) {
       artifact: structuredClone(repository.workPackageRepository.artifact),
       schema: structuredClone(repository.workPackageRepository.schema),
     },
-    topicInventory: structuredClone(repository.topicInventory),
-    bookInventory: structuredClone(repository.bookInventory),
-    crosswalk: structuredClone(repository.crosswalk),
     manifest: structuredClone(repository.manifest),
-    extraction: structuredClone(repository.extraction),
     languageProfiles: structuredClone(repository.languageProfiles),
-    reviewRegistry: cloneEntry(repository.reviewRegistry),
-    pilotDirectoryFiles: [...repository.pilotDirectoryFiles],
   };
 }
 
@@ -93,6 +110,7 @@ function cloneReview(repository, reusableRepository) {
     completedClassroomTrials: repository.completedClassroomTrials.map(cloneEntry),
     reviewDirectoryFiles: [...repository.reviewDirectoryFiles],
     reusableRepository,
+    artifactContext: reusableRepository.artifactById.get(repository.artifactId),
     loadDiagnostics: structuredClone(repository.loadDiagnostics),
   };
 }
@@ -107,6 +125,7 @@ function cloneRepository() {
     completedTrials: baseline.completedTrials.map(cloneEntry),
     reusableRepository,
     reviewRepository,
+    artifactContext: reusableRepository.artifactById.get(baseline.artifactId),
     loadDiagnostics: structuredClone(baseline.loadDiagnostics),
   };
 }
@@ -304,7 +323,7 @@ function prepareValidTrial(repository, decisionStatus = 'successful') {
   registry.boundaries.classroom_ready = ['successful', 'successful_with_notes'].includes(decisionStatus);
   repository.reviewRepository.reviewDirectoryFiles.push(teacherPath, safetyPath, trialPath);
   repository.reviewRepository.reviewDirectoryFiles.sort();
-  repository.reusableRepository.reviewRegistry.data = structuredClone(registry);
+  repository.reusableRepository.artifactContexts[0].dependencies.reviewRegistry.data = structuredClone(registry);
   return trial;
 }
 
@@ -320,7 +339,7 @@ function syncRegisteredTrials(repository, entries, expectedStatus) {
     if (!repository.reviewRepository.reviewDirectoryFiles.includes(file)) repository.reviewRepository.reviewDirectoryFiles.push(file);
   }
   repository.reviewRepository.reviewDirectoryFiles.sort();
-  repository.reusableRepository.reviewRegistry.data = structuredClone(registry);
+  repository.reusableRepository.artifactContexts[0].dependencies.reviewRegistry.data = structuredClone(registry);
 }
 
 function appendSuccessorTrial(repository, predecessor, {
@@ -533,7 +552,7 @@ const templateMutations = [
   ['wrong route', (repo) => { repo.trialTemplate.data.artifact_identity.route = 'grade-7-science'; }, /route|identity|constant/u],
   ['wrong fingerprint', (repo) => { repo.trialTemplate.data.artifact_identity.content_fingerprint = '0'.repeat(64); }, /fingerprint|identity|constant/u],
   ['wrong source gap', (repo) => { repo.trialTemplate.data.part_observations[0].source_gap_id = 'grade-6-science-lesson-009'; }, /source gap|part_observations|constant/u],
-  ['wrong part duration', (repo) => { repo.trialTemplate.data.part_observations[0].planned_duration_minutes = 40; }, /45-minute|constant/u],
+  ['wrong part duration', (repo) => { repo.trialTemplate.data.part_observations[0].planned_duration_minutes = 40; }, /profile-derived source gaps, durations/u],
   ['missing dimension', (repo) => { repo.trialTemplate.data.part_observations[0].dimensions.pop(); }, /ordered dimensions|items/u],
   ['reordered dimension', (repo) => { repo.trialTemplate.data.part_observations[0].dimensions.reverse(); }, /ordered dimensions|constant/u],
   ['invented facilitator in template', (repo) => { repo.trialTemplate.data.trial_identity.facilitator_reference = 'invented-facilitator'; }, /invent|must be null/u],
@@ -632,7 +651,7 @@ const completedMutations = [
   ['safe_to_repeat false with success', (repo, trial) => { trial.data.decision.safe_to_repeat = false; }, /safe_to_repeat/u],
   ['invalid affected path', (repo, trial) => {
     trial.data.findings = [{ finding_id: 'outside-change', severity: 'minor', area: 'timing', description: 'Minor aggregate issue.', required_change: null, affected_paths: ['lesson-plans/outside.md'], status: 'resolved', resolution_notes: 'Synthetic resolution.' }];
-  }, /pilot root/u],
+  }, /registered artifact root/u],
   ['effectiveness claimed', (repo, trial) => { trial.data.boundaries.effectiveness_claimed = true; }, /effectiveness|constant/u],
   ['source gap marked resolved', (repo, trial) => { trial.data.boundaries.source_gap_resolution_claimed = true; }, /gap resolution|constant/u],
 ];
@@ -656,7 +675,7 @@ test('rejects safe_to_repeat true with repeat_trial_required', () => {
 test('rejects classroom readiness promoted without valid evidence', () => {
   const repository = cloneRepository();
   repository.reviewRepository.registry.data.boundaries.classroom_ready = true;
-  repository.reusableRepository.reviewRegistry.data.boundaries.classroom_ready = true;
+  repository.reusableRepository.artifactContexts[0].dependencies.reviewRegistry.data.boundaries.classroom_ready = true;
   expectInvalid(repository, /classroom readiness/u);
 });
 

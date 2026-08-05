@@ -22,8 +22,8 @@ import {
 } from './teacher-work-plan-reusable-artifacts.mjs';
 import {
   formatTeacherWorkPlanArtifactClassroomTrialDiagnostic,
-  loadTeacherWorkPlanArtifactClassroomTrialRepository,
-  validateTeacherWorkPlanArtifactClassroomTrialRepository,
+  loadTeacherWorkPlanArtifactClassroomTrialRepositories,
+  validateTeacherWorkPlanArtifactClassroomTrialRepositories,
 } from './teacher-work-plan-artifact-classroom-trials.mjs';
 
 export const GAP_REPORT_JSON_PATH =
@@ -108,6 +108,16 @@ const REUSABLE_ARTIFACT_IMPLEMENTATION = Object.freeze({
   classroom_ready: false,
   effectiveness_claimed: false,
   canonical_gap_status_unchanged: true,
+  source_gap_resolution_claimed: false,
+});
+const AUTHORING_QUEUE_SUMMARY = Object.freeze({
+  selected_next_package_id: 'grade-6-science-photosynthesis',
+  selected_next_package_status: 'selected_not_started',
+  selected_next_gap_ids: ['grade-6-science-lesson-016'],
+  selected_next_planned_root: 'teacher-work-plan-artifacts/grade-6-science/photosynthesis',
+  selected_next_material_count: 0,
+  selected_next_review_workflow_created: false,
+  selected_next_trial_workflow_created: false,
   source_gap_resolution_claimed: false,
 });
 
@@ -387,10 +397,27 @@ function attachWorkPackageReview(report) {
   };
 }
 
-function attachReusableArtifactImplementation(report) {
+function attachReusableArtifactImplementation(report, reusableRepository = null) {
+  let authoringQueue = AUTHORING_QUEUE_SUMMARY;
+  if (reusableRepository) {
+    const queue = reusableRepository.registryRepository.registry.data.authoring_queue;
+    const workPackage = reusableRepository.workPackageRepository.artifact.work_packages
+      .find(({ package_id }) => package_id === queue.next_package_id);
+    authoringQueue = {
+      selected_next_package_id: queue.next_package_id,
+      selected_next_package_status: queue.status,
+      selected_next_gap_ids: workPackage.source_gap_refs.map(({ gap_id }) => gap_id),
+      selected_next_planned_root: queue.planned_root_path,
+      selected_next_material_count: 0,
+      selected_next_review_workflow_created: queue.human_review_workflow_created,
+      selected_next_trial_workflow_created: queue.classroom_trial_workflow_created,
+      source_gap_resolution_claimed: queue.source_gap_resolution_claimed,
+    };
+  }
   return {
     ...report,
     reusable_artifact_implementation: structuredClone(REUSABLE_ARTIFACT_IMPLEMENTATION),
+    authoring_queue: structuredClone(authoringQueue),
     boundaries: {
       ...report.boundaries,
       reusable_teaching_artifacts_created: true,
@@ -559,19 +586,19 @@ export async function buildTeacherWorkPlanGapReport({
       ...reusableValidation.diagnostics.map(formatTeacherWorkPlanReusableArtifactDiagnostic),
     ].join('\n'));
   }
-  const classroomTrialRepository = await loadTeacherWorkPlanArtifactClassroomTrialRepository({
+  const classroomTrialRepository = await loadTeacherWorkPlanArtifactClassroomTrialRepositories({
     rootDir,
     reusableRepository,
     fileOverrides: reusableArtifactOverrides,
   });
-  const classroomTrialValidation = validateTeacherWorkPlanArtifactClassroomTrialRepository(classroomTrialRepository);
+  const classroomTrialValidation = validateTeacherWorkPlanArtifactClassroomTrialRepositories(classroomTrialRepository);
   if (classroomTrialValidation.diagnostics.length > 0) {
     throw new Error([
       'teacher work-plan classroom-trial workflow validation failed before gap report generation',
       ...classroomTrialValidation.diagnostics.map(formatTeacherWorkPlanArtifactClassroomTrialDiagnostic),
     ].join('\n'));
   }
-  return attachReusableArtifactImplementation(reviewedReport);
+  return attachReusableArtifactImplementation(reviewedReport, reusableRepository);
 }
 
 export function serializeTeacherWorkPlanGapReport(report) {
@@ -690,6 +717,8 @@ export function renderTeacherWorkPlanGapReportMarkdown(report) {
     `A fail-closed human-review workflow now exists at [\`${report.reusable_artifact_implementation.human_review.registry_path}\`](../../${report.reusable_artifact_implementation.human_review.registry_path}) and pins fingerprint \`${report.reusable_artifact_implementation.human_review.content_fingerprint}\`. It contains zero completed teacher or local-safety review records and no review decision.`,
     '',
     `A classroom-trial workflow and template now exist at [\`${report.reusable_artifact_implementation.classroom_trial_template_path}\`](../../${report.reusable_artifact_implementation.classroom_trial_template_path}), but no trial has been conducted and zero analysed trial records are registered. Prerequisite reviews remain pending, trial status is \`not_tested\`, and classroom readiness and effectiveness claims remain false.`,
+    '',
+    `Next authoring selection: \`${report.authoring_queue.selected_next_package_id}\` for \`${report.authoring_queue.selected_next_gap_ids.join(', ')}\`, status \`${report.authoring_queue.selected_next_package_status}\`, planned root \`${report.authoring_queue.selected_next_planned_root}\`. No materials, artifact index, human-review workflow or classroom-trial workflow has been created for it, and no source-gap resolution is claimed.`,
     '',
     'This independently authored support does not change either canonical Opiq gap from `missing`. Teacher review and local safety review remain pending, classroom/publication readiness remains false, and no source-gap resolution is claimed.',
     '',

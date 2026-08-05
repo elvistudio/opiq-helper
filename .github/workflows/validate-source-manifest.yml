@@ -627,6 +627,12 @@ jobs:
       - name: Check generated teacher work-plan priority packages
         run: npm run check:teacher-work-plan-work-packages
 
+      - name: Test teacher work-plan artifact registry
+        run: npm run test:teacher-work-plan-artifact-registry
+
+      - name: Check teacher work-plan artifact registry
+        run: npm run check:teacher-work-plan-artifact-registry
+
       - name: Test teacher work-plan reusable artifacts
         run: npm run test:teacher-work-plan-artifacts
 

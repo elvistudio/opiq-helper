@@ -47,6 +47,7 @@ summary:
   blocked_teacher_review_count: 3
   multi_gap_package_count: 1
   selected_pilot_package_id: grade-6-science-soil-organisms
+  next_authoring_package_id: grade-6-science-photosynthesis
 implementation_summary:
   implemented_internal_draft_count: 1
   implemented_source_gap_count: 2
@@ -63,6 +64,29 @@ implementation_summary:
   classroom_trial_template_count: 1
   completed_classroom_trial_record_count: 0
   classroom_trial_not_tested_count: 1
+  next_selected_package_id: grade-6-science-photosynthesis
+  next_selected_package_status: selected_not_started
+  source_gap_resolution_claimed: false
+authoring_queue:
+  package_id: grade-6-science-photosynthesis
+  route: grade-6-science
+  priority_tier: p1
+  authoring_status: ready_for_authoring
+  package_kind: single_gap
+  source_gap_ids:
+    - grade-6-science-lesson-016
+  planned_root_path: teacher-work-plan-artifacts/grade-6-science/photosynthesis
+  proposed_capabilities:
+    - practical_protocol
+    - observation_table
+    - student_worksheet
+    - answer_key
+    - assessment_rubric
+  status: selected_not_started
+  materials_created: false
+  artifact_index_created: false
+  human_review_workflow_created: false
+  classroom_trial_workflow_created: false
   source_gap_resolution_claimed: false
 work_packages:
   - package_id: grade-5-science-year-start-workflow

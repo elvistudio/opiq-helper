@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/teacher-work-plan-artifact-registry.schema.json",
+  "title": "Teacher work-plan reusable artifact registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "artifact_type", "registry_id", "scope", "artifacts", "authoring_queue"],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "artifact_type": { "const": "teacher_work_plan_reusable_artifact_registry" },
+    "registry_id": { "const": "grades-5-7-teacher-work-plan-reusable-artifacts" },
+    "scope": { "$ref": "#/$defs/scope" },
+    "artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/artifactEntry" }
+    },
+    "authoring_queue": { "$ref": "#/$defs/authoringQueue" }
+  },
+  "$defs": {
+    "repositoryPath": {
+      "type": "string",
+      "pattern": "^teacher-work-plan-artifacts/(?!.*(?:^|/)\\.\\.?/)(?!.*\\\\)[A-Za-z0-9._/-]+$"
+    },
+    "slug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "routes", "route_locked", "live_catalogue_checked",
+        "official_curriculum_completeness_claimed", "annual_architecture_created",
+        "default_course_selection_complete", "source_gap_resolution_claimed"
+      ],
+      "properties": {
+        "routes": {
+          "const": ["grade-5-science", "grade-6-science", "grade-7-geography", "grade-7-science"]
+        },
+        "route_locked": { "const": true },
+        "live_catalogue_checked": { "const": false },
+        "official_curriculum_completeness_claimed": { "const": false },
+        "annual_architecture_created": { "const": false },
+        "default_course_selection_complete": { "const": false },
+        "source_gap_resolution_claimed": { "const": false }
+      }
+    },
+    "artifactEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_id", "package_id", "route", "root_path", "index_path",
+        "validation_profile_id", "lifecycle_status", "content_fingerprint",
+        "review_registry_path", "classroom_trial_template_path"
+      ],
+      "properties": {
+        "artifact_id": { "$ref": "#/$defs/slug" },
+        "package_id": { "$ref": "#/$defs/slug" },
+        "route": {
+          "enum": ["grade-5-science", "grade-6-science", "grade-7-geography", "grade-7-science"]
+        },
+        "root_path": { "$ref": "#/$defs/repositoryPath" },
+        "index_path": { "$ref": "#/$defs/repositoryPath" },
+        "validation_profile_id": { "$ref": "#/$defs/slug" },
+        "lifecycle_status": { "enum": ["internal_draft", "reviewed_internal", "classroom_tested"] },
+        "content_fingerprint": { "$ref": "#/$defs/sha256" },
+        "review_registry_path": { "$ref": "#/$defs/repositoryPath" },
+        "classroom_trial_template_path": { "$ref": "#/$defs/repositoryPath" }
+      }
+    },
+    "authoringQueue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "next_package_id", "status", "selection_order", "planned_root_path",
+        "selection_reason", "materials_created", "artifact_index_created",
+        "human_review_workflow_created", "classroom_trial_workflow_created",
+        "source_gap_resolution_claimed"
+      ],
+      "properties": {
+        "next_package_id": { "$ref": "#/$defs/slug" },
+        "status": { "const": "selected_not_started" },
+        "selection_order": { "type": "integer", "minimum": 1 },
+        "planned_root_path": { "$ref": "#/$defs/repositoryPath" },
+        "selection_reason": { "type": "string", "minLength": 1 },
+        "materials_created": { "const": false },
+        "artifact_index_created": { "const": false },
+        "human_review_workflow_created": { "const": false },
+        "classroom_trial_workflow_created": { "const": false },
+        "source_gap_resolution_claimed": { "const": false }
+      }
+    }
+  }
+}
