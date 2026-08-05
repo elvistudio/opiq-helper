@@ -572,14 +572,7 @@ export function validateTeacherWorkPlanArtifactReviewRepository(repository, {
     for (const heading of profile.review.guideHeadings) {
       if (!repository.guideText.includes(heading)) diagnostics.push(diagnostic(paths.guidePath, '/', `review guide is missing ${heading}`));
     }
-    for (const statement of [
-      'A template is not human evidence.',
-      'does not approve the pilot',
-      'Any byte change',
-      'Local safety approval is limited to the named context.',
-      'Classroom trial remains',
-      'Never use PR authorship',
-    ]) {
+    for (const statement of profile.review.guideBoundaryStatements) {
       if (!repository.guideText.includes(statement)) diagnostics.push(diagnostic(paths.guidePath, '/', `review guide is missing boundary statement: ${statement}`));
     }
   }

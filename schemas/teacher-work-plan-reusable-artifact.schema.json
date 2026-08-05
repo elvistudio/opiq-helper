@@ -245,9 +245,15 @@
         "book_id": { "$ref": "#/$defs/nonEmptyString" },
         "title": { "$ref": "#/$defs/nonEmptyString" },
         "language": { "enum": ["et", "ru"] },
-        "programme_type": { "const": "unknown" },
-        "programme_type_evidence_status": { "const": "ambiguous" },
-        "default_course_eligibility": { "const": "unverified" },
+        "programme_type": {
+          "enum": ["ordinary", "supplementary", "teacher_support", "simplified_curriculum", "unknown"]
+        },
+        "programme_type_evidence_status": {
+          "enum": ["verified", "partial", "ambiguous"]
+        },
+        "default_course_eligibility": {
+          "enum": ["eligible", "ineligible", "unverified"]
+        },
         "instructional_roles": { "$ref": "#/$defs/stringList" },
         "relationship_to_pilot": { "$ref": "#/$defs/nonEmptyString" },
         "required_for_learner_completion": { "const": false }
@@ -301,13 +307,45 @@
       "additionalProperties": false,
       "required": ["local_teacher_risk_assessment_required", "universal_safety_claimed", "protected_area_permission_is_teacher_responsibility", "safeguards", "scientific_boundaries", "indoor_fallback_available"],
       "properties": {
-        "local_teacher_risk_assessment_required": { "const": true },
+        "fieldwork_applicable": { "type": "boolean" },
+        "protected_area_permission_applicable": { "type": "boolean" },
+        "indoor_fallback_applicable": { "type": "boolean" },
+        "local_teacher_risk_assessment_required": { "type": "boolean" },
         "universal_safety_claimed": { "const": false },
-        "protected_area_permission_is_teacher_responsibility": { "const": true },
+        "protected_area_permission_is_teacher_responsibility": { "type": "boolean" },
         "safeguards": { "$ref": "#/$defs/stringList" },
         "scientific_boundaries": { "$ref": "#/$defs/stringList" },
-        "indoor_fallback_available": { "const": true }
-      }
+        "indoor_fallback_available": { "type": "boolean" }
+      },
+      "allOf": [
+        {
+          "if": {
+            "required": ["fieldwork_applicable"],
+            "properties": { "fieldwork_applicable": { "const": false } }
+          },
+          "then": {
+            "properties": { "local_teacher_risk_assessment_required": { "const": false } }
+          }
+        },
+        {
+          "if": {
+            "required": ["protected_area_permission_applicable"],
+            "properties": { "protected_area_permission_applicable": { "const": false } }
+          },
+          "then": {
+            "properties": { "protected_area_permission_is_teacher_responsibility": { "const": false } }
+          }
+        },
+        {
+          "if": {
+            "required": ["indoor_fallback_applicable"],
+            "properties": { "indoor_fallback_applicable": { "const": false } }
+          },
+          "then": {
+            "properties": { "indoor_fallback_available": { "const": false } }
+          }
+        }
+      ]
     },
     "material": {
       "type": "object",

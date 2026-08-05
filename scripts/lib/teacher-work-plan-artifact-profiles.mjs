@@ -181,6 +181,18 @@ const soilOrganismsProfile = deepFreeze({
     { et: 'niiskus', ru: 'влажность' },
     { et: 'lagundaja', ru: 'разрушитель органических остатков / редуцент' },
   ],
+  safetyApplicability: {
+    fieldworkApplicable: true,
+    protectedAreaPermissionApplicable: true,
+    indoorFallbackApplicable: true,
+    requiresApplicabilityDeclaration: false,
+    expectedRules: {
+      local_teacher_risk_assessment_required: true,
+      universal_safety_claimed: false,
+      protected_area_permission_is_teacher_responsibility: true,
+      indoor_fallback_available: true,
+    },
+  },
   materialContentRules: [
     {
       path: `${rootPath}/practical-protocol.md`,
@@ -237,6 +249,14 @@ const soilOrganismsProfile = deepFreeze({
       '## 9. Required-change workflow', '## 10. Classroom-trial boundary',
       '## 11. Prohibited claims', '## 12. How to create a completed record',
     ],
+    guideBoundaryStatements: [
+      'A template is not human evidence.',
+      'does not approve the pilot',
+      'Any byte change',
+      'Local safety approval is limited to the named context.',
+      'Classroom trial remains',
+      'Never use PR authorship',
+    ],
   },
   classroomTrial: {
     parts: [
@@ -277,6 +297,14 @@ const soilOrganismsProfile = deepFreeze({
       '## 11. Trial decisions', '## 12. Fingerprint invalidation',
       '## 13. Registration of an analysed record', '## 14. Readiness truth table',
       '## 15. Prohibited claims',
+    ],
+    guideBoundaryStatements: [
+      'This pull request does not conduct a trial.',
+      'The template is a workflow aid, not human evidence',
+      'A trial must not begin until',
+      'Do not commit learner or facilitator names',
+      'does not make either canonical Opiq gap `matched` or `partial`',
+      'does not prove comparative effectiveness',
     ],
   },
 });

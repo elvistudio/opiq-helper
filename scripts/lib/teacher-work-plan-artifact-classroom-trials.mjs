@@ -509,14 +509,7 @@ export function validateTeacherWorkPlanArtifactClassroomTrialRepository(reposito
   else {
     if (!repository.guideText.endsWith('\n')) diagnostics.push(diagnostic(paths.trialGuidePath, '/', 'classroom-trial guide must end with a newline'));
     for (const heading of profile.classroomTrial.guideHeadings) if (!repository.guideText.includes(heading)) diagnostics.push(diagnostic(paths.trialGuidePath, '/', `classroom-trial guide is missing ${heading}`));
-    for (const statement of [
-      'This pull request does not conduct a trial.',
-      'The template is a workflow aid, not human evidence',
-      'A trial must not begin until',
-      'Do not commit learner or facilitator names',
-      'does not make either canonical Opiq gap `matched` or `partial`',
-      'does not prove comparative effectiveness',
-    ]) if (!repository.guideText.includes(statement)) diagnostics.push(diagnostic(paths.trialGuidePath, '/', `classroom-trial guide is missing boundary statement: ${statement}`));
+    for (const statement of profile.classroomTrial.guideBoundaryStatements) if (!repository.guideText.includes(statement)) diagnostics.push(diagnostic(paths.trialGuidePath, '/', `classroom-trial guide is missing boundary statement: ${statement}`));
   }
 
   const artifact = artifactContext.indexEntry?.data;

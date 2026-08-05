@@ -237,6 +237,65 @@ function countOccurrences(text, needle) {
   return text.split(needle).length - 1;
 }
 
+function deriveDefaultCourseEligibility(book) {
+  if (book?.eligible_for_ordinary_course === true) return 'eligible';
+  if (book?.programme_type === 'unknown') return 'unverified';
+  return 'ineligible';
+}
+
+function validateSafetyApplicability(diagnostics, file, artifact, profile) {
+  const safety = artifact.safety_and_ethics ?? {};
+  const applicability = profile.safetyApplicability;
+  if (!applicability) {
+    diagnostics.push(diagnostic(file, '/safety_and_ethics', 'selected validation profile must declare safety applicability'));
+    return;
+  }
+  const fields = {
+    fieldwork_applicable: applicability.fieldworkApplicable,
+    protected_area_permission_applicable: applicability.protectedAreaPermissionApplicable,
+    indoor_fallback_applicable: applicability.indoorFallbackApplicable,
+  };
+  if (applicability.requiresApplicabilityDeclaration) {
+    for (const [field, expected] of Object.entries(fields)) {
+      if (safety[field] !== expected) diagnostics.push(diagnostic(
+        file,
+        `/safety_and_ethics/${field}`,
+        'safety applicability differs from the selected validation profile',
+      ));
+    }
+  } else {
+    for (const [field, expected] of Object.entries(fields)) {
+      if (safety[field] !== undefined && safety[field] !== expected) diagnostics.push(diagnostic(
+        file,
+        `/safety_and_ethics/${field}`,
+        'legacy safety applicability, when declared, must match the selected validation profile',
+      ));
+    }
+  }
+  for (const [field, expected] of Object.entries(applicability.expectedRules ?? {})) {
+    if (safety[field] !== expected) diagnostics.push(diagnostic(
+      file,
+      `/safety_and_ethics/${field}`,
+      'safety rule differs from the selected validation profile',
+    ));
+  }
+  if (!applicability.fieldworkApplicable && safety.local_teacher_risk_assessment_required) diagnostics.push(diagnostic(
+    file,
+    '/safety_and_ethics/local_teacher_risk_assessment_required',
+    'non-fieldwork artifact cannot claim a fieldwork risk-assessment requirement',
+  ));
+  if (!applicability.protectedAreaPermissionApplicable && safety.protected_area_permission_is_teacher_responsibility) diagnostics.push(diagnostic(
+    file,
+    '/safety_and_ethics/protected_area_permission_is_teacher_responsibility',
+    'protected-area responsibility cannot be claimed when it is not applicable',
+  ));
+  if (!applicability.indoorFallbackApplicable && safety.indoor_fallback_available) diagnostics.push(diagnostic(
+    file,
+    '/safety_and_ethics/indoor_fallback_available',
+    'indoor fallback cannot be claimed when it is not applicable',
+  ));
+}
+
 function validateMaterialContent(diagnostics, context) {
   const { indexEntry: entry, profile } = context;
   const file = entry.file;
@@ -370,6 +429,7 @@ function validateArtifactContext(diagnostics, repository, context, schemaValidat
     || languageProfile.subject !== profile.languageProfile.subject
     || languageProfile.learner_language_level !== profile.languageProfile.learnerLanguageLevel) diagnostics.push(diagnostic(file, '/learner_language_profile', 'language profile is missing or differs from the selected validation profile'));
   validateExact(diagnostics, file, '/language_support/productive_terms', artifact.language_support?.productive_terms, profile.productiveTerms, 'productive terms differ from the selected validation profile');
+  validateSafetyApplicability(diagnostics, file, artifact, profile);
 
   const registeredRecords = new Map(allTopicRecords(dependencies.topicInventory).map((entry) => [entry.record.record_id, entry]));
   for (const [index, contextRecord] of (artifact.opiq_context_records ?? []).entries()) {
@@ -388,7 +448,9 @@ function validateArtifactContext(diagnostics, repository, context, schemaValidat
     if (!book
       || book.programme_type !== contextRecord.programme_type
       || book.programme_type_evidence?.status !== contextRecord.programme_type_evidence_status
-      || book.eligible_for_ordinary_course !== false) diagnostics.push(diagnostic(file, `/opiq_context_records/${index}`, 'programme evidence or eligibility differs from route-local book inventory'));
+      || deriveDefaultCourseEligibility(book) !== contextRecord.default_course_eligibility) diagnostics.push(diagnostic(file, `/opiq_context_records/${index}`, 'programme evidence or eligibility differs from route-local book inventory'));
+    if (contextRecord.programme_type === 'simplified_curriculum'
+      && contextRecord.default_course_eligibility === 'eligible') diagnostics.push(diagnostic(file, `/opiq_context_records/${index}/default_course_eligibility`, 'simplified-curriculum context cannot be ordinary-course eligible'));
     if (contextRecord.required_for_learner_completion !== false) diagnostics.push(diagnostic(file, `/opiq_context_records/${index}/required_for_learner_completion`, 'Opiq context cannot be required for learner completion'));
   }
   validateExact(diagnostics, file, '/opiq_context_records', artifact.opiq_context_records, profile.contextRecords, 'context records differ from selected validation profile');
