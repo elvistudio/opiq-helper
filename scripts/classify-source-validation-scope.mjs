@@ -69,6 +69,8 @@ const TEACHER_WORK_PLAN_MAP_EXACT = new Set([
   'scripts/lib/teacher-work-plan-artifact-registry.mjs',
   'scripts/check-teacher-work-plan-artifact-registry.mjs',
   'scripts/teacher-work-plan-artifact-registry.test.mjs',
+  'scripts/teacher-work-plan-multi-artifact-framework.test.mjs',
+  'scripts/teacher-work-plan-photosynthesis-artifact.test.mjs',
   'evaluations/teacher-work-plans/grade-5-science-extraction.json',
   'project-files/outputs/opiq_5klass_loodusopetus.md',
   'project-files/outputs/opiq_5klass_loodusopetus_qa.json',

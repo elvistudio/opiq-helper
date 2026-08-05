@@ -252,6 +252,7 @@ function validateSafetyApplicability(diagnostics, file, artifact, profile) {
   }
   const fields = {
     fieldwork_applicable: applicability.fieldworkApplicable,
+    local_risk_assessment_applicable: applicability.localRiskAssessmentApplicable,
     protected_area_permission_applicable: applicability.protectedAreaPermissionApplicable,
     indoor_fallback_applicable: applicability.indoorFallbackApplicable,
   };
@@ -279,10 +280,10 @@ function validateSafetyApplicability(diagnostics, file, artifact, profile) {
       'safety rule differs from the selected validation profile',
     ));
   }
-  if (!applicability.fieldworkApplicable && safety.local_teacher_risk_assessment_required) diagnostics.push(diagnostic(
+  if (!applicability.localRiskAssessmentApplicable && safety.local_teacher_risk_assessment_required) diagnostics.push(diagnostic(
     file,
     '/safety_and_ethics/local_teacher_risk_assessment_required',
-    'non-fieldwork artifact cannot claim a fieldwork risk-assessment requirement',
+    'local risk-assessment requirement cannot be claimed when it is not applicable',
   ));
   if (!applicability.protectedAreaPermissionApplicable && safety.protected_area_permission_is_teacher_responsibility) diagnostics.push(diagnostic(
     file,
@@ -330,9 +331,20 @@ function validateMaterialContent(diagnostics, context) {
     const text = materialText.get(rule.path) ?? '';
     if (!rule.requiredStrings.every((value) => text.includes(value))) diagnostics.push(diagnostic(rule.path, '/', rule.description));
   }
-  const guideText = materialText.get(profile.urlAllowedPaths[0]) ?? '';
-  const guideUrls = guideText.match(/https:\/\/www\.opiq\.ee\/kit\/[0-9]+\/chapter\/[0-9]+/gu) ?? [];
-  validateExact(diagnostics, profile.urlAllowedPaths[0], '/urls', guideUrls, profile.contextRecords.map(({ canonical_url }) => canonical_url), 'profile URL-bearing material must contain exactly the registered context URLs in order');
+  if (profile.urlAllowedPaths.length > 0) {
+    const registeredUrls = profile.urlAllowedPaths.flatMap((materialPath) => {
+      const text = materialText.get(materialPath) ?? '';
+      return text.match(/https:\/\/www\.opiq\.ee\/kit\/[0-9]+\/chapter\/[0-9]+/gu) ?? [];
+    });
+    validateExact(
+      diagnostics,
+      profile.urlAllowedPaths.join(', '),
+      '/urls',
+      registeredUrls,
+      profile.contextRecords.map(({ canonical_url }) => canonical_url),
+      'profile URL-bearing materials must contain exactly the registered context URLs in order',
+    );
+  }
 }
 
 function validateArtifactContext(diagnostics, repository, context, schemaValidate) {

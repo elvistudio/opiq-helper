@@ -1,0 +1,59 @@
+schema_version: "1.0"
+artifact_type: teacher_work_plan_artifact_local_safety_review
+template: true
+review_identity:
+  review_id: null
+  reviewer_id: null
+  reviewer_name: null
+  reviewer_role: null
+  organization: null
+  review_date: null
+artifact_identity:
+  artifact_id: grade-6-science-photosynthesis
+  artifact_index_path: teacher-work-plan-artifacts/grade-6-science/photosynthesis/artifact-index.yaml
+  content_fingerprint: 8df9cff3e19c325ba92f931f72c79cf2828a9b03a36fcf80ea19aff430d7db45
+  package_id: grade-6-science-photosynthesis
+  route: grade-6-science
+  grade: 6
+  subject: science
+  subject_et: loodusõpetus
+local_context:
+  school_or_organization: null
+  site_description: null
+  planned_activity_date: null
+  group_size: null
+  adult_supervision_count: null
+  delivery_site_category: null
+  indoor_fallback_permitted: null
+  weather_limitations: null
+  accessibility_adjustments: null
+  permission_requirements: null
+  emergency_contact_process: null
+review_scope:
+  - { area: named_classroom_context, status: not_reviewed, notes: null, finding_ids: [] }
+  - { area: electrical_equipment_and_spill_separation, status: not_reviewed, notes: null, finding_ids: [] }
+  - { area: lamp_temperature_and_distance, status: not_reviewed, notes: null, finding_ids: [] }
+  - { area: container_stability_and_breakage, status: not_reviewed, notes: null, finding_ids: [] }
+  - { area: plant_material_and_allergy_risks, status: not_reviewed, notes: null, finding_ids: [] }
+  - { area: bicarbonate_solution_handling, status: not_reviewed, notes: null, finding_ids: [] }
+  - { area: hygiene_and_cleanup, status: not_reviewed, notes: null, finding_ids: [] }
+  - { area: accessibility_and_participation, status: not_reviewed, notes: null, finding_ids: [] }
+  - { area: supervision_and_stop_signals, status: not_reviewed, notes: null, finding_ids: [] }
+  - { area: emergency_or_incident_procedure, status: not_reviewed, notes: null, finding_ids: [] }
+  - { area: aquarium_plant_disposal_and_non_release, status: not_reviewed, notes: null, finding_ids: [] }
+findings: []
+decision:
+  status: pending
+  rationale: null
+  open_blocking_findings: []
+  open_major_findings: []
+  required_changes_complete: false
+  reviewed_fingerprint_matches: false
+  conditions: []
+safety_boundaries:
+  named_context_only: true
+  universal_safety_claimed: false
+  other_site_legal_permission_claimed: false
+  all_weather_approval_claimed: false
+  protected_area_permission_claimed: false
+  classroom_readiness_claimed: false

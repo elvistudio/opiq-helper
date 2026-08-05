@@ -2,7 +2,7 @@
 
 ## 1. Status and scope
 
-This generated report indexes source-backed gaps in four supplementary, noncanonical teacher work-plan crosswalks. One independently authored internal-draft pilot now supports two gaps, but canonical coverage remains unchanged. The report does not establish official curriculum completeness, annual allocation, default-course eligibility, or live-catalogue completeness.
+This generated report indexes source-backed gaps in four supplementary, noncanonical teacher work-plan crosswalks. 2 independently authored internal-draft artifacts now support 3 gaps, but canonical coverage remains unchanged. The report does not establish official curriculum completeness, annual allocation, default-course eligibility, or live-catalogue completeness.
 
 ## 2. Source crosswalks
 
@@ -114,15 +114,16 @@ Machine-readable review: [`evaluations/teacher-work-plans/grades-5-7-priority-wo
 
 ### Reusable artifact implementation
 
-One package, `grade-6-science-soil-organisms`, now has an internal draft with 7 material capabilities supporting 2 source gaps. Index: [`teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml`](../../teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml).
+2 packages now have internal drafts with 12 material capabilities supporting 3 source gaps.
 
-A fail-closed human-review workflow now exists at [`teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/review-registry.yaml`](../../teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/review-registry.yaml) and pins fingerprint `894cc83f54c158485f6d6ba699d8a1298c3e57056e315281b79d69e84f366613`. It contains zero completed teacher or local-safety review records and no review decision.
+- `grade-6-science-soil-organisms`: [index](../../teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml); 7 materials, 2 supported source gaps, 4 optional Opiq context records; fingerprint `894cc83f54c158485f6d6ba699d8a1298c3e57056e315281b79d69e84f366613`. Teacher review and local safety review are `pending`; classroom trial is `not_tested`; completed review and trial records are zero.
+- `grade-6-science-photosynthesis`: [index](../../teacher-work-plan-artifacts/grade-6-science/photosynthesis/artifact-index.yaml); 5 materials, 1 supported source gaps, 0 optional Opiq context records; fingerprint `8df9cff3e19c325ba92f931f72c79cf2828a9b03a36fcf80ea19aff430d7db45`. Teacher review and local safety review are `pending`; classroom trial is `not_tested`; completed review and trial records are zero.
 
-A classroom-trial workflow and template now exist at [`teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/classroom-trial-template.yaml`](../../teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/classroom-trial-template.yaml), but no trial has been conducted and zero analysed trial records are registered. Prerequisite reviews remain pending, trial status is `not_tested`, and classroom readiness and effectiveness claims remain false.
+Both artifacts remain internal drafts. Their fail-closed human-review and classroom-trial workflows create no teacher approval, safety approval, classroom readiness, publication, customer release or effectiveness evidence.
 
-Next authoring selection: `grade-6-science-photosynthesis` for `grade-6-science-lesson-016`, status `selected_not_started`, planned root `teacher-work-plan-artifacts/grade-6-science/photosynthesis`. No materials, artifact index, human-review workflow or classroom-trial workflow has been created for it, and no source-gap resolution is claimed.
+Next authoring selection: `grade-6-science-garden-field-food-products` for `grade-6-science-lesson-022`, status `selected_not_started`, planned root `teacher-work-plan-artifacts/grade-6-science/garden-field-food-products`. No materials, artifact index, human-review workflow or classroom-trial workflow has been created for it, and no source-gap resolution is claimed.
 
-This independently authored support does not change either canonical Opiq gap from `missing`. Teacher review and local safety review remain pending, classroom/publication readiness remains false, and no source-gap resolution is claimed.
+This independently authored support does not change the three supported canonical Opiq gaps from `missing`. Teacher review and local safety review remain pending, classroom/publication readiness remains false, and no source-gap resolution is claimed.
 
 ## 11. Complete gap registry grouped by route
 
@@ -337,4 +338,4 @@ This independently authored support does not change either canonical Opiq gap fr
 - Gap-index completeness applies only to the four registered supplementary crosswalks.
 - Official curriculum completeness and exact-grade official allocation are not verified.
 - No annual architecture, default-course selection, or live-catalogue verification is created here.
-- Semantic work-package review is complete; one internal-draft reusable artifact plus pending review and classroom-trial workflows exist, but no completed review or trial decision exists and the reusable-artifact backlog remains incomplete.
+- Semantic work-package review is complete; two internal-draft reusable artifacts plus pending review and classroom-trial workflows exist, but no completed review or trial decision exists and the reusable-artifact backlog remains incomplete.

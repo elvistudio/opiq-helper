@@ -81,14 +81,26 @@ const SELECTED_PILOT_DELIVERABLES = Object.freeze([
   'assessment_rubric',
   'oral_support',
 ]);
-const NEXT_AUTHORING_PACKAGE_ID = 'grade-6-science-photosynthesis';
-const NEXT_AUTHORING_ROOT = 'teacher-work-plan-artifacts/grade-6-science/photosynthesis';
-const NEXT_AUTHORING_CAPABILITIES = Object.freeze([
+const PHOTOSYNTHESIS_PACKAGE_ID = 'grade-6-science-photosynthesis';
+const PHOTOSYNTHESIS_ROOT = 'teacher-work-plan-artifacts/grade-6-science/photosynthesis';
+const PHOTOSYNTHESIS_INDEX = `${PHOTOSYNTHESIS_ROOT}/artifact-index.yaml`;
+const PHOTOSYNTHESIS_REVIEW_REGISTRY = `${PHOTOSYNTHESIS_ROOT}/reviews/review-registry.yaml`;
+const PHOTOSYNTHESIS_TRIAL_TEMPLATE = `${PHOTOSYNTHESIS_ROOT}/reviews/classroom-trial-template.yaml`;
+const PHOTOSYNTHESIS_FINGERPRINT = '8df9cff3e19c325ba92f931f72c79cf2828a9b03a36fcf80ea19aff430d7db45';
+const PHOTOSYNTHESIS_DELIVERABLES = Object.freeze([
   'practical_protocol',
   'observation_table',
   'student_worksheet',
   'answer_key',
   'assessment_rubric',
+]);
+const NEXT_AUTHORING_PACKAGE_ID = 'grade-6-science-garden-field-food-products';
+const NEXT_AUTHORING_ROOT = 'teacher-work-plan-artifacts/grade-6-science/garden-field-food-products';
+const NEXT_AUTHORING_CAPABILITIES = Object.freeze([
+  'practical_protocol',
+  'observation_table',
+  'student_worksheet',
+  'answer_key',
 ]);
 const AUTHORING_QUEUE = Object.freeze({
   package_id: NEXT_AUTHORING_PACKAGE_ID,
@@ -96,7 +108,7 @@ const AUTHORING_QUEUE = Object.freeze({
   priority_tier: 'p1',
   authoring_status: 'ready_for_authoring',
   package_kind: 'single_gap',
-  source_gap_ids: ['grade-6-science-lesson-016'],
+  source_gap_ids: ['grade-6-science-lesson-022'],
   planned_root_path: NEXT_AUTHORING_ROOT,
   proposed_capabilities: NEXT_AUTHORING_CAPABILITIES,
   status: 'selected_not_started',
@@ -108,21 +120,21 @@ const AUTHORING_QUEUE = Object.freeze({
 });
 
 const IMPLEMENTATION_SUMMARY = Object.freeze({
-  implemented_internal_draft_count: 1,
-  implemented_source_gap_count: 2,
-  delivered_capability_count: 7,
-  not_started_ready_package_count: 12,
+  implemented_internal_draft_count: 2,
+  implemented_source_gap_count: 3,
+  delivered_capability_count: 12,
+  not_started_ready_package_count: 11,
   blocked_teacher_review_count: 3,
-  implemented_package_id: SELECTED_PILOT_PACKAGE_ID,
-  artifact_index_path: SELECTED_PILOT_INDEX,
-  human_review_workflow_count: 1,
+  implemented_package_ids: [SELECTED_PILOT_PACKAGE_ID, PHOTOSYNTHESIS_PACKAGE_ID],
+  artifact_index_paths: [SELECTED_PILOT_INDEX, PHOTOSYNTHESIS_INDEX],
+  human_review_workflow_count: 2,
   completed_human_review_record_count: 0,
-  teacher_review_pending_count: 1,
-  local_safety_review_pending_count: 1,
-  classroom_trial_workflow_count: 1,
-  classroom_trial_template_count: 1,
+  teacher_review_pending_count: 2,
+  local_safety_review_pending_count: 2,
+  classroom_trial_workflow_count: 2,
+  classroom_trial_template_count: 2,
   completed_classroom_trial_record_count: 0,
-  classroom_trial_not_tested_count: 1,
+  classroom_trial_not_tested_count: 2,
   next_selected_package_id: NEXT_AUTHORING_PACKAGE_ID,
   next_selected_package_status: 'selected_not_started',
   source_gap_resolution_claimed: false,
@@ -155,6 +167,40 @@ const PILOT_IMPLEMENTATION = Object.freeze({
     effectiveness_claimed: false,
   },
   source_gap_resolution_claimed: false,
+});
+
+const PHOTOSYNTHESIS_IMPLEMENTATION = Object.freeze({
+  status: 'internal_draft_pending_teacher_review',
+  artifact_index_path: PHOTOSYNTHESIS_INDEX,
+  delivered_capabilities: PHOTOSYNTHESIS_DELIVERABLES,
+  supported_gap_ids: ['grade-6-science-lesson-016'],
+  human_review: {
+    registry_path: PHOTOSYNTHESIS_REVIEW_REGISTRY,
+    content_fingerprint: PHOTOSYNTHESIS_FINGERPRINT,
+    teacher_review_status: 'pending',
+    local_safety_review_status: 'pending',
+    completed_teacher_review_count: 0,
+    completed_safety_review_count: 0,
+    classroom_trial_status: 'not_tested',
+    review_decision_recorded: false,
+    classroom_ready: false,
+    publication_ready: false,
+    effectiveness_claimed: false,
+  },
+  classroom_trial: {
+    workflow_created: true,
+    template_path: PHOTOSYNTHESIS_TRIAL_TEMPLATE,
+    completed_record_count: 0,
+    status: 'not_tested',
+    classroom_ready: false,
+    effectiveness_claimed: false,
+  },
+  source_gap_resolution_claimed: false,
+});
+
+const IMPLEMENTATIONS_BY_PACKAGE = Object.freeze({
+  [SELECTED_PILOT_PACKAGE_ID]: PILOT_IMPLEMENTATION,
+  [PHOTOSYNTHESIS_PACKAGE_ID]: PHOTOSYNTHESIS_IMPLEMENTATION,
 });
 
 const FORBIDDEN_PLANNED_PATH_PREFIXES = Object.freeze([
@@ -489,10 +535,19 @@ export function validateTeacherWorkPlanWorkPackages(artifact, {
     if (selected) {
       if (workPackage.planned_root_path !== SELECTED_PILOT_ROOT) diagnostics.push(diagnostic(`${field}/planned_root_path`, `selected pilot root must be ${SELECTED_PILOT_ROOT}`));
       addExactDiagnostic(diagnostics, `${field}/proposed_deliverables`, deliverables, SELECTED_PILOT_DELIVERABLES, 'selected pilot deliverables must match the exact seven-item contract');
-      addExactDiagnostic(diagnostics, `${field}/implementation`, workPackage.implementation, PILOT_IMPLEMENTATION, 'selected pilot implementation must link the exact internal-draft artifact and two source gaps');
-    } else if (workPackage.implementation !== undefined) {
-      diagnostics.push(diagnostic(`${field}/implementation`, 'only the selected pilot may have a production implementation entry'));
     }
+    const expectedImplementation = IMPLEMENTATIONS_BY_PACKAGE[workPackage.package_id];
+    if (expectedImplementation) addExactDiagnostic(
+      diagnostics,
+      `${field}/implementation`,
+      workPackage.implementation,
+      expectedImplementation,
+      'implemented package must link its exact internal-draft artifact, review workflow and source gaps',
+    );
+    else if (workPackage.implementation !== undefined) diagnostics.push(diagnostic(
+      `${field}/implementation`,
+      'only registered production artifacts may have implementation entries',
+    ));
     if (workPackage.resolution_claimed !== false) diagnostics.push(diagnostic(`${field}/resolution_claimed`, 'work-package review cannot claim gap resolution'));
   }
 
@@ -527,14 +582,14 @@ export function validateTeacherWorkPlanWorkPackages(artifact, {
     '/implementation_summary',
     artifact?.implementation_summary,
     IMPLEMENTATION_SUMMARY,
-    'implementation summary must record exactly one internal draft, two supported gaps and seven capabilities',
+    'implementation summary must record exactly two internal drafts, three supported gaps and twelve capabilities',
   );
   addExactDiagnostic(
     diagnostics,
     '/authoring_queue',
     artifact?.authoring_queue,
     AUTHORING_QUEUE,
-    'authoring queue must select the exact not-started photosynthesis package and preserve its five declared capabilities',
+    'authoring queue must select the exact not-started garden-field-food-products package and preserve its four declared capabilities',
   );
   const nextPackage = packages.find(({ package_id }) => package_id === NEXT_AUTHORING_PACKAGE_ID);
   if (!nextPackage
@@ -546,10 +601,10 @@ export function validateTeacherWorkPlanWorkPackages(artifact, {
     || nextPackage.implementation !== undefined
     || !exactJson(nextPackage.source_gap_refs?.map(({ gap_id }) => gap_id), AUTHORING_QUEUE.source_gap_ids)
     || !exactJson(nextPackage.proposed_deliverables, NEXT_AUTHORING_CAPABILITIES)) {
-    diagnostics.push(diagnostic('/authoring_queue', 'selected next package must remain an unimplemented, unblocked P1 photosynthesis package with its exact source gap and capabilities'));
+    diagnostics.push(diagnostic('/authoring_queue', 'selected next package must remain an unimplemented, unblocked P1 garden-field-food-products package with its exact source gap and capabilities'));
   }
-  if (artifact?.scope?.reusable_teaching_artifacts_created !== true) diagnostics.push(diagnostic('/scope/reusable_teaching_artifacts_created', 'one internal-draft reusable artifact now exists'));
-  if (artifact?.completeness?.reusable_teaching_artifacts_created !== true) diagnostics.push(diagnostic('/completeness/reusable_teaching_artifacts_created', 'one internal-draft reusable artifact now exists'));
+  if (artifact?.scope?.reusable_teaching_artifacts_created !== true) diagnostics.push(diagnostic('/scope/reusable_teaching_artifacts_created', 'two internal-draft reusable artifacts now exist'));
+  if (artifact?.completeness?.reusable_teaching_artifacts_created !== true) diagnostics.push(diagnostic('/completeness/reusable_teaching_artifacts_created', 'two internal-draft reusable artifacts now exist'));
   if (artifact?.completeness?.reusable_artifact_backlog_complete !== false) diagnostics.push(diagnostic('/completeness/reusable_artifact_backlog_complete', 'reusable artifact backlog remains incomplete'));
   diagnostics.sort((left, right) => compareBytewise(`${left.field}\0${left.reason}`, `${right.field}\0${right.reason}`));
   return {
@@ -620,6 +675,7 @@ export function renderTeacherWorkPlanWorkPackagesMarkdown(artifact) {
   })));
   const blocked = packages.filter(({ authoring_status }) => authoring_status === 'blocked_teacher_review');
   const ready = packages.filter(({ authoring_status }) => authoring_status === 'ready_for_authoring');
+  const implemented = packages.filter(({ implementation }) => implementation !== undefined);
   const pilot = packages.find(({ selected_as_first_pilot }) => selected_as_first_pilot);
   const lines = [
     '# Grades 5-7 priority teacher work-plan packages',
@@ -628,7 +684,7 @@ export function renderTeacherWorkPlanWorkPackagesMarkdown(artifact) {
     '',
     'This generated audit records the completed semantic review of the 17 missing or ambiguous source-backed gaps in the four registered supplementary teacher-plan crosswalks. The review defines 16 work packages: 13 are semantically authorable and 3 remain blocked by explicit teacher decisions.',
     '',
-    'Semantic review remains complete. One selected P0 package now has internal-draft materials plus fail-closed human-review and classroom-trial workflows; teacher review and local safety review remain pending, classroom trial remains not tested, no review decision is recorded, and no canonical source gap is resolved.',
+    'Semantic review remains complete. Two route-local packages now have internal-draft materials plus fail-closed human-review and classroom-trial workflows; every teacher review and local safety review remains pending, every classroom trial remains not tested, no review decision is recorded, and no canonical source gap is resolved.',
     '',
     '## 2. Why semantic review precedes authoring',
     '',
@@ -658,9 +714,10 @@ export function renderTeacherWorkPlanWorkPackagesMarkdown(artifact) {
     '',
     'Blocked packages propose only a `teacher_decision_record`; they do not propose worksheets, practical protocols or gap resolution.',
     '',
-    `The pilot review registry is [\`${pilot.implementation.human_review.registry_path}\`](../../${pilot.implementation.human_review.registry_path}). It pins fingerprint \`${pilot.implementation.human_review.content_fingerprint}\`, contains zero completed teacher or safety records, keeps both reviews pending, and leaves classroom trial \`not_tested\`.`,
-    '',
-    `The classroom-trial template is [\`${pilot.implementation.classroom_trial.template_path}\`](../../${pilot.implementation.classroom_trial.template_path}). Its workflow exists, but no trial has been conducted or registered; classroom readiness and effectiveness claims remain false.`,
+    ...implemented.flatMap((entry) => [
+      `- \`${entry.package_id}\`: review registry [\`${entry.implementation.human_review.registry_path}\`](../../${entry.implementation.human_review.registry_path}), fingerprint \`${entry.implementation.human_review.content_fingerprint}\`; teacher and safety reviews pending, completed records 0, classroom trial \`not_tested\`.`,
+      `  Trial template: [\`${entry.implementation.classroom_trial.template_path}\`](../../${entry.implementation.classroom_trial.template_path}); no trial has been conducted or registered, and classroom readiness and effectiveness claims remain false.`,
+    ]),
     '',
     '## 6. Grouping decisions',
     '',
@@ -680,7 +737,9 @@ export function renderTeacherWorkPlanWorkPackagesMarkdown(artifact) {
     '',
     `All seven capabilities now exist in the internal-draft artifact at \`${pilot.implementation.artifact_index_path}\`. Their existence supplies independently authored support but does not change either canonical Opiq gap from \`missing\`.`,
     '',
-    `The next selected package is \`${artifact.authoring_queue.package_id}\` for \`${artifact.authoring_queue.source_gap_ids[0]}\`. Its planned root is \`${artifact.authoring_queue.planned_root_path}\`; status is \`${artifact.authoring_queue.status}\`. No photosynthesis material, artifact index, human-review workflow or classroom-trial workflow exists, and its canonical source gap remains \`missing\`.`,
+    `The second internal draft is \`${PHOTOSYNTHESIS_PACKAGE_ID}\` at \`${PHOTOSYNTHESIS_INDEX}\`. Its five independently authored capabilities support \`grade-6-science-lesson-016\`, but the canonical gap remains \`missing\`; zero Opiq context records are claimed, both reviews remain pending and classroom trial remains \`not_tested\`.`,
+    '',
+    `The next selected package is \`${artifact.authoring_queue.package_id}\` for \`${artifact.authoring_queue.source_gap_ids[0]}\`. Its planned root is \`${artifact.authoring_queue.planned_root_path}\`; status is \`${artifact.authoring_queue.status}\`. No garden-field-food-products material, artifact index, human-review workflow or classroom-trial workflow exists, and its canonical source gap remains \`missing\`.`,
     '',
     '## 9. Existing lesson/teacher-pack architecture boundary',
     '',
@@ -696,8 +755,8 @@ export function renderTeacherWorkPlanWorkPackagesMarkdown(artifact) {
     '',
     '## 11. What remains pending',
     '',
-    '- One P0 package has internal-draft reusable materials, a review workflow and a classroom-trial workflow, but no completed review or trial record; teacher review and local safety review remain pending and classroom trial remains `not_tested`.',
-    '- Twelve semantically ready packages remain not started.',
+    '- Two packages have internal-draft reusable materials and workflows, but no completed review or trial record; all teacher and local safety reviews remain pending and both classroom trials remain `not_tested`.',
+    '- Eleven semantically ready packages remain not started.',
     '- The reusable-artifact backlog is not complete.',
     '- Three packages require teacher decisions before authoring.',
     '- Phase 5 has started but remains incomplete; no canonical source gap is marked resolved.',
@@ -720,6 +779,7 @@ export const teacherWorkPlanWorkPackageContracts = Object.freeze({
   selectedPilotIndex: SELECTED_PILOT_INDEX,
   implementationSummary: IMPLEMENTATION_SUMMARY,
   pilotImplementation: PILOT_IMPLEMENTATION,
+  photosynthesisImplementation: PHOTOSYNTHESIS_IMPLEMENTATION,
   nextAuthoringPackageId: NEXT_AUTHORING_PACKAGE_ID,
   authoringQueue: AUTHORING_QUEUE,
 });

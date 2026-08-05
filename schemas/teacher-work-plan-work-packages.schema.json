@@ -204,7 +204,7 @@
           "const": "grade-6-science-soil-organisms"
         },
         "next_authoring_package_id": {
-          "const": "grade-6-science-photosynthesis"
+          "const": "grade-6-science-garden-field-food-products"
         }
       }
     },
@@ -217,8 +217,8 @@
         "delivered_capability_count",
         "not_started_ready_package_count",
         "blocked_teacher_review_count",
-        "implemented_package_id",
-        "artifact_index_path",
+        "implemented_package_ids",
+        "artifact_index_paths",
         "human_review_workflow_count",
         "completed_human_review_record_count",
         "teacher_review_pending_count",
@@ -232,24 +232,29 @@
         "source_gap_resolution_claimed"
       ],
       "properties": {
-        "implemented_internal_draft_count": { "const": 1 },
-        "implemented_source_gap_count": { "const": 2 },
-        "delivered_capability_count": { "const": 7 },
-        "not_started_ready_package_count": { "const": 12 },
+        "implemented_internal_draft_count": { "const": 2 },
+        "implemented_source_gap_count": { "const": 3 },
+        "delivered_capability_count": { "const": 12 },
+        "not_started_ready_package_count": { "const": 11 },
         "blocked_teacher_review_count": { "const": 3 },
-        "implemented_package_id": { "const": "grade-6-science-soil-organisms" },
-        "artifact_index_path": {
-          "const": "teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml"
+        "implemented_package_ids": {
+          "const": ["grade-6-science-soil-organisms", "grade-6-science-photosynthesis"]
         },
-        "human_review_workflow_count": { "const": 1 },
+        "artifact_index_paths": {
+          "const": [
+            "teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml",
+            "teacher-work-plan-artifacts/grade-6-science/photosynthesis/artifact-index.yaml"
+          ]
+        },
+        "human_review_workflow_count": { "const": 2 },
         "completed_human_review_record_count": { "const": 0 },
-        "teacher_review_pending_count": { "const": 1 },
-        "local_safety_review_pending_count": { "const": 1 },
-        "classroom_trial_workflow_count": { "const": 1 },
-        "classroom_trial_template_count": { "const": 1 },
+        "teacher_review_pending_count": { "const": 2 },
+        "local_safety_review_pending_count": { "const": 2 },
+        "classroom_trial_workflow_count": { "const": 2 },
+        "classroom_trial_template_count": { "const": 2 },
         "completed_classroom_trial_record_count": { "const": 0 },
-        "classroom_trial_not_tested_count": { "const": 1 },
-        "next_selected_package_id": { "const": "grade-6-science-photosynthesis" },
+        "classroom_trial_not_tested_count": { "const": 2 },
+        "next_selected_package_id": { "const": "grade-6-science-garden-field-food-products" },
         "next_selected_package_status": { "const": "selected_not_started" },
         "source_gap_resolution_claimed": { "const": false }
       }
@@ -274,31 +279,30 @@
         "source_gap_resolution_claimed"
       ],
       "properties": {
-        "package_id": { "const": "grade-6-science-photosynthesis" },
+        "package_id": { "const": "grade-6-science-garden-field-food-products" },
         "route": { "const": "grade-6-science" },
         "priority_tier": { "const": "p1" },
         "authoring_status": { "const": "ready_for_authoring" },
         "package_kind": { "const": "single_gap" },
         "source_gap_ids": {
           "type": "array",
-          "prefixItems": [{ "const": "grade-6-science-lesson-016" }],
+          "prefixItems": [{ "const": "grade-6-science-lesson-022" }],
           "items": false,
           "minItems": 1,
           "maxItems": 1
         },
-        "planned_root_path": { "const": "teacher-work-plan-artifacts/grade-6-science/photosynthesis" },
+        "planned_root_path": { "const": "teacher-work-plan-artifacts/grade-6-science/garden-field-food-products" },
         "proposed_capabilities": {
           "type": "array",
           "prefixItems": [
             { "const": "practical_protocol" },
             { "const": "observation_table" },
             { "const": "student_worksheet" },
-            { "const": "answer_key" },
-            { "const": "assessment_rubric" }
+            { "const": "answer_key" }
           ],
           "items": false,
-          "minItems": 5,
-          "maxItems": 5
+          "minItems": 4,
+          "maxItems": 4
         },
         "status": { "const": "selected_not_started" },
         "materials_created": { "const": false },
@@ -533,23 +537,19 @@
       "properties": {
         "status": { "const": "internal_draft_pending_teacher_review" },
         "artifact_index_path": {
-          "const": "teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml"
+          "$ref": "#/$defs/repositoryPath"
         },
         "delivered_capabilities": {
           "type": "array",
-          "minItems": 7,
-          "maxItems": 7,
+          "minItems": 1,
           "uniqueItems": true,
           "items": { "$ref": "#/$defs/capability" }
         },
         "supported_gap_ids": {
           "type": "array",
-          "minItems": 2,
-          "maxItems": 2,
+          "minItems": 1,
           "uniqueItems": true,
-          "items": {
-            "enum": ["grade-6-science-lesson-008", "grade-6-science-lesson-009"]
-          }
+          "items": { "$ref": "#/$defs/slug" }
         },
         "human_review": { "$ref": "#/$defs/humanReviewTracking" },
         "classroom_trial": { "$ref": "#/$defs/classroomTrialTracking" },
@@ -574,10 +574,11 @@
       ],
       "properties": {
         "registry_path": {
-          "const": "teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/review-registry.yaml"
+          "$ref": "#/$defs/repositoryPath"
         },
         "content_fingerprint": {
-          "const": "894cc83f54c158485f6d6ba699d8a1298c3e57056e315281b79d69e84f366613"
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
         },
         "teacher_review_status": { "const": "pending" },
         "local_safety_review_status": { "const": "pending" },
@@ -604,7 +605,7 @@
       "properties": {
         "workflow_created": { "const": true },
         "template_path": {
-          "const": "teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/classroom-trial-template.yaml"
+          "$ref": "#/$defs/repositoryPath"
         },
         "completed_record_count": { "const": 0 },
         "status": { "const": "not_tested" },

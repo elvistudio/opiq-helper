@@ -377,7 +377,10 @@ function appendSuccessorTrial(repository, predecessor, {
 }
 
 test.before(async () => {
-  baseline = await loadTeacherWorkPlanArtifactClassroomTrialRepository({ rootDir: process.cwd() });
+  baseline = await loadTeacherWorkPlanArtifactClassroomTrialRepository({
+    rootDir: process.cwd(),
+    artifactId: PROFILE.artifactId,
+  });
 });
 
 test('production classroom-trial workflow is exact and contains no trial evidence', () => {
@@ -688,6 +691,7 @@ for (const [name, text, pattern] of [
   test(`strict parser rejects ${name}`, async () => {
     const repository = await loadTeacherWorkPlanArtifactClassroomTrialRepository({
       rootDir: process.cwd(),
+      artifactId: PROFILE.artifactId,
       fileOverrides: new Map([[CLASSROOM_TRIAL_TEMPLATE_PATH, text]]),
     });
     expectInvalid(repository, pattern);

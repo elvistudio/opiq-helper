@@ -110,42 +110,13 @@
     },
     "teacherScope": {
       "type": "array",
-      "minItems": 10,
-      "maxItems": 10,
-      "prefixItems": [
-        { "allOf": [{ "$ref": "#/$defs/scopeItem" }, { "properties": { "area": { "const": "scientific_accuracy" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/scopeItem" }, { "properties": { "area": { "const": "age_appropriateness" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/scopeItem" }, { "properties": { "area": { "const": "instructional_clarity" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/scopeItem" }, { "properties": { "area": { "const": "practical_feasibility" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/scopeItem" }, { "properties": { "area": { "const": "assessment_alignment" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/scopeItem" }, { "properties": { "area": { "const": "russian_explanation_quality" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/scopeItem" }, { "properties": { "area": { "const": "estonian_language_support" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/scopeItem" }, { "properties": { "area": { "const": "accessibility_and_differentiation" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/scopeItem" }, { "properties": { "area": { "const": "source_and_provenance_boundaries" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/scopeItem" }, { "properties": { "area": { "const": "readiness_claims" } } }] }
-      ],
-      "items": false
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/scopeItem" }
     },
     "safetyScope": {
       "type": "array",
-      "minItems": 13,
-      "maxItems": 13,
-      "prefixItems": [
-        { "allOf": [{ "$ref": "#/$defs/scopeItem" }, { "properties": { "area": { "const": "school_or_site_context" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/scopeItem" }, { "properties": { "area": { "const": "exact_observation_locations" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/scopeItem" }, { "properties": { "area": { "const": "weather_and_terrain" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/scopeItem" }, { "properties": { "area": { "const": "restricted_or_protected_area_permissions" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/scopeItem" }, { "properties": { "area": { "const": "hazardous_objects_and_waste" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/scopeItem" }, { "properties": { "area": { "const": "organisms_and_allergy_risks" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/scopeItem" }, { "properties": { "area": { "const": "tools_and_gloves" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/scopeItem" }, { "properties": { "area": { "const": "hygiene_and_handwashing" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/scopeItem" }, { "properties": { "area": { "const": "accessibility_and_participation" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/scopeItem" }, { "properties": { "area": { "const": "supervision_and_stop_signals" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/scopeItem" }, { "properties": { "area": { "const": "indoor_fallback" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/scopeItem" }, { "properties": { "area": { "const": "emergency_or_incident_procedure" } } }] },
-        { "allOf": [{ "$ref": "#/$defs/scopeItem" }, { "properties": { "area": { "const": "restoration_and_ethical_return" } } }] }
-      ],
-      "items": false
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/scopeItem" }
     },
     "finding": {
       "type": "object",
@@ -448,7 +419,7 @@
         "adult_supervision_count": { "oneOf": [{ "type": "integer", "minimum": 1 }, { "type": "null" }] },
         "delivery_site_category": {
           "oneOf": [
-            { "enum": ["outdoor_field", "indoor_fallback", "mixed"] },
+            { "enum": ["outdoor_field", "indoor_fallback", "indoor_classroom", "mixed"] },
             { "type": "null" }
           ]
         },

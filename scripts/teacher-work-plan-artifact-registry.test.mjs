@@ -13,8 +13,9 @@ import {
 const SOIL_ID = 'grade-6-science-soil-organisms';
 const SOIL_PROFILE_ID = 'grade-6-science-soil-organisms-v1';
 const SOIL_FINGERPRINT = '894cc83f54c158485f6d6ba699d8a1298c3e57056e315281b79d69e84f366613';
-const NEXT_ID = 'grade-6-science-photosynthesis';
-const NEXT_ROOT = 'teacher-work-plan-artifacts/grade-6-science/photosynthesis';
+const PHOTOSYNTHESIS_ID = 'grade-6-science-photosynthesis';
+const NEXT_ID = 'grade-6-science-garden-field-food-products';
+const NEXT_ROOT = 'teacher-work-plan-artifacts/grade-6-science/garden-field-food-products';
 
 let baseline;
 
@@ -55,19 +56,20 @@ test('production central registry is exact and selects an unstarted second packa
   assert.deepEqual(result.diagnostics, []);
   assert.deepEqual(result.summary, {
     artifact_registries: 1,
-    registered_artifacts: 1,
-    discovered_artifact_indexes: 1,
-    validation_profiles: 1,
-    implemented_internal_drafts: 1,
+    registered_artifacts: 2,
+    discovered_artifact_indexes: 2,
+    validation_profiles: 2,
+    implemented_internal_drafts: 2,
     next_authoring_package: NEXT_ID,
     next_package_status: 'selected_not_started',
   });
   const registry = baseline.registry.data;
   assert.equal(baseline.registry.file, TEACHER_WORK_PLAN_ARTIFACT_REGISTRY_PATH);
   assert.equal(registry.registry_id, 'grades-5-7-teacher-work-plan-reusable-artifacts');
-  assert.equal(registry.artifacts[0].artifact_id, SOIL_ID);
-  assert.equal(registry.artifacts[0].validation_profile_id, SOIL_PROFILE_ID);
-  assert.equal(registry.artifacts[0].content_fingerprint, SOIL_FINGERPRINT);
+  const soil = registry.artifacts.find(({ artifact_id }) => artifact_id === SOIL_ID);
+  assert.equal(soil.validation_profile_id, SOIL_PROFILE_ID);
+  assert.equal(soil.content_fingerprint, SOIL_FINGERPRINT);
+  assert.equal(registry.artifacts.some(({ artifact_id }) => artifact_id === PHOTOSYNTHESIS_ID), true);
   assert.equal(registry.authoring_queue.next_package_id, NEXT_ID);
   assert.equal(registry.authoring_queue.planned_root_path, NEXT_ROOT);
   assert.equal(registry.authoring_queue.status, 'selected_not_started');
@@ -118,7 +120,7 @@ test('synthetic second route artifact validates without committed teaching conte
       trialTemplatePath: `${rootPath}/reviews/classroom-trial-template.yaml`,
     },
   };
-  const syntheticIndex = structuredClone(repository.indexes[0]);
+  const syntheticIndex = structuredClone(repository.indexes.find(({ data }) => data.artifact_id === SOIL_ID));
   syntheticIndex.file = indexPath;
   syntheticIndex.data.artifact_id = packageId;
   syntheticIndex.data.package_id = packageId;
@@ -167,7 +169,7 @@ const mutations = [
   ['trial template mismatch', (repo) => { repo.registry.data.artifacts[0].classroom_trial_template_path = 'teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/other.yaml'; }, /classroom_trial_template_path differs/u],
   ['queue package missing', (repo) => { repo.registry.data.authoring_queue.next_package_id = 'missing-package'; }, /absent from the work-package registry/u],
   ['queue package blocked', (repo) => { repo.workPackageRepository.artifact.work_packages.find(({ package_id }) => package_id === NEXT_ID).authoring_status = 'blocked_teacher_review'; }, /ready_for_authoring/u],
-  ['queue package already implemented', (repo) => { repo.workPackageRepository.artifact.work_packages.find(({ package_id }) => package_id === NEXT_ID).implementation = structuredClone(repo.workPackageRepository.artifact.work_packages.find(({ implementation }) => implementation).implementation); }, /already implemented/u],
+  ['queue package already implemented', (repo) => { repo.workPackageRepository.artifact.work_packages.find(({ package_id }) => package_id === NEXT_ID).implementation = structuredClone(repo.workPackageRepository.artifact.work_packages.find(({ implementation }) => implementation).implementation); }, /implemented package must link|already implemented/u],
   ['queue root mismatch', (repo) => { repo.registry.data.authoring_queue.planned_root_path = 'teacher-work-plan-artifacts/grade-6-science/other'; }, /next authoring root|queued root differs/u],
   ['queue materials marked created', (repo) => { repo.registry.data.authoring_queue.materials_created = true; }, /materials_created must remain false/u],
   ['queue review workflow marked created', (repo) => { repo.registry.data.authoring_queue.human_review_workflow_created = true; }, /human_review_workflow_created must remain false/u],
