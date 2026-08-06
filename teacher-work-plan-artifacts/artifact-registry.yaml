@@ -44,16 +44,25 @@ artifacts:
     content_fingerprint: 999eb50584622bb35dd017a34d7b83536c4face4ebaccd98d12d7768518280ad
     review_registry_path: teacher-work-plan-artifacts/grade-6-science/garden-field-food-products/reviews/review-registry.yaml
     classroom_trial_template_path: teacher-work-plan-artifacts/grade-6-science/garden-field-food-products/reviews/classroom-trial-template.yaml
+  - artifact_id: grade-6-science-wood-processing
+    package_id: grade-6-science-wood-processing
+    route: grade-6-science
+    root_path: teacher-work-plan-artifacts/grade-6-science/wood-processing
+    index_path: teacher-work-plan-artifacts/grade-6-science/wood-processing/artifact-index.yaml
+    validation_profile_id: grade-6-science-wood-processing-v1
+    lifecycle_status: internal_draft
+    content_fingerprint: 59689bce711416a1cab4c8df5c5d75113c8e4a1fdec1d5aafc5ed9ecb8981436
+    review_registry_path: teacher-work-plan-artifacts/grade-6-science/wood-processing/reviews/review-registry.yaml
+    classroom_trial_template_path: teacher-work-plan-artifacts/grade-6-science/wood-processing/reviews/classroom-trial-template.yaml
 authoring_queue:
-  next_package_id: grade-6-science-wood-processing
+  next_package_id: grade-6-science-air-composition
   status: selected_not_started
-  selection_order: 4
-  planned_root_path: teacher-work-plan-artifacts/grade-6-science/wood-processing
+  selection_order: 5
+  planned_root_path: teacher-work-plan-artifacts/grade-6-science/air-composition
   selection_reason: >-
     This is the next route-local ready Grade 6 science package after the
-    garden-and-field food-products internal draft. It is one bounded missing
-    subject bridge with no blocking question and three declared reusable-artifact
-    capabilities.
+    wood-processing internal draft. It is one bounded missing practical gap with
+    no blocking question and four declared reusable-artifact capabilities.
   materials_created: false
   artifact_index_created: false
   human_review_workflow_created: false

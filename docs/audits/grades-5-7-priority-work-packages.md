@@ -4,7 +4,7 @@
 
 This generated audit records the completed semantic review of the 17 missing or ambiguous source-backed gaps in the four registered supplementary teacher-plan crosswalks. The review defines 16 work packages: 13 are semantically authorable and 3 remain blocked by explicit teacher decisions.
 
-Semantic review remains complete. Three route-local packages now have internal-draft materials plus fail-closed human-review and classroom-trial workflows; every teacher review and local safety review remains pending, every classroom trial remains not tested, no review decision is recorded, and no canonical source gap is resolved.
+Semantic review remains complete. Four route-local packages now have internal-draft materials plus fail-closed human-review and classroom-trial workflows; every teacher review and local safety review remains pending, every classroom trial remains not tested, no review decision is recorded, and no canonical source gap is resolved.
 
 ## 2. Why semantic review precedes authoring
 
@@ -58,8 +58,8 @@ Grade 7 geography has no missing or ambiguous priority gap and therefore has no 
 ## 5. Ready versus blocked accounting
 
 - Semantically ready packages: 13.
-- Implemented as an internal draft: 3.
-- Ready packages not started: 10.
+- Implemented as an internal draft: 4.
+- Ready packages not started: 9.
 - Blocked by teacher review: 3.
 - `grade-5-science-year-start-workflow`: Which local class workflow, learner grouping and portfolio conventions should be used?
 - `grade-6-science-unassigned-lesson-105`: Which topic or local annual-course purpose, if any, should be assigned to lesson 105?
@@ -73,6 +73,8 @@ Blocked packages propose only a `teacher_decision_record`; they do not propose w
   Trial template: [`teacher-work-plan-artifacts/grade-6-science/photosynthesis/reviews/classroom-trial-template.yaml`](../../teacher-work-plan-artifacts/grade-6-science/photosynthesis/reviews/classroom-trial-template.yaml); no trial has been conducted or registered, and classroom readiness and effectiveness claims remain false.
 - `grade-6-science-garden-field-food-products`: review registry [`teacher-work-plan-artifacts/grade-6-science/garden-field-food-products/reviews/review-registry.yaml`](../../teacher-work-plan-artifacts/grade-6-science/garden-field-food-products/reviews/review-registry.yaml), fingerprint `999eb50584622bb35dd017a34d7b83536c4face4ebaccd98d12d7768518280ad`; teacher and safety reviews pending, completed records 0, classroom trial `not_tested`.
   Trial template: [`teacher-work-plan-artifacts/grade-6-science/garden-field-food-products/reviews/classroom-trial-template.yaml`](../../teacher-work-plan-artifacts/grade-6-science/garden-field-food-products/reviews/classroom-trial-template.yaml); no trial has been conducted or registered, and classroom readiness and effectiveness claims remain false.
+- `grade-6-science-wood-processing`: review registry [`teacher-work-plan-artifacts/grade-6-science/wood-processing/reviews/review-registry.yaml`](../../teacher-work-plan-artifacts/grade-6-science/wood-processing/reviews/review-registry.yaml), fingerprint `59689bce711416a1cab4c8df5c5d75113c8e4a1fdec1d5aafc5ed9ecb8981436`; teacher and safety reviews pending, completed records 0, classroom trial `not_tested`.
+  Trial template: [`teacher-work-plan-artifacts/grade-6-science/wood-processing/reviews/classroom-trial-template.yaml`](../../teacher-work-plan-artifacts/grade-6-science/wood-processing/reviews/classroom-trial-template.yaml); no trial has been conducted or registered, and classroom readiness and effectiveness claims remain false.
 
 ## 6. Grouping decisions
 
@@ -102,7 +104,9 @@ The second internal draft is `grade-6-science-photosynthesis` at `teacher-work-p
 
 The third internal draft is `grade-6-science-garden-field-food-products` at `teacher-work-plan-artifacts/grade-6-science/garden-field-food-products/artifact-index.yaml`. Its four independently authored capabilities support `grade-6-science-lesson-022`, but the canonical gap remains `missing`; zero Opiq context records are claimed, both reviews remain pending and classroom trial remains `not_tested`.
 
-The next selected package is `grade-6-science-wood-processing` for `grade-6-science-lesson-038`. Its planned root is `teacher-work-plan-artifacts/grade-6-science/wood-processing`; status is `selected_not_started`. No wood-processing material, artifact index, human-review workflow or classroom-trial workflow exists, and its canonical source gap remains `missing`.
+The fourth internal draft is `grade-6-science-wood-processing` at `teacher-work-plan-artifacts/grade-6-science/wood-processing/artifact-index.yaml`. Its three independently authored capabilities support `grade-6-science-lesson-038`, but the canonical gap remains `missing`; two optional Opiq records provide only forest and resource-use context, both reviews remain pending and classroom trial remains `not_tested`.
+
+The next selected package is `grade-6-science-air-composition` for `grade-6-science-lesson-051`. Its planned root is `teacher-work-plan-artifacts/grade-6-science/air-composition`; status is `selected_not_started`. No air-composition material, artifact index, human-review workflow or classroom-trial workflow exists, and its canonical source gap remains `missing`.
 
 ## 9. Existing lesson/teacher-pack architecture boundary
 
@@ -118,8 +122,8 @@ The production lesson schema and validators require a verified official curricul
 
 ## 11. What remains pending
 
-- Three packages have internal-draft reusable materials and workflows, but no completed review or trial record; all teacher and local safety reviews remain pending and all classroom trials remain `not_tested`.
-- Ten semantically ready packages remain not started.
+- Four packages have internal-draft reusable materials and workflows, but no completed review or trial record; all teacher and local safety reviews remain pending and all classroom trials remain `not_tested`.
+- Nine semantically ready packages remain not started.
 - The reusable-artifact backlog is not complete.
 - Three packages require teacher decisions before authoring.
 - Phase 5 has started but remains incomplete; no canonical source gap is marked resolved.

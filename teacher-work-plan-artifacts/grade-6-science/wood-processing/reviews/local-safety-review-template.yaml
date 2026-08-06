@@ -1,0 +1,55 @@
+schema_version: "1.0"
+artifact_type: teacher_work_plan_artifact_local_safety_review
+template: true
+review_identity:
+  review_id: null
+  reviewer_id: null
+  reviewer_name: null
+  reviewer_role: null
+  organization: null
+  review_date: null
+artifact_identity:
+  artifact_id: grade-6-science-wood-processing
+  artifact_index_path: teacher-work-plan-artifacts/grade-6-science/wood-processing/artifact-index.yaml
+  content_fingerprint: 59689bce711416a1cab4c8df5c5d75113c8e4a1fdec1d5aafc5ed9ecb8981436
+  package_id: grade-6-science-wood-processing
+  route: grade-6-science
+  grade: 6
+  subject: science
+  subject_et: loodusõpetus
+local_context:
+  school_or_organization: null
+  site_description: null
+  planned_activity_date: null
+  group_size: null
+  adult_supervision_count: null
+  delivery_site_category: null
+  indoor_fallback_permitted: null
+  weather_limitations: null
+  accessibility_adjustments: null
+  permission_requirements: null
+  emergency_contact_process: null
+review_scope:
+  - { area: named_classroom_context, status: not_reviewed, notes: null, finding_ids: [] }
+  - { area: paper_material_only_boundary, status: not_reviewed, notes: null, finding_ids: [] }
+  - { area: no_tools_blades_or_machine_demonstration, status: not_reviewed, notes: null, finding_ids: [] }
+  - { area: splinter_dust_adhesive_and_solvent_exclusion, status: not_reviewed, notes: null, finding_ids: [] }
+  - { area: accessibility_and_participation, status: not_reviewed, notes: null, finding_ids: [] }
+  - { area: supervision_and_stop_signals, status: not_reviewed, notes: null, finding_ids: [] }
+  - { area: emergency_or_incident_procedure, status: not_reviewed, notes: null, finding_ids: [] }
+findings: []
+decision:
+  status: pending
+  rationale: null
+  open_blocking_findings: []
+  open_major_findings: []
+  required_changes_complete: false
+  reviewed_fingerprint_matches: false
+  conditions: []
+safety_boundaries:
+  named_context_only: true
+  universal_safety_claimed: false
+  other_site_legal_permission_claimed: false
+  all_weather_approval_claimed: false
+  protected_area_permission_claimed: false
+  classroom_readiness_claimed: false

@@ -15,8 +15,9 @@ const SOIL_PROFILE_ID = 'grade-6-science-soil-organisms-v1';
 const SOIL_FINGERPRINT = '894cc83f54c158485f6d6ba699d8a1298c3e57056e315281b79d69e84f366613';
 const PHOTOSYNTHESIS_ID = 'grade-6-science-photosynthesis';
 const GARDEN_FIELD_ID = 'grade-6-science-garden-field-food-products';
-const NEXT_ID = 'grade-6-science-wood-processing';
-const NEXT_ROOT = 'teacher-work-plan-artifacts/grade-6-science/wood-processing';
+const WOOD_PROCESSING_ID = 'grade-6-science-wood-processing';
+const NEXT_ID = 'grade-6-science-air-composition';
+const NEXT_ROOT = 'teacher-work-plan-artifacts/grade-6-science/air-composition';
 
 let baseline;
 
@@ -57,10 +58,10 @@ test('production central registry is exact and selects the next unstarted packag
   assert.deepEqual(result.diagnostics, []);
   assert.deepEqual(result.summary, {
     artifact_registries: 1,
-    registered_artifacts: 3,
-    discovered_artifact_indexes: 3,
-    validation_profiles: 3,
-    implemented_internal_drafts: 3,
+    registered_artifacts: 4,
+    discovered_artifact_indexes: 4,
+    validation_profiles: 4,
+    implemented_internal_drafts: 4,
     next_authoring_package: NEXT_ID,
     next_package_status: 'selected_not_started',
   });
@@ -72,6 +73,7 @@ test('production central registry is exact and selects the next unstarted packag
   assert.equal(soil.content_fingerprint, SOIL_FINGERPRINT);
   assert.equal(registry.artifacts.some(({ artifact_id }) => artifact_id === PHOTOSYNTHESIS_ID), true);
   assert.equal(registry.artifacts.some(({ artifact_id }) => artifact_id === GARDEN_FIELD_ID), true);
+  assert.equal(registry.artifacts.some(({ artifact_id }) => artifact_id === WOOD_PROCESSING_ID), true);
   assert.equal(registry.authoring_queue.next_package_id, NEXT_ID);
   assert.equal(registry.authoring_queue.planned_root_path, NEXT_ROOT);
   assert.equal(registry.authoring_queue.status, 'selected_not_started');

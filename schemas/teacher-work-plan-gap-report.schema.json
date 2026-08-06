@@ -599,20 +599,20 @@
         "source_gap_resolution_claimed"
       ],
       "properties": {
-        "implemented_package_count": { "const": 3 },
-        "implemented_source_gap_count": { "const": 4 },
-        "delivered_capability_count": { "const": 16 },
-        "human_review_workflow_count": { "const": 3 },
-        "teacher_review_pending_count": { "const": 3 },
-        "local_safety_review_pending_count": { "const": 3 },
+        "implemented_package_count": { "const": 4 },
+        "implemented_source_gap_count": { "const": 5 },
+        "delivered_capability_count": { "const": 19 },
+        "human_review_workflow_count": { "const": 4 },
+        "teacher_review_pending_count": { "const": 4 },
+        "local_safety_review_pending_count": { "const": 4 },
         "completed_human_review_record_count": { "const": 0 },
-        "classroom_trial_workflow_count": { "const": 3 },
+        "classroom_trial_workflow_count": { "const": 4 },
         "completed_classroom_trial_record_count": { "const": 0 },
-        "classroom_trial_not_tested_count": { "const": 3 },
+        "classroom_trial_not_tested_count": { "const": 4 },
         "artifacts": {
           "type": "array",
-          "minItems": 3,
-          "maxItems": 3,
+          "minItems": 4,
+          "maxItems": 4,
           "prefixItems": [
             {
               "allOf": [
@@ -630,6 +630,12 @@
               "allOf": [
                 { "$ref": "#/$defs/reusableArtifactTracking" },
                 { "type": "object", "properties": { "package_id": { "const": "grade-6-science-garden-field-food-products" } } }
+              ]
+            },
+            {
+              "allOf": [
+                { "$ref": "#/$defs/reusableArtifactTracking" },
+                { "type": "object", "properties": { "package_id": { "const": "grade-6-science-wood-processing" } } }
               ]
             }
           ],
@@ -690,16 +696,16 @@
         "source_gap_resolution_claimed"
       ],
       "properties": {
-        "selected_next_package_id": { "const": "grade-6-science-wood-processing" },
+        "selected_next_package_id": { "const": "grade-6-science-air-composition" },
         "selected_next_package_status": { "const": "selected_not_started" },
         "selected_next_gap_ids": {
           "type": "array",
-          "prefixItems": [{ "const": "grade-6-science-lesson-038" }],
+          "prefixItems": [{ "const": "grade-6-science-lesson-051" }],
           "items": false,
           "minItems": 1,
           "maxItems": 1
         },
-        "selected_next_planned_root": { "const": "teacher-work-plan-artifacts/grade-6-science/wood-processing" },
+        "selected_next_planned_root": { "const": "teacher-work-plan-artifacts/grade-6-science/air-composition" },
         "selected_next_material_count": { "const": 0 },
         "selected_next_review_workflow_created": { "const": false },
         "selected_next_trial_workflow_created": { "const": false },

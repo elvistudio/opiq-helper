@@ -235,7 +235,7 @@
     "opiqContext": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["inventory_bucket", "topic_inventory_ref", "record_id", "canonical_url", "canonical_source_id", "book_id", "title", "language", "programme_type", "programme_type_evidence_status", "default_course_eligibility", "instructional_roles", "relationship_to_pilot", "required_for_learner_completion"],
+      "required": ["inventory_bucket", "topic_inventory_ref", "record_id", "canonical_url", "canonical_source_id", "book_id", "title", "language", "programme_type", "programme_type_evidence_status", "default_course_eligibility", "instructional_roles", "required_for_learner_completion"],
       "properties": {
         "inventory_bucket": { "enum": ["selected_records", "alternative_records"] },
         "topic_inventory_ref": { "$ref": "#/$defs/slug" },
@@ -256,8 +256,19 @@
         },
         "instructional_roles": { "$ref": "#/$defs/stringList" },
         "relationship_to_pilot": { "$ref": "#/$defs/nonEmptyString" },
+        "relationship_to_artifact": { "$ref": "#/$defs/nonEmptyString" },
         "required_for_learner_completion": { "const": false }
-      }
+      },
+      "oneOf": [
+        {
+          "properties": { "relationship_to_pilot": {} },
+          "required": ["relationship_to_pilot"]
+        },
+        {
+          "properties": { "relationship_to_artifact": {} },
+          "required": ["relationship_to_artifact"]
+        }
+      ]
     },
     "lessonPart": {
       "type": "object",
