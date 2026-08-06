@@ -81,10 +81,10 @@ const SAMPLE_TOPIC_ABSENCES = Object.freeze([
 ]);
 
 const AUTHORING_QUEUE_SUMMARY = Object.freeze({
-  selected_next_package_id: 'grade-6-science-wood-processing',
+  selected_next_package_id: 'grade-6-science-air-composition',
   selected_next_package_status: 'selected_not_started',
-  selected_next_gap_ids: ['grade-6-science-lesson-038'],
-  selected_next_planned_root: 'teacher-work-plan-artifacts/grade-6-science/wood-processing',
+  selected_next_gap_ids: ['grade-6-science-lesson-051'],
+  selected_next_planned_root: 'teacher-work-plan-artifacts/grade-6-science/air-composition',
   selected_next_material_count: 0,
   selected_next_review_workflow_created: false,
   selected_next_trial_workflow_created: false,

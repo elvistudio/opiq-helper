@@ -47,43 +47,46 @@ summary:
   blocked_teacher_review_count: 3
   multi_gap_package_count: 1
   selected_pilot_package_id: grade-6-science-soil-organisms
-  next_authoring_package_id: grade-6-science-wood-processing
+  next_authoring_package_id: grade-6-science-air-composition
 implementation_summary:
-  implemented_internal_draft_count: 3
-  implemented_source_gap_count: 4
-  delivered_capability_count: 16
-  not_started_ready_package_count: 10
+  implemented_internal_draft_count: 4
+  implemented_source_gap_count: 5
+  delivered_capability_count: 19
+  not_started_ready_package_count: 9
   blocked_teacher_review_count: 3
   implemented_package_ids:
     - grade-6-science-soil-organisms
     - grade-6-science-photosynthesis
     - grade-6-science-garden-field-food-products
+    - grade-6-science-wood-processing
   artifact_index_paths:
     - teacher-work-plan-artifacts/grade-6-science/soil-organisms/artifact-index.yaml
     - teacher-work-plan-artifacts/grade-6-science/photosynthesis/artifact-index.yaml
     - teacher-work-plan-artifacts/grade-6-science/garden-field-food-products/artifact-index.yaml
-  human_review_workflow_count: 3
+    - teacher-work-plan-artifacts/grade-6-science/wood-processing/artifact-index.yaml
+  human_review_workflow_count: 4
   completed_human_review_record_count: 0
-  teacher_review_pending_count: 3
-  local_safety_review_pending_count: 3
-  classroom_trial_workflow_count: 3
-  classroom_trial_template_count: 3
+  teacher_review_pending_count: 4
+  local_safety_review_pending_count: 4
+  classroom_trial_workflow_count: 4
+  classroom_trial_template_count: 4
   completed_classroom_trial_record_count: 0
-  classroom_trial_not_tested_count: 3
-  next_selected_package_id: grade-6-science-wood-processing
+  classroom_trial_not_tested_count: 4
+  next_selected_package_id: grade-6-science-air-composition
   next_selected_package_status: selected_not_started
   source_gap_resolution_claimed: false
 authoring_queue:
-  package_id: grade-6-science-wood-processing
+  package_id: grade-6-science-air-composition
   route: grade-6-science
   priority_tier: p1
   authoring_status: ready_for_authoring
   package_kind: single_gap
   source_gap_ids:
-    - grade-6-science-lesson-038
-  planned_root_path: teacher-work-plan-artifacts/grade-6-science/wood-processing
+    - grade-6-science-lesson-051
+  planned_root_path: teacher-work-plan-artifacts/grade-6-science/air-composition
   proposed_capabilities:
-    - author_created_bridge
+    - practical_protocol
+    - observation_table
     - student_worksheet
     - answer_key
   status: selected_not_started
@@ -541,6 +544,35 @@ work_packages:
       - The package must distinguish route evidence about forests and resources from independently authored processing content.
     resolution_claimed: false
     selected_as_first_pilot: false
+    implementation:
+      status: internal_draft_pending_teacher_review
+      artifact_index_path: teacher-work-plan-artifacts/grade-6-science/wood-processing/artifact-index.yaml
+      delivered_capabilities:
+        - author_created_bridge
+        - student_worksheet
+        - answer_key
+      supported_gap_ids:
+        - grade-6-science-lesson-038
+      human_review:
+        registry_path: teacher-work-plan-artifacts/grade-6-science/wood-processing/reviews/review-registry.yaml
+        content_fingerprint: 59689bce711416a1cab4c8df5c5d75113c8e4a1fdec1d5aafc5ed9ecb8981436
+        teacher_review_status: pending
+        local_safety_review_status: pending
+        completed_teacher_review_count: 0
+        completed_safety_review_count: 0
+        classroom_trial_status: not_tested
+        review_decision_recorded: false
+        classroom_ready: false
+        publication_ready: false
+        effectiveness_claimed: false
+      classroom_trial:
+        workflow_created: true
+        template_path: teacher-work-plan-artifacts/grade-6-science/wood-processing/reviews/classroom-trial-template.yaml
+        completed_record_count: 0
+        status: not_tested
+        classroom_ready: false
+        effectiveness_claimed: false
+      source_gap_resolution_claimed: false
 
   - package_id: grade-6-science-air-composition
     source_id: grade-6-science

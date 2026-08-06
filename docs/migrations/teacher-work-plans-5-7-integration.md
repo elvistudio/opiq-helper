@@ -119,7 +119,7 @@ For each route:
 
 ### 5. Produce reusable teaching artifacts
 
-Implementation status: started, not complete. `grade-6-science-soil-organisms` remains an unchanged P0 internal draft with seven capabilities and independently authored support for lessons 8–9. `grade-6-science-photosynthesis` remains an unchanged second internal draft with five capabilities and independently authored support for lesson 16. `grade-6-science-garden-field-food-products` is now a third internal draft with four capabilities and independently authored offline support for lesson 22. It claims no direct Opiq evidence or external source; lesson 22 remains `missing` in the canonical crosswalk. All three packages have fail-closed human-review and classroom-trial workflows, zero completed review or trial records, pending teacher and local safety review, `not_tested` classroom status, and false readiness/publication/effectiveness claims. `grade-6-science-wood-processing` is selected next but not started; 10 authorable packages remain unimplemented, 3 remain blocked, and the reusable-artifact backlog remains incomplete.
+Implementation status: started, not complete. `grade-6-science-soil-organisms`, `grade-6-science-photosynthesis` and `grade-6-science-garden-field-food-products` remain byte-identical internal drafts. `grade-6-science-wood-processing` is now a fourth internal draft with three independently authored, offline paper-card capabilities supporting lesson 38. Its two optional Opiq records provide only wider forest and natural-resource context; they are not direct evidence for the wood-processing chains, and lesson 38 remains `missing` in the canonical crosswalk. All four packages have fail-closed human-review and classroom-trial workflows, zero completed review or trial records, pending teacher and local delivery/safety review, `not_tested` classroom status, and false readiness/publication/effectiveness claims. `grade-6-science-air-composition` is selected next but not started; 9 authorable packages remain unimplemented, 3 remain blocked, and the reusable-artifact backlog remains incomplete. No official curriculum completeness or annual architecture is created.
 
 After mapping is reviewed, derive small, source-attributed artifacts such as:
 
@@ -157,7 +157,7 @@ Run focused tests during authoring. Run the full test suite once the complete so
 5. Build four route-specific curriculum maps.
 6. Generate the cross-route gap report and complete semantic work-package review.
 7. Validate the lightweight reusable-artifact contract, create the fingerprint-pinned review and classroom-trial workflows, then obtain real teacher and named-context local-safety review before conducting any bounded Grade 6 soil-organisms trial.
-8. Review the internal-draft photosynthesis and garden/field food-products packages without inferring approval from merge state, then author the selected `grade-6-science-wood-processing` package as a separate bounded change. Continue the remaining authorable packages only after bounded review, and keep the 3 decision-blocked packages separate.
+8. Review the internal-draft photosynthesis, garden/field food-products and wood-processing packages without inferring approval from merge state, then author the selected `grade-6-science-air-composition` package as a separate bounded change. Continue the remaining authorable packages only after bounded review, and keep the 3 decision-blocked packages separate.
 9. Run the full repository test suite after Phase 5 is complete.
 
 ## Acceptance criteria

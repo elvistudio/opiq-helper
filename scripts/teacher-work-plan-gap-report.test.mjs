@@ -105,7 +105,7 @@ test('production report validates and uses four exact input routes in order', ()
   assert.deepEqual(report.route_summaries.map(({ source_id }) => source_id), Object.keys(expectedCrosswalks));
 });
 
-test('semantic review and three internal-draft reusable implementations are exact', () => {
+test('semantic review and four internal-draft reusable implementations are exact', () => {
   assert.deepEqual(report.work_package_review, {
     review_id: 'grades-5-7-priority-work-packages',
     path: 'evaluations/teacher-work-plans/grades-5-7-priority-work-packages.yaml',
@@ -119,16 +119,16 @@ test('semantic review and three internal-draft reusable implementations are exac
   });
   assert.equal(report.boundaries.semantic_work_package_review_complete, true);
   assert.deepEqual(report.reusable_artifact_implementation, {
-    implemented_package_count: 3,
-    implemented_source_gap_count: 4,
-    delivered_capability_count: 16,
-    human_review_workflow_count: 3,
-    teacher_review_pending_count: 3,
-    local_safety_review_pending_count: 3,
+    implemented_package_count: 4,
+    implemented_source_gap_count: 5,
+    delivered_capability_count: 19,
+    human_review_workflow_count: 4,
+    teacher_review_pending_count: 4,
+    local_safety_review_pending_count: 4,
     completed_human_review_record_count: 0,
-    classroom_trial_workflow_count: 3,
+    classroom_trial_workflow_count: 4,
     completed_classroom_trial_record_count: 0,
-    classroom_trial_not_tested_count: 3,
+    classroom_trial_not_tested_count: 4,
     artifacts: [
       {
         package_id: 'grade-6-science-soil-organisms',
@@ -199,15 +199,38 @@ test('semantic review and three internal-draft reusable implementations are exac
         effectiveness_claimed: false, canonical_gap_status_unchanged: true,
         source_gap_resolution_claimed: false,
       },
+      {
+        package_id: 'grade-6-science-wood-processing',
+        artifact_index_path: 'teacher-work-plan-artifacts/grade-6-science/wood-processing/artifact-index.yaml',
+        implementation_status: 'internal_draft_pending_teacher_review',
+        delivered_capability_count: 3,
+        supported_gap_ids: ['grade-6-science-lesson-038'],
+        opiq_context_record_count: 2,
+        human_review: {
+          registry_path: 'teacher-work-plan-artifacts/grade-6-science/wood-processing/reviews/review-registry.yaml',
+          workflow_created: true,
+          content_fingerprint: '59689bce711416a1cab4c8df5c5d75113c8e4a1fdec1d5aafc5ed9ecb8981436',
+          teacher_review_status: 'pending', local_safety_review_status: 'pending',
+          completed_teacher_review_count: 0, completed_safety_review_count: 0,
+          classroom_trial_status: 'not_tested', review_decision_recorded: false,
+          classroom_ready: false, publication_ready: false, effectiveness_claimed: false,
+        },
+        classroom_trial_workflow_created: true,
+        classroom_trial_template_path: 'teacher-work-plan-artifacts/grade-6-science/wood-processing/reviews/classroom-trial-template.yaml',
+        completed_classroom_trial_record_count: 0, classroom_trial_status: 'not_tested',
+        classroom_ready: false, publication_ready: false, customer_released: false,
+        effectiveness_claimed: false, canonical_gap_status_unchanged: true,
+        source_gap_resolution_claimed: false,
+      },
     ],
     canonical_gap_status_unchanged: true,
     source_gap_resolution_claimed: false,
   });
   assert.deepEqual(report.authoring_queue, {
-    selected_next_package_id: 'grade-6-science-wood-processing',
+    selected_next_package_id: 'grade-6-science-air-composition',
     selected_next_package_status: 'selected_not_started',
-    selected_next_gap_ids: ['grade-6-science-lesson-038'],
-    selected_next_planned_root: 'teacher-work-plan-artifacts/grade-6-science/wood-processing',
+    selected_next_gap_ids: ['grade-6-science-lesson-051'],
+    selected_next_planned_root: 'teacher-work-plan-artifacts/grade-6-science/air-composition',
     selected_next_material_count: 0,
     selected_next_review_workflow_created: false,
     selected_next_trial_workflow_created: false,
