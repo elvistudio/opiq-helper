@@ -105,7 +105,7 @@ test('production report validates and uses four exact input routes in order', ()
   assert.deepEqual(report.route_summaries.map(({ source_id }) => source_id), Object.keys(expectedCrosswalks));
 });
 
-test('semantic review and four internal-draft reusable implementations are exact', () => {
+test('semantic review and five internal-draft reusable implementations are exact', () => {
   assert.deepEqual(report.work_package_review, {
     review_id: 'grades-5-7-priority-work-packages',
     path: 'evaluations/teacher-work-plans/grades-5-7-priority-work-packages.yaml',
@@ -119,16 +119,16 @@ test('semantic review and four internal-draft reusable implementations are exact
   });
   assert.equal(report.boundaries.semantic_work_package_review_complete, true);
   assert.deepEqual(report.reusable_artifact_implementation, {
-    implemented_package_count: 4,
-    implemented_source_gap_count: 5,
-    delivered_capability_count: 19,
-    human_review_workflow_count: 4,
-    teacher_review_pending_count: 4,
-    local_safety_review_pending_count: 4,
+    implemented_package_count: 5,
+    implemented_source_gap_count: 6,
+    delivered_capability_count: 23,
+    human_review_workflow_count: 5,
+    teacher_review_pending_count: 5,
+    local_safety_review_pending_count: 5,
     completed_human_review_record_count: 0,
-    classroom_trial_workflow_count: 4,
+    classroom_trial_workflow_count: 5,
     completed_classroom_trial_record_count: 0,
-    classroom_trial_not_tested_count: 4,
+    classroom_trial_not_tested_count: 5,
     artifacts: [
       {
         package_id: 'grade-6-science-soil-organisms',
@@ -222,15 +222,38 @@ test('semantic review and four internal-draft reusable implementations are exact
         effectiveness_claimed: false, canonical_gap_status_unchanged: true,
         source_gap_resolution_claimed: false,
       },
+      {
+        package_id: 'grade-6-science-air-composition',
+        artifact_index_path: 'teacher-work-plan-artifacts/grade-6-science/air-composition/artifact-index.yaml',
+        implementation_status: 'internal_draft_pending_teacher_review',
+        delivered_capability_count: 4,
+        supported_gap_ids: ['grade-6-science-lesson-051'],
+        opiq_context_record_count: 0,
+        human_review: {
+          registry_path: 'teacher-work-plan-artifacts/grade-6-science/air-composition/reviews/review-registry.yaml',
+          workflow_created: true,
+          content_fingerprint: 'afa6af267f874c14a79d4b89f29e4cc8722f1560a6352f368b0e94016788ffeb',
+          teacher_review_status: 'pending', local_safety_review_status: 'pending',
+          completed_teacher_review_count: 0, completed_safety_review_count: 0,
+          classroom_trial_status: 'not_tested', review_decision_recorded: false,
+          classroom_ready: false, publication_ready: false, effectiveness_claimed: false,
+        },
+        classroom_trial_workflow_created: true,
+        classroom_trial_template_path: 'teacher-work-plan-artifacts/grade-6-science/air-composition/reviews/classroom-trial-template.yaml',
+        completed_classroom_trial_record_count: 0, classroom_trial_status: 'not_tested',
+        classroom_ready: false, publication_ready: false, customer_released: false,
+        effectiveness_claimed: false, canonical_gap_status_unchanged: true,
+        source_gap_resolution_claimed: false,
+      },
     ],
     canonical_gap_status_unchanged: true,
     source_gap_resolution_claimed: false,
   });
   assert.deepEqual(report.authoring_queue, {
-    selected_next_package_id: 'grade-6-science-air-composition',
+    selected_next_package_id: 'grade-6-science-water-cycle',
     selected_next_package_status: 'selected_not_started',
-    selected_next_gap_ids: ['grade-6-science-lesson-051'],
-    selected_next_planned_root: 'teacher-work-plan-artifacts/grade-6-science/air-composition',
+    selected_next_gap_ids: ['grade-6-science-lesson-055'],
+    selected_next_planned_root: 'teacher-work-plan-artifacts/grade-6-science/water-cycle',
     selected_next_material_count: 0,
     selected_next_review_workflow_created: false,
     selected_next_trial_workflow_created: false,
@@ -434,12 +457,23 @@ test('JSON and Markdown serialization are deterministic and committed bytes are 
   assert.equal(committed.jsonText, firstJson);
   assert.equal(committed.markdownText, firstMarkdown);
   assert.equal((firstMarkdown.match(/<a id="gap-/gu) ?? []).length, 193);
-  assert.match(firstMarkdown, /4 artifacts remain internal drafts/u);
-  assert.match(firstMarkdown, /5 supported canonical Opiq gaps remain `missing`/u);
+  assert.match(firstMarkdown, /5 artifacts remain internal drafts/u);
+  assert.match(firstMarkdown, /6 supported canonical Opiq gaps remain `missing`/u);
   assert.doesNotMatch(firstMarkdown, /Both artifacts remain/u);
   assert.doesNotMatch(firstMarkdown, /three supported canonical Opiq gaps/u);
   assert.notEqual(`${firstJson}\n`, committed.jsonText, 'stale JSON bytes must differ');
   assert.notEqual(`${firstMarkdown}\n`, committed.markdownText, 'stale Markdown bytes must differ');
+});
+
+test('generated Markdown derives reusable-artifact counts from machine-readable implementation state', () => {
+  const candidate = structuredClone(report);
+  candidate.reusable_artifact_implementation.implemented_package_count = 7;
+  candidate.reusable_artifact_implementation.implemented_source_gap_count = 8;
+  const markdown = renderTeacherWorkPlanGapReportMarkdown(candidate);
+  assert.match(markdown, /7 artifacts remain internal drafts/u);
+  assert.match(markdown, /8 supported canonical Opiq gaps remain `missing`/u);
+  assert.doesNotMatch(markdown, /5 artifacts remain internal drafts/u);
+  assert.doesNotMatch(markdown, /6 supported canonical Opiq gaps remain `missing`/u);
 });
 
 test('missing, extra and reordered routes fail closed', () => {

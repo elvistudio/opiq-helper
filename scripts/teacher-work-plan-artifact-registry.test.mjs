@@ -16,8 +16,9 @@ const SOIL_FINGERPRINT = '894cc83f54c158485f6d6ba699d8a1298c3e57056e315281b79d69
 const PHOTOSYNTHESIS_ID = 'grade-6-science-photosynthesis';
 const GARDEN_FIELD_ID = 'grade-6-science-garden-field-food-products';
 const WOOD_PROCESSING_ID = 'grade-6-science-wood-processing';
-const NEXT_ID = 'grade-6-science-air-composition';
-const NEXT_ROOT = 'teacher-work-plan-artifacts/grade-6-science/air-composition';
+const AIR_COMPOSITION_ID = 'grade-6-science-air-composition';
+const NEXT_ID = 'grade-6-science-water-cycle';
+const NEXT_ROOT = 'teacher-work-plan-artifacts/grade-6-science/water-cycle';
 
 let baseline;
 
@@ -58,10 +59,10 @@ test('production central registry is exact and selects the next unstarted packag
   assert.deepEqual(result.diagnostics, []);
   assert.deepEqual(result.summary, {
     artifact_registries: 1,
-    registered_artifacts: 4,
-    discovered_artifact_indexes: 4,
-    validation_profiles: 4,
-    implemented_internal_drafts: 4,
+    registered_artifacts: 5,
+    discovered_artifact_indexes: 5,
+    validation_profiles: 5,
+    implemented_internal_drafts: 5,
     next_authoring_package: NEXT_ID,
     next_package_status: 'selected_not_started',
   });
@@ -74,8 +75,10 @@ test('production central registry is exact and selects the next unstarted packag
   assert.equal(registry.artifacts.some(({ artifact_id }) => artifact_id === PHOTOSYNTHESIS_ID), true);
   assert.equal(registry.artifacts.some(({ artifact_id }) => artifact_id === GARDEN_FIELD_ID), true);
   assert.equal(registry.artifacts.some(({ artifact_id }) => artifact_id === WOOD_PROCESSING_ID), true);
+  assert.equal(registry.artifacts.some(({ artifact_id }) => artifact_id === AIR_COMPOSITION_ID), true);
   assert.equal(registry.authoring_queue.next_package_id, NEXT_ID);
   assert.equal(registry.authoring_queue.planned_root_path, NEXT_ROOT);
+  assert.equal(registry.authoring_queue.selection_order, 6);
   assert.equal(registry.authoring_queue.status, 'selected_not_started');
   assert.equal(registry.authoring_queue.materials_created, false);
   assert.equal(registry.authoring_queue.artifact_index_created, false);

@@ -1,0 +1,226 @@
+schema_version: "1.0"
+artifact_type: teacher_work_plan_reusable_artifact
+artifact_id: grade-6-science-air-composition
+package_id: grade-6-science-air-composition
+implementation_status: internal_draft_pending_teacher_review
+identity:
+  grade: 6
+  subject: science
+  subject_et: loodusõpetus
+  title_ru: "Состав воздуха: основные и следовые газы"
+  title_et: "Õhu koostis: põhigaasid ja jälggaasid"
+  instruction_language: ru
+  subject_support_language: et
+canonical_route:
+  source_id: grade-6-science
+  md_path: project-files/outputs/opiq_6klass_loodusopetus.md
+  source_archive: project-files/inputs/final-zips/opiq_6klass_elutingimused_soos_v2.zip
+  qa_path: project-files/outputs/opiq_6klass_loodusopetus_qa.json
+  record_count: 436
+  coverage_status: available_not_curriculum_verified
+source_work_package:
+  review_id: grades-5-7-priority-work-packages
+  review_path: evaluations/teacher-work-plans/grades-5-7-priority-work-packages.yaml
+  package_id: grade-6-science-air-composition
+  authoring_status: ready_for_authoring
+  priority_tier: p1
+  selected_as_first_pilot: false
+  planned_root_path: teacher-work-plan-artifacts/grade-6-science/air-composition
+  proposed_deliverables:
+    - practical_protocol
+    - observation_table
+    - student_worksheet
+    - answer_key
+source_gaps:
+  - gap_id: grade-6-science-lesson-051
+    mapping_id: lesson-051
+    source_record_kind: lesson_range
+    source_block_id: ohk
+    lesson_span: { lesson_start: 51, lesson_end: 51 }
+    source_pages: [16]
+    source_topic_et: "Õhu koostis: hapnik, süsihappegaas ja lämmastik"
+    normalized_mapping_topic_et: "Õhu koostis: hapnik, süsihappegaas ja lämmastik"
+    coverage_status: missing
+    bridge_type: independently_authored_practical_required
+    topic_inventory_refs: [air-properties-and-weather]
+teacher_plan_source:
+  extraction_path: evaluations/teacher-work-plans/grade-6-science-extraction.json
+  source_pdf_path: project-files/inputs/originals/teacher-work-plans/Loodusopetuse-tookava-naidis-6-klassile.pdf
+  original_filename: Loodusõpetuse-töökava-näidis-6.-klassile.pdf
+  source_sha256: 2b63ada1c2821e63a8aadda0bf93246499c2f8430cd305592a82a709a0160762
+  source_page_count: 31
+  relevant_source_pages: [16]
+  provenance_kind: supplementary_teacher_work_plan
+  canonical: false
+learner_language_profile:
+  profile_id: grade-6-science-a2-default
+  profile_path: lesson-plans/language-profiles.yaml
+  learner_language_level: A2
+  expected_supported_estonian_output_sentences: { minimum: 3, maximum: 4 }
+content_boundary:
+  opiq_required: false
+  customer_or_learner_can_complete_without_opiq: true
+  external_sources_used: false
+  live_catalogue_checked: false
+  pupil_facing_science_provenance: independently_authored
+  teacher_plan_contribution:
+    - topic_scope
+    - practical_orientation
+    - source_page
+    - lesson_relationship
+  teacher_plan_does_not_supply:
+    - direct_page_level_air_composition_evidence
+    - safe_paper_model_protocol
+    - one_hundred_cell_model
+    - measurement_and_safety_controls
+    - observation_table
+    - student_worksheet
+    - answer_key
+    - bilingual_language_support
+  direct_opiq_air_composition_evidence_available: false
+opiq_context_records: []
+lesson_sequence:
+  - part_id: part-1
+    source_gap_id: grade-6-science-lesson-051
+    title_ru: Модель состава воздуха из 100 ячеек
+    title_et: Õhu koostise 100 ruudu mudel
+    duration_minutes: 45
+    primary_outputs:
+      - completed_one_hundred_cell_air_model
+      - correct_major_gas_group_counts
+      - percentage_calculations
+      - model_and_measurement_distinction
+      - co2_scale_limit_explanation
+      - coherent_russian_conclusion
+      - explicit_model_limitation
+      - three_to_four_supported_estonian_sentences
+language_support:
+  provenance: independently_authored_language_support
+  represented_as_opiq_oral_evidence: false
+  productive_terms:
+    - { et: õhk, ru: воздух }
+    - { et: lämmastik, ru: азот }
+    - { et: hapnik, ru: кислород }
+    - { et: süsinikdioksiid, ru: углекислый газ }
+    - { et: gaas, ru: газ }
+    - { et: osakaal, ru: доля }
+  sentence_frames:
+    - Õhk on gaaside segu.
+    - Õhus on kõige rohkem lämmastikku.
+    - Õhus on umbes 21% hapnikku.
+    - Süsinikdioksiidi on õhus vähe.
+  full_russian_model_answer_required: true
+safety_and_ethics:
+  fieldwork_applicable: false
+  local_risk_assessment_applicable: false
+  protected_area_permission_applicable: false
+  indoor_fallback_applicable: false
+  local_teacher_risk_assessment_required: false
+  universal_safety_claimed: false
+  protected_area_permission_is_teacher_responsibility: false
+  safeguards:
+    - paper_model_activity_only
+    - no_flame_candles_matches_or_combustion
+    - no_gas_cylinders_or_chemical_reagents
+    - no_limewater_or_pressurised_setup
+    - no_face_level_sealed_containers_bags_or_masks
+    - no_exhaled_air_collection_or_sample_inhalation
+    - letter_or_pattern_encoding_not_colour_only
+    - named_context_delivery_review_required_before_trial
+  scientific_boundaries:
+    - simplified_model_not_classroom_air_measurement
+    - model_numbers_are_approximate
+    - simplified_dry_air_model
+    - water_vapour_varies
+    - x_combines_multiple_other_gases
+    - x_does_not_mean_one_percent_co2
+    - one_hundred_cell_scale_cannot_resolve_co2_separately
+    - co2_concentration_varies_by_place_and_time
+    - no_air_quality_or_room_safety_measurement
+    - no_medical_inference
+    - exhaled_air_differs_but_is_not_measured
+    - percentage_model_does_not_show_molecule_size_mass_or_speed
+    - gas_importance_is_not_defined_only_by_percentage
+    - no_flame_chemicals_or_inhalation
+    - independently_authored_support_only
+    - canonical_lesson_51_gap_remains_missing
+  indoor_fallback_available: false
+materials:
+  - material_id: air-composition-practical-protocol
+    capability: practical_protocol
+    title: Учительский протокол бумажной модели состава воздуха
+    artifact_path: teacher-work-plan-artifacts/grade-6-science/air-composition/practical-protocol.md
+    audience: teacher
+    languages: [ru, et]
+    printable: true
+    provenance: independently_authored
+    sha256: 79a27d13eec6d8003478101a0cf4210e718ce66dd69312f8ff2269a945d46eb3
+  - material_id: air-composition-observation-table
+    capability: observation_table
+    title: Таблица сетки, подсчётов, процентов и ограничений модели
+    artifact_path: teacher-work-plan-artifacts/grade-6-science/air-composition/observation-table.md
+    audience: student
+    languages: [ru, et]
+    printable: true
+    provenance: independently_authored
+    answer_key_path: teacher-work-plan-artifacts/grade-6-science/air-composition/answer-key.md
+    sha256: 9cbdeb7c3f21166d47d44305b9bbd072b13a08701527ed76e9cc5c9440e66266
+  - material_id: air-composition-student-worksheet
+    capability: student_worksheet
+    title: Рабочий лист модели, расчётов и доказательного вывода
+    artifact_path: teacher-work-plan-artifacts/grade-6-science/air-composition/student-worksheet.md
+    audience: student
+    languages: [ru, et]
+    printable: true
+    provenance: independently_authored
+    answer_key_path: teacher-work-plan-artifacts/grade-6-science/air-composition/answer-key.md
+    sha256: 519c9042c651c6e3008f79ea77b2335a447e3dc73e4f66cf9147c29ed461fba8
+  - material_id: air-composition-answer-key
+    capability: answer_key
+    title: Ключ к подсчётам, процентам и границам модели воздуха
+    artifact_path: teacher-work-plan-artifacts/grade-6-science/air-composition/answer-key.md
+    audience: teacher
+    languages: [ru, et]
+    printable: true
+    provenance: independently_authored
+    sha256: 1593c8e8b0c2d317f43291746c13a13c79b2472ebfa629f96e6af699b5f66c0a
+content_fingerprint:
+  algorithm: sha256
+  value: afa6af267f874c14a79d4b89f29e4cc8722f1560a6352f368b0e94016788ffeb
+  index_included: false
+human_review:
+  registry_path: teacher-work-plan-artifacts/grade-6-science/air-composition/reviews/review-registry.yaml
+  teacher_review:
+    status: pending
+    completed_record_path: null
+  local_safety_review:
+    status: pending
+    completed_record_path: null
+  classroom_trial:
+    workflow_created: true
+    template_path: teacher-work-plan-artifacts/grade-6-science/air-composition/reviews/classroom-trial-template.yaml
+    status: not_tested
+    completed_record_path: null
+  reviewed_content_fingerprint: null
+readiness:
+  schema_complete: true
+  content_complete_for_internal_review: true
+  materials_resolved: true
+  print_ready: true
+  teacher_review: { status: pending }
+  local_safety_review: { required: true, status: pending }
+  classroom_trial: { status: not_tested }
+  classroom_ready: false
+  publication_ready: false
+  customer_released: false
+  effectiveness_claimed: false
+source_gap_support:
+  independently_authored_support_created: true
+  supported_gap_ids:
+    - grade-6-science-lesson-051
+  canonical_opiq_gap_status_unchanged: true
+  source_gap_resolution_claimed: false
+  official_curriculum_complete: false
+  annual_architecture_created: false
+  default_course_selection_complete: false
+  live_catalogue_complete: false
