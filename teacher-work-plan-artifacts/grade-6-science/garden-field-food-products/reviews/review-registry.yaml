@@ -1,0 +1,27 @@
+schema_version: "1.0"
+artifact_type: teacher_work_plan_artifact_review_registry
+registry_id: grade-6-science-garden-field-food-products-review-registry
+artifact_id: grade-6-science-garden-field-food-products
+artifact_index_path: teacher-work-plan-artifacts/grade-6-science/garden-field-food-products/artifact-index.yaml
+content_fingerprint: 999eb50584622bb35dd017a34d7b83536c4face4ebaccd98d12d7768518280ad
+teacher_review:
+  template_path: teacher-work-plan-artifacts/grade-6-science/garden-field-food-products/reviews/teacher-review-template.yaml
+  completed_record_paths: []
+  status: pending
+local_safety_review:
+  template_path: teacher-work-plan-artifacts/grade-6-science/garden-field-food-products/reviews/local-safety-review-template.yaml
+  completed_record_paths: []
+  status: pending
+classroom_trial:
+  template_path: teacher-work-plan-artifacts/grade-6-science/garden-field-food-products/reviews/classroom-trial-template.yaml
+  completed_record_paths: []
+  status: not_tested
+boundaries:
+  classroom_trial_workflow_created: true
+  review_complete: false
+  local_safety_review_complete: false
+  classroom_trial_complete: false
+  classroom_ready: false
+  publication_ready: false
+  customer_released: false
+  effectiveness_claimed: false

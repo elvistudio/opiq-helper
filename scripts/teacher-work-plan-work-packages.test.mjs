@@ -89,7 +89,7 @@ test('ready, blocked and multi-gap accounting is exact', () => {
     blocked_teacher_review_count: 3,
     multi_gap_package_count: 1,
     selected_pilot_package_id: 'grade-6-science-soil-organisms',
-    next_authoring_package_id: 'grade-6-science-garden-field-food-products',
+    next_authoring_package_id: 'grade-6-science-wood-processing',
   });
   assert.deepEqual(artifact.authoring_queue, teacherWorkPlanWorkPackageContracts.authoringQueue);
   assert.deepEqual(
@@ -182,27 +182,34 @@ test('selected Grade 6 soil-organisms pilot has exact root and seven deliverable
   assert.equal(photosynthesis.implementation.human_review.teacher_review_status, 'pending');
   assert.equal(photosynthesis.implementation.human_review.local_safety_review_status, 'pending');
   assert.equal(photosynthesis.implementation.classroom_trial.status, 'not_tested');
-  assert.equal(artifact.work_packages.filter(({ implementation }) => implementation !== undefined).length, 2);
+  const gardenField = packageById('grade-6-science-garden-field-food-products');
+  assert.deepEqual(gardenField.implementation, teacherWorkPlanWorkPackageContracts.gardenFieldImplementation);
+  assert.equal(gardenField.implementation.human_review.content_fingerprint, '999eb50584622bb35dd017a34d7b83536c4face4ebaccd98d12d7768518280ad');
+  assert.deepEqual(gardenField.implementation.supported_gap_ids, ['grade-6-science-lesson-022']);
+  assert.equal(gardenField.implementation.human_review.teacher_review_status, 'pending');
+  assert.equal(gardenField.implementation.human_review.local_safety_review_status, 'pending');
+  assert.equal(gardenField.implementation.classroom_trial.status, 'not_tested');
+  assert.equal(artifact.work_packages.filter(({ implementation }) => implementation !== undefined).length, 3);
 });
 
-test('review records two internal drafts without resolution, backlog completion or official claims', () => {
+test('review records three internal drafts without resolution, backlog completion or official claims', () => {
   assert.equal(artifact.work_packages.every(({ resolution_claimed }) => resolution_claimed === false), true);
   assert.equal(artifact.scope.reusable_teaching_artifacts_created, true);
   assert.equal(artifact.completeness.reusable_teaching_artifacts_created, true);
   assert.equal(artifact.completeness.reusable_artifact_backlog_complete, false);
   assert.equal(artifact.implementation_summary.source_gap_resolution_claimed, false);
-  assert.equal(artifact.implementation_summary.implemented_internal_draft_count, 2);
-  assert.equal(artifact.implementation_summary.implemented_source_gap_count, 3);
-  assert.equal(artifact.implementation_summary.delivered_capability_count, 12);
-  assert.equal(artifact.implementation_summary.not_started_ready_package_count, 11);
-  assert.equal(artifact.implementation_summary.human_review_workflow_count, 2);
+  assert.equal(artifact.implementation_summary.implemented_internal_draft_count, 3);
+  assert.equal(artifact.implementation_summary.implemented_source_gap_count, 4);
+  assert.equal(artifact.implementation_summary.delivered_capability_count, 16);
+  assert.equal(artifact.implementation_summary.not_started_ready_package_count, 10);
+  assert.equal(artifact.implementation_summary.human_review_workflow_count, 3);
   assert.equal(artifact.implementation_summary.completed_human_review_record_count, 0);
-  assert.equal(artifact.implementation_summary.teacher_review_pending_count, 2);
-  assert.equal(artifact.implementation_summary.local_safety_review_pending_count, 2);
-  assert.equal(artifact.implementation_summary.classroom_trial_workflow_count, 2);
-  assert.equal(artifact.implementation_summary.classroom_trial_template_count, 2);
+  assert.equal(artifact.implementation_summary.teacher_review_pending_count, 3);
+  assert.equal(artifact.implementation_summary.local_safety_review_pending_count, 3);
+  assert.equal(artifact.implementation_summary.classroom_trial_workflow_count, 3);
+  assert.equal(artifact.implementation_summary.classroom_trial_template_count, 3);
   assert.equal(artifact.implementation_summary.completed_classroom_trial_record_count, 0);
-  assert.equal(artifact.implementation_summary.classroom_trial_not_tested_count, 2);
+  assert.equal(artifact.implementation_summary.classroom_trial_not_tested_count, 3);
   assert.equal(artifact.completeness.official_curriculum_complete, false);
   assert.equal(artifact.completeness.live_catalogue_complete, false);
 });

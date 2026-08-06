@@ -1,0 +1,58 @@
+schema_version: "1.0"
+artifact_type: teacher_work_plan_artifact_local_safety_review
+template: true
+review_identity:
+  review_id: null
+  reviewer_id: null
+  reviewer_name: null
+  reviewer_role: null
+  organization: null
+  review_date: null
+artifact_identity:
+  artifact_id: grade-6-science-garden-field-food-products
+  artifact_index_path: teacher-work-plan-artifacts/grade-6-science/garden-field-food-products/artifact-index.yaml
+  content_fingerprint: 999eb50584622bb35dd017a34d7b83536c4face4ebaccd98d12d7768518280ad
+  package_id: grade-6-science-garden-field-food-products
+  route: grade-6-science
+  grade: 6
+  subject: science
+  subject_et: loodusõpetus
+local_context:
+  school_or_organization: null
+  site_description: null
+  planned_activity_date: null
+  group_size: null
+  adult_supervision_count: null
+  delivery_site_category: null
+  indoor_fallback_permitted: null
+  weather_limitations: null
+  accessibility_adjustments: null
+  permission_requirements: null
+  emergency_contact_process: null
+review_scope:
+  - { area: named_classroom_context, status: not_reviewed, notes: null, finding_ids: [] }
+  - { area: food_allergy_and_cross_contact, status: not_reviewed, notes: null, finding_ids: [] }
+  - { area: hygiene_and_handwashing, status: not_reviewed, notes: null, finding_ids: [] }
+  - { area: sealed_package_and_sample_integrity, status: not_reviewed, notes: null, finding_ids: [] }
+  - { area: teacher_only_cutting_and_package_opening, status: not_reviewed, notes: null, finding_ids: [] }
+  - { area: no_tasting_and_no_consumption, status: not_reviewed, notes: null, finding_ids: [] }
+  - { area: sample_storage_and_disposal, status: not_reviewed, notes: null, finding_ids: [] }
+  - { area: accessibility_and_participation, status: not_reviewed, notes: null, finding_ids: [] }
+  - { area: supervision_and_stop_signals, status: not_reviewed, notes: null, finding_ids: [] }
+  - { area: emergency_or_incident_procedure, status: not_reviewed, notes: null, finding_ids: [] }
+findings: []
+decision:
+  status: pending
+  rationale: null
+  open_blocking_findings: []
+  open_major_findings: []
+  required_changes_complete: false
+  reviewed_fingerprint_matches: false
+  conditions: []
+safety_boundaries:
+  named_context_only: true
+  universal_safety_claimed: false
+  other_site_legal_permission_claimed: false
+  all_weather_approval_claimed: false
+  protected_area_permission_claimed: false
+  classroom_readiness_claimed: false

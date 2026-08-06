@@ -81,10 +81,10 @@ const SAMPLE_TOPIC_ABSENCES = Object.freeze([
 ]);
 
 const AUTHORING_QUEUE_SUMMARY = Object.freeze({
-  selected_next_package_id: 'grade-6-science-garden-field-food-products',
+  selected_next_package_id: 'grade-6-science-wood-processing',
   selected_next_package_status: 'selected_not_started',
-  selected_next_gap_ids: ['grade-6-science-lesson-022'],
-  selected_next_planned_root: 'teacher-work-plan-artifacts/grade-6-science/garden-field-food-products',
+  selected_next_gap_ids: ['grade-6-science-lesson-038'],
+  selected_next_planned_root: 'teacher-work-plan-artifacts/grade-6-science/wood-processing',
   selected_next_material_count: 0,
   selected_next_review_workflow_created: false,
   selected_next_trial_workflow_created: false,
@@ -769,7 +769,7 @@ export function renderTeacherWorkPlanGapReportMarkdown(report) {
     '- Gap-index completeness applies only to the four registered supplementary crosswalks.',
     '- Official curriculum completeness and exact-grade official allocation are not verified.',
     '- No annual architecture, default-course selection, or live-catalogue verification is created here.',
-    '- Semantic work-package review is complete; two internal-draft reusable artifacts plus pending review and classroom-trial workflows exist, but no completed review or trial decision exists and the reusable-artifact backlog remains incomplete.',
+    '- Semantic work-package review is complete; three internal-draft reusable artifacts plus pending review and classroom-trial workflows exist, but no completed review or trial decision exists and the reusable-artifact backlog remains incomplete.',
   );
   return `${lines.join('\n')}\n`;
 }

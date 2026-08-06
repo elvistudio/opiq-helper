@@ -544,9 +544,231 @@ const photosynthesisProfile = deepFreeze({
   },
 });
 
+const gardenFieldFoodProductsRootPath = 'teacher-work-plan-artifacts/grade-6-science/garden-field-food-products';
+const gardenFieldFoodProductsReviewRoot = `${gardenFieldFoodProductsRootPath}/reviews`;
+
+const gardenFieldFoodProductsProfile = deepFreeze({
+  profileId: 'grade-6-science-garden-field-food-products-v1',
+  artifactId: 'grade-6-science-garden-field-food-products',
+  packageId: 'grade-6-science-garden-field-food-products',
+  route: 'grade-6-science',
+  rootPath: gardenFieldFoodProductsRootPath,
+  indexPath: `${gardenFieldFoodProductsRootPath}/artifact-index.yaml`,
+  fingerprint: '999eb50584622bb35dd017a34d7b83536c4face4ebaccd98d12d7768518280ad',
+  identity: {
+    grade: 6,
+    subject: 'science',
+    subjectEt: 'loodusõpetus',
+  },
+  expectedRootEntries: [
+    'answer-key.md',
+    'artifact-index.yaml',
+    'observation-table.md',
+    'practical-protocol.md',
+    'reviews',
+    'student-worksheet.md',
+  ],
+  capabilities: [
+    'practical_protocol',
+    'observation_table',
+    'student_worksheet',
+    'answer_key',
+  ],
+  materialPaths: [
+    `${gardenFieldFoodProductsRootPath}/practical-protocol.md`,
+    `${gardenFieldFoodProductsRootPath}/observation-table.md`,
+    `${gardenFieldFoodProductsRootPath}/student-worksheet.md`,
+    `${gardenFieldFoodProductsRootPath}/answer-key.md`,
+  ],
+  answerKeyLinks: {
+    observation_table: `${gardenFieldFoodProductsRootPath}/answer-key.md`,
+    student_worksheet: `${gardenFieldFoodProductsRootPath}/answer-key.md`,
+  },
+  studentFacingPaths: [
+    `${gardenFieldFoodProductsRootPath}/observation-table.md`,
+    `${gardenFieldFoodProductsRootPath}/student-worksheet.md`,
+  ],
+  urlAllowedPaths: [],
+  internalLeakPatterns: [
+    'gap_id',
+    'mapping_id',
+    'programme_type',
+    'source_gap',
+    'curriculum-maps/',
+    'evaluations/',
+    'project-files/',
+    'teacher-work-plan-crosswalk',
+  ],
+  sourceGaps: [
+    {
+      gap_id: 'grade-6-science-lesson-022',
+      mapping_id: 'lesson-022',
+      source_record_kind: 'lesson_range',
+      source_block_id: 'aed-ja-pold-elukeskkonnana',
+      lesson_span: { lesson_start: 22, lesson_end: 22 },
+      source_pages: [8],
+      source_topic_et: 'Põlluja aiasaadused kui toiduained',
+      normalized_mapping_topic_et: 'Põlluja aiasaadused kui toiduained',
+      coverage_status: 'missing',
+      bridge_type: 'independently_authored_practical_required',
+      topic_inventory_refs: ['garden-and-field-ecosystems'],
+    },
+  ],
+  teacherPlanRelevantPages: [8],
+  contextRecords: [],
+  languageProfile: {
+    profileId: 'grade-6-science-a2-default',
+    grade: 6,
+    subject: 'science',
+    learnerLanguageLevel: 'A2',
+  },
+  productiveTerms: [
+    { et: 'aiasaadus', ru: 'продукт сада или огорода' },
+    { et: 'põllusaadus', ru: 'продукт поля' },
+    { et: 'toiduaine', ru: 'пищевой продукт' },
+    { et: 'taimeosa', ru: 'часть растения' },
+    { et: 'töötlemine', ru: 'обработка' },
+    { et: 'koostisosa', ru: 'ингредиент' },
+  ],
+  safetyApplicability: {
+    fieldworkApplicable: false,
+    localRiskAssessmentApplicable: true,
+    protectedAreaPermissionApplicable: false,
+    indoorFallbackApplicable: false,
+    requiresApplicabilityDeclaration: true,
+    expectedRules: {
+      local_teacher_risk_assessment_required: true,
+      universal_safety_claimed: false,
+      protected_area_permission_is_teacher_responsibility: false,
+      indoor_fallback_available: false,
+    },
+  },
+  materialContentRules: [
+    {
+      path: `${gardenFieldFoodProductsRootPath}/practical-protocol.md`,
+      description: 'protocol is missing source-card, safety, classification, calculation, uncertainty, or scientific-boundary guards',
+      requiredStrings: [
+        'структурированное сравнение, а не причинный эксперимент',
+        'garden_or_orchard', 'both_or_variable', 'other_or_uncertain',
+        'percentage = category count / total classified samples × 100',
+        'Никакой дегустации или употребления', 'ученики не работают с лезвиями',
+        'проверяет заявленные аллергии и риск перекрёстного контакта',
+        'Число ингредиентов и физическая форма сами по себе не определяют полезность',
+        'Малый, выбранный учителем набор не представляет все продукты',
+        'Честные ответы `unknown` и `uncertain` допустимы',
+      ],
+    },
+    {
+      path: `${gardenFieldFoodProductsRootPath}/observation-table.md`,
+      description: 'observation table is missing source evidence, classification, percentage, safety, uncertainty, or limitation fields',
+      requiredStrings: [
+        'Код группы, без имён учеников', 'локальную проверку аллергий и перекрёстного контакта',
+        'garden_or_orchard', 'other_or_uncertain', 'Прямое наблюдение',
+        'Свидетельство карточки/этикетки', 'percentage = count / total × 100',
+        'Unknown', 'не делали выводов о полезности, качестве, безопасности, устойчивости',
+      ],
+    },
+    {
+      path: `${gardenFieldFoodProductsRootPath}/student-worksheet.md`,
+      description: 'student worksheet is missing no-tasting, source-card, classification, calculation, limitation, Russian-answer, or Estonian-support guards',
+      requiredStrings: [
+        'Дегустация и употребление запрещены', 'Ученики не работают с ножами или лезвиями',
+        'Учитель проверил аллергии и перекрёстный контакт',
+        'Используйте только карточку источника учителя',
+        'percentage = count / total × 100', 'Unknown и uncertainty',
+        'Полный ответ по-русски', 'See toiduaine on valmistatud taimest.',
+        'Meie valim on väike ja järeldus on piiratud.',
+      ],
+    },
+    {
+      path: `${gardenFieldFoodProductsRootPath}/answer-key.md`,
+      description: 'answer key is missing classification, synthetic calculation, bounded Russian model, Estonian support, or invalid-conclusion guards',
+      requiredStrings: [
+        'Карточка источника и этикетка важнее визуальной догадки',
+        '3 / 8 × 100 = 37.5%', 'whole: 3', 'seed: 3',
+        'Полный модельный ответ по-русски', 'маленький набор растительных пищевых продуктов',
+        'не доказывают полезность, качество, безопасность или устойчивость',
+        'Упаковка доказывает устойчивость или экологичность',
+        'See toiduaine on valmistatud taimest.', 'Не исправляйте честный `unknown`',
+      ],
+    },
+  ],
+  review: {
+    rootPath: gardenFieldFoodProductsReviewRoot,
+    registryPath: `${gardenFieldFoodProductsReviewRoot}/review-registry.yaml`,
+    guidePath: `${gardenFieldFoodProductsReviewRoot}/review-guide.md`,
+    teacherTemplatePath: `${gardenFieldFoodProductsReviewRoot}/teacher-review-template.yaml`,
+    safetyTemplatePath: `${gardenFieldFoodProductsReviewRoot}/local-safety-review-template.yaml`,
+    trialGuidePath: `${gardenFieldFoodProductsReviewRoot}/classroom-trial-guide.md`,
+    trialTemplatePath: `${gardenFieldFoodProductsReviewRoot}/classroom-trial-template.yaml`,
+    teacherScope: [
+      'scientific_accuracy', 'age_appropriateness', 'instructional_clarity',
+      'practical_feasibility', 'classification_validity', 'calculation_and_data_handling',
+      'assessment_alignment', 'russian_explanation_quality', 'estonian_language_support',
+      'accessibility_and_differentiation', 'source_and_readiness_boundaries',
+    ],
+    safetyScope: [
+      'named_classroom_context', 'food_allergy_and_cross_contact',
+      'hygiene_and_handwashing', 'sealed_package_and_sample_integrity',
+      'teacher_only_cutting_and_package_opening', 'no_tasting_and_no_consumption',
+      'sample_storage_and_disposal', 'accessibility_and_participation',
+      'supervision_and_stop_signals', 'emergency_or_incident_procedure',
+    ],
+    guideHeadings: [
+      '## 1. Purpose and boundaries', '## 2. Exact artifact and fingerprint',
+      '## 3. Files under review', '## 4. Teacher-review procedure',
+      '## 5. Local-safety-review procedure', '## 6. Finding severity definitions',
+      '## 7. Approval rules', '## 8. Fingerprint invalidation',
+      '## 9. Required-change workflow', '## 10. Classroom-trial boundary',
+      '## 11. Prohibited claims', '## 12. How to create a completed record',
+    ],
+    guideBoundaryStatements: [
+      'Templates are not human evidence.', 'neither teacher review nor safety approval',
+      'Any material-byte change', 'limited to one named school',
+      'Do not commit learner identities', 'Lesson 22 remains `missing`',
+    ],
+  },
+  classroomTrial: {
+    parts: [
+      {
+        part_id: 'part-1',
+        source_gap_id: 'grade-6-science-lesson-022',
+        title_et: 'Põllu- ja aiasaadused kui toiduained',
+        planned_duration_minutes: 45,
+        dimensions: [
+          'timing', 'setup_and_transitions', 'instruction_comprehension',
+          'no_tasting_safety', 'allergy_and_hygiene_controls', 'source_card_use',
+          'plant_part_classification', 'transformation_classification',
+          'evidence_and_uncertainty_recording', 'count_and_percentage_calculation',
+          'conclusion_quality', 'material_usability', 'accessibility_and_participation',
+          'cleanup_and_disposal', 'estonian_language_support', 'method_naturalness',
+        ],
+      },
+    ],
+    guideHeadings: [
+      '## 1. Purpose and non-evidence boundary',
+      '## 2. Prerequisite teacher and safety reviews',
+      '## 3. Exact artifact and fingerprint', '## 4. Privacy and aggregate evidence',
+      '## 5. Preparing the trial', '## 6. Part 1 observation procedure',
+      '## 7. Data-quality observations', '## 8. Timing and transition evidence',
+      '## 9. Safety, stop conditions and incidents', '## 10. Findings and required changes',
+      '## 11. Trial decisions', '## 12. Fingerprint invalidation',
+      '## 13. Registration of an analysed record', '## 14. Readiness truth table',
+      '## 15. Prohibited claims',
+    ],
+    guideBoundaryStatements: [
+      'No trial is conducted in this pull request.',
+      'Creating or merging this template is not evidence',
+      'requires current teacher approval', 'Commit no learner names',
+      'Lesson 22 remains missing', 'does not establish comparative effectiveness',
+    ],
+  },
+});
+
 export const TEACHER_WORK_PLAN_ARTIFACT_PROFILES = deepFreeze({
   [soilOrganismsProfile.profileId]: soilOrganismsProfile,
   [photosynthesisProfile.profileId]: photosynthesisProfile,
+  [gardenFieldFoodProductsProfile.profileId]: gardenFieldFoodProductsProfile,
 });
 
 export function getTeacherWorkPlanArtifactProfile(profileId) {

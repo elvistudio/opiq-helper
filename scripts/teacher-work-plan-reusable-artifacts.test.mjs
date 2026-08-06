@@ -136,16 +136,17 @@ test('production Grade 6 soil-organisms reusable artifact is exact and internall
   const result = validateTeacherWorkPlanReusableArtifactRepository(baseline);
   assert.deepEqual(result.diagnostics, []);
   assert.deepEqual(result.summary, {
-    artifacts: 2,
-    source_gaps_supported: 3,
-    materials: 12,
+    artifacts: 3,
+    source_gaps_supported: 4,
+    materials: 16,
     opiq_context_records: 4,
     fingerprints: {
       'grade-6-science-soil-organisms': '894cc83f54c158485f6d6ba699d8a1298c3e57056e315281b79d69e84f366613',
       'grade-6-science-photosynthesis': '8df9cff3e19c325ba92f931f72c79cf2828a9b03a36fcf80ea19aff430d7db45',
+      'grade-6-science-garden-field-food-products': '999eb50584622bb35dd017a34d7b83536c4face4ebaccd98d12d7768518280ad',
     },
     canonical_gap_statuses_unchanged: true,
-    review_registries: 2,
+    review_registries: 3,
     completed_review_records: 0,
   });
 
