@@ -434,6 +434,10 @@ test('JSON and Markdown serialization are deterministic and committed bytes are 
   assert.equal(committed.jsonText, firstJson);
   assert.equal(committed.markdownText, firstMarkdown);
   assert.equal((firstMarkdown.match(/<a id="gap-/gu) ?? []).length, 193);
+  assert.match(firstMarkdown, /4 artifacts remain internal drafts/u);
+  assert.match(firstMarkdown, /5 supported canonical Opiq gaps remain `missing`/u);
+  assert.doesNotMatch(firstMarkdown, /Both artifacts remain/u);
+  assert.doesNotMatch(firstMarkdown, /three supported canonical Opiq gaps/u);
   assert.notEqual(`${firstJson}\n`, committed.jsonText, 'stale JSON bytes must differ');
   assert.notEqual(`${firstMarkdown}\n`, committed.markdownText, 'stale Markdown bytes must differ');
 });

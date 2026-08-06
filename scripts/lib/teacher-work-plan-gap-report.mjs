@@ -641,6 +641,10 @@ function compactCount(counts) {
 export function renderTeacherWorkPlanGapReportMarkdown(report) {
   const aggregate = report.aggregate_summary;
   const implementation = report.reusable_artifact_implementation;
+  const implementedArtifactNoun = implementation.implemented_package_count === 1 ? 'artifact' : 'artifacts';
+  const implementedArtifactVerb = implementation.implemented_package_count === 1 ? 'remains' : 'remain';
+  const supportedGapNoun = implementation.implemented_source_gap_count === 1 ? 'gap' : 'gaps';
+  const supportedGapVerb = implementation.implemented_source_gap_count === 1 ? 'remains' : 'remain';
   const lines = [
     '# Grades 5-7 teacher work-plan gap report',
     '',
@@ -744,11 +748,11 @@ export function renderTeacherWorkPlanGapReportMarkdown(report) {
       `- \`${artifact.package_id}\`: [index](../../${artifact.artifact_index_path}); ${artifact.delivered_capability_count} materials, ${artifact.supported_gap_ids.length} supported source gaps, ${artifact.opiq_context_record_count} optional Opiq context records; fingerprint \`${artifact.human_review.content_fingerprint}\`. Teacher review and local safety review are \`pending\`; classroom trial is \`not_tested\`; completed review and trial records are zero.`,
     ]),
     '',
-    'Both artifacts remain internal drafts. Their fail-closed human-review and classroom-trial workflows create no teacher approval, safety approval, classroom readiness, publication, customer release or effectiveness evidence.',
+    `${implementation.implemented_package_count} ${implementedArtifactNoun} ${implementedArtifactVerb} internal drafts. Their fail-closed human-review and classroom-trial workflows create no teacher approval, safety approval, classroom readiness, publication, customer release or effectiveness evidence.`,
     '',
     `Next authoring selection: \`${report.authoring_queue.selected_next_package_id}\` for \`${report.authoring_queue.selected_next_gap_ids.join(', ')}\`, status \`${report.authoring_queue.selected_next_package_status}\`, planned root \`${report.authoring_queue.selected_next_planned_root}\`. No materials, artifact index, human-review workflow or classroom-trial workflow has been created for it, and no source-gap resolution is claimed.`,
     '',
-    'This independently authored support does not change the three supported canonical Opiq gaps from `missing`. Teacher review and local safety review remain pending, classroom/publication readiness remains false, and no source-gap resolution is claimed.',
+    `${implementation.implemented_source_gap_count} supported canonical Opiq ${supportedGapNoun} ${supportedGapVerb} \`missing\` despite this independently authored support. Teacher review and local safety review remain pending, classroom/publication readiness remains false, and no source-gap resolution is claimed.`,
     '',
     '## 11. Complete gap registry grouped by route',
     '',

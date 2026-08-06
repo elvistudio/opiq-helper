@@ -121,11 +121,11 @@ Machine-readable review: [`evaluations/teacher-work-plans/grades-5-7-priority-wo
 - `grade-6-science-garden-field-food-products`: [index](../../teacher-work-plan-artifacts/grade-6-science/garden-field-food-products/artifact-index.yaml); 4 materials, 1 supported source gaps, 0 optional Opiq context records; fingerprint `999eb50584622bb35dd017a34d7b83536c4face4ebaccd98d12d7768518280ad`. Teacher review and local safety review are `pending`; classroom trial is `not_tested`; completed review and trial records are zero.
 - `grade-6-science-wood-processing`: [index](../../teacher-work-plan-artifacts/grade-6-science/wood-processing/artifact-index.yaml); 3 materials, 1 supported source gaps, 2 optional Opiq context records; fingerprint `59689bce711416a1cab4c8df5c5d75113c8e4a1fdec1d5aafc5ed9ecb8981436`. Teacher review and local safety review are `pending`; classroom trial is `not_tested`; completed review and trial records are zero.
 
-Both artifacts remain internal drafts. Their fail-closed human-review and classroom-trial workflows create no teacher approval, safety approval, classroom readiness, publication, customer release or effectiveness evidence.
+4 artifacts remain internal drafts. Their fail-closed human-review and classroom-trial workflows create no teacher approval, safety approval, classroom readiness, publication, customer release or effectiveness evidence.
 
 Next authoring selection: `grade-6-science-air-composition` for `grade-6-science-lesson-051`, status `selected_not_started`, planned root `teacher-work-plan-artifacts/grade-6-science/air-composition`. No materials, artifact index, human-review workflow or classroom-trial workflow has been created for it, and no source-gap resolution is claimed.
 
-This independently authored support does not change the three supported canonical Opiq gaps from `missing`. Teacher review and local safety review remain pending, classroom/publication readiness remains false, and no source-gap resolution is claimed.
+5 supported canonical Opiq gaps remain `missing` despite this independently authored support. Teacher review and local safety review remain pending, classroom/publication readiness remains false, and no source-gap resolution is claimed.
 
 ## 11. Complete gap registry grouped by route
 
