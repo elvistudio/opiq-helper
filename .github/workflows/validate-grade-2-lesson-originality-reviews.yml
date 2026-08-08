@@ -40,8 +40,36 @@ jobs:
       - name: Install locked dependencies
         run: npm ci --ignore-scripts --no-audit --no-fund
 
+      - name: Register focused npm scripts in preview workspace
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+          pkg.scripts['check:lesson-originality-review-bundles'] = 'node scripts/check-lesson-originality-review-bundles.mjs';
+          pkg.scripts['generate:lesson-originality-review-bundles'] = 'node scripts/generate-lesson-originality-review-bundles.mjs --write';
+          pkg.scripts['test:lesson-originality-review-bundles'] = 'node --test scripts/lesson-originality-review-bundles.test.mjs';
+          fs.writeFileSync('package.json', `${JSON.stringify(pkg, null, 2)}\n`);
+          NODE
+
+      - name: Generate deterministic review preview
+        run: npm run generate:lesson-originality-review-bundles
+
       - name: Test lesson originality review bundles
         run: npm run test:lesson-originality-review-bundles
 
-      - name: Check lesson originality review bundles
+      - name: Check generated review bundles
         run: npm run check:lesson-originality-review-bundles
+
+      - name: Check diff formatting
+        run: git diff --check
+
+      - name: Upload generated preview
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: grade-2-lesson-originality-review-preview
+          if-no-files-found: error
+          retention-days: 1
+          path: |
+            package.json
+            teacher-packs/grade-2/weather-water-safety/originality-reviews
