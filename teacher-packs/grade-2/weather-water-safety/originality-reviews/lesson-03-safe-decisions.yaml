@@ -1,0 +1,129 @@
+schema_version: "1.0"
+artifact_type: lesson_originality_review_bundle
+review_id: grade-2-weather-water-safety-03-safe-decisions-originality-review
+lesson_id: grade-2-weather-water-safety-03-safe-decisions
+module_id: grade-2-weather-water-safety-pilot
+lesson_path: lesson-plans/grade-2/weather-water-safety/lesson-03-safe-decisions.yaml
+review_status: pending
+reviewer: null
+reviewer_role: null
+reviewed_on: null
+reviewed_version:
+  commit_sha: null
+content_fingerprint:
+  algorithm: sha256
+  canonicalization: lesson-originality-review-v1
+  value: 083af4a1c56fca35cdccf9e83aafff31485fc63c9034a7c5851eaf9def7d010d
+  file_count: 6
+  lesson_projection_sha256: 93819068193bec469e97acf737a52182517f589e83650bf21353ae175ac50efc
+commercial_gate_fingerprint:
+  algorithm: sha256
+  specification_version: "1.0"
+  value: a10320a66a662a11d0d7ca4efed08c508849a69112c09f7e9238644888304c82
+  file_count: 6
+bundle_fingerprint:
+  algorithm: sha256
+  canonicalization: lesson-review-bundle-v1
+  value: ac3fc057fb4d64d23c072f9722c942d836640d3151d9b0df4292b9ecb8bd90f2
+approval_eligible: false
+blocking_review_ids:
+  - g2-pe-water-safety-decision-review
+  - g2-water-edge-safe-decision-review
+covered_files:
+  - path: teacher-packs/grade-2/weather-water-safety/answers/lesson-03-answer-guidance.md
+    material_ids:
+      - g2-pe-water-safety-decision-expected-answers
+      - g2-pe-water-safety-decision-task
+      - g2-water-edge-safe-decision-expected-answers
+      - g2-water-edge-safe-decision-task
+      - g2-water-safety-assessment
+    audience: teacher
+    content_roles:
+      - answer_key_reference
+      - expected_answers
+    sha256: 6255cce72a572ead7aa7774f6ca534b3a937aac8af6f0843bc12566051915087
+  - path: teacher-packs/grade-2/weather-water-safety/student/g2-pe-water-safety-decision-task.md
+    material_ids:
+      - g2-pe-water-safety-decision-task
+    audience: student
+    content_roles:
+      - task_set
+    sha256: b8d64d5f2b6df9e78b4952308956d12c2eaa1874dcca94186b23be6c44b10330
+  - path: teacher-packs/grade-2/weather-water-safety/student/g2-water-edge-safe-decision-task.md
+    material_ids:
+      - g2-water-edge-safe-decision-task
+    audience: student
+    content_roles:
+      - task_set
+    sha256: 13eff3225b9b58e6a032955ec4d5a24e19f351f099e742e0f8e52113b76211ec
+  - path: teacher-packs/grade-2/weather-water-safety/student/lesson-03-exit-card.md
+    material_ids:
+      - g2-water-safety-assessment
+    audience: student
+    content_roles:
+      - assessment
+    sha256: 7edaeb9d14407bac16ab526213241cf132b7d0fe3e4e7deab1f81b8e858aee63
+  - path: teacher-packs/grade-2/weather-water-safety/student/lesson-03-safety-explanation.md
+    material_ids:
+      - g2-water-safety-dry-simulation
+      - g2-water-safety-explanation
+    audience: student
+    content_roles:
+      - explanation
+      - worked_example
+    sha256: 911d16f575948fbb4cfa3c65068a47020d5b6817e1a153cc6b12d3af373d9dbe
+  - path: teacher-packs/grade-2/weather-water-safety/teacher/lesson-03-guide.md
+    material_ids:
+      - g2-water-safety-lesson-guide
+    audience: teacher
+    content_roles:
+      - lesson_guide
+    sha256: cd00d1f1171cf8751ff2b46673bc18094552df3cee6a9e7f56e6d4c15edf3842
+covered_material_ids:
+  - g2-water-safety-explanation
+  - g2-water-safety-dry-simulation
+  - g2-water-edge-safe-decision-task
+  - g2-pe-water-safety-decision-task
+  - g2-water-edge-safe-decision-expected-answers
+  - g2-pe-water-safety-decision-expected-answers
+  - g2-water-safety-assessment
+  - g2-water-safety-lesson-guide
+source_context:
+  route_ids:
+    - grade-2-estonian-second-language
+    - grade-2-human-studies
+  route_md_paths:
+    - project-files/outputs/opiq_2klass_eesti_keel_teise_keelena.md
+    - project-files/outputs/opiq_2klass_inimeseopetus.md
+  canonical_record_ids:
+    - grade-2-human-studies-record-494-https-www-opiq-ee-kit-494-chapter-27188-5c6cb21a30
+  canonical_urls:
+    - https://www.opiq.ee/kit/494/chapter/27188
+  source_limitations:
+    - Registered Grade 2 Opiq routes are available indexes and do not establish complete official-curriculum or live-catalogue coverage.
+    - Captured indexes do not include complete publisher prose, answer payloads, screenshots, illustrations, or every interactive sequence; absence of a discovered match cannot prove originality.
+    - Physical education has no exact Grade 2 source route in this repository; human-studies evidence must not be substituted for the PE water-safety outcome.
+task_dependencies:
+  - task_id: g2-pe-water-safety-decision-task
+    review_id: g2-pe-water-safety-decision-review
+    review_path: task-bank/reviews/grade-2/weather-water-safety/10-pe-water-safety-decision.yaml
+    status: pending
+    content_fingerprint: 1d81778b9e7767e1b239b65b28e5ead76bb05ee08c4756f03777d13b7695c922
+  - task_id: g2-water-edge-safe-decision-task
+    review_id: g2-water-edge-safe-decision-review
+    review_path: task-bank/reviews/grade-2/weather-water-safety/09-water-edge-safe-decision.yaml
+    status: pending
+    content_fingerprint: a9fa9e4c5d80cc5de79c886e82e19a79eb2042a679b1a5db96ae0f85ba40cee3
+review_dimensions:
+  wording_independence: needs_human_decision
+  context_independence: needs_human_decision
+  data_independence: needs_human_decision
+  sequence_and_scaffolding_independence: needs_human_decision
+  options_and_distractors_independence: needs_human_decision
+  answer_and_solution_independence: needs_human_decision
+  language_bridge_independence: needs_human_decision
+  visual_and_interaction_independence: needs_human_decision
+human_review_required: true
+publication_unlocks: false
+customer_visibility_unlocks: false
+notes: Prepared deterministic review bundle only. Automated checks verify structure, coverage and freshness; a human reviewer must compare source context with the authored lesson before recording any originality decision.

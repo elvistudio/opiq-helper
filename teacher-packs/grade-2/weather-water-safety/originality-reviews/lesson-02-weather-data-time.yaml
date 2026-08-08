@@ -1,0 +1,131 @@
+schema_version: "1.0"
+artifact_type: lesson_originality_review_bundle
+review_id: grade-2-weather-water-safety-02-data-time-originality-review
+lesson_id: grade-2-weather-water-safety-02-data-time
+module_id: grade-2-weather-water-safety-pilot
+lesson_path: lesson-plans/grade-2/weather-water-safety/lesson-02-weather-data-time.yaml
+review_status: pending
+reviewer: null
+reviewer_role: null
+reviewed_on: null
+reviewed_version:
+  commit_sha: null
+content_fingerprint:
+  algorithm: sha256
+  canonicalization: lesson-originality-review-v1
+  value: 0ba4302447628b792f41b6e4c8f409b861693a7333ed5c29c3946c8704d4507e
+  file_count: 6
+  lesson_projection_sha256: 5da35f261d2b48c1cb4bd69381e8b73b0a61843ad4fd736c84b321870ff66a6c
+commercial_gate_fingerprint:
+  algorithm: sha256
+  specification_version: "1.0"
+  value: d7ebca228e3ec199e17f36eb82cf0a1d3174f95f4b9fe01b8b0d0c5260d70ac5
+  file_count: 6
+bundle_fingerprint:
+  algorithm: sha256
+  canonicalization: lesson-review-bundle-v1
+  value: 5f4e8350da972d0e86095ccdd8f498d105c6a2edc549c5d167f6825b59145e85
+approval_eligible: true
+blocking_review_ids: []
+covered_files:
+  - path: teacher-packs/grade-2/weather-water-safety/answers/lesson-02-answer-guidance.md
+    material_ids:
+      - g2-time-measurement-problem-expected-answers
+      - g2-time-measurement-problem-task
+      - g2-time-measurement-problem-worked-solution
+      - g2-weather-data-comparison-expected-answers
+      - g2-weather-data-comparison-task
+      - g2-weather-data-comparison-worked-solution
+      - g2-weather-data-time-assessment
+    audience: teacher
+    content_roles:
+      - answer_key_reference
+      - expected_answers
+      - worked_solution
+    sha256: ab85efa00156bf17365e1a165557fc182df51bd7f915b1ca99dcb73430f7a639
+  - path: teacher-packs/grade-2/weather-water-safety/student/g2-time-measurement-problem-task.md
+    material_ids:
+      - g2-time-measurement-problem-task
+    audience: student
+    content_roles:
+      - task_set
+    sha256: f99675cf7b9c8534b4e8963928c8bde3ea8a99d8a0c1fca9e030802006717ffc
+  - path: teacher-packs/grade-2/weather-water-safety/student/g2-weather-data-comparison-task.md
+    material_ids:
+      - g2-weather-data-comparison-task
+    audience: student
+    content_roles:
+      - task_set
+    sha256: 3eea04cbe7ede577dcc2608fdacb08a8fced1aa3347263d6aad0a2d4fbd7f5af
+  - path: teacher-packs/grade-2/weather-water-safety/student/lesson-02-exit-card.md
+    material_ids:
+      - g2-weather-data-time-assessment
+    audience: student
+    content_roles:
+      - assessment
+    sha256: 136ea3fb83a18f9da641406834de20a159050370284637f5e7a9897a2d64fd04
+  - path: teacher-packs/grade-2/weather-water-safety/student/lesson-02-weather-data-explanation.md
+    material_ids:
+      - g2-weather-data-time-explanation
+      - g2-weather-data-time-worked-example
+    audience: student
+    content_roles:
+      - explanation
+      - worked_example
+    sha256: 2dab5d1ac26a5eaa7e87d9f425d18e74dbbdb9a0a94a33d1d2f8af74cd59b96a
+  - path: teacher-packs/grade-2/weather-water-safety/teacher/lesson-02-guide.md
+    material_ids:
+      - g2-weather-data-time-lesson-guide
+    audience: teacher
+    content_roles:
+      - lesson_guide
+    sha256: a3a99a28817c32ceb83a49f72025210616f39527869964771edaf4660788f655
+covered_material_ids:
+  - g2-weather-data-time-explanation
+  - g2-weather-data-time-worked-example
+  - g2-weather-data-comparison-task
+  - g2-time-measurement-problem-task
+  - g2-weather-data-comparison-expected-answers
+  - g2-weather-data-comparison-worked-solution
+  - g2-time-measurement-problem-expected-answers
+  - g2-time-measurement-problem-worked-solution
+  - g2-weather-data-time-assessment
+  - g2-weather-data-time-lesson-guide
+source_context:
+  route_ids:
+    - grade-2-estonian-second-language
+    - grade-2-mathematics
+  route_md_paths:
+    - project-files/outputs/opiq_2klass_eesti_keel_teise_keelena.md
+    - project-files/outputs/opiq_2klass_matemaatika.md
+  canonical_record_ids:
+    - grade-2-mathematics-record-578-https-www-opiq-ee-kit-578-chapter-32039-10b9ff9d7f
+  canonical_urls:
+    - https://www.opiq.ee/kit/578/chapter/32039
+  source_limitations:
+    - Registered Grade 2 Opiq routes are available indexes and do not establish complete official-curriculum or live-catalogue coverage.
+    - Captured indexes do not include complete publisher prose, answer payloads, screenshots, illustrations, or every interactive sequence; absence of a discovered match cannot prove originality.
+task_dependencies:
+  - task_id: g2-time-measurement-problem-task
+    review_id: g2-time-measurement-problem-review
+    review_path: task-bank/reviews/grade-2/weather-water-safety/04-time-measurement-problem.yaml
+    status: approved
+    content_fingerprint: 89f2c46a08367b02aefdde67191a3b3a3ecad93f86c293d887d8a7a42984d0c9
+  - task_id: g2-weather-data-comparison-task
+    review_id: g2-weather-data-comparison-review
+    review_path: task-bank/reviews/grade-2/weather-water-safety/03-weather-data-comparison.yaml
+    status: approved
+    content_fingerprint: c7b5daf520966d4d3dc04cd41837ff2c765c1f7fb80f657f8f69edc59575d218
+review_dimensions:
+  wording_independence: needs_human_decision
+  context_independence: needs_human_decision
+  data_independence: needs_human_decision
+  sequence_and_scaffolding_independence: needs_human_decision
+  options_and_distractors_independence: needs_human_decision
+  answer_and_solution_independence: needs_human_decision
+  language_bridge_independence: needs_human_decision
+  visual_and_interaction_independence: needs_human_decision
+human_review_required: true
+publication_unlocks: false
+customer_visibility_unlocks: false
+notes: Prepared deterministic review bundle only. Automated checks verify structure, coverage and freshness; a human reviewer must compare source context with the authored lesson before recording any originality decision.
