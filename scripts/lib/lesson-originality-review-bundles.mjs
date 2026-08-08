@@ -2,6 +2,7 @@ import crypto from 'node:crypto';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import YAML from 'yaml';
+import { computeCommercialOriginalityFingerprint } from './commercial-course-schema.mjs';
 
 export const LESSON_ORIGINALITY_REVIEW_ROOT =
   'teacher-packs/grade-2/weather-water-safety/originality-reviews';
@@ -329,6 +330,11 @@ async function buildBundle(rootDir, manifest, spec) {
     lesson_projection_sha256: lessonProjectionSha,
     files: files.map(({ path: filePath, sha256: fileSha }) => ({ path: filePath, sha256: fileSha })),
   }));
+  const commercialGateFingerprint = computeCommercialOriginalityFingerprint(
+  rootDir,
+  lesson,
+  existingReview.covered_author_material_ids ?? [],
+);
   const dependencies = await taskDependencies(rootDir, spec.taskReviewPaths);
   const blocking = dependencies.filter((entry) => entry.status !== 'approved').map((entry) => entry.review_id);
   const bundle = {
@@ -350,6 +356,7 @@ async function buildBundle(rootDir, manifest, spec) {
       file_count: files.length,
       lesson_projection_sha256: lessonProjectionSha,
     },
+    commercial_gate_fingerprint: commercialGateFingerprint,
     bundle_fingerprint: {
       algorithm: 'sha256',
       canonicalization: 'lesson-review-bundle-v1',
@@ -394,7 +401,7 @@ export function renderLessonOriginalityPacket({ bundle, lesson, spec }) {
     .join('\n');
   return `# Lesson originality review packet: ${lesson.title_ru}\n\n`
     + `Status: **pending human review**. This packet does not approve the lesson and does not establish plagiarism absence, publication readiness, classroom readiness, or pedagogical effectiveness.\n\n`
-    + `## Identity\n\n- Lesson: \`${bundle.lesson_id}\`\n- Review: \`${bundle.review_id}\`\n- Content fingerprint: \`${bundle.content_fingerprint.value}\`\n- Bundle fingerprint: \`${bundle.bundle_fingerprint.value}\`\n- Approval eligible after task dependencies: **${bundle.approval_eligible}**\n\n`
+    + `## Identity\n\n- Lesson: \`${bundle.lesson_id}\`\n- Review: \`${bundle.review_id}\`\n- Review-content fingerprint: \`${bundle.content_fingerprint.value}\`\n- Existing commercial-gate fingerprint: \`${bundle.commercial_gate_fingerprint.value}\`\n- Bundle fingerprint: \`${bundle.bundle_fingerprint.value}\`\n- Approval eligible after task dependencies: **${bundle.approval_eligible}**\n\n`
     + `## Exact source context\n\nRoutes:\n${bulletList(bundle.source_context.route_ids.map((id, index) => `\`${id}\` — \`${bundle.source_context.route_md_paths[index] ?? ''}\``))}\n\nCanonical Opiq records:\n${bulletList(bundle.source_context.canonical_urls.map((url, index) => `\`${bundle.source_context.canonical_record_ids[index] ?? ''}\` — ${url}`))}\n\nLimitations:\n${bulletList(bundle.source_context.source_limitations)}\n\n`
     + `## Covered authored files\n\n${files}\n\n`
     + `## Task-review dependencies\n\n${dependencies}\n\n`
@@ -412,8 +419,9 @@ export function renderLessonOriginalityGuide() {
     + `2. Evaluate wording, context, data, sequence/scaffolding, answer/solution, language-bridge, distractor and visual/interaction independence.\n`
     + `3. Do not infer originality from a missing search match. Captured Opiq indexes are incomplete representations of publisher content.\n`
     + `4. Do not approve a lesson while a listed blocking task review remains pending.\n`
-    + `5. Record a real reviewer identity, role, review date, reviewed commit and the current fingerprint only in a later human-decision change.\n`
+    + `5. Record a real reviewer identity, role, review date, reviewed commit and reviewed bundle identity only in a later human-decision change; recompute the existing commercial originality gate fingerprint separately.\n`
     + `6. A review decision does not by itself unlock publication, customer visibility, teacher approval, access verification, classroom/home trial status, or effectiveness claims.\n\n`
+    + `## Fingerprint contracts\n\nThe review-content fingerprint binds the authored lesson projection plus covered files and identifies this review packet. The separate commercial-gate fingerprint is computed with the repository's existing commercial originality gate from the covered material files. A later human-decision change must not copy one value into the other contract by assumption: it must recompute the commercial gate fingerprint and independently preserve the reviewed bundle identity.\n\n`
     + `## Route boundary\n\nGrade 2 first-language Estonian (\`grade-2-estonian\`) and Estonian as a second language (\`grade-2-estonian-second-language\`) are distinct subjects. The second-language role in these lessons must use only the latter route. Lesson 3 retains a separate PE missing-route boundary; human-studies source evidence cannot satisfy that PE role.\n`;
 }
 
@@ -434,6 +442,7 @@ export async function buildLessonOriginalityReviewArtifacts(rootDir = process.cw
       bundle_path: bundlePath(spec),
       packet_path: packetPath(spec),
       content_fingerprint: bundle.content_fingerprint.value,
+      commercial_gate_fingerprint: bundle.commercial_gate_fingerprint.value,
       bundle_fingerprint: bundle.bundle_fingerprint.value,
       review_status: bundle.review_status,
       approval_eligible: bundle.approval_eligible,

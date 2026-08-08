@@ -8,8 +8,12 @@ This directory contains deterministic internal review bundles for the four Grade
 2. Evaluate wording, context, data, sequence/scaffolding, answer/solution, language-bridge, distractor and visual/interaction independence.
 3. Do not infer originality from a missing search match. Captured Opiq indexes are incomplete representations of publisher content.
 4. Do not approve a lesson while a listed blocking task review remains pending.
-5. Record a real reviewer identity, role, review date, reviewed commit and the current fingerprint only in a later human-decision change.
+5. Record a real reviewer identity, role, review date, reviewed commit and reviewed bundle identity only in a later human-decision change; recompute the existing commercial originality gate fingerprint separately.
 6. A review decision does not by itself unlock publication, customer visibility, teacher approval, access verification, classroom/home trial status, or effectiveness claims.
+
+## Fingerprint contracts
+
+The review-content fingerprint binds the authored lesson projection plus covered files and identifies this review packet. The separate commercial-gate fingerprint is computed with the repository's existing commercial originality gate from the covered material files. A later human-decision change must not copy one value into the other contract by assumption: it must recompute the commercial gate fingerprint and independently preserve the reviewed bundle identity.
 
 ## Route boundary
 

@@ -4,6 +4,7 @@ import path from 'node:path';
 import test from 'node:test';
 import Ajv2020 from 'ajv/dist/2020.js';
 import YAML from 'yaml';
+import { computeCommercialOriginalityFingerprint } from './lib/commercial-course-schema.mjs';
 import {
   buildLessonOriginalityReviewArtifacts,
   lessonOriginalityProjection,
@@ -38,7 +39,7 @@ test('builds exactly four deterministic pending lesson review bundles', async ()
     first.built.map((entry) => entry.bundle.bundle_fingerprint),
     second.built.map((entry) => entry.bundle.bundle_fingerprint),
   );
-  for (const { bundle } of first.built) {
+  for (const { bundle, lesson } of first.built) {
     assert.equal(bundle.review_status, 'pending');
     assert.equal(bundle.reviewer, null);
     assert.equal(bundle.reviewer_role, null);
@@ -48,6 +49,11 @@ test('builds exactly four deterministic pending lesson review bundles', async ()
     assert.equal(bundle.publication_unlocks, false);
     assert.equal(bundle.customer_visibility_unlocks, false);
     assert.match(bundle.content_fingerprint.value, /^[0-9a-f]{64}$/u);
+    assert.match(bundle.commercial_gate_fingerprint.value, /^[0-9a-f]{64}$/u);
+    assert.deepEqual(
+      bundle.commercial_gate_fingerprint,
+      computeCommercialOriginalityFingerprint(rootDir, lesson, bundle.covered_material_ids),
+    );
     assert.match(bundle.bundle_fingerprint.value, /^[0-9a-f]{64}$/u);
     assert.ok(bundle.content_fingerprint.file_count > 0);
   }

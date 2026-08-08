@@ -3,8 +3,12 @@
   "$id": "https://elvistudio.github.io/opiq-helper/schemas/lesson-originality-review-bundle.schema.json",
   "title": "Grade 2 lesson originality review bundle",
   "oneOf": [
-    { "$ref": "#/$defs/bundle" },
-    { "$ref": "#/$defs/index" }
+    {
+      "$ref": "#/$defs/bundle"
+    },
+    {
+      "$ref": "#/$defs/index"
+    }
   ],
   "$defs": {
     "slug": {
@@ -23,91 +27,180 @@
     "contentFingerprint": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["algorithm", "canonicalization", "value", "file_count", "lesson_projection_sha256"],
+      "required": [
+        "algorithm",
+        "canonicalization",
+        "value",
+        "file_count",
+        "lesson_projection_sha256"
+      ],
       "properties": {
-        "algorithm": { "const": "sha256" },
-        "canonicalization": { "const": "lesson-originality-review-v1" },
-        "value": { "$ref": "#/$defs/sha256" },
-        "file_count": { "type": "integer", "minimum": 1 },
-        "lesson_projection_sha256": { "$ref": "#/$defs/sha256" }
+        "algorithm": {
+          "const": "sha256"
+        },
+        "canonicalization": {
+          "const": "lesson-originality-review-v1"
+        },
+        "value": {
+          "$ref": "#/$defs/sha256"
+        },
+        "file_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "lesson_projection_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
       }
     },
     "bundleFingerprint": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["algorithm", "canonicalization", "value"],
+      "required": [
+        "algorithm",
+        "canonicalization",
+        "value"
+      ],
       "properties": {
-        "algorithm": { "const": "sha256" },
-        "canonicalization": { "const": "lesson-review-bundle-v1" },
-        "value": { "$ref": "#/$defs/sha256" }
+        "algorithm": {
+          "const": "sha256"
+        },
+        "canonicalization": {
+          "const": "lesson-review-bundle-v1"
+        },
+        "value": {
+          "$ref": "#/$defs/sha256"
+        }
       }
     },
     "coveredFile": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["path", "material_ids", "audience", "content_roles", "sha256"],
+      "required": [
+        "path",
+        "material_ids",
+        "audience",
+        "content_roles",
+        "sha256"
+      ],
       "properties": {
-        "path": { "$ref": "#/$defs/repositoryPath" },
+        "path": {
+          "$ref": "#/$defs/repositoryPath"
+        },
         "material_ids": {
           "type": "array",
           "minItems": 1,
           "uniqueItems": true,
-          "items": { "$ref": "#/$defs/slug" }
+          "items": {
+            "$ref": "#/$defs/slug"
+          }
         },
-        "audience": { "enum": ["student", "teacher", "parent", "shared"] },
+        "audience": {
+          "enum": [
+            "student",
+            "teacher",
+            "parent",
+            "shared"
+          ]
+        },
         "content_roles": {
           "type": "array",
           "minItems": 1,
           "uniqueItems": true,
-          "items": { "type": "string", "minLength": 1 }
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
         },
-        "sha256": { "$ref": "#/$defs/sha256" }
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        }
       }
     },
     "taskDependency": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["task_id", "review_id", "review_path", "status", "content_fingerprint"],
+      "required": [
+        "task_id",
+        "review_id",
+        "review_path",
+        "status",
+        "content_fingerprint"
+      ],
       "properties": {
-        "task_id": { "$ref": "#/$defs/slug" },
-        "review_id": { "$ref": "#/$defs/slug" },
-        "review_path": { "$ref": "#/$defs/repositoryPath" },
-        "status": { "enum": ["pending", "changes_requested", "approved", "rejected"] },
-        "content_fingerprint": { "$ref": "#/$defs/sha256" }
+        "task_id": {
+          "$ref": "#/$defs/slug"
+        },
+        "review_id": {
+          "$ref": "#/$defs/slug"
+        },
+        "review_path": {
+          "$ref": "#/$defs/repositoryPath"
+        },
+        "status": {
+          "enum": [
+            "pending",
+            "changes_requested",
+            "approved",
+            "rejected"
+          ]
+        },
+        "content_fingerprint": {
+          "$ref": "#/$defs/sha256"
+        }
       }
     },
     "sourceContext": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["route_ids", "route_md_paths", "canonical_record_ids", "canonical_urls", "source_limitations"],
+      "required": [
+        "route_ids",
+        "route_md_paths",
+        "canonical_record_ids",
+        "canonical_urls",
+        "source_limitations"
+      ],
       "properties": {
         "route_ids": {
           "type": "array",
           "minItems": 1,
           "uniqueItems": true,
-          "items": { "$ref": "#/$defs/slug" }
+          "items": {
+            "$ref": "#/$defs/slug"
+          }
         },
         "route_md_paths": {
           "type": "array",
           "minItems": 1,
           "uniqueItems": true,
-          "items": { "$ref": "#/$defs/repositoryPath" }
+          "items": {
+            "$ref": "#/$defs/repositoryPath"
+          }
         },
         "canonical_record_ids": {
           "type": "array",
           "uniqueItems": true,
-          "items": { "type": "string", "minLength": 1 }
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
         },
         "canonical_urls": {
           "type": "array",
           "uniqueItems": true,
-          "items": { "type": "string", "pattern": "^https://www\\.opiq\\.ee/" }
+          "items": {
+            "type": "string",
+            "pattern": "^https://www\\.opiq\\.ee/"
+          }
         },
         "source_limitations": {
           "type": "array",
           "minItems": 1,
           "uniqueItems": true,
-          "items": { "type": "string", "minLength": 10 }
+          "items": {
+            "type": "string",
+            "minLength": 10
+          }
         }
       }
     },
@@ -125,14 +218,30 @@
         "visual_and_interaction_independence"
       ],
       "properties": {
-        "wording_independence": { "const": "needs_human_decision" },
-        "context_independence": { "const": "needs_human_decision" },
-        "data_independence": { "const": "needs_human_decision" },
-        "sequence_and_scaffolding_independence": { "const": "needs_human_decision" },
-        "options_and_distractors_independence": { "const": "needs_human_decision" },
-        "answer_and_solution_independence": { "const": "needs_human_decision" },
-        "language_bridge_independence": { "const": "needs_human_decision" },
-        "visual_and_interaction_independence": { "const": "needs_human_decision" }
+        "wording_independence": {
+          "const": "needs_human_decision"
+        },
+        "context_independence": {
+          "const": "needs_human_decision"
+        },
+        "data_independence": {
+          "const": "needs_human_decision"
+        },
+        "sequence_and_scaffolding_independence": {
+          "const": "needs_human_decision"
+        },
+        "options_and_distractors_independence": {
+          "const": "needs_human_decision"
+        },
+        "answer_and_solution_independence": {
+          "const": "needs_human_decision"
+        },
+        "language_bridge_independence": {
+          "const": "needs_human_decision"
+        },
+        "visual_and_interaction_independence": {
+          "const": "needs_human_decision"
+        }
       }
     },
     "bundle": {
@@ -151,6 +260,7 @@
         "reviewed_on",
         "reviewed_version",
         "content_fingerprint",
+        "commercial_gate_fingerprint",
         "bundle_fingerprint",
         "approval_eligible",
         "blocking_review_ids",
@@ -165,51 +275,107 @@
         "notes"
       ],
       "properties": {
-        "schema_version": { "const": "1.0" },
-        "artifact_type": { "const": "lesson_originality_review_bundle" },
-        "review_id": { "$ref": "#/$defs/slug" },
-        "lesson_id": { "$ref": "#/$defs/slug" },
-        "module_id": { "const": "grade-2-weather-water-safety-pilot" },
-        "lesson_path": { "$ref": "#/$defs/repositoryPath" },
-        "review_status": { "const": "pending" },
-        "reviewer": { "type": "null" },
-        "reviewer_role": { "type": "null" },
-        "reviewed_on": { "type": "null" },
+        "schema_version": {
+          "const": "1.0"
+        },
+        "artifact_type": {
+          "const": "lesson_originality_review_bundle"
+        },
+        "review_id": {
+          "$ref": "#/$defs/slug"
+        },
+        "lesson_id": {
+          "$ref": "#/$defs/slug"
+        },
+        "module_id": {
+          "const": "grade-2-weather-water-safety-pilot"
+        },
+        "lesson_path": {
+          "$ref": "#/$defs/repositoryPath"
+        },
+        "review_status": {
+          "const": "pending"
+        },
+        "reviewer": {
+          "type": "null"
+        },
+        "reviewer_role": {
+          "type": "null"
+        },
+        "reviewed_on": {
+          "type": "null"
+        },
         "reviewed_version": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["commit_sha"],
-          "properties": { "commit_sha": { "type": "null" } }
+          "required": [
+            "commit_sha"
+          ],
+          "properties": {
+            "commit_sha": {
+              "type": "null"
+            }
+          }
         },
-        "content_fingerprint": { "$ref": "#/$defs/contentFingerprint" },
-        "bundle_fingerprint": { "$ref": "#/$defs/bundleFingerprint" },
-        "approval_eligible": { "type": "boolean" },
+        "content_fingerprint": {
+          "$ref": "#/$defs/contentFingerprint"
+        },
+        "bundle_fingerprint": {
+          "$ref": "#/$defs/bundleFingerprint"
+        },
+        "approval_eligible": {
+          "type": "boolean"
+        },
         "blocking_review_ids": {
           "type": "array",
           "uniqueItems": true,
-          "items": { "$ref": "#/$defs/slug" }
+          "items": {
+            "$ref": "#/$defs/slug"
+          }
         },
         "covered_files": {
           "type": "array",
           "minItems": 1,
-          "items": { "$ref": "#/$defs/coveredFile" }
+          "items": {
+            "$ref": "#/$defs/coveredFile"
+          }
         },
         "covered_material_ids": {
           "type": "array",
           "minItems": 1,
           "uniqueItems": true,
-          "items": { "$ref": "#/$defs/slug" }
+          "items": {
+            "$ref": "#/$defs/slug"
+          }
         },
-        "source_context": { "$ref": "#/$defs/sourceContext" },
+        "source_context": {
+          "$ref": "#/$defs/sourceContext"
+        },
         "task_dependencies": {
           "type": "array",
-          "items": { "$ref": "#/$defs/taskDependency" }
+          "items": {
+            "$ref": "#/$defs/taskDependency"
+          }
         },
-        "review_dimensions": { "$ref": "#/$defs/reviewDimensions" },
-        "human_review_required": { "const": true },
-        "publication_unlocks": { "const": false },
-        "customer_visibility_unlocks": { "const": false },
-        "notes": { "type": "string", "minLength": 10 }
+        "review_dimensions": {
+          "$ref": "#/$defs/reviewDimensions"
+        },
+        "human_review_required": {
+          "const": true
+        },
+        "publication_unlocks": {
+          "const": false
+        },
+        "customer_visibility_unlocks": {
+          "const": false
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 10
+        },
+        "commercial_gate_fingerprint": {
+          "$ref": "#/$defs/commercialFingerprint"
+        }
       }
     },
     "indexEntry": {
@@ -221,24 +387,46 @@
         "bundle_path",
         "packet_path",
         "content_fingerprint",
+        "commercial_gate_fingerprint",
         "bundle_fingerprint",
         "review_status",
         "approval_eligible",
         "blocking_review_ids"
       ],
       "properties": {
-        "lesson_id": { "$ref": "#/$defs/slug" },
-        "review_id": { "$ref": "#/$defs/slug" },
-        "bundle_path": { "$ref": "#/$defs/repositoryPath" },
-        "packet_path": { "$ref": "#/$defs/repositoryPath" },
-        "content_fingerprint": { "$ref": "#/$defs/sha256" },
-        "bundle_fingerprint": { "$ref": "#/$defs/sha256" },
-        "review_status": { "const": "pending" },
-        "approval_eligible": { "type": "boolean" },
+        "lesson_id": {
+          "$ref": "#/$defs/slug"
+        },
+        "review_id": {
+          "$ref": "#/$defs/slug"
+        },
+        "bundle_path": {
+          "$ref": "#/$defs/repositoryPath"
+        },
+        "packet_path": {
+          "$ref": "#/$defs/repositoryPath"
+        },
+        "content_fingerprint": {
+          "$ref": "#/$defs/sha256"
+        },
+        "bundle_fingerprint": {
+          "$ref": "#/$defs/sha256"
+        },
+        "review_status": {
+          "const": "pending"
+        },
+        "approval_eligible": {
+          "type": "boolean"
+        },
         "blocking_review_ids": {
           "type": "array",
           "uniqueItems": true,
-          "items": { "$ref": "#/$defs/slug" }
+          "items": {
+            "$ref": "#/$defs/slug"
+          }
+        },
+        "commercial_gate_fingerprint": {
+          "$ref": "#/$defs/sha256"
         }
       }
     },
@@ -256,19 +444,61 @@
         "shared_content_scope_note"
       ],
       "properties": {
-        "schema_version": { "const": "1.0" },
-        "artifact_type": { "const": "lesson_originality_review_index" },
-        "module_id": { "const": "grade-2-weather-water-safety-pilot" },
-        "review_completion_status": { "const": "pending_human_review" },
-        "approved_count": { "const": 0 },
-        "pending_count": { "const": 4 },
+        "schema_version": {
+          "const": "1.0"
+        },
+        "artifact_type": {
+          "const": "lesson_originality_review_index"
+        },
+        "module_id": {
+          "const": "grade-2-weather-water-safety-pilot"
+        },
+        "review_completion_status": {
+          "const": "pending_human_review"
+        },
+        "approved_count": {
+          "const": 0
+        },
+        "pending_count": {
+          "const": 4
+        },
         "bundles": {
           "type": "array",
           "minItems": 4,
           "maxItems": 4,
-          "items": { "$ref": "#/$defs/indexEntry" }
+          "items": {
+            "$ref": "#/$defs/indexEntry"
+          }
         },
-        "shared_content_scope_note": { "type": "string", "minLength": 20 }
+        "shared_content_scope_note": {
+          "type": "string",
+          "minLength": 20
+        }
+      }
+    },
+    "commercialFingerprint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "algorithm",
+        "specification_version",
+        "value",
+        "file_count"
+      ],
+      "properties": {
+        "algorithm": {
+          "const": "sha256"
+        },
+        "specification_version": {
+          "const": "1.0"
+        },
+        "value": {
+          "$ref": "#/$defs/sha256"
+        },
+        "file_count": {
+          "type": "integer",
+          "minimum": 1
+        }
       }
     }
   }

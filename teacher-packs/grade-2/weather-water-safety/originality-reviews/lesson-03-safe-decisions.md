@@ -6,8 +6,9 @@ Status: **pending human review**. This packet does not approve the lesson and do
 
 - Lesson: `grade-2-weather-water-safety-03-safe-decisions`
 - Review: `grade-2-weather-water-safety-03-safe-decisions-originality-review`
-- Content fingerprint: `083af4a1c56fca35cdccf9e83aafff31485fc63c9034a7c5851eaf9def7d010d`
-- Bundle fingerprint: `33028b5d859495c5613d87c995c542e5e84ee1cbd17d32d242ca4c56a66b9b90`
+- Review-content fingerprint: `083af4a1c56fca35cdccf9e83aafff31485fc63c9034a7c5851eaf9def7d010d`
+- Existing commercial-gate fingerprint: `a10320a66a662a11d0d7ca4efed08c508849a69112c09f7e9238644888304c82`
+- Bundle fingerprint: `ac3fc057fb4d64d23c072f9722c942d836640d3151d9b0df4292b9ecb8bd90f2`
 - Approval eligible after task dependencies: **false**
 
 ## Exact source context
