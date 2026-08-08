@@ -599,20 +599,20 @@
         "source_gap_resolution_claimed"
       ],
       "properties": {
-        "implemented_package_count": { "const": 4 },
-        "implemented_source_gap_count": { "const": 5 },
-        "delivered_capability_count": { "const": 19 },
-        "human_review_workflow_count": { "const": 4 },
-        "teacher_review_pending_count": { "const": 4 },
-        "local_safety_review_pending_count": { "const": 4 },
+        "implemented_package_count": { "const": 5 },
+        "implemented_source_gap_count": { "const": 6 },
+        "delivered_capability_count": { "const": 23 },
+        "human_review_workflow_count": { "const": 5 },
+        "teacher_review_pending_count": { "const": 5 },
+        "local_safety_review_pending_count": { "const": 5 },
         "completed_human_review_record_count": { "const": 0 },
-        "classroom_trial_workflow_count": { "const": 4 },
+        "classroom_trial_workflow_count": { "const": 5 },
         "completed_classroom_trial_record_count": { "const": 0 },
-        "classroom_trial_not_tested_count": { "const": 4 },
+        "classroom_trial_not_tested_count": { "const": 5 },
         "artifacts": {
           "type": "array",
-          "minItems": 4,
-          "maxItems": 4,
+          "minItems": 5,
+          "maxItems": 5,
           "prefixItems": [
             {
               "allOf": [
@@ -636,6 +636,12 @@
               "allOf": [
                 { "$ref": "#/$defs/reusableArtifactTracking" },
                 { "type": "object", "properties": { "package_id": { "const": "grade-6-science-wood-processing" } } }
+              ]
+            },
+            {
+              "allOf": [
+                { "$ref": "#/$defs/reusableArtifactTracking" },
+                { "type": "object", "properties": { "package_id": { "const": "grade-6-science-air-composition" } } }
               ]
             }
           ],
@@ -696,16 +702,16 @@
         "source_gap_resolution_claimed"
       ],
       "properties": {
-        "selected_next_package_id": { "const": "grade-6-science-air-composition" },
+        "selected_next_package_id": { "const": "grade-6-science-water-cycle" },
         "selected_next_package_status": { "const": "selected_not_started" },
         "selected_next_gap_ids": {
           "type": "array",
-          "prefixItems": [{ "const": "grade-6-science-lesson-051" }],
+          "prefixItems": [{ "const": "grade-6-science-lesson-055" }],
           "items": false,
           "minItems": 1,
           "maxItems": 1
         },
-        "selected_next_planned_root": { "const": "teacher-work-plan-artifacts/grade-6-science/air-composition" },
+        "selected_next_planned_root": { "const": "teacher-work-plan-artifacts/grade-6-science/water-cycle" },
         "selected_next_material_count": { "const": 0 },
         "selected_next_review_workflow_created": { "const": false },
         "selected_next_trial_workflow_created": { "const": false },

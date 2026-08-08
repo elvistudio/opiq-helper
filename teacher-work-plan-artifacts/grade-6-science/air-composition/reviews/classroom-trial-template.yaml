@@ -1,0 +1,115 @@
+schema_version: "1.0"
+artifact_type: teacher_work_plan_artifact_classroom_trial
+template: true
+trial_identity:
+  trial_id: null
+  facilitator_reference: null
+  anonymized_group_reference: null
+  trial_date: null
+  analysis_date: null
+artifact_identity:
+  artifact_id: grade-6-science-air-composition
+  artifact_index_path: teacher-work-plan-artifacts/grade-6-science/air-composition/artifact-index.yaml
+  package_id: grade-6-science-air-composition
+  route: grade-6-science
+  grade: 6
+  subject: science
+  subject_et: loodusõpetus
+  content_fingerprint: afa6af267f874c14a79d4b89f29e4cc8722f1560a6352f368b0e94016788ffeb
+prerequisites:
+  teacher_review_required: true
+  teacher_review_record_path: null
+  teacher_review_status: pending
+  local_safety_review_required: true
+  local_safety_review_record_path: null
+  local_safety_review_status: pending
+  current_fingerprint_matches: false
+  prerequisites_satisfied: false
+privacy:
+  aggregate_observations_only: false
+  no_learner_names_or_identifiers: false
+  manual_privacy_review_complete: false
+  free_text_privacy_review_complete: false
+  recordings_collected: false
+  identifiable_media_collected: false
+lifecycle:
+  status: draft
+  supersedes: []
+classroom_context:
+  delivery_scope: classroom
+  lesson_parts:
+    - part-1
+  planned_duration_minutes:
+    part-1: 45
+  group_size: null
+  adult_supervision_count: null
+  delivery_site_category: null
+  school_or_organization: null
+  site_description: null
+  named_context_reference: null
+  accessibility_adjustments: null
+  weather_or_indoor_fallback_used: null
+  safety_context_snapshot:
+    review_id: null
+    school_or_organization: null
+    site_description: null
+    planned_activity_date: null
+    approved_group_size: null
+    approved_adult_supervision_count: null
+    approved_delivery_site_category: null
+    approved_indoor_fallback_permitted: null
+    approved_weather_limitations: null
+    approved_accessibility_adjustments: null
+    approved_permission_requirements: null
+    approved_emergency_contact_process: null
+    approved_conditions: []
+  safety_condition_confirmations: []
+part_observations:
+  - part_id: part-1
+    source_gap_id: grade-6-science-lesson-051
+    title_et: "Õhu koostis: hapnik, süsihappegaas ja lämmastik"
+    planned_duration_minutes: 45
+    actual_duration_minutes: null
+    dimensions:
+      - { dimension_id: timing, status: not_observed, notes: null, finding_ids: [] }
+      - { dimension_id: setup_and_transitions, status: not_observed, notes: null, finding_ids: [] }
+      - { dimension_id: instruction_comprehension, status: not_observed, notes: null, finding_ids: [] }
+      - { dimension_id: grid_construction_accuracy, status: not_observed, notes: null, finding_ids: [] }
+      - { dimension_id: count_verification, status: not_observed, notes: null, finding_ids: [] }
+      - { dimension_id: percentage_calculation, status: not_observed, notes: null, finding_ids: [] }
+      - { dimension_id: other_gases_and_co2_distinction, status: not_observed, notes: null, finding_ids: [] }
+      - { dimension_id: model_vs_measurement, status: not_observed, notes: null, finding_ids: [] }
+      - { dimension_id: evidence_vs_inference, status: not_observed, notes: null, finding_ids: [] }
+      - { dimension_id: russian_explanation, status: not_observed, notes: null, finding_ids: [] }
+      - { dimension_id: estonian_language_support, status: not_observed, notes: null, finding_ids: [] }
+      - { dimension_id: material_usability, status: not_observed, notes: null, finding_ids: [] }
+      - { dimension_id: accessibility_and_participation, status: not_observed, notes: null, finding_ids: [] }
+      - { dimension_id: immediate_recall_and_transfer, status: not_observed, notes: null, finding_ids: [] }
+      - { dimension_id: method_naturalness, status: not_observed, notes: null, finding_ids: [] }
+aggregate_observations:
+  learners_started: null
+  learners_completed: null
+  safety_incident_count: null
+  stop_condition_triggered: null
+  indoor_fallback_used: null
+  material_reprint_or_repair_needed: null
+  group_completion_status: null
+  general_notes: null
+findings: []
+decision:
+  status: pending
+  rationale: null
+  open_blocking_findings: []
+  open_major_findings: []
+  required_changes_complete: false
+  reviewed_fingerprint_matches: false
+  safe_to_repeat: false
+boundaries:
+  canonical_opiq_gap_status_unchanged: true
+  source_gap_resolution_claimed: false
+  official_curriculum_complete: false
+  annual_architecture_created: false
+  default_course_selection_complete: false
+  live_catalogue_complete: false
+  publication_ready: false
+  effectiveness_claimed: false

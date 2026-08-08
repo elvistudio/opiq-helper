@@ -27,7 +27,7 @@ These files are supplementary curriculum-planning sources. They are not Opiq exp
 - A [human-review registry](../../teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/review-registry.yaml), teacher-review template, local-safety-review template and review guide now pin the exact material fingerprint. They contain no reviewer identity, completed record or approval decision.
 - A separate [classroom-trial template](../../teacher-work-plan-artifacts/grade-6-science/soil-organisms/reviews/classroom-trial-template.yaml) and guide now define a fail-closed future workflow. No trial has been conducted or registered; prerequisites remain unsatisfied and status remains `not_tested`.
 - The three artifacts give independently authored support to four source gaps, but canonical Opiq crosswalk status is unchanged. All teacher and local safety reviews are pending, all classroom trials are `not_tested`, and classroom/publication/effectiveness claims remain false.
-- Ten semantically ready packages remain unimplemented and three remain blocked by teacher review. `grade-6-science-wood-processing` is selected next but not started. The reusable-artifact backlog and Phase 5 are not complete.
+- Eight semantically ready packages remain unimplemented and three remain blocked by teacher review. `grade-6-science-water-cycle` is selected next but not started. The reusable-artifact backlog and Phase 5 are not complete.
 - Official curriculum completeness, exact-grade official allocation, default-course selection and live-catalogue completeness remain unverified.
 
 ## Routing boundaries
@@ -119,7 +119,7 @@ For each route:
 
 ### 5. Produce reusable teaching artifacts
 
-Implementation status: started, not complete. `grade-6-science-soil-organisms`, `grade-6-science-photosynthesis` and `grade-6-science-garden-field-food-products` remain byte-identical internal drafts. `grade-6-science-wood-processing` is now a fourth internal draft with three independently authored, offline paper-card capabilities supporting lesson 38. Its two optional Opiq records provide only wider forest and natural-resource context; they are not direct evidence for the wood-processing chains, and lesson 38 remains `missing` in the canonical crosswalk. All four packages have fail-closed human-review and classroom-trial workflows, zero completed review or trial records, pending teacher and local delivery/safety review, `not_tested` classroom status, and false readiness/publication/effectiveness claims. `grade-6-science-air-composition` is selected next but not started; 9 authorable packages remain unimplemented, 3 remain blocked, and the reusable-artifact backlog remains incomplete. No official curriculum completeness or annual architecture is created.
+Implementation status: started, not complete. `grade-6-science-soil-organisms`, `grade-6-science-photosynthesis`, `grade-6-science-garden-field-food-products` and `grade-6-science-wood-processing` remain byte-identical internal drafts. `grade-6-science-air-composition` is now a fifth internal draft with four independently authored, offline paper-model capabilities supporting lesson 51. It claims no Opiq context or external source, and lesson 51 remains `missing` in the canonical crosswalk. All five packages have fail-closed human-review and classroom-trial workflows, zero completed review or trial records, pending teacher and local delivery/safety review, `not_tested` classroom status, and false readiness/publication/effectiveness claims. `grade-6-science-water-cycle` is selected next but not started; 8 authorable packages remain unimplemented, 3 remain blocked, and the reusable-artifact backlog remains incomplete. No official curriculum completeness or annual architecture is created.
 
 After mapping is reviewed, derive small, source-attributed artifacts such as:
 
@@ -157,7 +157,7 @@ Run focused tests during authoring. Run the full test suite once the complete so
 5. Build four route-specific curriculum maps.
 6. Generate the cross-route gap report and complete semantic work-package review.
 7. Validate the lightweight reusable-artifact contract, create the fingerprint-pinned review and classroom-trial workflows, then obtain real teacher and named-context local-safety review before conducting any bounded Grade 6 soil-organisms trial.
-8. Review the internal-draft photosynthesis, garden/field food-products and wood-processing packages without inferring approval from merge state, then author the selected `grade-6-science-air-composition` package as a separate bounded change. Continue the remaining authorable packages only after bounded review, and keep the 3 decision-blocked packages separate.
+8. Review the five internal-draft packages without inferring approval from merge state, then author the selected `grade-6-science-water-cycle` package as a separate bounded change. Continue the remaining authorable packages only after bounded review, and keep the 3 decision-blocked packages separate.
 9. Run the full repository test suite after Phase 5 is complete.
 
 ## Acceptance criteria
