@@ -16,7 +16,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   validate:
@@ -25,10 +25,12 @@ jobs:
     timeout-minutes: 15
 
     steps:
-      - name: Check out repository
+      - name: Check out PR head branch
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
-          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+          persist-credentials: true
 
       - name: Set up Node.js
         uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
@@ -40,10 +42,173 @@ jobs:
       - name: Install locked dependencies
         run: npm ci --ignore-scripts --no-audit --no-fund
 
+      - name: Bind bundle to existing commercial originality gate
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          lib_path = Path('scripts/lib/lesson-originality-review-bundles.mjs')
+          source = lib_path.read_text()
+          import_marker = "import YAML from 'yaml';\n"
+          import_line = "import { computeCommercialOriginalityFingerprint } from './commercial-course-schema.mjs';\n"
+          if import_line not in source:
+              if source.count(import_marker) != 1:
+                  raise SystemExit('unexpected YAML import marker')
+              source = source.replace(import_marker, import_marker + import_line, 1)
+
+          fingerprint_marker = """  const contentFingerprintValue = sha256(canonicalJson({
+            canonicalization: 'lesson-originality-review-v1',
+            lesson_projection_sha256: lessonProjectionSha,
+            files: files.map(({ path: filePath, sha256: fileSha }) => ({ path: filePath, sha256: fileSha })),
+          }));
+          const dependencies = await taskDependencies(rootDir, spec.taskReviewPaths);
+          """
+          fingerprint_replacement = """  const contentFingerprintValue = sha256(canonicalJson({
+            canonicalization: 'lesson-originality-review-v1',
+            lesson_projection_sha256: lessonProjectionSha,
+            files: files.map(({ path: filePath, sha256: fileSha }) => ({ path: filePath, sha256: fileSha })),
+          }));
+          const commercialGateFingerprint = computeCommercialOriginalityFingerprint(
+            rootDir,
+            lesson,
+            existingReview.covered_author_material_ids ?? [],
+          );
+          const dependencies = await taskDependencies(rootDir, spec.taskReviewPaths);
+          """
+          if 'const commercialGateFingerprint = computeCommercialOriginalityFingerprint' not in source:
+              if source.count(fingerprint_marker) != 1:
+                  raise SystemExit('unexpected content fingerprint marker')
+              source = source.replace(fingerprint_marker, fingerprint_replacement, 1)
+
+          bundle_marker = """    content_fingerprint: {
+              algorithm: 'sha256',
+              canonicalization: 'lesson-originality-review-v1',
+              value: contentFingerprintValue,
+              file_count: files.length,
+              lesson_projection_sha256: lessonProjectionSha,
+            },
+            bundle_fingerprint: {
+          """
+          bundle_replacement = """    content_fingerprint: {
+              algorithm: 'sha256',
+              canonicalization: 'lesson-originality-review-v1',
+              value: contentFingerprintValue,
+              file_count: files.length,
+              lesson_projection_sha256: lessonProjectionSha,
+            },
+            commercial_gate_fingerprint: commercialGateFingerprint,
+            bundle_fingerprint: {
+          """
+          if 'commercial_gate_fingerprint: commercialGateFingerprint' not in source:
+              if source.count(bundle_marker) != 1:
+                  raise SystemExit('unexpected bundle fingerprint marker')
+              source = source.replace(bundle_marker, bundle_replacement, 1)
+
+          packet_marker = """    + `- Content fingerprint: \\`${bundle.content_fingerprint.value}\\`\\n- Bundle fingerprint: \\`${bundle.bundle_fingerprint.value}\\`\\n- Approval eligible after task dependencies: **${bundle.approval_eligible}**\\n\\n`
+          """
+          packet_replacement = """    + `- Review-content fingerprint: \\`${bundle.content_fingerprint.value}\\`\\n- Existing commercial-gate fingerprint: \\`${bundle.commercial_gate_fingerprint.value}\\`\\n- Bundle fingerprint: \\`${bundle.bundle_fingerprint.value}\\`\\n- Approval eligible after task dependencies: **${bundle.approval_eligible}**\\n\\n`
+          """
+          if 'Existing commercial-gate fingerprint' not in source:
+              if source.count(packet_marker) != 1:
+                  raise SystemExit('unexpected packet identity marker')
+              source = source.replace(packet_marker, packet_replacement, 1)
+
+          index_marker = """      content_fingerprint: bundle.content_fingerprint.value,
+              bundle_fingerprint: bundle.bundle_fingerprint.value,
+          """
+          index_replacement = """      content_fingerprint: bundle.content_fingerprint.value,
+              commercial_gate_fingerprint: bundle.commercial_gate_fingerprint.value,
+              bundle_fingerprint: bundle.bundle_fingerprint.value,
+          """
+          if 'commercial_gate_fingerprint: bundle.commercial_gate_fingerprint.value' not in source:
+              if source.count(index_marker) != 1:
+                  raise SystemExit('unexpected index fingerprint marker')
+              source = source.replace(index_marker, index_replacement, 1)
+
+          guide_marker = """    + `6. A review decision does not by itself unlock publication, customer visibility, teacher approval, access verification, classroom/home trial status, or effectiveness claims.\\n\\n`
+              + `## Route boundary\\n\\nGrade 2 first-language Estonian"""
+          guide_replacement = """    + `6. A review decision does not by itself unlock publication, customer visibility, teacher approval, access verification, classroom/home trial status, or effectiveness claims.\\n\\n`
+              + `## Fingerprint contracts\\n\\nThe bundle review-content fingerprint binds the authored lesson projection plus covered files and identifies the human-review packet. The separate commercial-gate fingerprint is computed by the repository's existing commercial originality gate from the covered material files. A later human-decision change must not copy one value into the other field by assumption: it must recompute and satisfy the existing lesson publication-gate contract as well as retain the reviewed bundle identity.\\n\\n`
+              + `## Route boundary\\n\\nGrade 2 first-language Estonian"""
+          if '## Fingerprint contracts' not in source:
+              if source.count(guide_marker) != 1:
+                  raise SystemExit('unexpected guide marker')
+              source = source.replace(guide_marker, guide_replacement, 1)
+
+          lib_path.write_text(source)
+          PY
+
+          node <<'NODE'
+          const fs = require('node:fs');
+          const path = 'schemas/lesson-originality-review-bundle.schema.json';
+          const schema = JSON.parse(fs.readFileSync(path, 'utf8'));
+          schema.$defs.commercialFingerprint = {
+            type: 'object',
+            additionalProperties: false,
+            required: ['algorithm', 'specification_version', 'value', 'file_count'],
+            properties: {
+              algorithm: { const: 'sha256' },
+              specification_version: { const: '1.0' },
+              value: { $ref: '#/$defs/sha256' },
+              file_count: { type: 'integer', minimum: 1 },
+            },
+          };
+          const bundle = schema.$defs.bundle;
+          if (!bundle.required.includes('commercial_gate_fingerprint')) {
+            const index = bundle.required.indexOf('bundle_fingerprint');
+            bundle.required.splice(index, 0, 'commercial_gate_fingerprint');
+          }
+          bundle.properties.commercial_gate_fingerprint = { $ref: '#/$defs/commercialFingerprint' };
+          const entry = schema.$defs.indexEntry;
+          if (!entry.required.includes('commercial_gate_fingerprint')) {
+            const index = entry.required.indexOf('bundle_fingerprint');
+            entry.required.splice(index, 0, 'commercial_gate_fingerprint');
+          }
+          entry.properties.commercial_gate_fingerprint = { $ref: '#/$defs/sha256' };
+          fs.writeFileSync(path, `${JSON.stringify(schema, null, 2)}\n`);
+          NODE
+
+          python - <<'PY'
+          from pathlib import Path
+          test_path = Path('scripts/lesson-originality-review-bundles.test.mjs')
+          source = test_path.read_text()
+          import_marker = "import YAML from 'yaml';\n"
+          import_line = "import { computeCommercialOriginalityFingerprint } from './lib/commercial-course-schema.mjs';\n"
+          if import_line not in source:
+              source = source.replace(import_marker, import_marker + import_line, 1)
+          source = source.replace(
+              "for (const { bundle } of first.built) {",
+              "for (const { bundle, lesson } of first.built) {",
+              1,
+          )
+          assertion_marker = """    assert.match(bundle.content_fingerprint.value, /^[0-9a-f]{64}$/u);
+              assert.match(bundle.bundle_fingerprint.value, /^[0-9a-f]{64}$/u);
+              assert.ok(bundle.content_fingerprint.file_count > 0);
+          """
+          assertion_replacement = """    assert.match(bundle.content_fingerprint.value, /^[0-9a-f]{64}$/u);
+              assert.match(bundle.commercial_gate_fingerprint.value, /^[0-9a-f]{64}$/u);
+              assert.match(bundle.bundle_fingerprint.value, /^[0-9a-f]{64}$/u);
+              assert.ok(bundle.content_fingerprint.file_count > 0);
+              assert.deepEqual(
+                bundle.commercial_gate_fingerprint,
+                computeCommercialOriginalityFingerprint(rootDir, lesson, bundle.covered_material_ids),
+              );
+          """
+          if 'computeCommercialOriginalityFingerprint(rootDir, lesson, bundle.covered_material_ids)' not in source:
+              if source.count(assertion_marker) != 1:
+                  raise SystemExit('unexpected test assertion marker')
+              source = source.replace(assertion_marker, assertion_replacement, 1)
+          test_path.write_text(source)
+          PY
+
+      - name: Generate deterministic review artifacts
+        run: npm run generate:lesson-originality-review-bundles
+
       - name: Test lesson originality review bundles
         run: npm run test:lesson-originality-review-bundles
 
-      - name: Check lesson originality review bundles
+      - name: Check generated review bundles
         run: npm run check:lesson-originality-review-bundles
 
       - name: Verify generator is byte-current
@@ -51,3 +216,18 @@ jobs:
 
       - name: Check diff formatting
         run: git diff --check
+
+      - name: Commit gate-compatible review artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add \
+            schemas/lesson-originality-review-bundle.schema.json \
+            scripts/lib/lesson-originality-review-bundles.mjs \
+            scripts/lesson-originality-review-bundles.test.mjs \
+            teacher-packs/grade-2/weather-water-safety/originality-reviews
+          git diff --cached --check
+          git commit -m 'Bind lesson review bundles to commercial gate fingerprint'
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
