@@ -112,7 +112,10 @@
     "test:teacher-work-plan-work-packages": "node --test scripts/teacher-work-plan-work-packages.test.mjs",
     "test:teacher-work-plan-maps": "node --test scripts/teacher-work-plan-curriculum-maps.test.mjs",
     "test:teacher-work-plans": "node --test scripts/teacher-work-plan-extractions.test.mjs",
-    "test:validation-scope": "node --test scripts/classify-source-validation-scope.test.mjs"
+    "test:validation-scope": "node --test scripts/classify-source-validation-scope.test.mjs",
+    "check:lesson-originality-review-bundles": "node scripts/check-lesson-originality-review-bundles.mjs",
+    "generate:lesson-originality-review-bundles": "node scripts/generate-lesson-originality-review-bundles.mjs --write",
+    "test:lesson-originality-review-bundles": "node --test scripts/lesson-originality-review-bundles.test.mjs"
   },
   "devDependencies": {
     "ajv": "8.20.0",

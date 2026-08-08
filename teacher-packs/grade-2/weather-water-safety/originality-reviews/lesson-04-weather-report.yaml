@@ -1,0 +1,130 @@
+schema_version: "1.0"
+artifact_type: lesson_originality_review_bundle
+review_id: grade-2-weather-water-safety-04-weather-report-originality-review
+lesson_id: grade-2-weather-water-safety-04-weather-report
+module_id: grade-2-weather-water-safety-pilot
+lesson_path: lesson-plans/grade-2/weather-water-safety/lesson-04-weather-report.yaml
+review_status: pending
+reviewer: null
+reviewer_role: null
+reviewed_on: null
+reviewed_version:
+  commit_sha: null
+content_fingerprint:
+  algorithm: sha256
+  canonicalization: lesson-originality-review-v1
+  value: b8150df4bed3e37e0d3c8acc2e58e6392f91cf7e422bcaa3c2acbbc6b18012e8
+  file_count: 7
+  lesson_projection_sha256: 212b034f686ae5acda01d90d39ce4731c16d3f42ecf257036bbefbfb713a0bbe
+bundle_fingerprint:
+  algorithm: sha256
+  canonicalization: lesson-review-bundle-v1
+  value: f4b00fca5786d89dd025f98095e4dc3ae35c8da7bc872015f3609ee242ffc28f
+approval_eligible: false
+blocking_review_ids:
+  - g2-shared-weather-report-contribution-review
+  - g2-weather-exit-ticket-review
+covered_files:
+  - path: teacher-packs/grade-2/weather-water-safety/answers/lesson-04-answer-guidance.md
+    material_ids:
+      - g2-shared-weather-report-contribution-task
+      - g2-shared-weather-report-success-guidance
+      - g2-weather-exit-ticket-expected-answers
+      - g2-weather-exit-ticket-task
+    audience: teacher
+    content_roles:
+      - answer_key_reference
+      - expected_answers
+    sha256: 614f4f016ccdffbb02e20de8df5228aa4b01fd9f349d819d6cf6939d32620b9c
+  - path: teacher-packs/grade-2/weather-water-safety/student/g2-shared-weather-report-contribution-task.md
+    material_ids:
+      - g2-shared-weather-report-contribution-task
+    audience: student
+    content_roles:
+      - task_set
+    sha256: 95f0380c5f4a26a396d17dcca945060129183bd7bc4ad502c938257ca8a79d13
+  - path: teacher-packs/grade-2/weather-water-safety/student/g2-weather-exit-ticket-task.md
+    material_ids:
+      - g2-weather-exit-ticket-task
+    audience: student
+    content_roles:
+      - task_set
+    sha256: 0f3ae24408b1887c15dbb9a0111e7d3d7ca11d91a3ed8229eb01f5c9ee574615
+  - path: teacher-packs/grade-2/weather-water-safety/student/lesson-04-module-reflection.md
+    material_ids:
+      - g2-weather-module-reflection
+    audience: student
+    content_roles:
+      - assessment
+    sha256: c693537088a406266b771a1103fe8e02f9cdae4314ae6d007f9ebda9b08e606d
+  - path: teacher-packs/grade-2/weather-water-safety/student/lesson-04-report-explanation.md
+    material_ids:
+      - g2-weather-report-explanation
+      - g2-weather-report-worked-example
+    audience: student
+    content_roles:
+      - explanation
+      - worked_example
+    sha256: 7566e56fbaa40cadeb708e2d2f6329f7ec1f3185c12b4712c20fb1f3f1dbdab1
+  - path: teacher-packs/grade-2/weather-water-safety/student/lesson-04-shared-report-template.md
+    material_ids:
+      - g2-weather-shared-report-template
+    audience: student
+    content_roles:
+      - worksheet
+    sha256: 002ccf8a93d5af52a4c72f878aead79f6549c192043b98c51a62c5651ea8f241
+  - path: teacher-packs/grade-2/weather-water-safety/teacher/lesson-04-guide.md
+    material_ids:
+      - g2-weather-report-lesson-guide
+    audience: teacher
+    content_roles:
+      - lesson_guide
+    sha256: ec12ff25effc388cb7a8e302b38a98b41dc7c2bada0ce9a5bedd13b2b6e87371
+covered_material_ids:
+  - g2-weather-report-explanation
+  - g2-weather-report-worked-example
+  - g2-shared-weather-report-contribution-task
+  - g2-weather-shared-report-template
+  - g2-weather-exit-ticket-task
+  - g2-weather-module-reflection
+  - g2-shared-weather-report-success-guidance
+  - g2-weather-exit-ticket-expected-answers
+  - g2-weather-report-lesson-guide
+source_context:
+  route_ids:
+    - grade-2-estonian-second-language
+    - grade-2-science
+  route_md_paths:
+    - project-files/outputs/opiq_2klass_eesti_keel_teise_keelena.md
+    - project-files/outputs/opiq_2klass_loodusopetus.md
+  canonical_record_ids:
+    - grade-2-science-record-570-https-www-opiq-ee-kit-570-chapter-32084-9b5b2527be
+  canonical_urls:
+    - https://www.opiq.ee/kit/570/chapter/32084
+  source_limitations:
+    - Registered Grade 2 Opiq routes are available indexes and do not establish complete official-curriculum or live-catalogue coverage.
+    - Captured indexes do not include complete publisher prose, answer payloads, screenshots, illustrations, or every interactive sequence; absence of a discovered match cannot prove originality.
+task_dependencies:
+  - task_id: g2-shared-weather-report-contribution-task
+    review_id: g2-shared-weather-report-contribution-review
+    review_path: task-bank/reviews/grade-2/weather-water-safety/11-shared-weather-report-contribution.yaml
+    status: pending
+    content_fingerprint: 303d0dc6c06e02f2aef83c38ed9fb024b1e89e00aa43195451c1645d851b90c0
+  - task_id: g2-weather-exit-ticket-task
+    review_id: g2-weather-exit-ticket-review
+    review_path: task-bank/reviews/grade-2/weather-water-safety/12-weather-exit-ticket.yaml
+    status: pending
+    content_fingerprint: b72ab93feeda22c38dce62e6b3c2c74c5500194f32e5ba8c0df2c63cf2ab3bc1
+review_dimensions:
+  wording_independence: needs_human_decision
+  context_independence: needs_human_decision
+  data_independence: needs_human_decision
+  sequence_and_scaffolding_independence: needs_human_decision
+  options_and_distractors_independence: needs_human_decision
+  answer_and_solution_independence: needs_human_decision
+  language_bridge_independence: needs_human_decision
+  visual_and_interaction_independence: needs_human_decision
+human_review_required: true
+publication_unlocks: false
+customer_visibility_unlocks: false
+notes: Prepared deterministic review bundle only. Automated checks verify structure, coverage and freshness; a human reviewer must compare source context with the authored lesson before recording any originality decision.

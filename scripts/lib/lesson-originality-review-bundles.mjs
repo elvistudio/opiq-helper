@@ -401,7 +401,7 @@ export function renderLessonOriginalityPacket({ bundle, lesson, spec }) {
     + `## Lesson-specific review concerns\n\n${bulletList(spec.concerns)}\n\n`
     + `## Human reviewer checklist\n\n${dimensions}\n\n`
     + `The reviewer must inspect source context and the authored commercial content directly. Automated validation only verifies deterministic structure, coverage, route boundaries, dependency state, and fingerprint freshness. It cannot conclusively detect plagiarism or establish originality.\n\n`
-    + `## Decision\n\nReviewer: ____________________  Role: ____________________  Date: __________\n\nDecision: [ ] approved  [ ] changes requested  [ ] rejected\n\nNotes:\n\n`;
+    + `## Decision\n\nReviewer: ____________________  Role: ____________________  Date: __________\n\nDecision: [ ] approved  [ ] changes requested  [ ] rejected\n\nNotes:\n`;
 }
 
 export function renderLessonOriginalityGuide() {

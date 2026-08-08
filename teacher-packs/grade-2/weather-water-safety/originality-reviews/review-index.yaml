@@ -1,0 +1,48 @@
+schema_version: "1.0"
+artifact_type: lesson_originality_review_index
+module_id: grade-2-weather-water-safety-pilot
+review_completion_status: pending_human_review
+approved_count: 0
+pending_count: 4
+bundles:
+  - lesson_id: grade-2-weather-water-safety-01-observation
+    review_id: grade-2-weather-water-safety-01-observation-originality-review
+    bundle_path: teacher-packs/grade-2/weather-water-safety/originality-reviews/lesson-01-weather-observation.yaml
+    packet_path: teacher-packs/grade-2/weather-water-safety/originality-reviews/lesson-01-weather-observation.md
+    content_fingerprint: 0da72db5f899a23ff66e40d239d93e4c2aa51fdfe8d61844930efb0cba94ebab
+    bundle_fingerprint: 1e62665c6f202b02eb884b492fc29ffd7b7e849925dadf23012589db67733954
+    review_status: pending
+    approval_eligible: true
+    blocking_review_ids: []
+  - lesson_id: grade-2-weather-water-safety-02-data-time
+    review_id: grade-2-weather-water-safety-02-data-time-originality-review
+    bundle_path: teacher-packs/grade-2/weather-water-safety/originality-reviews/lesson-02-weather-data-time.yaml
+    packet_path: teacher-packs/grade-2/weather-water-safety/originality-reviews/lesson-02-weather-data-time.md
+    content_fingerprint: 0ba4302447628b792f41b6e4c8f409b861693a7333ed5c29c3946c8704d4507e
+    bundle_fingerprint: 9e188124ff81bb409b9376fe9ffc754110959036659510d5908c3ebbd117e9f3
+    review_status: pending
+    approval_eligible: true
+    blocking_review_ids: []
+  - lesson_id: grade-2-weather-water-safety-03-safe-decisions
+    review_id: grade-2-weather-water-safety-03-safe-decisions-originality-review
+    bundle_path: teacher-packs/grade-2/weather-water-safety/originality-reviews/lesson-03-safe-decisions.yaml
+    packet_path: teacher-packs/grade-2/weather-water-safety/originality-reviews/lesson-03-safe-decisions.md
+    content_fingerprint: 083af4a1c56fca35cdccf9e83aafff31485fc63c9034a7c5851eaf9def7d010d
+    bundle_fingerprint: 33028b5d859495c5613d87c995c542e5e84ee1cbd17d32d242ca4c56a66b9b90
+    review_status: pending
+    approval_eligible: false
+    blocking_review_ids:
+      - g2-pe-water-safety-decision-review
+      - g2-water-edge-safe-decision-review
+  - lesson_id: grade-2-weather-water-safety-04-weather-report
+    review_id: grade-2-weather-water-safety-04-weather-report-originality-review
+    bundle_path: teacher-packs/grade-2/weather-water-safety/originality-reviews/lesson-04-weather-report.yaml
+    packet_path: teacher-packs/grade-2/weather-water-safety/originality-reviews/lesson-04-weather-report.md
+    content_fingerprint: b8150df4bed3e37e0d3c8acc2e58e6392f91cf7e422bcaa3c2acbbc6b18012e8
+    bundle_fingerprint: f4b00fca5786d89dd025f98095e4dc3ae35c8da7bc872015f3609ee242ffc28f
+    review_status: pending
+    approval_eligible: false
+    blocking_review_ids:
+      - g2-shared-weather-report-contribution-review
+      - g2-weather-exit-ticket-review
+shared_content_scope_note: Shared pack-level overview, rubric and parent/homeschool support are not silently treated as lesson-specific originality decisions. Their existence remains covered by the separate teacher-pack and release-review gates.

@@ -1,0 +1,97 @@
+schema_version: "1.0"
+artifact_type: lesson_originality_review_bundle
+review_id: grade-2-weather-water-safety-01-observation-originality-review
+lesson_id: grade-2-weather-water-safety-01-observation
+module_id: grade-2-weather-water-safety-pilot
+lesson_path: lesson-plans/grade-2/weather-water-safety/lesson-01-weather-observation.yaml
+review_status: pending
+reviewer: null
+reviewer_role: null
+reviewed_on: null
+reviewed_version:
+  commit_sha: null
+content_fingerprint:
+  algorithm: sha256
+  canonicalization: lesson-originality-review-v1
+  value: 0da72db5f899a23ff66e40d239d93e4c2aa51fdfe8d61844930efb0cba94ebab
+  file_count: 5
+  lesson_projection_sha256: f96e9c10c96d48133375b1801e2ff71c9cb329ba520a5b49a0842b96e45a29ea
+bundle_fingerprint:
+  algorithm: sha256
+  canonicalization: lesson-review-bundle-v1
+  value: 1e62665c6f202b02eb884b492fc29ffd7b7e849925dadf23012589db67733954
+approval_eligible: true
+blocking_review_ids: []
+covered_files:
+  - path: teacher-packs/grade-2/weather-water-safety/answers/lesson-01-answer-guidance.md
+    material_ids:
+      - g2-weather-observation-expected-guidance
+    audience: teacher
+    content_roles:
+      - expected_answers
+    sha256: 0bd71b860b7edafafe2f41073442c12f6ba87e4184e6746f26195098224e087d
+  - path: teacher-packs/grade-2/weather-water-safety/student/lesson-01-exit-card.md
+    material_ids:
+      - g2-weather-observation-assessment
+    audience: student
+    content_roles:
+      - assessment
+    sha256: 426b14a9fad4ed4cded0982900e1c911d47e456ac9f66ab2b71e318174354c78
+  - path: teacher-packs/grade-2/weather-water-safety/student/lesson-01-observation-sheet.md
+    material_ids:
+      - g2-weather-observation-task
+    audience: student
+    content_roles:
+      - worksheet
+    sha256: 0c3341a8eab0fbceb0911819c5dd59c0b514b0f206d8666cbe72085b400b1166
+  - path: teacher-packs/grade-2/weather-water-safety/student/lesson-01-weather-explanation.md
+    material_ids:
+      - g2-weather-observation-explanation
+      - g2-weather-observation-worked-example
+    audience: student
+    content_roles:
+      - explanation
+      - worked_example
+    sha256: 8cca55d7cae312d0a2005c25c200ee2f5e56385399b8b8da1d4f61490576338c
+  - path: teacher-packs/grade-2/weather-water-safety/teacher/lesson-01-guide.md
+    material_ids:
+      - g2-weather-observation-lesson-guide
+    audience: teacher
+    content_roles:
+      - lesson_guide
+    sha256: 1ef6d422d7ec26c778ca20093c4ddc6c14f1ca91c79c6fc0cd38110cdc76e4f4
+covered_material_ids:
+  - g2-weather-observation-explanation
+  - g2-weather-observation-worked-example
+  - g2-weather-observation-task
+  - g2-weather-observation-assessment
+  - g2-weather-observation-expected-guidance
+  - g2-weather-observation-lesson-guide
+source_context:
+  route_ids:
+    - grade-2-estonian-second-language
+    - grade-2-science
+  route_md_paths:
+    - project-files/outputs/opiq_2klass_eesti_keel_teise_keelena.md
+    - project-files/outputs/opiq_2klass_loodusopetus.md
+  canonical_record_ids:
+    - grade-2-science-record-570-https-www-opiq-ee-kit-570-chapter-32084-9b5b2527be
+  canonical_urls:
+    - https://www.opiq.ee/kit/570/chapter/32084
+  source_limitations:
+    - Registered Grade 2 Opiq routes are available indexes and do not establish complete official-curriculum or live-catalogue coverage.
+    - Captured indexes do not include complete publisher prose, answer payloads, screenshots, illustrations, or every interactive sequence; absence of a discovered match cannot prove originality.
+task_dependencies: []
+review_dimensions:
+  wording_independence: needs_human_decision
+  context_independence: needs_human_decision
+  data_independence: needs_human_decision
+  sequence_and_scaffolding_independence: needs_human_decision
+  options_and_distractors_independence: needs_human_decision
+  answer_and_solution_independence: needs_human_decision
+  language_bridge_independence: needs_human_decision
+  visual_and_interaction_independence: needs_human_decision
+human_review_required: true
+publication_unlocks: false
+customer_visibility_unlocks: false
+notes: Prepared deterministic review bundle only. Automated checks verify structure, coverage and freshness; a human reviewer must compare source context with the authored lesson before recording any originality decision.
