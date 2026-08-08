@@ -16,7 +16,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   validate:
@@ -25,12 +25,10 @@ jobs:
     timeout-minutes: 15
 
     steps:
-      - name: Check out PR head branch
+      - name: Check out repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
-          ref: ${{ github.event.pull_request.head.ref }}
-          fetch-depth: 0
-          persist-credentials: true
+          persist-credentials: false
 
       - name: Set up Node.js
         uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
@@ -42,59 +40,14 @@ jobs:
       - name: Install locked dependencies
         run: npm ci --ignore-scripts --no-audit --no-fund
 
-      - name: Normalize packet EOF rendering
-        shell: bash
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          file = Path('scripts/lib/lesson-originality-review-bundles.mjs')
-          data = file.read_bytes()
-          old = rb'Notes:\n\n`;'
-          new = rb'Notes:\n`;'
-          count = data.count(old)
-          if count != 1:
-              raise SystemExit(f'expected exactly one packet EOF renderer, found {count}')
-          file.write_bytes(data.replace(old, new, 1))
-          PY
-
-      - name: Register focused npm scripts in workspace
-        shell: bash
-        run: |
-          node <<'NODE'
-          const fs = require('node:fs');
-          const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
-          pkg.scripts['check:lesson-originality-review-bundles'] = 'node scripts/check-lesson-originality-review-bundles.mjs';
-          pkg.scripts['generate:lesson-originality-review-bundles'] = 'node scripts/generate-lesson-originality-review-bundles.mjs --write';
-          pkg.scripts['test:lesson-originality-review-bundles'] = 'node --test scripts/lesson-originality-review-bundles.test.mjs';
-          fs.writeFileSync('package.json', `${JSON.stringify(pkg, null, 2)}\n`);
-          NODE
-
-      - name: Generate deterministic review artifacts
-        run: npm run generate:lesson-originality-review-bundles
-
       - name: Test lesson originality review bundles
         run: npm run test:lesson-originality-review-bundles
 
-      - name: Check generated review bundles
+      - name: Check lesson originality review bundles
         run: npm run check:lesson-originality-review-bundles
+
+      - name: Verify generator is byte-current
+        run: node scripts/generate-lesson-originality-review-bundles.mjs --check
 
       - name: Check diff formatting
         run: git diff --check
-
-      - name: Commit generated review artifacts
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add \
-            package.json \
-            scripts/lib/lesson-originality-review-bundles.mjs \
-            teacher-packs/grade-2/weather-water-safety/originality-reviews
-          git diff --cached --check
-          if git diff --cached --quiet; then
-            echo 'Generated review artifacts are already committed.'
-            exit 0
-          fi
-          git commit -m 'Generate Grade 2 lesson originality review bundles'
-          git push origin HEAD:${{ github.event.pull_request.head.ref }}
